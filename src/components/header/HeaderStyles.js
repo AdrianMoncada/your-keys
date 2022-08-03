@@ -9,15 +9,22 @@ export const ContainerHeader = styled.div`
 `
 
 export const Buttons = styled.button`
-    padding: 20px 25px;
+    padding: 15px 45px;
     margin: 0 30px;
     border: none;
-    background-color: #FCA311;
+    /* background-color: #FCA311; */
     font-size: 18px;
     color: white;
     border-radius: 5px;
+    background-image: linear-gradient(to right, #FCA311 50%, #E5E5E5 50%);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: all .3s ease;
 
     &:hover {
         cursor: pointer;
+        background-position: right;
+        color: black;
     }
 `
