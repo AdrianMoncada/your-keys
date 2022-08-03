@@ -1,12 +1,14 @@
 import React from 'react';
-import {ContainerHeader} from './HeaderStyles';
+import {ContainerHeader, Buttons} from './HeaderStyles';
 
 const Header = () => {
   return (
     <ContainerHeader>
         <h1>Renta car</h1>
-        <button>Iniciar Sesion</button>
-        <button>Crear Cuenta</button>
+        <div>
+            <Buttons>Iniciar Sesion</Buttons>
+            <Buttons>Crear Cuenta</Buttons>
+        </div>
     </ContainerHeader>
   )
 }
