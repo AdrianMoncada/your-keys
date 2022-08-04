@@ -4,6 +4,8 @@ import SearchSection from './components/SearchBar/SearchSection';
 import {Theme} from './Theme';
 import { ThemeProvider } from 'styled-components';
 
+import Login from "./pages/Login";
+
 function App() {
   return (
     <div className="App">
@@ -12,6 +14,7 @@ function App() {
             <SearchSection />
           </Layout>
       </ThemeProvider>
+      <Login />
     </div>
   );
 }
