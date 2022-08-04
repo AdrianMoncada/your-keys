@@ -12,7 +12,6 @@ export const Buttons = styled.button`
     padding: 15px 45px;
     margin: 0 30px;
     border: none;
-    /* background-color: #FCA311; */
     font-size: 18px;
     color: white;
     border-radius: 5px;
@@ -20,7 +19,7 @@ export const Buttons = styled.button`
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: left;
-    transition: all .3s ease;
+    transition: background-position .3s ease;
 
     &:hover {
         cursor: pointer;
