@@ -1,21 +1,23 @@
 import "./App.css";
-import Layout from './components/Layout/Layout';
-import SearchSection from './components/SearchBar/SearchSection';
-import {Theme} from './Theme';
-import { ThemeProvider } from 'styled-components';
-
+import Layout from "./components/Layout/Layout";
+import { Theme } from "./Theme";
+import { ThemeProvider } from "styled-components";
 import Login from "./pages/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <ThemeProvider theme={Theme} >
+    <BrowserRouter>
+      <ThemeProvider theme={Theme}>
         <Layout>
-            <SearchSection />
-          </Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Layout>
       </ThemeProvider>
-      <Login />
-    </div>
+    </BrowserRouter>
   );
 }
 

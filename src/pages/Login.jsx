@@ -3,9 +3,11 @@ import { useState } from "react";
 import { LabelError, LabelAlert, LoginContainer, LoginContent, SubmitButton,SubmitButtoncContainer,DivRegistry,ARegistry} from "../styles/Login";
 import Title from "../components/Login/Title/Title";
 import Input from "../components/Login/Input/Input";
-import {GrMail} from "react-icons/gr"
+import {GrMail} from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
@@ -50,6 +52,7 @@ const Login = () => {
     let account = { user, password };
     if (account) {
       ifMatch(account);
+      navigate("/")
     }
   };
 
