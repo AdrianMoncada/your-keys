@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
+import {DivSearch} from './SearchBarStyles'
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -28,7 +29,7 @@ function SearchBar({ placeholder, data }) {
 
   return (
     <div className='search'>
-      <div className='searchInputs'>
+      <DivSearch className='searchInputs'>
         <input
           type='text'
           placeholder={placeholder}
@@ -42,7 +43,7 @@ function SearchBar({ placeholder, data }) {
             <MdClose id='clearBtn' onClick={clearInput} />
           )}
         </div>
-      </div>
+      </DivSearch>
       {filteredData.length !== 0 && (
         <div className='dataResult'>
           {filteredData.slice(0, 15).map((value, key) => {

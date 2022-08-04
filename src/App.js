@@ -7,11 +7,11 @@ import { ThemeProvider } from 'styled-components';
 function App() {
   return (
     <div className="App">
-    <ThemeProvider theme={Theme} >
-      <Layout>
-          <SearchSection />
-        </Layout>
-    </ThemeProvider>
+      <ThemeProvider theme={Theme} >
+        <Layout>
+            <SearchSection />
+          </Layout>
+      </ThemeProvider>
     </div>
   );
 }
