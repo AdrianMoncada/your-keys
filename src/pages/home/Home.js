@@ -13,6 +13,7 @@ import { MdLocationOn } from "react-icons/md";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import Category from "../../components/category/Category";
 import ContainerCategory from "../../components/category/ContainerCategory";
+import Search from "../../components/Search/Search";
 
 const Home = () => {
   return (
@@ -20,12 +21,13 @@ const Home = () => {
       <ContainerMain>
         <DivContainerInfo>
           <h2>Recogida</h2>
-          <DivInput>
+          <Search />
+          {/* <DivInput>
             <SpanIcon>
               <MdLocationOn />
             </SpanIcon>
             <SearchSection />
-          </DivInput>
+          </DivInput> */}
 
           <DivInput>
             <SpanIcon iconSize>
