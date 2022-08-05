@@ -19,7 +19,7 @@ export const Buttons = styled.button`
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: left;
-    transition: background-position .3s ease;
+    transition: all .3s ease;
 
     &:hover {
         cursor: pointer;

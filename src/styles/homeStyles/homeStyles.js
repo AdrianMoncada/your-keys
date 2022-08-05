@@ -7,6 +7,13 @@ export const ContainerMain = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    .titleInfo {
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0; 
+        margin-right: 7rem;
+    }
+
     img {
         transform: scaleX(-1);
         width: 900px;
@@ -24,7 +31,7 @@ export const DivContainerInfo = styled.div`
     margin-left: 5rem;
     padding: 10px 20px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
 `
 
@@ -39,7 +46,6 @@ export const InputInfo = styled.input`
 `
 
 export const ButtonInfo = styled.button`
-    background-color: ${({theme}) => theme.darkBlue};
     color: white;
     padding: 15px 30px;
     font-size: 20px;
@@ -47,10 +53,16 @@ export const ButtonInfo = styled.button`
     margin: 10px auto;
     border: none;
     border-radius: 10px;
+    background-image: linear-gradient(to left, ${({theme}) => theme.darkBlue} 50%, ${({theme}) => theme.third} 50%);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: right;
+    transition: all .3s ease;
 
     &:hover {
         cursor: pointer;
-
+        background-position: left;
+        color: black;
     }
 `
 

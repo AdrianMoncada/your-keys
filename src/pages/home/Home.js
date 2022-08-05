@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import SearchSection from "../../components/SearchBar/SearchSection";
 import {
   ContainerMain,
@@ -7,27 +7,27 @@ import {
   ButtonInfo,
   DivInput,
   SpanIcon,
-  ContainerCategorias
+  ContainerCategorias,
 } from "../../styles/homeStyles/homeStyles";
 import { MdLocationOn } from "react-icons/md";
 import { BsFillCalendarDateFill } from "react-icons/bs";
-import Category from "../../components/category/Category";
 import ContainerCategory from "../../components/category/ContainerCategory";
 import Search from "../../components/Search/Search";
 
+
 const Home = () => {
+  
   return (
-    <div style={{"backgroundColor": "#E5E5E5"}}>
+    <div style={{ backgroundColor: "#E5E5E5" }}>
       <ContainerMain>
         <DivContainerInfo>
-          <h2>Recogida</h2>
-          <Search />
-          {/* <DivInput>
+          <h2 className="titleInfo"> Recogida</h2>
+          <DivInput>
             <SpanIcon>
               <MdLocationOn />
             </SpanIcon>
-            <SearchSection />
-          </DivInput> */}
+            <Search />
+          </DivInput>
 
           <DivInput>
             <SpanIcon iconSize>
@@ -36,12 +36,13 @@ const Home = () => {
             <InputInfo placeholder="Fecha Recogida" />
           </DivInput>
 
-          <h2>Entrega</h2>
+          <h2 className="titleInfo">Entrega</h2>
           <DivInput>
             <SpanIcon iconSize>
               <BsFillCalendarDateFill />
             </SpanIcon>
             <InputInfo placeholder="Fecha Entrega" />
+            
           </DivInput>
 
           <ButtonInfo>Encontrar Vehículo</ButtonInfo>
