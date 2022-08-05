@@ -6,12 +6,15 @@ export const ContainerMain = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 80px;
+    padding: 20px 5px;
 
     .titleInfo {
         font-size: 30px;
         font-weight: 500;
-        margin: 0; 
-        margin-right: 7rem;
+        margin-top: 10px;
+        margin-bottom: -30px;
+        margin-right: 9.4rem;
     }
 
     img {
@@ -38,16 +41,16 @@ export const DivContainerInfo = styled.div`
 export const InputInfo = styled.input`
     background-color: ${({theme}) => theme.third};
     border: none;
-    padding: 10px 30px;
+    padding: 10px 32px 10px 5px;
     margin: 5px 0;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 0px;
     font-size: 15px;
     outline: none;
 `
 
 export const ButtonInfo = styled.button`
     color: white;
-    padding: 15px 30px;
+    padding: 5px 30px;
     font-size: 20px;
     font-weight: bold;
     margin: 10px auto;
@@ -67,7 +70,14 @@ export const ButtonInfo = styled.button`
 `
 
 export const DivInput = styled.div`
-    position: relative;
+    display: flex;
+    .icon {
+        font-size: 30px;
+        margin-top: 5px;
+        padding: 3px 5px 4px 5px;
+        background-color: ${({theme}) => theme.third};
+        border-radius: 10px 0px 0px 10px;
+    }
 `
 
 export const SpanIcon = styled.span`
@@ -90,4 +100,8 @@ export const ContainerCategorias = styled.div`
         color: white;
         font-size: 44px;
     }
+`
+
+export const DivDate = styled.div`
+    margin-top: -30px;
 `

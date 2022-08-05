@@ -6,6 +6,15 @@ export const ContainerHeader = styled.div`
     align-items: center;
     background-color: ${({theme}) => theme.background};
     color: white;
+    height: 80px;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    margin-top: -80px;
+
+    h1 {
+        margin-left: 50px;
+    }
 `
 
 export const Buttons = styled.button`
@@ -26,4 +35,11 @@ export const Buttons = styled.button`
         background-position: right;
         color: black;
     }
+`
+
+export const DivImg = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-left: 5rem;
 `

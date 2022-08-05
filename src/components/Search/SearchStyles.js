@@ -12,4 +12,8 @@ export const DivSearch = styled.div`
         padding: 9px 0 9px 0;
         border-radius: 10px 0px 0px 10px;
     }
+
+    .li-Search {
+        padding: 5px 5px;
+    }
 `

@@ -1,18 +1,16 @@
-import React, {useState} from "react";
-import SearchSection from "../../components/SearchBar/SearchSection";
+import React from "react";
 import {
   ContainerMain,
   DivContainerInfo,
-  InputInfo,
   ButtonInfo,
   DivInput,
-  SpanIcon,
+  DivDate,
   ContainerCategorias,
 } from "../../styles/homeStyles/homeStyles";
 import { MdLocationOn } from "react-icons/md";
-import { BsFillCalendarDateFill } from "react-icons/bs";
 import ContainerCategory from "../../components/category/ContainerCategory";
 import Search from "../../components/Search/Search";
+import DateCalendar from "../../components/date/DateCalendar";
 
 
 const Home = () => {
@@ -23,27 +21,13 @@ const Home = () => {
         <DivContainerInfo>
           <h2 className="titleInfo"> Recogida</h2>
           <DivInput>
-            <SpanIcon>
-              <MdLocationOn />
-            </SpanIcon>
+              <MdLocationOn className="icon" />
             <Search />
           </DivInput>
 
-          <DivInput>
-            <SpanIcon iconSize>
-              <BsFillCalendarDateFill />
-            </SpanIcon>
-            <InputInfo placeholder="Fecha Recogida" />
-          </DivInput>
-
-          <h2 className="titleInfo">Entrega</h2>
-          <DivInput>
-            <SpanIcon iconSize>
-              <BsFillCalendarDateFill />
-            </SpanIcon>
-            <InputInfo placeholder="Fecha Entrega" />
-            
-          </DivInput>
+          <DivDate>
+            <DateCalendar />
+          </DivDate>
 
           <ButtonInfo>Encontrar Vehículo</ButtonInfo>
         </DivContainerInfo>
