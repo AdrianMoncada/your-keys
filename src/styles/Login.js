@@ -5,22 +5,21 @@ export const LoginContainer = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
     height: 100vh;
     background-color: #000000;
 `
 
 export const LoginContent = styled.div `
-    width: 686px;
-    height: 636px;
+    width: 38%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: auto;
-    position: absolute;
     background-color: #E5E5E5;
     border-radius: 30px;
+    text-align: center;
 `
 
 export const SubmitButtoncContainer = styled.div `
@@ -31,47 +30,63 @@ export const SubmitButtoncContainer = styled.div `
 `
 
 export const SubmitButton = styled.button `
-    width: 30%;
-    height: 40px;
+    padding: 15px 45px;
+    margin: 0 30px;
     border: none;
-    outline: none;
-    background: #FCA311;
+    font-size: 18px;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, ${({theme}) => theme.secondary} 50%, ${({theme}) => theme.third} 50%);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-position .3s ease;
 
 &:hover {
-    opacity: 0.6;
+    cursor: pointer;
+    background-position: right;
+    color: black;
 }`
 
 export const LabelError = styled.label `
-    font-size: 12px;
     color: red;
-    background: rgb(224, 204, 204);
-    width: fit-content;
-    height: fit-content;
-    padding: 0 5px;
+    padding:5px;
     box-sizing: border-box;
     border-radius: 5px;
-`
-
-export const LabelAlert = styled.label `
-    font-size: 14px;
-    color: red;
-    background: rgb(224, 204, 204);
-    width: fit-content;
-    height: fit-content;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    text-align: center;
+    font-size: 130%;
+    
 `
 
 export const DivRegistry = styled.div `
-    margin-top: 10px;
+    margin-top: 28px;
+    text-align: center;
 `
 
 export const ARegistry = styled.div `
     color: #FCA311;
     display: inline;
+`
+export const SpanIcon = styled.span `
+    position: absolute;
+    left: 17%;
+    top: 20%;
+    font-size: 210%;
+    color: rgba(0, 0, 0, 0.7);
+`
+export const SpanEye = styled.span `
+    position: absolute;
+    left: 76%;
+    top:20%;
+    font-size: 230%;
+    color: rgba(0, 0, 0, 0.7);
+`
+export const DivIcon = styled.div `
+    position: relative;
+    display: flex;
+`
+
+export const DivIconPass = styled.div `
+    position: relative;
+    display: flex;
 `

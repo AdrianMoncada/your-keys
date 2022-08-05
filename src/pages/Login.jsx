@@ -1,9 +1,22 @@
 import React from "react";
 import { useState } from "react";
-import { LabelError, LabelAlert, LoginContainer, LoginContent, SubmitButton,SubmitButtoncContainer,DivRegistry,ARegistry} from "../styles/Login";
+import {
+  LabelError,
+  LoginContainer,
+  LoginContent,
+  SubmitButton,
+  SubmitButtoncContainer,
+  DivRegistry,
+  ARegistry,
+  DivIcon,
+  DivIconPass,
+  SpanIcon,
+  SpanEye,
+} from "../styles/Login";
 import Title from "../components/Login/Title/Title";
 import Input from "../components/Login/Input/Input";
-import {GrMail} from "react-icons/gr";
+import { GrMail, GrFormViewHide, GrFormView } from "react-icons/gr";
+import { FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -11,92 +24,141 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const [emailPassError, setEmailPassError] = useState(false);
+  const [viewPass, setViewPass] = useState(false);
+  const [buttonPress, setButtonPress] = useState(false);
+  const emailRegex =
+    /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
   function handleChange(name, value) {
     if (name === "user") {
-      setUser(value);
-      setHasError(false);
+      if (!emailRegex.test(value) && buttonPress) {
+        setEmailError(true);
+        setEmailPassError(false);
+      } else {
+        setUser(value);
+        setEmailError(false);
+      }
     } else {
-      if (value.length < 6) {
+      if (value.length < 6 && buttonPress) {
         setPasswordError(true);
-        setHasError(false);
+        setEmailPassError(false);
       } else {
         setPasswordError(false);
         setPassword(value);
-        setHasError(false);
       }
     }
-  };
+  }
+
+  function isValidInputs(param) {
+    let isValid = true;
+    setEmailError(false);
+    setPasswordError(false);
+    console.log(param);
+    if (!emailRegex.test(param.user)) {
+      setEmailError(true);
+      isValid = false;
+    }
+    if (param.password.length < 6) {
+      setPasswordError(true);
+      isValid = false;
+    }
+    return isValid;
+  }
 
   function ifMatch(param) {
-    if (param.user.length > 0 && param.password.length > 0) {
-      if (param.user === "Eliana" && param.password === "123456") {
-        const { user, password } = param;
-        let ac = { user, password };
-        let account = JSON.stringify(ac);
-        localStorage.setItem("account", account);
-        setIsLogin(true);
-      } else {
-        setIsLogin(false);
-        setHasError(true);
-      }
+    if (param.user === "eliana@gmail.com" && param.password === "123456") {
+      const { user, password } = param;
+      let ac = { user, password };
+      let account = JSON.stringify(ac);
+      localStorage.setItem("account", account);
+      setIsLogin(true);
     } else {
+      setEmailPassError(true);
       setIsLogin(false);
-      setHasError(true);
     }
-  };
+  }
 
   function handleSubmit() {
     let account = { user, password };
-    if (account) {
+    setButtonPress(true);
+    if (isValidInputs(account)) {
       ifMatch(account);
-      navigate("/")
+      if (isLogin) {
+        navigate("/");
+      }
     }
-  };
+  }
+
+  function showPass() {
+    let view = document.getElementById("password");
+    if (view.type === "password") {
+      view.type = "text";
+      setViewPass(true);
+    } else {
+      view.type = "password";
+      setViewPass(false);
+    }
+  }
 
   return (
     <LoginContainer>
       {!isLogin && (
         <LoginContent>
           <Title text="Iniciar Sesión" />
-          {hasError && (
-            <LabelAlert>
-              Su contraseña o usuario son incorrectos, o no existen en nuestra
-              plataforma.
-            </LabelAlert>
-          )}
-          <GrMail/><Input 
-            attribute={{
-              id: "user",
-              name: "user",
-              type: "text",
-              placeholder: "Correo Electrónico",
-            }}
-            handleChange={handleChange}
-            param={passwordError}
-          
-          />
-          <Input
-            attribute={{
-              id: "password",
-              name: "password",
-              type: "password",
-              placeholder: "contraseña",
-            }}
-            handleChange={handleChange}
-            param={passwordError}
-          />
+          <DivIcon>
+            <SpanIcon>
+              <GrMail />
+            </SpanIcon>
+            <Input
+              attribute={{
+                id: "user",
+                name: "user",
+                type: "email",
+                placeholder: "Correo Electrónico",
+              }}
+              handleChange={handleChange}
+              param={emailError}
+            />
+          </DivIcon>
+          <DivIconPass>
+            <SpanIcon>
+              <FaLock />
+            </SpanIcon>
+            <SpanEye onClick={showPass}>
+              {!viewPass && <GrFormViewHide />}
+              {viewPass && <GrFormView />}
+            </SpanEye>
+            <Input
+              attribute={{
+                id: "password",
+                name: "password",
+                type: "password",
+                placeholder: "Contraseña",
+              }}
+              handleChange={handleChange}
+              param={passwordError}
+            />
+          </DivIconPass>
           {passwordError && (
             <LabelError>
-              contraseña invalida o incompleta
+              La contraseña debe tener al menos 6 caracteres
             </LabelError>
+          )}
+          {emailError && (
+            <LabelError>El email ingresado no es válido</LabelError>
+          )}
+          {emailPassError && (
+            <LabelError>El usuario o contraseña inválidos</LabelError>
           )}
           <SubmitButtoncContainer>
             <SubmitButton onClick={handleSubmit}>Ingresar</SubmitButton>
           </SubmitButtoncContainer>
-          <DivRegistry>¿No tienes cuenta? <ARegistry href="#">Registrate</ARegistry></DivRegistry>
+          <DivRegistry>
+            ¿No tienes cuenta? <ARegistry href="#">Registrate</ARegistry>
+          </DivRegistry>
         </LoginContent>
       )}
     </LoginContainer>
