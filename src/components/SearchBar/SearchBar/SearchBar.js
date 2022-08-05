@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import { MdClose } from 'react-icons/md';
-import {DivSearch} from './SearchBarStyles'
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import { MdClose } from "react-icons/md";
+import { DivSearch } from "./SearchBarStyles";
+import { InputInfo } from "../../../styles/homeStyles/homeStyles";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState('');
+  const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -15,7 +16,7 @@ function SearchBar({ placeholder, data }) {
       return element.city.toLowerCase().includes(searchWord.toLowerCase());
     });
 
-    if (searchWord === '') {
+    if (searchWord === "") {
       setFilteredData([]);
     } else {
       setFilteredData(newFilter);
@@ -24,23 +25,23 @@ function SearchBar({ placeholder, data }) {
 
   const clearInput = () => {
     setFilteredData([]);
-    setWordEntered('');
+    setWordEntered("");
   };
 
   return (
-    <div className='search'>
-      <DivSearch className='searchInputs'>
-        <input
-          type='text'
+    <div className="search">
+      <DivSearch className="searchInputs">
+        <InputInfo
+          type="text"
           placeholder={placeholder}
           value={wordEntered}
           onChange={handleFilter}
         />
-        <div className='searchIcon'>
+        <div className="searchIcon">
           {filteredData.length === 0 ? (
             <FaSearch />
           ) : (
-            <MdClose id='clearBtn' onClick={clearInput} />
+            <MdClose id="clearBtn" onClick={clearInput} />
           )}
         </div>
       </DivSearch>
@@ -55,6 +56,7 @@ function SearchBar({ placeholder, data }) {
           })}
         </div>
       )}
+
     </div>
   );
 }

@@ -1,13 +1,17 @@
 import React from 'react';
-import {ContainerHeader, Buttons} from './HeaderStyles';
+import {ContainerHeader, Buttons, DivImg} from './HeaderStyles';
 import { useNavigate } from 'react-router';
+import Logo from '../logo/Logo';
 
 const Header = () => {
   const navigate = useNavigate();
   
   return (
     <ContainerHeader>
-        <h1>Renta car</h1>
+      <DivImg>
+        <Logo />
+        <h1>Your Keys!</h1>
+      </DivImg>
         <div>
             <Buttons onClick={() => navigate("/login")} >Iniciar Sesion</Buttons>
             <Buttons>Crear Cuenta</Buttons>
