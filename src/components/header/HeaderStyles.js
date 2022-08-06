@@ -62,3 +62,31 @@ export const DivPrueba = styled.div`
     margin-left: 50px;
   }
 `;
+
+
+export const ButtonLogOut = styled.button`
+  background-color: ${({theme}) => theme.red};
+  color: white;
+  font-size: 20px;
+  padding: 9px 15px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px 20px;
+  cursor: pointer;
+`
+
+export const DivUser = styled.div`
+  display: flex;
+
+`
+
+export const DivUserText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .userName {
+    margin: 0 10px;
+  }
+`
+

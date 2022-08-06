@@ -91,7 +91,7 @@ export const ContainerCategorias = styled.div`
         position: relative;
     }
 
-    h2 {
+    .titleCategoras {
         position: absolute;
         text-align: center;
         bottom: -50px;

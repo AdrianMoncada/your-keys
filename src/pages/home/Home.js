@@ -24,11 +24,9 @@ const Home = () => {
               <MdLocationOn className="icon" />
             <Search />
           </DivInput>
-
           <DivDate>
             <DateCalendar />
           </DivDate>
-
           <ButtonInfo>Encontrar Vehículo</ButtonInfo>
         </DivContainerInfo>
         <img
@@ -50,9 +48,12 @@ const Home = () => {
             fillOpacity={1}
           />
         </svg>
-        <h2>Categorias</h2>
-        <ContainerCategory />
+        <h2 className="titleCategoras">Categorias</h2>
+      <ContainerCategory />
       </ContainerCategorias>
+      <div>
+        <h2>Recomendaciones</h2>
+      </div>
     </div>
   );
 };
