@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import {
   LabelError,
@@ -18,8 +18,12 @@ import Input from "../components/Login/Input/Input";
 import { GrMail, GrFormViewHide, GrFormView } from "react-icons/gr";
 import { FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../context/AppContext";
+import users from '../assets/users.json';
+
 
 const Login = () => {
+  const {setLoginTrue, userLogin} = useContext(AppContext);
   const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +35,10 @@ const Login = () => {
   const [buttonPress, setButtonPress] = useState(false);
   const emailRegex =
     /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+    if(isLogin) {
+      navigate("/")
+    }
 
   function handleChange(name, value) {
     if (name === "user") {
@@ -69,15 +77,16 @@ const Login = () => {
   }
 
   function ifMatch(param) {
-    if (param.user === "eliana@gmail.com" && param.password === "123456") {
+    if (users.map((user) => user.email).includes(param.user) && users.map((user) => user.password).includes(param.password)) {
+      setIsLogin(true);
+      userLogin(users.find(element => element.email === param.user))
+      setLoginTrue();
       const { user, password } = param;
       let ac = { user, password };
       let account = JSON.stringify(ac);
       localStorage.setItem("account", account);
-      setIsLogin(true);
     } else {
       setEmailPassError(true);
-      setIsLogin(false);
     }
   }
 
@@ -86,9 +95,6 @@ const Login = () => {
     setButtonPress(true);
     if (isValidInputs(account)) {
       ifMatch(account);
-      if (isLogin) {
-        navigate("/");
-      }
     }
   }
 

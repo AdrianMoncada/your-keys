@@ -33,7 +33,6 @@ const Listbox = styled('ul')(({ theme }) => ({
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
-  console.log("🚀 ~ file: Search.js ~ line 45 ~ Search ~ searchInput", searchInput)
   
   const {
     getRootProps,

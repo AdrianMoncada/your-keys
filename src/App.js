@@ -4,19 +4,24 @@ import { ThemeProvider } from "styled-components";
 import Login from "./pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
+import AppContext from "./context/AppContext";
+import useInitialState from "./hooks/useInitialState";
 
 function App() {
+  const initialState = useInitialState();
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={Theme}>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </Layout>
-      </ThemeProvider>
-    </BrowserRouter>
+    <AppContext.Provider value={initialState}>
+      <BrowserRouter>
+        <ThemeProvider theme={Theme}>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </Layout>
+        </ThemeProvider>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 

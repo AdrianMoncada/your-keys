@@ -6,7 +6,6 @@ export const ContainerMain = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 80px;
     padding: 20px 5px;
 
     .titleInfo {
@@ -95,7 +94,7 @@ export const ContainerCategorias = styled.div`
     h2 {
         position: absolute;
         text-align: center;
-        bottom: -100px;
+        bottom: -50px;
         left: 42%;
         color: white;
         font-size: 44px;

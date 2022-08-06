@@ -6,8 +6,8 @@ import {DivContainer} from './ContainerStyles'
 const ContainerCategory = () => {
   return (
     <DivContainer>
-      {cars.map((car) => (
-        <Category car={car} />
+      {cars.map((car, index) => (
+        <Category car={car} key={index} />
       ))}
     </DivContainer>
   );
