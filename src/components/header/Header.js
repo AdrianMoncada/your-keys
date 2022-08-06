@@ -22,6 +22,7 @@ const Header = () => {
     }
   }
   window.addEventListener('scroll', changeBackground)
+  console.log(state)
   
   return (
     <DivPrueba>
