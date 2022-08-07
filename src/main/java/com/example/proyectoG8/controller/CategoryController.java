@@ -16,7 +16,13 @@ public class CategoryController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> searchCategory(@PathVariable Long id){
-        return new ResponseEntity(iCategoryService.readCategory(id), HttpStatus.FOUND);
+        if (iCategoryService.readCategory(id) != null){
+
+            return new ResponseEntity(iCategoryService.readCategory(id), HttpStatus.FOUND);
+        }
+
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+
     }
 
     @PostMapping
@@ -26,13 +32,21 @@ public class CategoryController {
 
     @PutMapping
     public ResponseEntity<?> updateCategory(@RequestBody Category category){
-        return new ResponseEntity(iCategoryService.updateCategory(category), HttpStatus.OK);
+        if (iCategoryService.readCategory(category.getId_category()) != null){
+            return new ResponseEntity(iCategoryService.updateCategory(category), HttpStatus.OK);
+        }
+
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable Long id){
-        iCategoryService.deleteCategory(id);
-        return new ResponseEntity(HttpStatus.OK);
+        if(iCategoryService.readCategory(id) != null){
+            iCategoryService.deleteCategory(id);
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+
     }
 
     @GetMapping
