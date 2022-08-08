@@ -104,3 +104,13 @@ export const ContainerCategorias = styled.div`
 export const DivDate = styled.div`
     margin-top: -30px;
 `
+
+export const DivContainerList = styled.div`
+    .titleRecommendation {
+        background-color: ${({theme}) => theme.background};
+        text-align: center;
+        color: white;
+        font-size: 35px;
+        padding: 10px 0;
+    }
+`

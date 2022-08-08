@@ -6,11 +6,13 @@ import {
   DivInput,
   DivDate,
   ContainerCategorias,
+  DivContainerList
 } from "../../styles/homeStyles/homeStyles";
 import { MdLocationOn } from "react-icons/md";
 import ContainerCategory from "../../components/category/ContainerCategory";
 import Search from "../../components/Search/Search";
 import DateCalendar from "../../components/date/DateCalendar";
+import ContainerCard from "../../components/cards/ContainerCard";
 
 
 const Home = () => {
@@ -51,9 +53,10 @@ const Home = () => {
         <h2 className="titleCategoras">Categorias</h2>
       <ContainerCategory />
       </ContainerCategorias>
-      <div>
-        <h2>Recomendaciones</h2>
-      </div>
+      <DivContainerList>
+        <h2 className="titleRecommendation">Recomendaciones</h2>
+        <ContainerCard />
+      </DivContainerList>
     </div>
   );
 };
