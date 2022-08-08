@@ -1,0 +1,68 @@
+[
+  {
+    "country": "Argentina",
+    "abbreviation": "AR",
+    "language": "Español",
+    "city": "Buenos Aires"
+  },
+  {
+    "country": "Argentina",
+    "abbreviation": "AR",
+    "language": "Español",
+    "city": "Ciudad de Córdoba"
+  },
+  {
+    "country": "Argentina",
+    "abbreviation": "AR",
+    "language": "Español",
+    "city": "Rosario"
+  },
+  {
+    "country": "Argentina",
+    "abbreviation": "AR",
+    "language": "Español",
+    "city": "San miguel de tucumán"
+  },
+  {
+    "country": "Colombia",
+    "abbreviation": "CO",
+    "language": "Español",
+    "city": "Bogotá"
+  },
+  {
+    "country": "Colombia",
+    "abbreviation": "CO",
+    "language": "Español",
+    "city": "Medellín"
+  },
+  {
+    "country": "Colombia",
+    "abbreviation": "CO",
+    "language": "Español",
+    "city": "Cartagena"
+  },
+  {
+    "country": "Colombia",
+    "abbreviation": "CO",
+    "language": "Español",
+    "city": "Cali"
+  },
+  {
+    "country": "Chile",
+    "abbreviation": "CL",
+    "language": "Español",
+    "city": "Santiago de Chile"
+  },
+  {
+    "country": "República Dominicana",
+    "abbreviation": "DO",
+    "language": "Español",
+    "city": "Santo Domingo"
+  },
+  {
+    "country": "República Dominicana",
+    "abbreviation": "DO",
+    "language": "Español",
+    "city": "Santiago de los Caballeros"
+  }
+]
