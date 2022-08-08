@@ -163,7 +163,7 @@ const Login = () => {
             <SubmitButton onClick={handleSubmit}>Ingresar</SubmitButton>
           </SubmitButtoncContainer>
           <DivRegistry>
-            ¿No tienes cuenta? <ARegistry href="#">Registrate</ARegistry>
+            ¿No tienes cuenta? <ARegistry onClick={() => navigate("/signup")} >Registrate</ARegistry>
           </DivRegistry>
         </LoginContent>
       )}

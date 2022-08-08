@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import AppContext from "./context/AppContext";
 import useInitialState from "./hooks/useInitialState";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const initialState = useInitialState();
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
             </Routes>
           </Layout>
         </ThemeProvider>
