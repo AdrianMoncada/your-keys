@@ -18,6 +18,7 @@ const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const navigate = useNavigate();
 
+
   const handleClick = () => {
     navigate("/");
     setLoginFalse();
@@ -55,7 +56,7 @@ const Header = () => {
       return (
         <div>
           <Buttons onClick={() => navigate("/login")}>Iniciar Sesion</Buttons>
-          <Buttons>Crear Cuenta</Buttons>
+          <Buttons onClick={() => navigate("/signup")}>Crear Cuenta</Buttons>
         </div>
       );
     } else {
