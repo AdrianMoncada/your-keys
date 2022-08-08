@@ -55,7 +55,6 @@ export const LabelError = styled.label `
     border-radius: 5px;
     text-align: center;
     font-size: 130%;
-    
 `
 
 export const Login = styled.div `
@@ -85,8 +84,6 @@ export const FormGroup = styled.div `
     position: relative;
     display: flex;
     margin: auto;
-    
-    
 `
 
 export const DivIconPass = styled.div `
