@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import Login from "./pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </Layout>
       </ThemeProvider>
