@@ -3,7 +3,7 @@ import city from "../../assets/data.json";
 import { styled } from '@mui/material/styles';
 import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
-import  {InputInfo} from '../../styles/homeStyles/homeStyles';
+import  {InputInfo} from '../../pages/home/homeStyles';
 import {DivSearch} from './SearchStyles';
 
 const Listbox = styled('ul')(({ theme }) => ({

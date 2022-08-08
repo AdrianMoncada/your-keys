@@ -24,12 +24,12 @@ const useInitialState = () => {
 
   const userLogin = (payload) => {
     state.user.shift()
-    console.log(payload)
     setState({
         ...state,
         user: state.user.push(payload)
     })
   }
+  
   return {
     state,
     setLoginFalse,

@@ -7,7 +7,7 @@ import {
   DivDate,
   ContainerCategorias,
   DivContainerList
-} from "../../styles/homeStyles/homeStyles";
+} from "./homeStyles";
 import { MdLocationOn } from "react-icons/md";
 import ContainerCategory from "../../components/category/ContainerCategory";
 import Search from "../../components/Search/Search";

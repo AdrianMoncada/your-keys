@@ -2,11 +2,13 @@
     {
         "name": "Jacobo",
         "email": "jacobo@gmail.com",
+        "lastName": "Arcila",
         "password": "123456"
     },
     {
         "name": "Eliana",
         "email": "eliana@gmail.com",
+        "lastName": "Zamora",
         "password": "123456"
     }
 ]

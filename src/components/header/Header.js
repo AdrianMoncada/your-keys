@@ -64,8 +64,8 @@ const Header = () => {
           {state.isLogin &&
             state.user.map((user) => (
               <DivUserText>
-                <Avatar>{user.name.substr(0, 2)}</Avatar>
-                <h4 className="userName">{user.name}</h4>
+                <Avatar>{user.name.substr(0, 1)}{user.lastName.substr(0,1)}</Avatar>
+                <h4 className="userName">{user.name} {user.lastName}</h4>
               </DivUserText>
             ))}
           <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
