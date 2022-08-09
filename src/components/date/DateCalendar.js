@@ -4,12 +4,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { DivDate, DivInput } from "./DateCalendarStyles";
 import { MdDateRange } from "react-icons/md";
 
-const DateCalendar = () => {
+const DateCalendar = ({position='block'}) => {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
 
   return (
-    <DivDate>
+    <DivDate style={{display: `
+    ${position}`}}>
       <DivInput>
         <MdDateRange className="icon" />
         <DatePicker

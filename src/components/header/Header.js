@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import SearchBar from "../SearchHorizontal/SearchHorizontal";
 import {
   Buttons,
   DivImg,
@@ -54,7 +55,7 @@ const Header = () => {
     if (!state.isLogin) {
       return (
         <div>
-          <Buttons onClick={() => navigate("/login")}>Iniciar Sesion</Buttons>
+          <Buttons onClick={() => navigate("/login")}>Iniciar Sesión</Buttons>
           <Buttons onClick={() => navigate("/signup")}>Crear Cuenta</Buttons>
         </div>
       );
@@ -76,12 +77,16 @@ const Header = () => {
 
   return (
     <DivPrueba>
-      <div className={`containerHeader ${navbar ? "active" : null}`} id="hola">
-        <DivImg>
-          <Logo />
-          <h1>Your Keys!</h1>
-        </DivImg>
-        <div>{showLogin()}</div>
+      <div className={`wrap-container search ${navbar ? "active" : null}`}>
+
+        <div className={`containerHeader ${navbar ? "active" : null}`} id="hola">
+          <DivImg>
+            <Logo />
+            <h1>Your Keys!</h1>
+          </DivImg>
+          <div>{showLogin()}</div>
+        </div>
+        {navbar ? <SearchBar/> : null}
       </div>
     </DivPrueba>
   );
