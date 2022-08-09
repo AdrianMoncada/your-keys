@@ -40,22 +40,29 @@ export const DivImg = styled.div`
 `;
 
 export const DivPrueba = styled.div`
-  
+  .wrap-container {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    transition: 0.6s;
+    background-color: transparent;
+    height: max-content;
+  }
   .containerHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    height: 80px;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
     transition: 0.6s;
     background-color: transparent;
   }
 
   .containerHeader.active {
     background-color: black;
+  }
+
+  .search.active {
+    background-color: #FCA311;
   }
 
   h1 {
