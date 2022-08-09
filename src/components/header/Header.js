@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
 const Header = () => {
   const { state, setLoginFalse } = useContext(AppContext);
   const [navbar, setNavbar] = useState(false);
+  const [searcher, setSearcher] = useState(false);
   const navigate = useNavigate();
 
 
@@ -49,7 +50,16 @@ const Header = () => {
     }
   };
 
+  const changeSearch = () => {
+    if(window.scrollY >= 500) {
+      setSearcher(true)
+    } else {
+      setSearcher(false)
+    }
+  }
+
   window.addEventListener("scroll", changeBackground);
+  window.addEventListener("scroll", changeSearch);
 
   const showLogin = () => {
     if (!state.isLogin) {
@@ -77,7 +87,7 @@ const Header = () => {
 
   return (
     <DivPrueba>
-      <div className={`wrap-container search ${navbar ? "active" : null}`}>
+      <div className={`wrap-container search ${searcher ? "active" : null}`}>
 
         <div className={`containerHeader ${navbar ? "active" : null}`} id="hola">
           <DivImg>
@@ -86,7 +96,7 @@ const Header = () => {
           </DivImg>
           <div>{showLogin()}</div>
         </div>
-        {navbar ? <SearchBar/> : null}
+        {searcher ? <SearchBar/> : null}
       </div>
     </DivPrueba>
   );
