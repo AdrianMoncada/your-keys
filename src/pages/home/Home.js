@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   ContainerMain,
   DivContainerInfo,
@@ -16,10 +16,23 @@ import ContainerCard from "../../components/cards/ContainerCard";
 
 
 const Home = () => {
+  const [classToggle, setClassToggle] = useState(false);
+
+  const changeView = () => {
+    if(window.scrollY >= 500) {
+      setClassToggle(true)
+    } else {
+      setClassToggle(false);
+    }
+  }
+
+  window.addEventListener("scroll", changeView)
   
+
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
       <ContainerMain>
+        
         <DivContainerInfo>
           <h2 className="titleInfo"> Recogida</h2>
           <DivInput>

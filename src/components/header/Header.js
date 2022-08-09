@@ -49,7 +49,6 @@ const Header = () => {
   };
 
   window.addEventListener("scroll", changeBackground);
-  console.log(state);
 
   const showLogin = () => {
     if (!state.isLogin) {

@@ -35,6 +35,8 @@ export const DivContainerInfo = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    
 `
 
 export const InputInfo = styled.input`

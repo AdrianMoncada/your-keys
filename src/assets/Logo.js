@@ -67,7 +67,7 @@ const Logo = () => {
         <rect
           x="-37.5"
           width={450}
-          fill="#ffffff"
+          fill="#E5E5E5"
           y="-37.499999"
           height="449.999989"
           fillOpacity={1}

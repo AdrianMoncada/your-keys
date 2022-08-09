@@ -10,5 +10,29 @@
         "email": "eliana@gmail.com",
         "lastName": "Zamora",
         "password": "123456"
+    },
+    {
+        "name": "David",
+        "email": "david@gmail.com",
+        "lastName": "Castellanos",
+        "password": "123456"
+    },
+    {
+        "name": "Beatriz",
+        "email": "beatriz@gmail.com",
+        "lastName": "Nieves",
+        "password": "123456"
+    },
+    {
+        "name": "Sol",
+        "email": "sol@gmail.com",
+        "lastName": "Andrade",
+        "password": "123456"
+    },
+    {
+        "name": "Rocio",
+        "email": "rocio@gmail.com",
+        "lastName": "Torrez",
+        "password": "123456"
     }
 ]
