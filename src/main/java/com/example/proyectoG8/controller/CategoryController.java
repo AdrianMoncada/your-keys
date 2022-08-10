@@ -27,6 +27,15 @@ public class CategoryController {
 
     @PostMapping
     public ResponseEntity<?> addCategory(@RequestBody Category category){
+        if(category.getUrlImage()==null || category.getUrlImage().isEmpty()){
+            return new ResponseEntity<>("The Category must have an URL image",HttpStatus.BAD_REQUEST);
+        }
+        if(category.getDescription()==null || category.getDescription().isEmpty()){
+            return new ResponseEntity<>("The Category must have a description",HttpStatus.BAD_REQUEST);
+        }
+        if(category.getTitle()==null || category.getTitle().isEmpty()){
+            return new ResponseEntity<>("The Category must have a title",HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity(iCategoryService.createCategory(category), HttpStatus.CREATED);
     }
 
