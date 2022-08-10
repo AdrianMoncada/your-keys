@@ -5,9 +5,10 @@ export const DivDate = styled.div`
     .titleInfos {
         font-size: 30px;
         font-weight: 500;
-        margin: 0; 
-        margin-right: 7rem;
-        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+        margin-right: 10px;
     }
 
     .date {

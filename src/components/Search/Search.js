@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import city from "../../assets/data.json";
 import { styled } from '@mui/material/styles';
 import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
 import  {InputInfo} from '../../pages/home/homeStyles';
 import {DivSearch} from './SearchStyles';
+import AppContext from "../../context/AppContext";
 
 const Listbox = styled('ul')(({ theme }) => ({
   width: 230,
@@ -32,7 +33,8 @@ const Listbox = styled('ul')(({ theme }) => ({
 }));
 
 const Search = () => {
-  const [searchInput, setSearchInput] = useState("");
+  const {state, setSearch} = useContext(AppContext);
+  console.log(state.search)
   
   const {
     getRootProps,
@@ -44,20 +46,23 @@ const Search = () => {
     id: 'use-autocomplete-demo',
     options: city.map((city) => city.city),
     getOptionLabel: (option) => option,
+    onChange: (e) => setSearch(e.target.innerText),
+    value: state.search
   });
 
-
   return (
-    <DivSearch>
+    <DivSearch  onKeyUp={(e) =>  setSearch(e.target.defaultValue)} >
       <div {...getRootProps()}>
-        <InputInfo placeholder="Buscar Oficina" {...getInputProps()} />
+        <InputInfo type="text"  placeholder="Buscar Oficina" {...getInputProps()} />
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
-          {groupedOptions.map((option, index) => (
-            <li className="li-Search" {...getOptionProps({ option, index })}>{option}</li>
-          ))}
-        </Listbox>
+        <div  >
+          <Listbox {...getListboxProps()}>
+            {groupedOptions.map((option, index) => (
+              <li className="li-Search" {...getOptionProps({ option, index })}>{option}</li>
+            ))}
+          </Listbox>
+        </div>
       ) : null}
     </DivSearch>
   );

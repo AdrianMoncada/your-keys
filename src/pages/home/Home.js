@@ -42,7 +42,7 @@ const Home = () => {
           <DivDate>
             <DateCalendar />
           </DivDate>
-          <ButtonInfo>Encontrar Vehículo</ButtonInfo>
+          <ButtonInfo><a href="#list" >Encontrar Vehículo</a> </ButtonInfo>
         </DivContainerInfo>
         <img
           src="https://img.freepik.com/fotos-premium/linternas-coche-moderno-rojo-sobre-fondo-negro_67340-169.jpg"
@@ -66,7 +66,10 @@ const Home = () => {
         <h2 className="titleCategoras">Categorias</h2>
       <ContainerCategory />
       </ContainerCategorias>
-      <DivContainerList>
+      <div id="list">
+
+      </div>
+      <DivContainerList >
         <h2 className="titleRecommendation">Recomendaciones</h2>
         <ContainerCard />
       </DivContainerList>

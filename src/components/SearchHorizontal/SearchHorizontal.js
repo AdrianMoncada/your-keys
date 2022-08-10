@@ -7,44 +7,22 @@ import {
   DivContainerInfo,
   InputInfo,
 } from "../../pages/home/homeStyles";
-import { SearchContainer } from "./SearchHorizontalStyles";
+import { SearchContainer, DivDates } from "./SearchHorizontalStyles";
 import DateCalendar from "../date/DateCalendar";
 import Search from "../Search/Search";
 import { DivDate, DivInput } from "../date/DateCalendarStyles";
 
-function SearchBar({ placeholder, data }) {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-
-    const newFilter = data.filter((element) => {
-      return element.city.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
+function SearchBar() {
   return (
     <SearchContainer>
-      <h2 className="titleInfo"> Recogida</h2>
-      <DivInput>
+      <h2 className="titleInfos"> Recogida</h2>
+      <DivInput className="divcito">
         <MdLocationOn className="icon" />
         <Search />
       </DivInput>
-
-      <DateCalendar position="inline-flex" />
+      <DivDates>
+        <DateCalendar className="dates" position="inline-flex" />
+      </DivDates>
 
       <ButtonInfo>Encontrar Vehículo</ButtonInfo>
     </SearchContainer>

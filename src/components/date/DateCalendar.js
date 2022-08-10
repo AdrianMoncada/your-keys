@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { DivDate, DivInput } from "./DateCalendarStyles";
 import { MdDateRange } from "react-icons/md";
+import AppContext from "../../context/AppContext";
+
 
 const DateCalendar = ({position='block'}) => {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const {state, setStartDate, setEndDate} = useContext(AppContext);
+  /* const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null); */
+  console.log(state.startDate, state.endDate);
 
   return (
     <DivDate style={{display: `
@@ -15,11 +19,11 @@ const DateCalendar = ({position='block'}) => {
         <MdDateRange className="icon" />
         <DatePicker
           className="date"
-          selected={startDate}
+          selected={state.startDate}
           onChange={(date) => setStartDate(date)}
           selectsStart
-          startDate={startDate}
-          endDate={endDate}
+          startDate={state.startDate}
+          endDate={state.endDate}
           placeholderText="Fecha Recogida"
         />
       </DivInput>
@@ -28,12 +32,12 @@ const DateCalendar = ({position='block'}) => {
         <MdDateRange className="icon" />
         <DatePicker
           className="date"
-          selected={endDate}
+          selected={state.endDate}
           onChange={(date) => setEndDate(date)}
           selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
+          startDate={state.startDate}
+          endDate={state.endDate}
+          minDate={state.startDate}
           placeholderText="Fecha Entrega"
         />
       </DivInput>

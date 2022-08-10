@@ -48,18 +48,14 @@ const Header = () => {
     } else {
       setNavbar(false);
     }
-  };
-
-  const changeSearch = () => {
-    if(window.scrollY >= 500) {
+    if(window.scrollY >= 400) {
       setSearcher(true)
     } else {
       setSearcher(false)
     }
-  }
+  };
 
   window.addEventListener("scroll", changeBackground);
-  window.addEventListener("scroll", changeSearch);
 
   const showLogin = () => {
     if (!state.isLogin) {

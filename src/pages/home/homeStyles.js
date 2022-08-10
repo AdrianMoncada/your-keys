@@ -13,7 +13,6 @@ export const ContainerMain = styled.div`
         font-weight: 500;
         margin-top: 10px;
         margin-bottom: -30px;
-        margin-right: 9.4rem;
     }
 
     img {
@@ -51,10 +50,10 @@ export const InputInfo = styled.input`
 
 export const ButtonInfo = styled.button`
     color: white;
-    padding: 5px 30px;
+    padding: 15px 20px;
     font-size: 20px;
     font-weight: bold;
-    margin: 10px auto;
+    margin:  auto;
     border: none;
     border-radius: 10px;
     background-image: linear-gradient(to left, ${({theme}) => theme.darkBlue} 50%, ${({theme}) => theme.third} 50%);
