@@ -8,13 +8,14 @@ const Card = ({ car }) => {
       <DivTitle>
         <h2 className="title">{car.title}</h2>
         <p className="category" >{car.category}</p>
+        <ButtonMore>Ver Más</ButtonMore>
       </DivTitle>
       <DivLocation>
         <SpanLocation>
           <MdMyLocation className="iconLocation" /> 
           {car.location}
         </SpanLocation>
-        <ButtonMore>Ver Más</ButtonMore>
+        <p className="description">{car.descripcion}</p>
       </DivLocation>
       <img src={car.img} alt={car.title} />
     </DivCard>

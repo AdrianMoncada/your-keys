@@ -21,7 +21,6 @@ import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import users from '../assets/users.json';
 
-
 const Login = () => {
   const {setLoginTrue, userLogin} = useContext(AppContext);
   const navigate = useNavigate();
@@ -78,8 +77,8 @@ const Login = () => {
 
   function ifMatch(param) {
     if (users.map((user) => user.email).includes(param.user) && users.map((user) => user.password).includes(param.password)) {
-      setIsLogin(true);
-      userLogin(users.find(element => element.email === param.user))
+      setIsLogin();
+      userLogin(users.find(user => user.email === param.user))
       setLoginTrue();
       const { user, password } = param;
       let ac = { user, password };

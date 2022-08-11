@@ -32,7 +32,7 @@ export const SpanLocation = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 
     .iconLocation {
         font-size: 20px;
@@ -42,6 +42,16 @@ export const SpanLocation = styled.p`
 `
 
 export const DivLocation = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+    text-align: left;
+    .description {
+        margin-top: 0px;
+        width: 150px;
+    }
 `
 
 export const ButtonMore = styled.button`
