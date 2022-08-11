@@ -35,9 +35,10 @@ const Login = () => {
   const emailRegex =
     /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
-    if(isLogin) {
+    /* if(isLogin) {
       navigate("/")
-    }
+
+    } */
 
   function handleChange(name, value) {
     if (name === "user") {
@@ -77,6 +78,7 @@ const Login = () => {
 
   function ifMatch(param) {
     if (users.map((user) => user.email).includes(param.user) && users.map((user) => user.password).includes(param.password)) {
+      navigate("/")
       setIsLogin();
       userLogin(users.find(user => user.email === param.user))
       setLoginTrue();
@@ -147,14 +149,14 @@ const Login = () => {
               param={passwordError}
             />
           </DivIconPass>
-          {passwordError && (
+          {/* {passwordError && (
             <LabelError>
               La contraseña debe tener al menos 6 caracteres
             </LabelError>
           )}
           {emailError && (
             <LabelError>El email ingresado no es válido</LabelError>
-          )}
+          )} */}
           {emailPassError && (
             <LabelError>El usuario o contraseña inválidos</LabelError>
           )}
