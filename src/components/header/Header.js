@@ -86,10 +86,10 @@ const Header = () => {
       <div className={`wrap-container search ${searcher ? "active" : null}`}>
 
         <div className={`containerHeader ${navbar ? "active" : null}`} id="hola">
-          <DivImg>
-            <Logo />
-            <h1>Your Keys!</h1>
-          </DivImg>
+            <DivImg onClick={()=> navigate("/")}>
+              <Logo />
+              <h1>Your Keys!</h1>
+            </DivImg>
           <div>{showLogin()}</div>
         </div>
         {searcher ? <SearchBar/> : null}

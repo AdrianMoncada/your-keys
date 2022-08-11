@@ -67,6 +67,16 @@ export const ButtonInfo = styled.button`
         background-position: left;
         color: black;
     }
+
+    a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+        color: black;
+    }
+    }
+
 `
 
 export const DivInput = styled.div`
@@ -95,7 +105,7 @@ export const ContainerCategorias = styled.div`
     .titleCategoras {
         position: absolute;
         text-align: center;
-        bottom: -50px;
+        top: 85%;
         left: 42%;
         color: white;
         font-size: 44px;
