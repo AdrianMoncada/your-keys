@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import AppContext from "./context/AppContext";
 import useInitialState from "./hooks/useInitialState";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/signup/SignUp";
 
 function App() {
   const initialState = useInitialState();
