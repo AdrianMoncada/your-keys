@@ -11,7 +11,7 @@ export const Img = styled.img`
 `
 
 export const Div = styled.div`
-    width: 100%;
+
     margin: 0;
     border-right: 1px solid black;
     border-left: 1px solid black;
