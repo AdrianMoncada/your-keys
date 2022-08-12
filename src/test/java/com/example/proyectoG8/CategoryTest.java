@@ -32,7 +32,7 @@ public class CategoryTest {
 
     @Test
     @Order(2)
-    void testGetCategoryByID(){
+    void testGetCategories(){
         List<Category> categories = iCategoryService.listCategory();
         Assert.notEmpty(categories);
         Assert.isTrue(categories.size() == 1);
