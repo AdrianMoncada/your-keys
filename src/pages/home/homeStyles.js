@@ -20,6 +20,10 @@ export const ContainerMain = styled.div`
         width: 900px;
         height: 550px;
     }
+/* 
+    @media screen and (max-width: ;) {
+        
+    } */
 `
 
 export const DivContainerInfo = styled.div`
@@ -34,8 +38,6 @@ export const DivContainerInfo = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    
 `
 
 export const InputInfo = styled.input`

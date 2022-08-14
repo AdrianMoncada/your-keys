@@ -84,7 +84,20 @@ export const ButtonLogOut = styled.button`
 
 export const DivUser = styled.div`
   display: flex;
-
+  width: 100%;
+  @media screen and (max-width: 960px) {
+    background-color: black;
+    position: absolute;
+    z-index: 3;
+    top: 70px;
+    left: ${({open}) => open ? '0' : '-100%'};
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s all ease;
+  }
 `
 
 export const DivUserText = styled.div`
@@ -95,5 +108,23 @@ export const DivUserText = styled.div`
   .userName {
     margin: 0 10px;
   }
+`
+
+export const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .iconMenu {
+      font-size: 30px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  
+
 `
 
