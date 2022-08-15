@@ -1,42 +1,35 @@
 import styled from 'styled-components';
 
 export const ContainerMain = styled.div`
-    background-color: ${({theme}) => theme.background};
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5px;
+    position: absolute;
+    z-index: 7;
+    top: 0;
 
     .titleInfo {
         font-size: 30px;
         font-weight: 500;
-        margin-top: 10px;
-        margin-bottom: -30px;
+        margin: 0 auto;
+
     }
 
-    img {
+    /* img {
         transform: scaleX(-1);
         width: 900px;
         height: 550px;
-    }
-/* 
-    @media screen and (max-width: ;) {
-        
     } */
 `
 
 export const DivContainerInfo = styled.div`
-    background-color: ${({theme}) => theme.secondary};
-    height: 390px;
-    width: 330px;
-    border-radius: 32px;
-    color: black;
-    margin: 0 auto;
-    margin-left: 5rem;
-    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.5);
+    height: 88vh;
+    width: 450px;
+    color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
 `
 
@@ -55,7 +48,7 @@ export const ButtonInfo = styled.button`
     padding: 15px 20px;
     font-size: 20px;
     font-weight: bold;
-    margin:  auto;
+    margin: 0 auto;
     border: none;
     border-radius: 10px;
     background-image: linear-gradient(to left, ${({theme}) => theme.darkBlue} 50%, ${({theme}) => theme.third} 50%);
@@ -82,6 +75,7 @@ export const ButtonInfo = styled.button`
 `
 
 export const DivInput = styled.div`
+    margin: 0 auto;
     display: flex;
     .icon {
         font-size: 30px;
@@ -105,17 +99,16 @@ export const ContainerCategorias = styled.div`
     }
 
     .titleCategoras {
-        position: absolute;
         text-align: center;
         top: 85%;
         left: 42%;
-        color: white;
+        color: black;
         font-size: 44px;
     }
 `
 
 export const DivDate = styled.div`
-    margin-top: -30px;
+margin: 0 auto;
 `
 
 export const DivContainerList = styled.div`

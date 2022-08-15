@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerHeader = styled.div`
-  
-
   .sticky {
     background-color: red !important;
   }
@@ -40,6 +38,9 @@ export const DivImg = styled.div`
 `;
 
 export const DivPrueba = styled.div`
+position: relative;
+  z-index: 20;
+
   .wrap-container {
     position: fixed;
     z-index: 2;

@@ -6,13 +6,17 @@ import {
   DivInput,
   DivDate,
   ContainerCategorias,
-  DivContainerList
+  DivContainerList,
+  DivContainerHero,
+  DivHero
 } from "./homeStyles";
 import { MdLocationOn } from "react-icons/md";
 import ContainerCategory from "../../components/category/ContainerCategory";
 import Search from "../../components/Search/Search";
 import DateCalendar from "../../components/date/DateCalendar";
 import ContainerCard from "../../components/cards/ContainerCard";
+import Hero from "../../components/hero/Hero";
+import slides from "../../assets/SliderData.json";
 
 
 const Home = () => {
@@ -31,12 +35,13 @@ const Home = () => {
 
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
+    <div>
+        <Hero slides={slides}/>
       <ContainerMain>
-        
         <DivContainerInfo>
           <h2 className="titleInfo"> Recogida</h2>
           <DivInput>
-              <MdLocationOn className="icon" />
+            <MdLocationOn className="icon" />
             <Search />
           </DivInput>
           <DivDate>
@@ -44,13 +49,15 @@ const Home = () => {
           </DivDate>
           <ButtonInfo><a href="#list" >Encontrar Vehículo</a> </ButtonInfo>
         </DivContainerInfo>
-        <img
+        {/* <img
           src="https://img.freepik.com/fotos-premium/linternas-coche-moderno-rojo-sobre-fondo-negro_67340-169.jpg"
           alt="carro-rojo"
-        />
+        /> */}
       </ContainerMain>
+    </div>
+
       <ContainerCategorias>
-        <svg
+        {/* <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
@@ -62,7 +69,7 @@ const Home = () => {
             fill="#000000"
             fillOpacity={1}
           />
-        </svg>
+        </svg> */}
         <h2 className="titleCategoras">Categorias</h2>
       <ContainerCategory />
       </ContainerCategorias>
