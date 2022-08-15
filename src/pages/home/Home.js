@@ -47,7 +47,7 @@ const Home = () => {
           <DivDate>
             <DateCalendar />
           </DivDate>
-          <ButtonInfo><a href="#list" >Encontrar Vehículo</a> </ButtonInfo>
+          <a className="buttonI" href="#list" ><ButtonInfo>Encontrar Vehículo </ButtonInfo></a>
         </DivContainerInfo>
         {/* <img
           src="https://img.freepik.com/fotos-premium/linternas-coche-moderno-rojo-sobre-fondo-negro_67340-169.jpg"

@@ -63,7 +63,7 @@ const Header = () => {
   const showLogin = () => {
     if (!state.isLogin) {
       return (
-        <DivUser open={showMobile}>
+        <div open={showMobile}>
           <Buttons
             onClick={() => {
               navigate("/login");
@@ -80,11 +80,11 @@ const Header = () => {
           >
             Crear Cuenta
           </Buttons>
-        </DivUser>
+        </div>
       );
     } else {
       return (
-        <DivUser open={showMobile}>
+        <div open={showMobile}>
           {state.isLogin &&
             state.user.map((user) => (
               <DivUserText>
@@ -95,10 +95,11 @@ const Header = () => {
                 <h4 className="userName">
                   {user.name} {user.lastName}
                 </h4>
+            <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
+
               </DivUserText>
             ))}
-          <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
-        </DivUser>
+        </div>
       );
     }
   };
@@ -110,14 +111,17 @@ const Header = () => {
           className={`containerHeader ${navbar ? "active" : null}`}
           id="hola"
         >
-          <DivImg onClick={() => navigate("/")}>
+          <DivImg onClick={() => {
+            navigate("/")
+            setShowMobile(!showMobile)
+            }}>
             <Logo />
             <h1>Your Keys!</h1>
           </DivImg>
           <MobileIcon onClick={() => setShowMobile(!showMobile)}>
             {showMobile ? <FaTimes className="iconMenu" /> : <FaBars className="iconMenu" />}
           </MobileIcon>
-          <div>{showLogin()}</div>
+          <DivUser open={showMobile} >{showLogin()}</DivUser>
         </div>
         {searcher ? <SearchBar /> : null}
       </div>

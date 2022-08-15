@@ -35,10 +35,12 @@ export const DivImg = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 5rem;
+  position: relative;
+  z-index: 5;
 `;
 
 export const DivPrueba = styled.div`
-position: relative;
+  position: relative;
   z-index: 20;
 
   .wrap-container {
@@ -85,15 +87,14 @@ export const ButtonLogOut = styled.button`
 
 export const DivUser = styled.div`
   display: flex;
-  width: 100%;
   @media screen and (max-width: 960px) {
-    background-color: black;
+    background-color: rgba(0,0,0,0.5);
     position: absolute;
     z-index: 3;
-    top: 70px;
+    top: 0px;
     left: ${({open}) => open ? '0' : '-100%'};
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -123,6 +124,8 @@ export const MobileIcon = styled.div`
       font-size: 30px;
       display: flex;
       justify-content: flex-end;
+      display: relative;
+      z-index: 5;
     }
   }
   

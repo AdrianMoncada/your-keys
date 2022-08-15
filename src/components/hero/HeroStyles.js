@@ -32,6 +32,7 @@ export const HeroSlider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
 
   &::before {
     content: "";
@@ -53,18 +54,22 @@ export const HeroSlider = styled.div`
 export const HeroImage = styled.img`
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 65%;
   height: 100vh;
   object-fit: cover;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
 `;
 export const HeroContent = styled.div`
   position: relative;
   z-index: 10;
   display: flex;
   float: right;
-  max-width: 1600px;
-  width: calc(100% - 100px);
+  /* max-width: 1600px;
+  width: calc(100% - 100px); */
+  width: 100%;
   height: 100%;
   color: #fff;
 
@@ -73,11 +78,13 @@ export const HeroContent = styled.div`
     font-weight: 400;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: -2.8rem;
   }
 
   p {
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     color: ${({theme}) => theme.secondary};
+    margin-bottom: -1.5rem;
   }
 
   button {
@@ -87,15 +94,26 @@ export const HeroContent = styled.div`
 
 export const HeroText = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 30px;
-  right: 30px;
-  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 30px 0px;
   gap: 30px;
-  width: 800px;
+  width: 500px;
+  height: 100px;
+  margin: 0;
+
+  @media screen and (max-width: 960px) {
+    width: 300px;
+  }
+
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 export const HeroButton = styled.button`
   width: 200px;
@@ -108,10 +126,13 @@ export const HeroButton = styled.button`
 
 export const SliderButtons = styled.div`
   position: absolute;
-  bottom: 50px;
-  left: 50px;
-  display: flex;
+  bottom: 30px;
+  /* display: flex; */
+  display: none;
   z-index: 10;
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 const arrowButton = css`

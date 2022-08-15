@@ -26,7 +26,13 @@ export const ContainerMain = styled.div`
 export const DivContainerInfo = styled.div`
     background-color: rgba(0,0,0,0.5);
     height: 88vh;
-    width: 450px;
+    width: 70vh;
+    .buttonI {
+        text-align: center;
+    }
+  @media screen and (max-width: 489px) {
+    width: 59vh;
+}
     color: white;
     display: flex;
     flex-direction: column;
@@ -83,6 +89,7 @@ export const DivInput = styled.div`
         padding: 3px 5px 4px 5px;
         background-color: ${({theme}) => theme.third};
         border-radius: 10px 0px 0px 10px;
+        color: black;
     }
 `
 

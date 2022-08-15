@@ -7,10 +7,10 @@ import {
   DivContainerInfo,
   InputInfo,
 } from "../../pages/home/homeStyles";
-import { SearchContainer, DivDates } from "./SearchHorizontalStyles";
+import { SearchContainer, DivDates, DivInput } from "./SearchHorizontalStyles";
 import DateCalendar from "../date/DateCalendar";
 import Search from "../Search/Search";
-import { DivDate, DivInput } from "../date/DateCalendarStyles";
+import { DivDate,  } from "../date/DateCalendarStyles";
 
 function SearchBar() {
   return (

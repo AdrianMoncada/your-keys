@@ -17,18 +17,19 @@ const Listbox = styled('ul')(({ theme }) => ({
   listStyle: 'none',
   backgroundColor: theme.palette.background.paper,
   overflow: 'auto',
+  color: 'black',
   
   maxHeight: 200,
   border: '1px solid rgba(0,0,0,.25)',
   [`& li.${autocompleteClasses.focused}`]: {
     backgroundColor: '#4a8df6',
-    color: 'white',
+    color: 'black',
     cursor: 'pointer',
     
   },
   '& li:active': {
     backgroundColor: '#2977f5',
-    color: 'white',
+    color: 'black',
   },
 }));
 

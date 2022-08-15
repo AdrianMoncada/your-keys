@@ -24,3 +24,16 @@ export const SearchContainer = styled.div`
 `;
 
 export const DivDates = styled.div``;
+
+export const DivInput = styled.div`
+    display: flex;
+
+    .icon {
+        font-size: 30px;
+        margin-top: 5px;
+        padding: 3px 5px 4px 5px;
+        background-color: ${({theme}) => theme.third};
+        border-radius: 10px 0px 0px 10px;
+        color: black;
+    }
+`

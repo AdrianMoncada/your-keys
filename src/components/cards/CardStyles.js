@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DivCard = styled.div`
     background-color: ${({theme}) =>  theme.background};
-    width: 400px;
+    width: 600px;
     height: 380px;
     display: flex;
     justify-content: space-evenly;
