@@ -39,7 +39,7 @@ const Home = () => {
         <Hero slides={slides}/>
       <ContainerMain>
         <DivContainerInfo>
-          <h2 className="titleInfo"> Recogida</h2>
+          <h2 className="titleInfo"> Retiro</h2>
           <DivInput>
             <MdLocationOn className="icon" />
             <Search />

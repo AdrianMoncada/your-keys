@@ -2,7 +2,8 @@ import styled, { css } from "styled-components/macro";
 import { IoArrowForward, IoArrowBack } from "react-icons/io5";
 
 export const HeroSection = styled.section`
-  height: 88vh;
+  /* height: 88vh; */
+  height: 100vh;
   max-height: 1100px;
   position: relative;
   overflow: hidden;
@@ -101,7 +102,7 @@ export const HeroText = styled.div`
   bottom: 0px;
   right: 0px;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 30px 0px;
+  padding: 20px 0px;
   gap: 30px;
   width: 500px;
   height: 100px;
