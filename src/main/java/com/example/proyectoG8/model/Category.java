@@ -1,6 +1,9 @@
 package com.example.proyectoG8.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -18,6 +21,10 @@ public class Category {
 
     @Column
     private String UrlImage;
+
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    private List<Vehicle> vehicles;
 
     public Long getId_category() {
         return id_category;
