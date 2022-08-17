@@ -11,8 +11,8 @@ export const DivCard = styled.div`
     color: white;
     
     img {
-        width: 350px;
-        height: 210px;
+        width: 300px;
+        height: 160px;
     }
 `
 
@@ -30,9 +30,12 @@ export const DivTitle = styled.div`
 
 export const SpanLocation = styled.p`
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 0px;
+
+    .textSpan {
+        text-align: left;
+        margin: 0;
+    }
 
     .iconLocation {
         font-size: 20px;
@@ -44,10 +47,7 @@ export const SpanLocation = styled.p`
 export const DivLocation = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    align-items: center;
     margin-top: 10px;
-    text-align: left;
     .description {
         margin-top: 0px;
         width: 150px;
@@ -61,4 +61,5 @@ export const ButtonMore = styled.button`
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+    margin-top: 10px;
 `
