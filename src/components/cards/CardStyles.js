@@ -9,16 +9,18 @@ export const DivCard = styled.div`
     align-items: center;
     flex-wrap: wrap;
     color: white;
+    position: relative;
     
     img {
-        width: 300px;
-        height: 160px;
+        width: 350px;
+        height: 210px;
     }
 `
 
 export const DivTitle = styled.div`
     margin-left: 5px;
-
+    justify-content: space-between;
+    margin: 0;
     .title {
         font-size: 30px;
     }
@@ -26,6 +28,23 @@ export const DivTitle = styled.div`
         margin-top: -25px;
         font-size: 18px;
     }
+
+    .calificationNumber {
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 10px;
+        margin-right: 5px;
+        border-radius: 20px;
+    }
+`
+
+export const DivCalification = styled.div`
+    position: absolute;
+    left: 80px;
+    top: 30px;
+
 `
 
 export const SpanLocation = styled.p`
@@ -62,4 +81,19 @@ export const ButtonMore = styled.button`
     font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
+`
+
+export const DivImgs = styled.div`
+
+    .iconFavorite {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        font-size: 30px;
+        color: red;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 `
