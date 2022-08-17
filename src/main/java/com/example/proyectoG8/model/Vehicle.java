@@ -19,7 +19,7 @@ public class Vehicle {
     private Make make;
 
     @Column
-    private String range;
+    private String name  ;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "models_id", nullable = false)
@@ -59,12 +59,12 @@ public class Vehicle {
         this.make = make;
     }
 
-    public String getRange() {
-        return range;
+    public String getName() {
+        return name;
     }
 
-    public void setRange(String range) {
-        this.range = range;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Model getModel() {
