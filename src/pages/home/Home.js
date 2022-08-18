@@ -17,6 +17,7 @@ import DateCalendar from "../../components/date/DateCalendar";
 import ContainerCard from "../../components/cards/ContainerCard";
 import Hero from "../../components/hero/Hero";
 import slides from "../../assets/SliderData.json";
+import {motion} from "framer-motion";
 
 
 const Home = () => {
@@ -39,7 +40,7 @@ const Home = () => {
         <Hero slides={slides}/>
       <ContainerMain>
         <DivContainerInfo>
-          <h2 className="titleInfo"> Retiro</h2>
+          <motion.h2 animate={{y: 0}} className="titleInfo"> Retiro</motion.h2>
           <DivInput>
             <MdLocationOn className="icon" />
             <Search />

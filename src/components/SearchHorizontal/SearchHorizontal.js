@@ -1,31 +1,23 @@
-import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import { MdClose, MdLocationOn } from "react-icons/md";
-import { DivSearch } from "./SearchHorizontalStyles";
-import {
-  ButtonInfo,
-  DivContainerInfo,
-  InputInfo,
-} from "../../pages/home/homeStyles";
-import { SearchContainer, DivDates, DivInput } from "./SearchHorizontalStyles";
+import React from "react";
+import {  MdLocationOn } from "react-icons/md";
+import { SearchContainerHorizontal, DivDatesHorizontal, DivInputHorizontal, ButtonInfoHorizontal } from "./SearchHorizontalStyles";
 import DateCalendar from "../date/DateCalendar";
 import Search from "../Search/Search";
-import { DivDate,  } from "../date/DateCalendarStyles";
 
 function SearchBar() {
   return (
-    <SearchContainer>
+    <SearchContainerHorizontal>
       <h2 className="titleInfos"> Recogida</h2>
-      <DivInput className="divcito">
+      <DivInputHorizontal className="divcito">
         <MdLocationOn className="icon" />
         <Search />
-      </DivInput>
-      <DivDates>
+      </DivInputHorizontal>
+      <DivDatesHorizontal>
         <DateCalendar className="dates" position="inline-flex" />
-      </DivDates>
+      </DivDatesHorizontal>
 
-      <ButtonInfo>Encontrar Vehículo</ButtonInfo>
-    </SearchContainer>
+      <ButtonInfoHorizontal>Encontrar Vehículo</ButtonInfoHorizontal>
+    </SearchContainerHorizontal>
   );
 }
 
