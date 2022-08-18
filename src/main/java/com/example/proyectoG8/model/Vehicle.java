@@ -1,8 +1,12 @@
 package com.example.proyectoG8.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,34 +18,45 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "makes_id")
+    @JsonManagedReference
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "make_id")
     private Make make;
 
     @Column
     private String name  ;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "models_id", nullable = false)
+    @JsonManagedReference
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "model_id")
     private Model model;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cities_id", nullable = false)
+    @JsonManagedReference
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
     private City city;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categories_id", nullable = false)
+    @JsonManagedReference
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categories_id")
     private Category category;
 
+    @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "vehicle_characteristics", joinColumns = @JoinColumn(name = "vehicles_id"),
-            inverseJoinColumns = @JoinColumn(name = "characteristics_id") )
-    @JsonIgnore
+    @JoinTable(name = "vehicle_characteristic", joinColumns = @JoinColumn(name = "vehicle_id"),
+            inverseJoinColumns = @JoinColumn(name = "characteristic_id"), uniqueConstraints = {
+            @UniqueConstraint(columnNames = { "vehicle_id", "characteristic_id" }) })
     private List<Characteristic> characteristics;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "images_id")
-    private List<Image> images;
+    @JsonBackReference
+    @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private List<Image> images = new ArrayList<>();
 
     public Long getId() {
         return id;

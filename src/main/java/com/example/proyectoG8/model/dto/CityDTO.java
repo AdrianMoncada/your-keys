@@ -1,34 +1,31 @@
-package com.example.proyectoG8.model;
+package com.example.proyectoG8.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "cities")
-public class City {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CityDTO {
+
+
     private Long id;
 
-    @Column
+
     private String cityName;
 
-    @Column
+
     private String provinceName;
 
-    @Column
+
     private String countryName;
 
     @JsonBackReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
-    private List<Vehicle> vehicles;
+    private List<VehicleDTO> vehicleDTOS;
 
     public Long getId() {
         return id;
@@ -62,11 +59,11 @@ public class City {
         this.countryName = countryName;
     }
 
-    public List<Vehicle> getVehicles() {
-        return vehicles;
+    public List<VehicleDTO> getVehicles() {
+        return vehicleDTOS;
     }
 
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
+    public void setVehicles(List<VehicleDTO> vehicleDTOS) {
+        this.vehicleDTOS = vehicleDTOS;
     }
 }

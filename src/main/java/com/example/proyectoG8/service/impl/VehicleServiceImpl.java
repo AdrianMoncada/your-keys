@@ -4,10 +4,12 @@ import com.example.proyectoG8.model.Vehicle;
 import com.example.proyectoG8.repository.IVehicleRepository;
 import com.example.proyectoG8.service.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class VehicleServiceImpl implements IVehicleService {
 
     @Autowired

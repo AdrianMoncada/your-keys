@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 import java.util.List;
 
 @SpringBootTest
-public class CategoryTest {
+public class CategoryDTOTest {
 
     @Autowired
     ICategoryService iCategoryService;

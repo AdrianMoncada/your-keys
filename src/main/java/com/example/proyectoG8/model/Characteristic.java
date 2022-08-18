@@ -1,5 +1,9 @@
 package com.example.proyectoG8.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,7 +18,13 @@ public class Characteristic {
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "characteristics")
+    @Column
+    private String icon;
+
+
+    @JsonBackReference
+    @JsonIgnoreProperties(value={"hibernateLazyInitializer","handle"}, allowSetters = true)
+    @ManyToMany(mappedBy = "characteristics", fetch = FetchType.LAZY)
     private List<Vehicle> vehicles;
 
     public List<Vehicle> getVehicles() {
@@ -39,5 +49,13 @@ public class Characteristic {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
