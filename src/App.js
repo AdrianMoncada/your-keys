@@ -20,7 +20,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/vehiculo/:car" element={<Vehiculo />} />
+              <Route path="/vehiculo/:carId" element={<Vehiculo />} />
             </Routes>
           </Layout>
         </ThemeProvider>
