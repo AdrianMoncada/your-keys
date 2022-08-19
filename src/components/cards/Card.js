@@ -79,7 +79,7 @@ const Card = ({ car }) => {
             <p className="textSpan">{car.descripcion.aire}</p>
           </SpanLocation>
         </DivLocation>
-        <ButtonMore onClick={() => navigate(`/vehiculo/${car.title}`)}>
+        <ButtonMore onClick={() => navigate(`/vehiculo/${car.id}`)}>
           Ver Más
         </ButtonMore>
       </div>
