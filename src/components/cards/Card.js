@@ -10,8 +10,8 @@ import {
   DivCalification
 } from "./CardStyles";
 import { useNavigate } from "react-router-dom";
-import { GiCarDoor, GiThermometerCold } from "react-icons/gi";
-import { FaToolbox, FaHeart, FaRegHeart, GiBrokenHeart } from "react-icons/fa";
+import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
+import { FaToolbox, FaHeart, FaRegHeart,  } from "react-icons/fa";
 
 const Card = ({ car }) => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Card = ({ car }) => {
   const showBrokenHearth = () => {
     if (favorite) {
       favoriteIcon.addEventListener("mouseover", (e) => {
-        console.log(e);
+        return <GiBrokenHeart />
       });
     } else {
       return (

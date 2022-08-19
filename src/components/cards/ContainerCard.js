@@ -8,7 +8,7 @@ const DivContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
 `
 
 const ContainerCard = () => {

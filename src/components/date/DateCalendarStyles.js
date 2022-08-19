@@ -8,7 +8,7 @@ export const DivDate = styled.div`
         display: flex;
         justify-content: center;
         align-items: center ;
-        margin: 0;
+        margin: 20px 0 10px 0;
     }
 
     .date {
