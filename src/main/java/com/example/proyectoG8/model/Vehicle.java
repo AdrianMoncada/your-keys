@@ -63,6 +63,12 @@ public class Vehicle {
     @JoinColumn(name = "id")
     private List<Image> images = new ArrayList<>();
 
+    @JsonBackReference
+    @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private List<Score> scores = new ArrayList<>();
+
     public Long getId() {
         return id;
     }
@@ -141,5 +147,13 @@ public class Vehicle {
 
     public void setImages(List<Image> images) {
         this.images = images;
+    }
+
+    public List<Score> getScores() {
+        return scores;
+    }
+
+    public void setScores(List<Score> scores) {
+        this.scores = scores;
     }
 }
