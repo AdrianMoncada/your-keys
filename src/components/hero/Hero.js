@@ -10,8 +10,9 @@ import {
   PrevArrow,
   SliderButtons,
   HeroButton,
-  HeroText
+  HeroText,
 } from "./HeroStyles";
+import { AnimatePresence } from "framer-motion";
 
 const Hero = ({ slides }) => {
   const [current, setCurrent] = useState(0);
@@ -54,20 +55,33 @@ const Hero = ({ slides }) => {
     <HeroSection>
       <HeroWrapper>
         {slides.map((slide, index) => (
-          <HeroSlide key={index}>
-            {index === current && (
-              <HeroSlider>
-                <HeroImage src={slide.img} alt="carros" />
-                <HeroContent>
+          <AnimatePresence key={index}>
+            <HeroSlide initial={false} key={index}>
+              {index === current && (
+                <HeroSlider
+                    key={index}
+                    initial={{ x: "-100%" }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ opatity: 0 }}>
+                  <HeroImage
+                    initial={{ x: 0 }}
+                    animate={{ x: "100%" }}
+                    transition={{ duration: 2, ease: "easeInOut", delay: 2 }}
+                    src={slide.img}
+                    alt="carros"
+                  />
+                  <HeroContent>
                     <HeroText>
-                        <h1>{slide.title}</h1>
-                        <p>{slide.price}</p>
-                        <HeroButton>Ver Más</HeroButton>
+                      <h1>{slide.title}</h1>
+                      <p>{slide.price}</p>
+                      <HeroButton>Ver Más</HeroButton>
                     </HeroText>
-                </HeroContent>
-              </HeroSlider>
-            )}
-          </HeroSlide>
+                  </HeroContent>
+                </HeroSlider>
+              )}
+            </HeroSlide>
+          </AnimatePresence>
         ))}
         <SliderButtons>
           <PrevArrow onClick={prevSlide} />

@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components/macro";
 import { IoArrowForward, IoArrowBack } from "react-icons/io5";
+import {motion} from "framer-motion";
 
 export const HeroSection = styled.section`
   /* height: 88vh; */
@@ -19,12 +20,13 @@ export const HeroWrapper = styled.div`
   position: relative;
 `;
 
-export const HeroSlide = styled.div`
+export const HeroSlide = styled(motion.div)`
   z-index: 1;
   width: 100%;
   height: 100%;
+  background-color: black;
 `;
-export const HeroSlider = styled.div`
+export const HeroSlider = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
@@ -36,6 +38,7 @@ export const HeroSlider = styled.div`
   background-color: black;
 
   &::before {
+    transition: all 1s ease;
     content: "";
     position: absolute;
     z-index: 2;
@@ -52,7 +55,7 @@ export const HeroSlider = styled.div`
     );
   }
 `;
-export const HeroImage = styled.img`
+export const HeroImage = styled(motion.img)`
   position: absolute;
   top: 0;
   right: 0;

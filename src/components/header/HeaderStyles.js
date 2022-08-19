@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {motion} from "framer-motion";
 
 export const ContainerHeader = styled.div`
   .sticky {
@@ -39,7 +40,7 @@ export const DivImg = styled.div`
   z-index: 5;
 `;
 
-export const DivPrueba = styled.div`
+export const DivPrueba = styled(motion.div)`
   position: relative;
   z-index: 20;
 

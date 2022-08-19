@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {motion} from "framer-motion";
 
-export const ContainerMain = styled.div`
+export const ContainerMain = styled(motion.div)`
   color: white;
   display: flex;
   justify-content: space-between;
@@ -48,7 +49,7 @@ export const InputInfo = styled.input`
   outline: none;
 `;
 
-export const ButtonInfo = styled.button`
+export const ButtonInfo = styled(motion.button)`
   padding: 15px 20px;
   font-size: 20px;
   font-weight: bold;
@@ -70,7 +71,7 @@ export const ButtonInfo = styled.button`
   background-size: 200%;
   background-repeat: no-repeat;
   background-position: right;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
     cursor: pointer;
