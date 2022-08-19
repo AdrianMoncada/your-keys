@@ -1,6 +1,10 @@
 image:
   name: terraform:latest
 
+before_script:
+  - export AWS_ACCESS_KEY_TF='${AWS_ACCESS_KEY}'"
+  - export AWS_SECRET_KEY_TF='${AWS_SECRET_KEY}'"
+
 stages:
   - fmt
   - validate
