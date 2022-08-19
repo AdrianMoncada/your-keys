@@ -1,0 +1,15 @@
+image:
+  name: terraform:latest
+
+stages:
+  - fmt
+  - validate
+  - plan
+  - apply
+
+
+fmt:
+  stage: fmt
+  script:
+    - terraform fmt -recursive -check=true -diff=true
+  
