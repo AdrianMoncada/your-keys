@@ -1,7 +1,6 @@
 package com.example.proyectoG8.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -25,7 +24,13 @@ public class Vehicle {
     private Make make;
 
     @Column
-    private String name  ;
+    private String rangeName;
+
+    @Column
+    private Double latitude ;
+
+    @Column
+    private String longitude ;
 
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
@@ -74,12 +79,28 @@ public class Vehicle {
         this.make = make;
     }
 
-    public String getName() {
-        return name;
+    public String getRangeName() {
+        return rangeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRangeName(String rangeName) {
+        this.rangeName = rangeName;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public Model getModel() {

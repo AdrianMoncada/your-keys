@@ -1,19 +1,19 @@
 package com.example.proyectoG8.service;
 
-import com.example.proyectoG8.model.Category;
+import com.example.proyectoG8.model.dto.CategoryDTO;
 
 import java.util.List;
 
 public interface ICategoryService {
 
-    public Category createCategory(Category category);
+    public CategoryDTO createCategory(CategoryDTO categoryDTO);
 
-    public Category readCategory(Long id);
+    public CategoryDTO readCategory(Long id);
 
-    public Category updateCategory(Category category);
+    public CategoryDTO updateCategory(CategoryDTO categoryDTO);
 
     public void deleteCategory(Long id);
 
-    public List<Category> listCategory();
+    public List<CategoryDTO> listCategory();
 
 }

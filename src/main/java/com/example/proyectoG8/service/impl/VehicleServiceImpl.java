@@ -1,13 +1,16 @@
 package com.example.proyectoG8.service.impl;
 
 import com.example.proyectoG8.model.Vehicle;
+import com.example.proyectoG8.model.dto.VehicleDTO;
 import com.example.proyectoG8.repository.IVehicleRepository;
 import com.example.proyectoG8.service.IVehicleService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VehicleServiceImpl implements IVehicleService {
@@ -15,23 +18,29 @@ public class VehicleServiceImpl implements IVehicleService {
     @Autowired
     IVehicleRepository vehicleRepository;
 
+    @Autowired
+    private ModelMapper mapper;
+
+
     @Override
-    public Vehicle createVehicle(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
+    public VehicleDTO createVehicle(VehicleDTO vehicleDTO) {
+        Vehicle vehicle = vehicleRepository.save(mapper.map(vehicleDTO, Vehicle.class));
+        return mapper.map(vehicle, VehicleDTO.class);
     }
 
     @Override
-    public Vehicle readVehicle(Long id) {
-        Vehicle vehicle = null;
-        if (vehicleRepository.findById(id).isPresent()){
-            vehicle = vehicleRepository.findById(id).get();
-        }
-        return vehicle;
+    public VehicleDTO readVehicle(Long id) {
+        Optional<Vehicle> vehicle = vehicleRepository.findById(id);
+        VehicleDTO vehicleDTO = null;
+        if(vehicle.isPresent())
+            vehicleDTO = mapper.map(vehicle, VehicleDTO.class);
+        return vehicleDTO;
     }
 
     @Override
-    public Vehicle updateVehicle(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
+    public VehicleDTO updateVehicle(VehicleDTO vehicleDTO) {
+        Vehicle vehicle = vehicleRepository.save(mapper.map(vehicleDTO, Vehicle.class));
+        return mapper.map(vehicle, VehicleDTO.class);
     }
 
     @Override
@@ -40,12 +49,18 @@ public class VehicleServiceImpl implements IVehicleService {
     }
 
     @Override
-    public List<Vehicle> listVehicle() {
-        return vehicleRepository.findAll();
+    public List<VehicleDTO> listVehicle() {
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        List<VehicleDTO> vehicleDTOS = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            vehicleDTOS.add(mapper.map(vehicle, VehicleDTO.class));
+        }
+        return vehicleDTOS;
     }
 
+
     @Override
-    public List<Vehicle> listVehicleByCity(Long cityId) {
+    public List<VehicleDTO> listVehicleByCity(Long cityId) {
 
         List<Vehicle> vehicles = vehicleRepository.findAll();
         List<Vehicle> vehiclesByCity = new ArrayList<>();
@@ -55,6 +70,12 @@ public class VehicleServiceImpl implements IVehicleService {
                 vehiclesByCity.add(vehicle);
             }
         }
-        return vehiclesByCity;
+
+        List<VehicleDTO> vehicleDTOS = new ArrayList<>();
+
+        for (Vehicle vehicle : vehiclesByCity) {
+            vehicleDTOS.add(mapper.map(vehicle, VehicleDTO.class));
+        }
+        return vehicleDTOS;
     }
 }

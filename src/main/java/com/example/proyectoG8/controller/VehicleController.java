@@ -2,11 +2,14 @@ package com.example.proyectoG8.controller;
 
 
 import com.example.proyectoG8.model.Vehicle;
+import com.example.proyectoG8.model.dto.VehicleDTO;
 import com.example.proyectoG8.service.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/vehicle")
@@ -27,15 +30,14 @@ public class VehicleController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addVehicle(@RequestBody Vehicle vehicle){
-
-        return new ResponseEntity(vehicleService.createVehicle(vehicle), HttpStatus.CREATED);
+    public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO){
+        return new ResponseEntity(vehicleService.createVehicle(vehicleDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<?> updateVehicle(@RequestBody Vehicle vehicle){
-        if (vehicleService.readVehicle(vehicle.getId()) != null){
-            return new ResponseEntity(vehicleService.updateVehicle(vehicle), HttpStatus.OK);
+    public ResponseEntity<VehicleDTO> updateVehicle(@RequestBody VehicleDTO vehicleDTO){
+        if (vehicleService.readVehicle(vehicleDTO.getId()) != null){
+            return new ResponseEntity(vehicleService.updateVehicle(vehicleDTO), HttpStatus.OK);
         }
 
         return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -51,12 +53,12 @@ public class VehicleController {
     }
 
     @GetMapping
-    public ResponseEntity<?> searchAllVehicles(){
+    public ResponseEntity<List<VehicleDTO>> searchAllVehicles(){
         return new ResponseEntity(vehicleService.listVehicle(),HttpStatus.OK);
     }
 
     @GetMapping("/city/{id}")
-    public ResponseEntity<?> searchAlVehiclesByCity(@PathVariable Long id){
+    public ResponseEntity<List<VehicleDTO>> searchAlVehiclesByCity(@PathVariable Long id){
         return new ResponseEntity(vehicleService.listVehicleByCity(id),HttpStatus.OK);
     }
 }

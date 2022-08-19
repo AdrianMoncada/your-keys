@@ -1,20 +1,21 @@
 package com.example.proyectoG8.service;
 
 import com.example.proyectoG8.model.Vehicle;
+import com.example.proyectoG8.model.dto.VehicleDTO;
 
 import java.util.List;
 
 public interface IVehicleService {
 
-    public Vehicle createVehicle(Vehicle vehicle);
+    public VehicleDTO createVehicle(VehicleDTO vehicleDTO);
 
-    public Vehicle readVehicle(Long id);
+    public VehicleDTO readVehicle(Long id);
 
-    public Vehicle updateVehicle(Vehicle vehicle);
+    public VehicleDTO updateVehicle(VehicleDTO vehicleDTO);
 
     public void deleteVehicle(Long id);
 
-    public List<Vehicle> listVehicle();
+    public List<VehicleDTO> listVehicle();
 
-    public List<Vehicle> listVehicleByCity(Long cityId);
+    public List<VehicleDTO> listVehicleByCity(Long cityId);
 }

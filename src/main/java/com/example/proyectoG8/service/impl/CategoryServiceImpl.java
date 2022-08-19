@@ -1,12 +1,16 @@
 package com.example.proyectoG8.service.impl;
 
 import com.example.proyectoG8.model.Category;
+import com.example.proyectoG8.model.dto.CategoryDTO;
 import com.example.proyectoG8.repository.ICategoryRepository;
 import com.example.proyectoG8.service.ICategoryService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements ICategoryService {
@@ -14,34 +18,49 @@ public class CategoryServiceImpl implements ICategoryService {
     @Autowired
     private ICategoryRepository iCategoryRepository;
 
+    @Autowired
+    private ModelMapper mapper;
+
+
     @Override
-    public Category createCategory(Category category) {
-        return iCategoryRepository.save(category);
+    public CategoryDTO createCategory(CategoryDTO categoryDTO) {
+
+        Category category = iCategoryRepository.save(mapper.map(categoryDTO, Category.class));
+        return mapper.map(category, CategoryDTO.class);
     }
 
     @Override
-    public Category readCategory(Long id) {
-        Category category = null;
-        if (iCategoryRepository.findById(id).isPresent()){
-            category = iCategoryRepository.findById(id).get();
-        }
+    public CategoryDTO readCategory(Long id) {
 
-        return category;
+        Optional<Category> category = iCategoryRepository.findById(id);
+        CategoryDTO categoryDTO = null;
+        if (category.isPresent())
+            categoryDTO = mapper.map(category, CategoryDTO.class);
+        return categoryDTO;
     }
 
     @Override
-    public Category updateCategory(Category category) {
+    public CategoryDTO updateCategory(CategoryDTO categoryDTO) {
 
-        return iCategoryRepository.save(category);
+        Category category = iCategoryRepository.save(mapper.map(categoryDTO, Category.class));
+        return mapper.map(category, CategoryDTO.class);
     }
 
     @Override
     public void deleteCategory(Long id) {
+
         iCategoryRepository.deleteById(id);
+
     }
 
     @Override
-    public List<Category> listCategory() {
-        return iCategoryRepository.findAll();
+    public List<CategoryDTO> listCategory() {
+        List<Category> categories = iCategoryRepository.findAll();
+        List<CategoryDTO> categoryDTOS = new ArrayList<>();
+
+        for (Category category : categories) {
+            categoryDTOS.add(mapper.map(category, CategoryDTO.class));
+        }
+        return categoryDTOS;
     }
 }

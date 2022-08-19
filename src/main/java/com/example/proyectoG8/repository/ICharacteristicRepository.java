@@ -1,6 +1,5 @@
 package com.example.proyectoG8.repository;
 
-import com.example.proyectoG8.model.Category;
 import com.example.proyectoG8.model.Characteristic;
 import com.example.proyectoG8.model.NuevoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
