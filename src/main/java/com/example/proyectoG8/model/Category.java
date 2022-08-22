@@ -2,6 +2,7 @@ package com.example.proyectoG8.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,12 +16,15 @@ public class Category {
     private Long id_category;
 
     @Column
+    @NotNull
     private String title;
 
     @Column
+    @NotNull
     private String description;
 
     @Column
+    @NotNull
     private String UrlImage;
 
     @JsonBackReference

@@ -7,7 +7,7 @@ public class ScoreDTO {
 
     private Long id;
 
-    private Vehicle vehicle;
+    //private Vehicle vehicle;
 
     private Long usuario_id;
 
@@ -21,13 +21,13 @@ public class ScoreDTO {
         this.id = id;
     }
 
-    public Vehicle getVehicle() {
+    /*public Vehicle getVehicle() {
         return vehicle;
     }
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-    }
+    }*/
 
     public Long getUsuario_id() {
         return usuario_id;

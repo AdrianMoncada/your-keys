@@ -30,18 +30,6 @@ public class CategoryController {
     @PostMapping
     public ResponseEntity<CategoryDTO> addCategory(@RequestBody CategoryDTO categoryDTO){
 
-
-        if(categoryDTO.getUrlImage()==null || categoryDTO.getUrlImage().isEmpty()){
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }
-        if(categoryDTO.getDescription()==null || categoryDTO.getDescription().isEmpty()){
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }
-        if(categoryDTO.getTitle()==null || categoryDTO.getTitle().isEmpty()){
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }
-
-
         return new ResponseEntity(iCategoryService.createCategory(categoryDTO), HttpStatus.CREATED);
     }
 

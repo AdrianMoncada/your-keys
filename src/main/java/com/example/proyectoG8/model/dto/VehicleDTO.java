@@ -1,34 +1,34 @@
 package com.example.proyectoG8.model.dto;
 
+import com.example.proyectoG8.model.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class VehicleDTO {
 
-
     private Long id;
-
 
     private Make make;
 
+    private String rangeName;
 
-    private String name;
+    /*private Double latitude ;
 
+    private Double longitude ;*/
 
     private Model model;
 
+    private City city;
 
-    private CityDTO cityDTO;
+    private Category category;
 
+    private List<CharacteristicDTO> characteristics;
 
-    private CategoryDTO categoryDTO;
+    private List<ImageDTO> images = new ArrayList<>();
 
-
-    private List<CharacteristicDTO> characteristicDTOS;
-
-
-    private List<ImageDTO> imageDTOS = new ArrayList<>();
+    //private List<Score> scores = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -46,13 +46,29 @@ public class VehicleDTO {
         this.make = make;
     }
 
-    public String getName() {
-        return name;
+    public String getRangeName() {
+        return rangeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRangeName(String rangeName) {
+        this.rangeName = rangeName;
     }
+
+    /*public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }*/
 
     public Model getModel() {
         return model;
@@ -62,35 +78,43 @@ public class VehicleDTO {
         this.model = model;
     }
 
-    public CityDTO getCity() {
-        return cityDTO;
+    public City getCity() {
+        return city;
     }
 
-    public void setCity(CityDTO cityDTO) {
-        this.cityDTO = cityDTO;
+    public void setCity(City city) {
+        this.city = city;
     }
 
-    public CategoryDTO getCategory() {
-        return categoryDTO;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategory(CategoryDTO categoryDTO) {
-        this.categoryDTO = categoryDTO;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public List<CharacteristicDTO> getCharacteristics() {
-        return characteristicDTOS;
+        return characteristics;
     }
 
-    public void setCharacteristics(List<CharacteristicDTO> characteristicDTOS) {
-        this.characteristicDTOS = characteristicDTOS;
+    public void setCharacteristics(List<CharacteristicDTO> characteristics) {
+        this.characteristics = characteristics;
     }
 
     public List<ImageDTO> getImages() {
-        return imageDTOS;
+        return images;
     }
 
-    public void setImages(List<ImageDTO> imageDTOS) {
-        this.imageDTOS = imageDTOS;
+    public void setImages(List<ImageDTO> images) {
+        this.images = images;
     }
+
+    /*public List<Score> getScores() {
+        return scores;
+    }
+
+    public void setScores(List<Score> scores) {
+        this.scores = scores;
+    }*/
 }

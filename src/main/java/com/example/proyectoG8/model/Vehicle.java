@@ -26,11 +26,11 @@ public class Vehicle {
     @Column
     private String rangeName;
 
-    @Column
+    /*@Column
     private Double latitude ;
 
     @Column
-    private String longitude ;
+    private Double longitude ;*/
 
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
@@ -63,11 +63,11 @@ public class Vehicle {
     @JoinColumn(name = "id")
     private List<Image> images = new ArrayList<>();
 
-    @JsonBackReference
+    /*@JsonBackReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
-    private List<Score> scores = new ArrayList<>();
+    private List<Score> scores = new ArrayList<>();*/
 
     public Long getId() {
         return id;
@@ -93,7 +93,7 @@ public class Vehicle {
         this.rangeName = rangeName;
     }
 
-    public Double getLatitude() {
+    /*public Double getLatitude() {
         return latitude;
     }
 
@@ -101,13 +101,13 @@ public class Vehicle {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
-    }
+    }*/
 
     public Model getModel() {
         return model;
@@ -149,11 +149,11 @@ public class Vehicle {
         this.images = images;
     }
 
-    public List<Score> getScores() {
+    /*public List<Score> getScores() {
         return scores;
     }
 
     public void setScores(List<Score> scores) {
         this.scores = scores;
-    }
+    }*/
 }

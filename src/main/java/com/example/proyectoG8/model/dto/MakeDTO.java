@@ -1,21 +1,15 @@
 package com.example.proyectoG8.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.persistence.*;
 import java.util.List;
 
 
-
-public class Model {
+public class MakeDTO {
 
 
     private Long id;
 
 
-    private String year;
-
+    private String name;
 
     private List<VehicleDTO> vehicleDTOS;
 
@@ -27,12 +21,12 @@ public class Model {
         this.id = id;
     }
 
-    public String getYear() {
-        return year;
+    public String getName() {
+        return name;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<VehicleDTO> getVehicles() {

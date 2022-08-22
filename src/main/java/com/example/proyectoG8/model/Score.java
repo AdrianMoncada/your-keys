@@ -14,11 +14,11 @@ public class Score {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonManagedReference
+    /*@JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
-    private Vehicle vehicle;
+    private Vehicle vehicle;*/
 
     @Column
     private Long usuario_id;
@@ -34,13 +34,13 @@ public class Score {
         this.id = id;
     }
 
-    public Vehicle getVehicle() {
+    /*public Vehicle getVehicle() {
         return vehicle;
     }
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-    }
+    }*/
 
     public Long getUsuario_id() {
         return usuario_id;
