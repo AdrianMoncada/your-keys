@@ -18,14 +18,18 @@ export const HeroWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   position: relative;
+  background-color: black;
+
 `;
 
 export const HeroSlide = styled(motion.div)`
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: black;
+  /* background-color: black; */
 `;
+
+
 export const HeroSlider = styled(motion.div)`
   position: absolute;
   top: 0;
@@ -35,9 +39,9 @@ export const HeroSlider = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  /* background-color: black; */
 
-  &::before {
+  /* &::before {
     transition: all 1s ease;
     content: "";
     position: absolute;
@@ -53,10 +57,11 @@ export const HeroSlider = styled(motion.div)`
       rgba(0, 0, 0, 0.2) 50%,
       rgba(0, 0, 0, 0.6) 100%
     );
-  }
+  } */
 `;
 export const HeroImage = styled(motion.img)`
   position: absolute;
+  z-index: 10;
   top: 0;
   right: 0;
   width: 65%;
@@ -96,7 +101,7 @@ export const HeroContent = styled.div`
   }
 `;
 
-export const HeroText = styled.div`
+export const HeroText = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -9,7 +9,7 @@ import {
   DivUserText,
   MobileIcon,
 } from "./HeaderStyles";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import Logo from "../logo/Logo";
 import AppContext from "../../context/AppContext";
 import Avatar from "@mui/material/Avatar";
@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
+  const location = useLocation();
   const { state, setLoginFalse } = useContext(AppContext);
   const [navbar, setNavbar] = useState(false);
   const [searcher, setSearcher] = useState(false);
@@ -25,7 +26,7 @@ const Header = () => {
 
   const handleClick = () => {
     navigate("/");
-    setShowMobile(!showMobile)
+    setShowMobile(!showMobile);
     setLoginFalse();
     const Toast = Swal.mixin({
       toast: true,
@@ -64,22 +65,27 @@ const Header = () => {
     if (!state.isLogin) {
       return (
         <div open={showMobile}>
-          <Buttons
-            onClick={() => {
-              navigate("/login");
-              setShowMobile(!showMobile);
-            }}
-          >
-            Iniciar Sesión
-          </Buttons>
-          <Buttons
-            onClick={() => {
-              navigate("/signup");
-              setShowMobile(!showMobile);
-            }}
-          >
-            Crear Cuenta
-          </Buttons>
+          {location.pathname === "/login" ? null : (
+            <Buttons
+              onClick={() => {
+                navigate("/login");
+                setShowMobile(!showMobile);
+              }}
+            >
+              Iniciar Sesión
+            </Buttons>
+          )}
+
+          {location.pathname === "/signup" ? null : (
+            <Buttons
+              onClick={() => {
+                navigate("/signup");
+                setShowMobile(!showMobile);
+              }}
+            >
+              Crear Cuenta
+            </Buttons>
+          )}
         </div>
       );
     } else {
@@ -95,8 +101,7 @@ const Header = () => {
                 <h4 className="userName">
                   {user.name} {user.lastName}
                 </h4>
-            <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
-
+                <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
               </DivUserText>
             ))}
         </div>
@@ -105,28 +110,33 @@ const Header = () => {
   };
 
   return (
-    <DivPrueba
-      initial={{ opacity: 0  }}
-      animate={{ opacity: 1}}
-    >
+    <DivPrueba initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className={`wrap-container search ${searcher ? "active" : null}`}>
         <div
           className={`containerHeader ${navbar ? "active" : null}`}
           id="hola"
         >
-          <DivImg onClick={() => {
-            navigate("/")
-            setShowMobile(!showMobile)
-            }}>
+          <DivImg
+            onClick={() => {
+              navigate("/");
+              setShowMobile(!showMobile);
+            }}
+          >
             <Logo />
             <h1>Your Keys!</h1>
           </DivImg>
           <MobileIcon onClick={() => setShowMobile(!showMobile)}>
-            {showMobile ? <FaTimes className="iconMenu" /> : <FaBars className="iconMenu" />}
+            {showMobile ? (
+              <FaTimes className="iconMenu" />
+            ) : (
+              <FaBars className="iconMenu" />
+            )}
           </MobileIcon>
-          <DivUser open={showMobile} >{showLogin()}</DivUser>
+          <DivUser open={showMobile}>{showLogin()}</DivUser>
         </div>
-        {searcher ? <SearchBar /> : null}
+        {
+          location.pathname === "/" ? searcher ? <SearchBar /> : null : null 
+        }
       </div>
     </DivPrueba>
   );
