@@ -1,7 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import { GiCarDoor, GiThermometerCold } from "react-icons/gi";
+import { FaToolbox } from "react-icons/fa";
+/*import { Grid } from '@mui/material-ui/core';*/
+
 import {
   DetailDiv,
   DivName,
@@ -9,14 +13,19 @@ import {
   DivContainerCategory,
   DivContainerLocation,
   DetailContent,
+  DivPolicies,
+  DivPoliciesContainer
 } from "../vehiculo/vehiculoStyles";
+import { SpanLocation } from "../../components/cards/CardStyles";
+
 const DetailProduct = () => {
   const { carId } = useParams();
   console.log(carId);
   const [carInfo, setCarInfo] = useState({});
   useEffect(() => {
-    const findCart = List.find((x) => x.id === carId);
-    setCarInfo(findCart);
+    const findCar = List.find((x) => x.id === carId);
+    console.log(findCar);
+    setCarInfo(findCar);
   }, [carId]);
 
   if (carInfo === null) {
@@ -43,9 +52,44 @@ const DetailProduct = () => {
           </DivLocation>
         </DivContainerLocation>
       </DetailDiv>
-     <DetailContent><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida ex ut felis interdum pulvinar. Donec non scelerisque ligula, sed interdum purus. Integer feugiat, quam ut varius ultricies, tellus urna sodales neque, a elementum erat sapien eget mauris. Maecenas a diam ac elit pretium vestibulum. Morbi lorem neque, pretium eget velit et, congue varius sapien. Quisque dictum elit id purus ultrices ultrices. Duis ullamcorper in diam lacinia vestibulum.
+      {/* --------------------------------------------*/}
 
-Vestibulum fermentum sapien orci, a varius tortor egestas sit amet. Fusce nec justo turpis. Phasellus ullamcorper, felis quis facilisis suscipit, eros dolor sodales urna, nec porttitor orci mauris sit amet sapien. Donec pharetra ex mi, non laoreet purus semper eget. Duis pharetra justo finibus tortor gravida accumsan. Mauris tempus mauris eu aliquet elementum. In vel tortor convallis, molestie ex sit amet, ornare felis. Nullam semper id ipsum at maximus. Morbi a pellentesque arcu. Nullam fermentum sollicitudin nulla, eget maximus urna. Integer posuere nisi pulvinar, vehicula neque at, vulputate nulla. Suspendisse potenti. Phasellus sit amet vestibulum ipsum.</p></DetailContent>
+
+      {/* --------------------------------------------*/}
+      <DetailContent>
+        <h1>{carInfo.titledes}</h1>
+        <p>{carInfo.descripcionUno}</p>
+      </DetailContent>
+      <h1>¿Qué ofrece este vehiculo?</h1>
+      <SpanLocation>
+        <GiCarDoor className="iconLocation" />
+        <p className="textSpan"> {carInfo?.descripcion?.door}</p>
+      </SpanLocation>
+      <SpanLocation>
+        <FaToolbox className="iconLocation" />
+        <p className="textSpan">{carInfo?.descripcion?.gear}</p>
+      </SpanLocation>
+      <SpanLocation>
+        <GiThermometerCold className="iconLocation" />
+        <p className="textSpan">{carInfo?.descripcion?.air}</p>
+      </SpanLocation>
+      <DivPolicies>
+      <DivPoliciesContainer>  
+        <h1>Normas del Vehiculo</h1>
+        <p>{carInfo?.rules?.delivery}</p>
+        <p>{carInfo?.rules?.forbidden}</p>
+      </DivPoliciesContainer>   
+      <DivPoliciesContainer>  
+        <h1>Salud y seguridad</h1>
+        <p>{carInfo?.security?.one}</p>
+        <p>{carInfo?.security?.two}</p>
+        <p>{carInfo?.security?.three}</p>
+        </DivPoliciesContainer>   
+      <DivPoliciesContainer borderLine>  
+        <h1>Política de cancelación</h1>
+        <p>{carInfo.cancellation}</p>
+        </DivPoliciesContainer>  
+      </DivPolicies>
     </React.Fragment>
   );
 };

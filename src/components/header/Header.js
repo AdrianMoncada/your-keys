@@ -9,7 +9,7 @@ import {
   DivUserText,
   MobileIcon,
 } from "./HeaderStyles";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Logo from "../logo/Logo";
 import AppContext from "../../context/AppContext";
 import Avatar from "@mui/material/Avatar";
@@ -22,7 +22,8 @@ const Header = () => {
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const navigate = useNavigate();
-
+  const location = useLocation();
+ console.log(location);
   const handleClick = () => {
     navigate("/");
     setShowMobile(!showMobile)
@@ -108,7 +109,7 @@ const Header = () => {
     <DivPrueba>
       <div className={`wrap-container search ${searcher ? "active" : null}`}>
         <div
-          className={`containerHeader ${navbar ? "active" : null}`}
+          className={`containerHeader ${navbar || location.pathname !== '/' ? "active" : null}`}
           id="hola"
         >
           <DivImg onClick={() => {
