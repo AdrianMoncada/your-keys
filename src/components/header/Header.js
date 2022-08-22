@@ -9,7 +9,7 @@ import {
   DivUserText,
   MobileIcon,
 } from "./HeaderStyles";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import Logo from "../logo/Logo";
 import AppContext from "../../context/AppContext";
 import Avatar from "@mui/material/Avatar";
@@ -23,8 +23,7 @@ const Header = () => {
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
- console.log(location);
+  
   const handleClick = () => {
     navigate("/");
     setShowMobile(!showMobile);
