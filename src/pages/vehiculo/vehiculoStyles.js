@@ -6,7 +6,7 @@ export const DetailDiv = styled.div`
     display:flex;
     flex-direction: column;
     width: 100%;
-    padding: 2rem 0;
+    padding-bottom: 2rem;
     box-sizing: border-box;
     position: relative;
     top: 80px;
@@ -95,3 +95,32 @@ margin: 0 auto;
 width: 100%;
 margin-bottom: 2 rem;
 `
+export const SpanLocation = styled.p`
+    display: flex;
+    margin-bottom: 0px;
+
+    .textSpan {
+        text-align: left;
+        margin: 0;
+    }
+
+    .iconLocation {
+        font-size: 20px;
+        margin-right: 5px;
+        color: ${({theme}) => theme.secondary};
+    }
+`
+export const DivPolicies = styled.div `
+    display:flex;
+    color: black;
+    justify-content:center;
+    gap: 20px;
+    
+`
+export const DivPoliciesContainer = styled.div `
+    color: black;
+    width: 400px;
+    border-right: ${({borderLine}) => borderLine ? null : "1px solid black"};
+`
+
+
