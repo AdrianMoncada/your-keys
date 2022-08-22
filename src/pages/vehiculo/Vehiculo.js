@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { GiCarDoor, GiThermometerCold } from "react-icons/gi";
 import { FaToolbox } from "react-icons/fa";
+import DatePicker from "react-datepicker";
+import AppContext from "../../context/AppContext";
+
 /*import { Grid } from '@mui/material-ui/core';*/
 
 import {
@@ -19,6 +22,7 @@ import {
 import { SpanLocation } from "../../components/cards/CardStyles";
 
 const DetailProduct = () => {
+  const {state} = useContext(AppContext);
   const { carId } = useParams();
   console.log(carId);
   const [carInfo, setCarInfo] = useState({});
@@ -73,6 +77,14 @@ const DetailProduct = () => {
         <GiThermometerCold className="iconLocation" />
         <p className="textSpan">{carInfo?.descripcion?.air}</p>
       </SpanLocation>
+      <DatePicker
+  inline
+  selected={state.startDate}
+  startDate={state.startDate}
+  endDate={state.endDate}
+  monthsShown={2}
+  shouldCloseOnSelect={false}
+/>
       <DivPolicies>
       <DivPoliciesContainer>  
         <h1>Normas del Vehiculo</h1>
