@@ -19,7 +19,9 @@ import {
   DivGoLocation,
   DivFeatures,
   DivCalendar,
-  DivTitlePolicies
+  DivTitlePolicies,
+  DivReserve,
+  H1Calendar,
   
 } from "../vehiculo/vehiculoStyles";
 import Gallery from "../../components/gallery/heroGallery/Gallery";
@@ -80,8 +82,8 @@ const DetailProduct = () => {
         </DivIcons>
       ))}
       </DivFeatures>
+        <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
-        <h1>Fechas disponibles</h1>
       <DatePicker
         inline
         selected={state.startDate}
@@ -91,6 +93,10 @@ const DetailProduct = () => {
         shouldCloseOnSelect={false}
         readOnly
       />
+      <DivReserve>
+        <p>Agregá tus fechas de reserva para obtener precios exactos</p>
+        <button>Inicar reserva</button>
+      </DivReserve>
       </DivCalendar>
       <DivTitlePolicies>
           <h1>Qué tenés que saber</h1>

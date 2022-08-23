@@ -22,7 +22,6 @@ export const DivIcons = styled.div`
   display: inline-block;
   border-right: ${({ borderLine }) => (borderLine ? null : "1px solid black")};
   text-align: center;
-
   .iconsStyles {
     width: 30px;
     height: 30px;
@@ -109,6 +108,7 @@ margin: 0 25px !important;
 `
 export const DivFeatures = styled.div `
   margin-bottom: 70px;
+  background-color: #d9d9d9;
   & > h1 {
     margin: 30px;
     
@@ -116,13 +116,28 @@ export const DivFeatures = styled.div `
 `
 export const DivCalendar = styled.div `
   margin-bottom: 70px;
-  justify-content: center;
-  > h1 {
-    margin: 30px;
-  }
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
 `
 export const DivTitlePolicies = styled.div `
   
     margin: 30px;
   
 `
+export const DivReserve = styled.div `
+  
+  > p {
+    
+    
+  }
+  > button {
+    
+  }
+`
+export const H1Calendar = styled.h1 `
+  text-align: center;
+`
+    
+  
+
