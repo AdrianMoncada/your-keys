@@ -2,13 +2,21 @@ package com.example.proyectoG8.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.util.List;
 
+@Getter
+@Setter
+public class CityDTO implements Serializable {
 
-public class CityDTO {
-
+    private static final long serialVersionUID = 1L;
 
     private Long id;
 
@@ -27,43 +35,4 @@ public class CityDTO {
     @JoinColumn(name = "id")
     private List<VehicleDTO> vehicleDTOS;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public String getProvinceName() {
-        return provinceName;
-    }
-
-    public void setProvinceName(String provinceName) {
-        this.provinceName = provinceName;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    public List<VehicleDTO> getVehicles() {
-        return vehicleDTOS;
-    }
-
-    public void setVehicles(List<VehicleDTO> vehicleDTOS) {
-        this.vehicleDTOS = vehicleDTOS;
-    }
 }

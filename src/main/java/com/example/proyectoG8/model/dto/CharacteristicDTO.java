@@ -1,10 +1,12 @@
 package com.example.proyectoG8.model.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 
-public class CharacteristicDTO {
+public class CharacteristicDTO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
 
     private Long id;
 

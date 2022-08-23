@@ -1,7 +1,6 @@
 package com.example.proyectoG8.controller;
 
 
-import com.example.proyectoG8.model.Vehicle;
 import com.example.proyectoG8.model.dto.VehicleDTO;
 import com.example.proyectoG8.service.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,8 @@ public class VehicleController {
     private IVehicleService vehicleService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> searchVehicle(@PathVariable Long id){
-        if (vehicleService.readVehicle(id) != null){
+    public ResponseEntity<?> searchVehicle(@PathVariable Long id) {
+        if (vehicleService.readVehicle(id) != null) {
 
             return new ResponseEntity(vehicleService.readVehicle(id), HttpStatus.FOUND);
         }
@@ -30,13 +29,13 @@ public class VehicleController {
     }
 
     @PostMapping
-    public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO){
+    public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO) {
         return new ResponseEntity(vehicleService.createVehicle(vehicleDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<VehicleDTO> updateVehicle(@RequestBody VehicleDTO vehicleDTO){
-        if (vehicleService.readVehicle(vehicleDTO.getId()) != null){
+    public ResponseEntity<VehicleDTO> updateVehicle(@RequestBody VehicleDTO vehicleDTO) {
+        if (vehicleService.readVehicle(vehicleDTO.getId()) != null) {
             return new ResponseEntity(vehicleService.updateVehicle(vehicleDTO), HttpStatus.OK);
         }
 
@@ -44,8 +43,8 @@ public class VehicleController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<VehicleDTO> deleteCategory(@PathVariable Long id){
-        if(vehicleService.readVehicle(id) != null){
+    public ResponseEntity<VehicleDTO> deleteCategory(@PathVariable Long id) {
+        if (vehicleService.readVehicle(id) != null) {
             vehicleService.deleteVehicle(id);
             return new ResponseEntity(HttpStatus.OK);
         }
@@ -53,12 +52,12 @@ public class VehicleController {
     }
 
     @GetMapping
-    public ResponseEntity<List<VehicleDTO>> searchAllVehicles(){
-        return new ResponseEntity(vehicleService.listVehicle(),HttpStatus.OK);
+    public ResponseEntity<List<VehicleDTO>> searchAllVehicles() {
+        return new ResponseEntity(vehicleService.listVehicle(), HttpStatus.OK);
     }
 
     @GetMapping("/city/{id}")
-    public ResponseEntity<List<VehicleDTO>> searchAlVehiclesByCity(@PathVariable Long id){
-        return new ResponseEntity(vehicleService.listVehicleByCity(id),HttpStatus.OK);
+    public ResponseEntity<List<VehicleDTO>> searchAlVehiclesByCity(@PathVariable Long id) {
+        return new ResponseEntity(vehicleService.listVehicleByCity(id), HttpStatus.OK);
     }
 }

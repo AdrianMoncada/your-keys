@@ -1,6 +1,5 @@
 package com.example.proyectoG8.service;
 
-import com.example.proyectoG8.model.Vehicle;
 import com.example.proyectoG8.model.dto.VehicleDTO;
 
 import java.util.List;

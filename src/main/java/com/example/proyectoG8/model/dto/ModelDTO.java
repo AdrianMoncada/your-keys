@@ -1,10 +1,16 @@
 package com.example.proyectoG8.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.List;
 
+@Getter
+@Setter
+public class ModelDTO implements Serializable {
 
-
-public class ModelDTO {
+    private static final long serialVersionUID = 1L;
 
 
     private Long id;
@@ -15,27 +21,5 @@ public class ModelDTO {
 
     private List<VehicleDTO> vehicleDTOS;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public List<VehicleDTO> getVehicles() {
-        return vehicleDTOS;
-    }
-
-    public void setVehicles(List<VehicleDTO> vehicleDTOS) {
-        this.vehicleDTOS = vehicleDTOS;
-    }
 }

@@ -1,9 +1,7 @@
 package com.example.proyectoG8.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,7 +18,7 @@ public class Model {
     @Column
     private String year;
 
-    @JsonManagedReference
+    @JsonBackReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
@@ -42,11 +40,11 @@ public class Model {
         this.year = year;
     }
 
-    public List<Vehicle> getVehicles() {
+    /*public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }
+    }*/
 }

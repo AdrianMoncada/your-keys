@@ -1,8 +1,9 @@
 package com.example.proyectoG8.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.List;
 
 
 @Entity
+@Getter
+@Setter
 @Table(name = "vehicles")
 public class Vehicle {
 
@@ -61,7 +64,7 @@ public class Vehicle {
             @UniqueConstraint(columnNames = {"vehicle_id", "characteristic_id"})})
     private List<Characteristic> characteristics;
 
-    @JsonBackReference
+    @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
@@ -73,99 +76,4 @@ public class Vehicle {
     @JoinColumn(name = "id")
     private List<Score> scores = new ArrayList<>();*/
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Make getMake() {
-        return make;
-    }
-
-    public void setMake(Make make) {
-        this.make = make;
-    }
-
-    public String getRangeName() {
-        return rangeName;
-    }
-
-    public void setRangeName(String rangeName) {
-        this.rangeName = rangeName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /*public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }*/
-
-    public Model getModel() {
-        return model;
-    }
-
-    public void setModel(Model model) {
-        this.model = model;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public List<Characteristic> getCharacteristics() {
-        return characteristics;
-    }
-
-    public void setCharacteristics(List<Characteristic> characteristics) {
-        this.characteristics = characteristics;
-    }
-
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-    /*public List<Score> getScores() {
-        return scores;
-    }
-
-    public void setScores(List<Score> scores) {
-        this.scores = scores;
-    }*/
 }

@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements ICategoryService {
         Optional<Category> category = iCategoryRepository.findById(id);
         CategoryDTO categoryDTO = null;
         if (category.isPresent())
-            categoryDTO = mapper.map(category, CategoryDTO.class);
+            categoryDTO = mapper.map(category.get(), CategoryDTO.class);
         return categoryDTO;
     }
 

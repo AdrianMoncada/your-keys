@@ -16,7 +16,7 @@ import java.util.Optional;
 public class VehicleServiceImpl implements IVehicleService {
 
     @Autowired
-    IVehicleRepository vehicleRepository;
+    private IVehicleRepository vehicleRepository;
 
     @Autowired
     private ModelMapper mapper;
@@ -32,8 +32,8 @@ public class VehicleServiceImpl implements IVehicleService {
     public VehicleDTO readVehicle(Long id) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
         VehicleDTO vehicleDTO = null;
-        if(vehicle.isPresent())
-            vehicleDTO = mapper.map(vehicle, VehicleDTO.class);
+        if (vehicle.isPresent())
+            vehicleDTO = mapper.map(vehicle.get(), VehicleDTO.class);
         return vehicleDTO;
     }
 
@@ -66,7 +66,7 @@ public class VehicleServiceImpl implements IVehicleService {
         List<Vehicle> vehiclesByCity = new ArrayList<>();
 
         for (Vehicle vehicle : vehicles) {
-            if (vehicle.getCity().getId() == cityId){
+            if (vehicle.getCity().getId() == cityId) {
                 vehiclesByCity.add(vehicle);
             }
         }

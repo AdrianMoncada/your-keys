@@ -2,7 +2,6 @@ package com.example.proyectoG8.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -23,7 +22,7 @@ public class Characteristic {
 
 
     @JsonBackReference
-    @JsonIgnoreProperties(value={"hibernateLazyInitializer","handle"}, allowSetters = true)
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handle"}, allowSetters = true)
     @ManyToMany(mappedBy = "characteristics", fetch = FetchType.LAZY)
     private List<Vehicle> vehicles;
 

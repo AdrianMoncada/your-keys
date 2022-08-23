@@ -17,8 +17,8 @@ public class CategoryController {
     private ICategoryService iCategoryService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoryDTO> searchCategory(@PathVariable Long id){
-        if (iCategoryService.readCategory(id) != null){
+    public ResponseEntity<CategoryDTO> searchCategory(@PathVariable Long id) {
+        if (iCategoryService.readCategory(id) != null) {
 
             return new ResponseEntity(iCategoryService.readCategory(id), HttpStatus.FOUND);
         }
@@ -28,14 +28,14 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> addCategory(@RequestBody CategoryDTO categoryDTO){
+    public ResponseEntity<CategoryDTO> addCategory(@RequestBody CategoryDTO categoryDTO) {
 
         return new ResponseEntity(iCategoryService.createCategory(categoryDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<CategoryDTO> updateCategory(@RequestBody CategoryDTO categorydto){
-        if (iCategoryService.readCategory(categorydto.getId_category()) != null){
+    public ResponseEntity<CategoryDTO> updateCategory(@RequestBody CategoryDTO categorydto) {
+        if (iCategoryService.readCategory(categorydto.getId_category()) != null) {
             return new ResponseEntity(iCategoryService.updateCategory(categorydto), HttpStatus.OK);
         }
 
@@ -43,8 +43,8 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CategoryDTO> deleteCategory(@PathVariable Long id){
-        if(iCategoryService.readCategory(id) != null){
+    public ResponseEntity<CategoryDTO> deleteCategory(@PathVariable Long id) {
+        if (iCategoryService.readCategory(id) != null) {
             iCategoryService.deleteCategory(id);
             return new ResponseEntity(HttpStatus.OK);
         }
@@ -52,8 +52,9 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryDTO>> searchAllCategory(){
-        return new ResponseEntity(iCategoryService.listCategory(),HttpStatus.OK);
+    public ResponseEntity<List<CategoryDTO>> searchAllCategory() {
+        var resp = new ResponseEntity(iCategoryService.listCategory(), HttpStatus.OK);
+        return resp;
     }
 
 }
