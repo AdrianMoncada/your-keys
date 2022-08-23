@@ -3,10 +3,10 @@ package com.example.proyectoG8.model.dto;
 
 public class ImageDTO {
 
-
     private Long id;
 
     private String title;
+
     private String url;
 
 

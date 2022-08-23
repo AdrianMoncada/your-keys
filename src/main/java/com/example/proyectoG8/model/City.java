@@ -1,7 +1,6 @@
 package com.example.proyectoG8.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -62,11 +61,11 @@ public class City {
         this.countryName = countryName;
     }
 
-    public List<Vehicle> getVehicles() {
+   /* public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }
+    }*/
 }

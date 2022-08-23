@@ -2,11 +2,14 @@ package com.example.proyectoG8.model.dto;
 
 import com.example.proyectoG8.model.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class VehicleDTO {
+public class VehicleDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Long id;
 
@@ -14,15 +17,17 @@ public class VehicleDTO {
 
     private String rangeName;
 
+    private String description;
+
     /*private Double latitude ;
 
     private Double longitude ;*/
 
-    private Model model;
+    private ModelDTO model;
 
-    private City city;
+    private CityDTO city;
 
-    private Category category;
+    private CategoryDTO category;
 
     private List<CharacteristicDTO> characteristics;
 
@@ -54,6 +59,14 @@ public class VehicleDTO {
         this.rangeName = rangeName;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     /*public Double getLatitude() {
         return latitude;
     }
@@ -70,28 +83,12 @@ public class VehicleDTO {
         this.longitude = longitude;
     }*/
 
-    public Model getModel() {
+    public ModelDTO getModel() {
         return model;
     }
 
-    public void setModel(Model model) {
+    public void setModel(ModelDTO model) {
         this.model = model;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public List<CharacteristicDTO> getCharacteristics() {
@@ -108,6 +105,22 @@ public class VehicleDTO {
 
     public void setImages(List<ImageDTO> images) {
         this.images = images;
+    }
+
+    public CityDTO getCity() {
+        return city;
+    }
+
+    public void setCity(CityDTO city) {
+        this.city = city;
+    }
+
+    public CategoryDTO getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryDTO category) {
+        this.category = category;
     }
 
     /*public List<Score> getScores() {

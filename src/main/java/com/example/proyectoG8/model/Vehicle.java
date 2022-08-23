@@ -17,6 +17,7 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //@JsonBackReference
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,6 +26,9 @@ public class Vehicle {
 
     @Column
     private String rangeName;
+
+    @Column
+    private String description;
 
     /*@Column
     private Double latitude ;
@@ -54,7 +58,7 @@ public class Vehicle {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "vehicle_characteristic", joinColumns = @JoinColumn(name = "vehicle_id"),
             inverseJoinColumns = @JoinColumn(name = "characteristic_id"), uniqueConstraints = {
-            @UniqueConstraint(columnNames = { "vehicle_id", "characteristic_id" }) })
+            @UniqueConstraint(columnNames = {"vehicle_id", "characteristic_id"})})
     private List<Characteristic> characteristics;
 
     @JsonBackReference
@@ -91,6 +95,14 @@ public class Vehicle {
 
     public void setRangeName(String rangeName) {
         this.rangeName = rangeName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /*public Double getLatitude() {
