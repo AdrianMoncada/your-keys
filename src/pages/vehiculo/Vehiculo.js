@@ -50,7 +50,6 @@ const DetailProduct = () => {
         </DivContainerLocation>
       </DetailDiv>
       {/* --------------------------------------------*/}
-        <Gallery car={carInfo} />
       {/* --------------------------------------------*/}
 
       <DetailContent>
@@ -64,6 +63,7 @@ const DetailProduct = () => {
           <p>{i.name}</p>
         </div>
       ))}
+        <Gallery car={carInfo} />
 
       <DatePicker
         inline

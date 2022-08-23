@@ -20,12 +20,12 @@
     "react-dom": "^18.2.0",
     "react-grid": "^4.0.4",
     "react-icons": "^4.4.0",
+    "react-image-lightbox": "^5.1.4",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.24",
-    "swiper": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

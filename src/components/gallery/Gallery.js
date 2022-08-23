@@ -1,57 +1,32 @@
-import React, { useState, useCallback, useEffect } from "react";
-import ImageViewer from "react-simple-image-viewer";
+import React, { useState } from "react";
+import Lightbox from "react-image-lightbox";
+import 'react-image-lightbox/style.css';
 
 const Gallery = (car) => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   const images = [];
-  /* useEffect(() => {
-    car?.img?.map(i => console.log("i.url"))
-    console.log(car.characteristics)
-  }, [car]) */
-
   const pushArray = () => {
-    car.car.img?.map(i => images.push(i.url))
-  }
-
-  pushArray()
-
-  const openImageViewer = useCallback((index) => {
-    setCurrentImage(index);
-    setIsViewerOpen(true);
-  }, []);
-
-  const closeImageViewer = () => {
-    setCurrentImage(0);
-    setIsViewerOpen(false);
+    car.car.img?.map((i) => images.push(i.url));
   };
-  console.log(images)
-  console.log(car.characteristics)
 
+  pushArray();
 
   return (
     <div>
-        {
-            pushArray()
-        }
-      {images.map((src, index) => (
-        <img
-          src={src}
-          onClick={() => openImageViewer(index)}
-          width="300"
-          key={index}
-          style={{ margin: "2px" }}
-          alt=""
-        />
-      ))}
-
-      {isViewerOpen && (
-        <ImageViewer
-          src={images}
-          currentIndex={currentImage}
-          disableScroll={false}
-          closeOnClickOutside={true}
-          onClose={closeImageViewer}
+      <button type="button" onClick={() => setIsOpen(true)}>
+        Open Lightbox
+      </button>
+      {isOpen && (
+        <Lightbox
+          mainSrc={images[index]}
+          nextSrc={images[(index + 1) % images.length]}
+          prevSrc={images[(index + images.length - 1) % images.length]}
+          onCloseRequest={() => setIsOpen(false)}
+          onMovePrevRequest={() =>
+            setIndex((index + images.length - 1) % images.length)
+          }
+          onMoveNextRequest={() => setIndex((index + 1) % images.length)}
         />
       )}
     </div>
