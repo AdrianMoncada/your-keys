@@ -7,7 +7,7 @@ export const ContainerHeader = styled.div`
   }
 `;
 
-export const Buttons = styled.button`
+export const Buttons = styled(motion.button)`
   padding: 15px 45px;
   margin: 0 30px;
   border: none;

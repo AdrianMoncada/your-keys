@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Img, Div, DivContainers, DivText } from "./CategoryStyles";
 
 const Category = ({car}) => {
   const id = car.id_category;
+  const [idCar , setIdCar] = useState(id);
+
+  const handleId = () => {
+    console.log(id)
+  }
+
   return (
     <DivContainers
-      initial={{ x: `${id % 2 ? 100 : -100}%` }}
-      whileInView={{ x: 0 }}
+      initial={{ x: `${id % 2 ? 100 : -100}%`, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
       transition={{ delay: 0.2 * id, duration: 0.3 }}
       viewport={{once: true, offset: "50%"}}
+      onClick={() => handleId()}
     >
       <Div
         whileHover={{ scale: 1.1, zIndex: 3 }}

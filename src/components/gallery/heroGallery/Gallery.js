@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-/* import Lightbox from "react-image-lightbox";
-import 'react-image-lightbox/style.css'; */
+import Lightbox from "react-image-lightbox";
+import 'react-image-lightbox/style.css';
+import { ButtonGrid } from "./GalleryStyles";
 
 const Gallery = (car) => {
   const [index, setIndex] = useState(0);
@@ -14,9 +15,9 @@ const Gallery = (car) => {
 
   return (
     <div>
-     {/*  <button type="button" onClick={() => setIsOpen(true)}>
-        Open Lightbox
-      </button>
+      <ButtonGrid type="button" onClick={() => setIsOpen(true)}>
+        Ver Más
+      </ButtonGrid>
       {isOpen && (
         <Lightbox
           mainSrc={images[index]}
@@ -28,7 +29,7 @@ const Gallery = (car) => {
           }
           onMoveNextRequest={() => setIndex((index + 1) % images.length)}
         />
-      )} */}
+      )}
     </div>
   );
 };

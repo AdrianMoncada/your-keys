@@ -3,10 +3,10 @@
     "id": "1",
     "category": "camioneta",
     "range_name": "Ford Ranger",
-    "location": "Valle, Cali",
+    "location": "Cali, Valle",
     "img": [
       {
-        "title": "Ford",
+        "title": "Main",
         "url": "https://i0.wp.com/carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_low/v1/editorial/vhs/Ford-Ranger-dual-cab_1.png?w=1200&ssl=1"
       },
       {
@@ -93,7 +93,7 @@
     "location": "Valle, Cali",
     "img": [
       {
-        "title": "Audi",
+        "title": "Main",
         "url": "https://tmdcobreq.com.br/wp-content/uploads/2018/09/N-2000-A3-IMAGEM-CARRO.png"
       },
       {
@@ -176,7 +176,7 @@
     "location": "pasto, Cali",
     "img": [
       {
-        "title": "spark",
+        "title": "Main",
         "url": "https://s3.pagegear.co/15/contents/posventa/kits_instalados/logo_vectorizado_rarecurso_2.png"
       },
       {
@@ -259,7 +259,7 @@
     "location": "Argentina, Cordoba",
     "img": [
       {
-        "title": "Ford",
+        "title": "Main",
         "url": "https://www.pngplay.com/wp-content/uploads/13/Ford-Mondeo-PNG-Clipart-Background.png"
       },
       {
@@ -358,7 +358,7 @@
     "location": "Valle, Cali",
     "img": [
       {
-        "name": "Spark",
+        "name": "Main",
         "url": "https://secure-developments.com/commonwealth/ecuador/gm_cards/assets/front/images/models/spark-gt/small.png"
       },
       {
@@ -445,7 +445,7 @@
     "location": "Valle, Cali",
     "img": [
       {
-        "name": "Sandero",
+        "name": "Main",
         "url": "https://assets.stickpng.com/images/580b585b2edbce24c47b2cd8.png"
       },
       {
@@ -529,7 +529,7 @@
     "location": "Valle, Cali",
     "img": [
       {
-        "name": "Jeep",
+        "name": "Main",
         "url": "https://i.pinimg.com/originals/76/4d/50/764d50cd9830165aa144adf481c82a24.png"
       },
       {
@@ -616,7 +616,7 @@
     "location": "Valle, Cali",
     "img": [
       {
-        "name": "BMW",
+        "name": "Main",
         "url": "https://www.pngmart.com/files/3/BMW-M3-PNG-File.png"
       },
       {

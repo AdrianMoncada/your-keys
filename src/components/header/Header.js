@@ -23,7 +23,7 @@ const Header = () => {
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const navigate = useNavigate();
-  
+
   const handleClick = () => {
     navigate("/");
     setShowMobile(!showMobile);
@@ -67,6 +67,8 @@ const Header = () => {
         <div open={showMobile}>
           {location.pathname === "/login" ? null : (
             <Buttons
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => {
                 navigate("/login");
                 setShowMobile(!showMobile);
@@ -78,6 +80,8 @@ const Header = () => {
 
           {location.pathname === "/signup" ? null : (
             <Buttons
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => {
                 navigate("/signup");
                 setShowMobile(!showMobile);
@@ -113,7 +117,9 @@ const Header = () => {
     <DivPrueba initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className={`wrap-container search ${searcher ? "active" : null}`}>
         <div
-          className={`containerHeader ${navbar || location.pathname !== '/' ? "active" : null}`}
+          className={`containerHeader ${
+            navbar || location.pathname !== "/" ? "active" : null
+          }`}
           id="hola"
         >
           <DivImg
@@ -134,9 +140,7 @@ const Header = () => {
           </MobileIcon>
           <DivUser open={showMobile}>{showLogin()}</DivUser>
         </div>
-        {
-          location.pathname === "/" ? searcher ? <SearchBar /> : null : null 
-        }
+        {location.pathname === "/" ? searcher ? <SearchBar /> : null : null}
       </div>
     </DivPrueba>
   );
