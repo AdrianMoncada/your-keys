@@ -13,6 +13,9 @@ import {
   DetailContent,
   DivPolicies,
   DivPoliciesContainer,
+  DivIcons,
+  DivSpanIcon,
+  
 } from "../vehiculo/vehiculoStyles";
 import Gallery from "../../components/gallery/heroGallery/Gallery";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
@@ -39,9 +42,11 @@ const DetailProduct = () => {
             <h1>{carInfo.range_name}</h1>
           </DivName>
           <Link to="/">
+            <DivSpanIcon>
             <span>
               <IoIosArrowBack />{" "}
             </span>
+            </DivSpanIcon>
           </Link>
         </DivContainerCategory>
         <DivContainerLocation>
@@ -51,19 +56,19 @@ const DetailProduct = () => {
         </DivContainerLocation>
       </DetailDiv>
       {/* --------------------------------------------*/}
-        <GridGallery carInfo={carInfo} />
+      <GridGallery carInfo={carInfo} />
       {/* --------------------------------------------*/}
 
       <DetailContent>
-        <h1>{carInfo.titledes}</h1>
-        <p>{carInfo.descripcionUno}</p>
+        <h1>Maneja Tu {carInfo.range_name}</h1>
+        <p>{carInfo.description}</p>
       </DetailContent>
       <h1>¿Qué ofrece este vehiculo?</h1>
       {carInfo?.characteristics?.map((i, index) => (
-        <div>
-          <img key={index} src={i.icon} alt={i.name} />
-          <p>{i.name}</p>
-        </div>
+        <DivIcons>
+          <img className="iconsStyles" key={index} src={i.icon} alt={i.name} />
+          <p className="nameIcons">{i.name}</p>
+        </DivIcons>
       ))}
 
       <DatePicker
@@ -74,23 +79,28 @@ const DetailProduct = () => {
         monthsShown={2}
         shouldCloseOnSelect={false}
       />
-      <div>
-      </div>
+      <div></div>
       <DivPolicies>
         <DivPoliciesContainer>
           <h1>Normas del Vehiculo</h1>
-          <p>{carInfo?.rules?.delivery}</p>
-          <p>{carInfo?.rules?.forbidden}</p>
+          <p>Entrega del auto 10:00.</p>
+          <p>No se permite fumar dentro del vehiculo.</p>
         </DivPoliciesContainer>
         <DivPoliciesContainer>
           <h1>Salud y seguridad</h1>
-          <p>{carInfo?.security?.one}</p>
-          <p>{carInfo?.security?.two}</p>
-          <p>{carInfo?.security?.three}</p>
+          <p>
+            Se aplican las pautas de distanciamiento social y otras normas
+            relacionadas con el coronavirus.
+          </p>
+          <p>GPS.</p>
+          <p>Deposito de seguridad.</p>
         </DivPoliciesContainer>
         <DivPoliciesContainer borderLine>
           <h1>Política de cancelación</h1>
-          <p>{carInfo.cancellation}</p>
+          <p>
+            Agrega la fecha de tu viaje para obtener los detalles de la
+            cancelación del servicio.
+          </p>
         </DivPoliciesContainer>
       </DivPolicies>
     </React.Fragment>
