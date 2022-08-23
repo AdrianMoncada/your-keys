@@ -13,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
 import { FaToolbox, FaHeart, FaRegHeart,  } from "react-icons/fa";
 
+
+
 const Card = ({ car }) => {
   const navigate = useNavigate();
   const [favorite, setFavorite] = useState(false);
