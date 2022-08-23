@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import { MdLocationPin } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import AppContext from "../../context/AppContext";
 import {
@@ -15,6 +16,10 @@ import {
   DivPoliciesContainer,
   DivIcons,
   DivSpanIcon,
+  DivGoLocation,
+  DivFeatures,
+  DivCalendar,
+  DivTitlePolicies
   
 } from "../vehiculo/vehiculoStyles";
 import Gallery from "../../components/gallery/heroGallery/Gallery";
@@ -51,6 +56,9 @@ const DetailProduct = () => {
         </DivContainerCategory>
         <DivContainerLocation>
           <DivLocation>
+            <DivGoLocation>
+            <MdLocationPin/>
+            </DivGoLocation>
             <h3>{carInfo.location}</h3>
           </DivLocation>
         </DivContainerLocation>
@@ -63,6 +71,7 @@ const DetailProduct = () => {
         <h1>Maneja Tu {carInfo.range_name}</h1>
         <p>{carInfo.description}</p>
       </DetailContent>
+      <DivFeatures>
       <h1>¿Qué ofrece este vehiculo?</h1>
       {carInfo?.characteristics?.map((i, index) => (
         <DivIcons>
@@ -70,7 +79,9 @@ const DetailProduct = () => {
           <p className="nameIcons">{i.name}</p>
         </DivIcons>
       ))}
-
+      </DivFeatures>
+      <DivCalendar>
+        <h1>Fechas disponibles</h1>
       <DatePicker
         inline
         selected={state.startDate}
@@ -80,7 +91,10 @@ const DetailProduct = () => {
         shouldCloseOnSelect={false}
         readOnly
       />
-      <div></div>
+      </DivCalendar>
+      <DivTitlePolicies>
+          <h1>Qué tenés que saber</h1>
+          </DivTitlePolicies>
       <DivPolicies>
         <DivPoliciesContainer>
           <h1>Normas del Vehiculo</h1>
