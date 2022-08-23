@@ -25,6 +25,10 @@ import {
   
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
+import Map from '../../components/maps/maps'
+import credentials from "../../assets/credentials";
+
+const mapURL = `https://www.google.com/maps/search/?api=1.exp&key=${credentials.mapsKey}`;
 
 const DetailProduct = () => {
   const { state } = useContext(AppContext);
@@ -97,6 +101,11 @@ const DetailProduct = () => {
         <button>Inicar reserva</button>
       </DivReserve>
       </DivCalendar>
+      <div>
+        <Map
+        
+      />
+      </div>
       <DivTitlePolicies>
           <h1>Qué tenés que saber</h1>
           </DivTitlePolicies>
