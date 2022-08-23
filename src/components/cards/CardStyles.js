@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DivCard = styled.div`
     background-color: ${({theme}) =>  theme.background};
-    width: 600px;
+    width: 650px;
     height: 380px;
     display: flex;
     justify-content: space-evenly;
@@ -15,8 +15,9 @@ export const DivCard = styled.div`
 box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.75);
     
     img {
-        width: 350px;
+        width: 400px;
         height: 210px;
+        object-fit: cover;
     }
 `
 

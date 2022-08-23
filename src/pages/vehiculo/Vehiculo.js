@@ -2,13 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import { GiCarDoor, GiThermometerCold } from "react-icons/gi";
-import { FaToolbox } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import AppContext from "../../context/AppContext";
-
-/*import { Grid } from '@mui/material-ui/core';*/
-
 import {
   DetailDiv,
   DivName,
@@ -17,18 +12,16 @@ import {
   DivContainerLocation,
   DetailContent,
   DivPolicies,
-  DivPoliciesContainer
+  DivPoliciesContainer,
 } from "../vehiculo/vehiculoStyles";
-import { SpanLocation } from "../../components/cards/CardStyles";
+import Gallery from "../../components/gallery/Gallery";
 
 const DetailProduct = () => {
-  const {state} = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const { carId } = useParams();
-  console.log(carId);
   const [carInfo, setCarInfo] = useState({});
   useEffect(() => {
     const findCar = List.find((x) => x.id === carId);
-    console.log(findCar);
     setCarInfo(findCar);
   }, [carId]);
 
@@ -42,7 +35,7 @@ const DetailProduct = () => {
         <DivContainerCategory>
           <DivName>
             <h3>{carInfo.category}</h3>
-            <h1>{carInfo.title}</h1>
+            <h1>{carInfo.range_name}</h1>
           </DivName>
           <Link to="/">
             <span>
@@ -57,50 +50,47 @@ const DetailProduct = () => {
         </DivContainerLocation>
       </DetailDiv>
       {/* --------------------------------------------*/}
-
-
+        <Gallery car={carInfo} />
       {/* --------------------------------------------*/}
+
       <DetailContent>
         <h1>{carInfo.titledes}</h1>
         <p>{carInfo.descripcionUno}</p>
       </DetailContent>
       <h1>¿Qué ofrece este vehiculo?</h1>
-      <SpanLocation>
-        <GiCarDoor className="iconLocation" />
-        <p className="textSpan"> {carInfo?.descripcion?.door}</p>
-      </SpanLocation>
-      <SpanLocation>
-        <FaToolbox className="iconLocation" />
-        <p className="textSpan">{carInfo?.descripcion?.gear}</p>
-      </SpanLocation>
-      <SpanLocation>
-        <GiThermometerCold className="iconLocation" />
-        <p className="textSpan">{carInfo?.descripcion?.air}</p>
-      </SpanLocation>
+      {carInfo?.characteristics?.map((i, index) => (
+        <div>
+          <img key={index} src={i.icon} alt={i.name} />
+          <p>{i.name}</p>
+        </div>
+      ))}
+
       <DatePicker
-  inline
-  selected={state.startDate}
-  startDate={state.startDate}
-  endDate={state.endDate}
-  monthsShown={2}
-  shouldCloseOnSelect={false}
-/>
+        inline
+        selected={state.startDate}
+        startDate={state.startDate}
+        endDate={state.endDate}
+        monthsShown={2}
+        shouldCloseOnSelect={false}
+      />
+      <div>
+      </div>
       <DivPolicies>
-      <DivPoliciesContainer>  
-        <h1>Normas del Vehiculo</h1>
-        <p>{carInfo?.rules?.delivery}</p>
-        <p>{carInfo?.rules?.forbidden}</p>
-      </DivPoliciesContainer>   
-      <DivPoliciesContainer>  
-        <h1>Salud y seguridad</h1>
-        <p>{carInfo?.security?.one}</p>
-        <p>{carInfo?.security?.two}</p>
-        <p>{carInfo?.security?.three}</p>
-        </DivPoliciesContainer>   
-      <DivPoliciesContainer borderLine>  
-        <h1>Política de cancelación</h1>
-        <p>{carInfo.cancellation}</p>
-        </DivPoliciesContainer>  
+        <DivPoliciesContainer>
+          <h1>Normas del Vehiculo</h1>
+          <p>{carInfo?.rules?.delivery}</p>
+          <p>{carInfo?.rules?.forbidden}</p>
+        </DivPoliciesContainer>
+        <DivPoliciesContainer>
+          <h1>Salud y seguridad</h1>
+          <p>{carInfo?.security?.one}</p>
+          <p>{carInfo?.security?.two}</p>
+          <p>{carInfo?.security?.three}</p>
+        </DivPoliciesContainer>
+        <DivPoliciesContainer borderLine>
+          <h1>Política de cancelación</h1>
+          <p>{carInfo.cancellation}</p>
+        </DivPoliciesContainer>
       </DivPolicies>
     </React.Fragment>
   );

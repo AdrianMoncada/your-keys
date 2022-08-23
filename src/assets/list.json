@@ -1,150 +1,699 @@
 [
-    {
-        "id":"1",
-        "category": "compacto",
-        "title": "Kia Picanto",
-        "location": "Valle, Cali",
-        "img": "https://globalcarental.com/wp-content/uploads/2019/09/alquiler-de-carros-en-medellin-kia-picanto.png",
-        "titledes": "Desbloquea la ciudad con un Picanto",
-        "descripcionUno":"Las opciones aumentan con el KIA Picanto. Gracias a sus asientos traseros abatibles 60/40, ya no tendrás que elegir entre tus amigos o tus cosas. Además, cuenta con un baúl espacioso, flexible y versátil, con capacidad para 255 litros para aprovechar al máximo el potencial del doble fondo para transportar objetos grandes o cargar tus compras.",
-        "descripcion": {
-            "door": "2",
-            "gear": "automatico",
-            "air": "si" 
-        },
-        "rules" :{
-            "delivery":"Entrega del auto 10:00",
-            "forbidden":"No se permite fumar dentro del vehiculo"
-            } ,
-        "security":{
-            "one":"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus",
-            "two":"GPS",
-            "three":"Deposito de seguridad"
-            } ,
-        "cancellation":"Agrega la fecha de tu viaje para obtener los detalles de la cancelación del servicio."
-    },
-    {
-        "id":"2",
-        "category": "compacto",
-        "title": "Kia Picanto",
-        "location": "Valle, Cali",
-        "img": "https://globalcarental.com/wp-content/uploads/2019/09/alquiler-de-carros-en-medellin-kia-picanto.png",
-        "titledes": "Desbloquea la ciudad con un Picanto",
-        "descripcionUno":"Las opciones aumentan con el KIA Picanto. Gracias a sus asientos traseros abatibles 60/40, ya no tendrás que elegir entre tus amigos o tus cosas. Además, cuenta con un baúl espacioso, flexible y versátil, con capacidad para 255 litros para aprovechar al máximo el potencial del doble fondo para transportar objetos grandes o cargar tus compras.",
-        "descripcion": {
-            "door": "2",
-            "gear": "automatico",
-            "air": "si" 
-        },
-        "rules" :{
-            "delivery":"Entrega del auto 10:00",
-            "forbidden":"No se permite fumar dentro del vehiculo"
-            } ,
-        "security":{
-            "one":"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus",
-            "two":"GPS",
-            "three":"Deposito de seguridad"
-            } ,
-        "cancellation":"Agrega la fecha de tu viaje para obtener los detalles de la cancelación del servicio."
-    },
-    {
-        "id":"3",
-        "category": "compacto",
-        "title": "Kia Picanto",
-        "location": "Valle, Cali",
-        "img": "https://globalcarental.com/wp-content/uploads/2019/09/alquiler-de-carros-en-medellin-kia-picanto.png",
-        "titledes": "Desbloquea la ciudad con un Picanto",
-        "descripcionUno":"Las opciones aumentan con el KIA Picanto. Gracias a sus asientos traseros abatibles 60/40, ya no tendrás que elegir entre tus amigos o tus cosas. Además, cuenta con un baúl espacioso, flexible y versátil, con capacidad para 255 litros para aprovechar al máximo el potencial del doble fondo para transportar objetos grandes o cargar tus compras.",  
-        "descripcion": {
-            "door": "2",
-            "gear": "automatico",
-            "air": "si" 
-        },
-        "rules" :{
-            "delivery":"Entrega del auto 10:00",
-            "forbidden":"No se permite fumar dentro del vehiculo"
-            } ,
-        "security":{
-            "one":"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus",
-            "two":"GPS",
-            "three":"Deposito de seguridad"
-            } ,
-        "cancellation":"Agrega la fecha de tu viaje para obtener los detalles de la cancelación del servicio."
+  {
+    "id": "1",
+    "category": "camioneta",
+    "range_name": "Ford Ranger",
+    "location": "Valle, Cali",
+    "img": [
+      {
+        "title": "Ford",
+        "url": "https://i0.wp.com/carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_low/v1/editorial/vhs/Ford-Ranger-dual-cab_1.png?w=1200&ssl=1"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_753828-MCO32074027707_092019-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_669830-MCO32074039073_092019-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_888877-MCO32074007978_092019-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_771660-MCO32074018331_092019-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_695539-MCO32074030684_092019-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_642826-MCO32074014382_092019-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_863304-MCO32074041558_092019-O.webp"
+      }
+    ],
+    "description": "CONTROL DE VELOCIDAD ADAPTATIVO Mide la distancia y velocidad de los vehículos que se encuentran en frente. Si estos aumentan o reducen su velocidad, la Ford Ranger ajustará de igual forma su velocidad acelerando o activando los frenos de forma dosificada. Disponible en la versión Ranger Limited. Asistente Anti-Colisión con detector de peatones Al detectar un posible riesgo de colisión, con el vehículo de adelante o con un peatón que entra de improviso en la trayectoria, el sistema aplicará los frenos de forma automática para prevenir totalmente o reducir las consecuencias de un eventual choque. Disponible en la versión Ranger Limited. Sistema de permanencia en el carril Detecta las líneas marcadas en el camino y ayuda al conductor a mantenerse en el centro del carril. Utiliza una cámara frontal para monitorear la posición del vehículo y advertir e incluso corregir la trayectoria cuando este tiende a desviarse involuntariamente. Disponible en la versión Ranger Limited.",
+    "characteristics": [
+      {
+        "name": "cuatro puertas",
+        "icon": "https://cdn-icons-png.flaticon.com/512/7568/7568088.png"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Toyota",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4379/4379727.png"
+      },
+      {
+        "name": "Ranger",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2023",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Negro",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Diésel",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Automático",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260102.png?token=exp=1661213706~hmac=634a2f23b51de136c2ddfff03c0b3987"
+      },
+      {
+        "name": "3200",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2430/premium/2430185.png?token=exp=1661213545~hmac=6995eb08815379db456e66cd789e328f"
+      },
+      {
+        "name": "123200",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "5",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "Premium",
+    "range_name": "Audi A3",
+    "location": "Valle, Cali",
+    "img": [
+      {
+        "title": "Audi",
+        "url": "https://tmdcobreq.com.br/wp-content/uploads/2018/09/N-2000-A3-IMAGEM-CARRO.png"
+      },
+      {
+        "title": "Audi",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_720372-MCO51111459346_082022-O.webp"
+      },
+      {
+        "title": "Audi",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_873591-MCO49935956000_052022-O.webp"
+      },
+      {
+        "title": "Audi",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_937557-MCO51111482120_082022-O.webp"
+      },
+      {
+        "title": "Audi",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_661833-MCO51111455358_082022-O.webp"
+      },
+      {
+        "title": "Audi",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_971812-MCO51111310877_082022-O.webp"
+      },
+      {
+        "title": "Audi",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_737790-MCO49936236004_052022-O.webp"
+      }
+    ],
+    "description": "Tecnologías innovadoras, El Audi A3 Sportback cuenta con los últimos avances en asistencia a la conducción, ayudándote en situaciones de peligro y aumentando el confort tanto en viajes largos como en el tráfico urbano del día a día.",
+    "characteristics": [
+      {
+        "name": "cinco puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Audi",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "A3",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2022",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Gris",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Gasolina y gas",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Automático",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "3200",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "120000",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "5",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "Compacto",
+    "range_name": "Spark",
+    "location": "pasto, Cali",
+    "img": [
+      {
+        "title": "spark",
+        "url": "https://s3.pagegear.co/15/contents/posventa/kits_instalados/logo_vectorizado_rarecurso_2.png"
+      },
+      {
+        "title": "spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_808837-MCO51177798071_082022-O.webp"
+      },
+      {
+        "title": "spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_795498-MCO51177699788_082022-O.webp"
+      },
+      {
+        "title": "spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_904993-MCO51177781194_082022-O.webp"
+      },
+      {
+        "title": "spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_629046-MCO51177703694_082022-O.webp"
+      },
+      {
+        "title": "spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_643931-MCO51177741507_082022-O.webp"
+      },
+      {
+        "title": "spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_745642-MCO51177695858_082022-O.webp"
+      }
+    ],
+    "description": "Tecnologías innovadoras, El Audi A3 Sportback cuenta con los últimos avances en asistencia a la conducción, ayudándote en situaciones de peligro y aumentando el confort tanto en viajes largos como en el tráfico urbano del día a día.",
+    "characteristics": [
+      {
+        "name": "cinco puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Chevrolet",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "Spark",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2016",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Blanco",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Gasolina",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Mecanica",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "1.0",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "76207",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "2",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "Intermedios",
+    "range_name": "Ford Mondeo",
+    "location": "Argentina, Cordoba",
+    "img": [
+      {
+        "title": "Ford",
+        "url": "https://www.pngplay.com/wp-content/uploads/13/Ford-Mondeo-PNG-Clipart-Background.png"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_916826-MLA51089985466_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_716942-MLA51089930734_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_890573-MLA51090032230_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_803710-MLA51090031258_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_685834-MLA51089983474_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_749992-MLA51090047159_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_638596-MLA51090042187_082022-F.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_929571-MLA51090035246_082022-O.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_899520-MLA51090039232_082022-F.webp"
+      },
+      {
+        "title": "Ford",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_917143-MLA51089819999_082022-F.webp"
+      }
+    ],
+    "description": "FORD MONDEO TITANIUM 2018 USADO MUY BUEN ESTADO Somos Hauswagen, más de 25 años avalan nuestra trayectoria. Somos la red de concesionarias Volkswagen más importante del País. Empresa de garantía y excelencia",
+    "characteristics": [
+      {
+        "name": "Cuatro puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Ford",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "Mondeo",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2018",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Gris",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Nafta",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Automatico",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "2.0",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "17800",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "5",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "compacto",
+    "range_name": "Spark GT",
+    "location": "Valle, Cali",
+    "img": [
+      {
+        "name": "Spark",
+        "url": "https://secure-developments.com/commonwealth/ecuador/gm_cards/assets/front/images/models/spark-gt/small.png"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_976964-MCO51202110002_082022-F.webp"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_897548-MCO51202049227_082022-F.webp"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_882652-MCO51202083086_082022-F.webp"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_981549-MCO51201884546_082022-F.webp"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_648466-MCO51202049228_082022-F.webp"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_631437-MCO51202042240_082022-F.webp"
+      },
+      {
+        "name": "Spark",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_702912-MCO51202076179_082022-F.webp"
+      }
+    ],
+    "description": "El Chevrolet Spark es la alternativa urbana de la marca norteamericana. Con la intención de crear un automóvil compacto capaz de desplazarse con agilidad por los abarrotados centros de las ciudades, este coche se convierte en una alternativa funcional y muy divertida de conducir.",
+    "characteristics": [
+      {
+        "name": "dos puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Chevrolet",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "Spark GT",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2019",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Negro",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Gasolina",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Mecánica",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "1.2",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "3000",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "2",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "intermedio",
+    "range_name": "Sandero Life",
+    "location": "Valle, Cali",
+    "img": [
+      {
+        "name": "Sandero",
+        "url": "https://assets.stickpng.com/images/580b585b2edbce24c47b2cd8.png"
+      },
+      {
+        "name": "Sandero",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_941214-MCO45827487553_052021-F.webp"
+      },
+      {
+        "name": "Sandero",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_804229-MCO45827504439_052021-F.webp"
+      },
+      {
+        "name": "Sandero",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_886713-MCO45827447753_052021-F.webp"
+      },
+      {
+        "name": "Sandero",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_910592-MCO45827449807_052021-F.webp"
+      },
+      {
+        "name": "Sandero",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_862161-MCO45827459672_052021-F.webp"
+      },
+      {
+        "name": "Sandero",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_715982-MCO45827499486_052021-F.webp"
+      }
+    ],
+    "description": "El Sandero es un cinco plazas con carrocería hatchback de cinco puertas, motor delantero transversal y tracción delantera. Utiliza la plataforma B de Renault, compartida con el Dacia/Renault Logan, Renault Clio II, el Renault Modus, el Nissan Micra III y el Nissan Note.",
+    "characteristics": [
+      {
+        "name": "cuatro puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Renault",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "Sandero",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2020",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Rojo",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Gasolina",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Mecánica",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "1.6",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "4000",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "2",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
 
-    },
-    {
-        "id":"4",
-        "category": "compacto",
-        "title": "Kia Picanto",
-        "location": "Valle, Cali",
-        "img": "https://globalcarental.com/wp-content/uploads/2019/09/alquiler-de-carros-en-medellin-kia-picanto.png",
-        "titledes": "Desbloquea la ciudad con un Picanto",
-        "descripcionUno":"Las opciones aumentan con el KIA Picanto. Gracias a sus asientos traseros abatibles 60/40, ya no tendrás que elegir entre tus amigos o tus cosas. Además, cuenta con un baúl espacioso, flexible y versátil, con capacidad para 255 litros para aprovechar al máximo el potencial del doble fondo para transportar objetos grandes o cargar tus compras.",
-        "descripcion": {
-            "door": "2",
-            "gear": "automatico",
-            "air": "si" 
-          
-        },
-        "rules" :{
-            "delivery":"Entrega del auto 10:00",
-            "forbidden":"No se permite fumar dentro del vehiculo"
-            } ,
-        "security":{
-            "one":"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus",
-            "two":"GPS",
-            "three":"Deposito de seguridad"
-            } ,
-        "cancellation":"Agrega la fecha de tu viaje para obtener los detalles de la cancelación del servicio."  
-    },
-    {
-        "id":"5",
-        "category": "compacto",
-        "title": "Kia Picanto",
-        "location": "Valle, Cali",
-        "img": "https://globalcarental.com/wp-content/uploads/2019/09/alquiler-de-carros-en-medellin-kia-picanto.png",
-        "titledes": "Desbloquea la ciudad con un Picanto",
-        "descripcionUno":"Las opciones aumentan con el KIA Picanto. Gracias a sus asientos traseros abatibles 60/40, ya no tendrás que elegir entre tus amigos o tus cosas. Además, cuenta con un baúl espacioso, flexible y versátil, con capacidad para 255 litros para aprovechar al máximo el potencial del doble fondo para transportar objetos grandes o cargar tus compras.",
-        "descripcion": {
-            "door": "2",
-            "gear": "automatico",
-            "air": "si" 
-        },
-        "rules" :{
-            "delivery":"Entrega del auto 10:00",
-            "forbidden":"No se permite fumar dentro del vehiculo"
-            } ,
-        "security":{
-            "one":"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus",
-            "two":"GPS",
-            "three":"Deposito de seguridad"
-            } ,
-        "cancellation":"Agrega la fecha de tu viaje para obtener los detalles de la cancelación del servicio."  
-    },
-    {
-        "id":"6",
-        "category": "compacto",
-        "title": "Kia Picanto",
-        "location": "Valle, Cali",
-        "img": "https://globalcarental.com/wp-content/uploads/2019/09/alquiler-de-carros-en-medellin-kia-picanto.png",
-        "titledes": "Desbloquea la ciudad con un Picanto",
-        "descripcionUno":"Las opciones aumentan con el KIA Picanto. Gracias a sus asientos traseros abatibles 60/40, ya no tendrás que elegir entre tus amigos o tus cosas. Además, cuenta con un baúl espacioso, flexible y versátil, con capacidad para 255 litros para aprovechar al máximo el potencial del doble fondo para transportar objetos grandes o cargar tus compras.",
-        "descripcion": {
-            "door": "2",
-            "gear": "automatico",
-            "air": "si"
-        },
-        "rules" :{
-            "delivery":"Entrega del auto 10:00",
-            "forbidden":"No se permite fumar dentro del vehiculo"
-            } ,
-        "security":{
-            "one":"Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus",
-            "two":"GPS",
-            "three":"Deposito de seguridad"
-            } ,
-        "cancellation":"Agrega la fecha de tu viaje para obtener los detalles de la cancelación del servicio."
-          
-    }
-    
+  {
+    "id": "7",
+    "category": "camioneta",
+    "range_name": "Jeep Wrangler",
+    "location": "Valle, Cali",
+    "img": [
+      {
+        "name": "Jeep",
+        "url": "https://i.pinimg.com/originals/76/4d/50/764d50cd9830165aa144adf481c82a24.png"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_653023-MCO51000301942_082022-F.webp"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_695412-MCO51000309903_082022-F.webp"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_769194-MCO51000309904_082022-F.webp"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_972810-MCO51000439462_082022-F.webp"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_872301-MCO51000495273_082022-F.webp"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_856174-MCO51000377729_082022-F.webp"
+      },
+      {
+        "name": "Jeep",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_612324-MCO51000316925_082022-F.webp"
+      }
+    ],
+    "description": "El Jeep Wrangler es un auténtico todoterreno, fabricado por Jeep desde 1986. Actualmente se comercializa la segunda generación, presentada en 2018. No obstante, la idea del Jeep Wrangler se remonta al nacimiento del Willys Jeep original en los prolegómenos de la Segunda Guerra Mundial, ante la necesidad del ejército de los Estados Unidos de disponer de un vehículo todoterreno ligero. ",
+    "characteristics": [
+      {
+        "name": "cuatro puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "Renault",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "Jeep",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2020",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Negro",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Gasolina",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Automática",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "3.6",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "10000",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "2",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "premium",
+    "range_name": "BMW M3",
+    "location": "Valle, Cali",
+    "img": [
+      {
+        "name": "BMW",
+        "url": "https://www.pngmart.com/files/3/BMW-M3-PNG-File.png"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_645862-MCO49122114396_022022-F.webp"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_644905-MCO49122096537_022022-F.webp"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_730542-MCO49122099493_022022-F.webp"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_769771-MCO49117534889_022022-F.webp"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_856385-MCO49122093579_022022-F.webp"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_722908-MCO49122096539_022022-F.webp"
+      },
+      {
+        "name": "BMW",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_963887-MCO49122049943_022022-F.webp"
+      }
+    ],
+    "description": "El BMW M3 2021 equipa un motor biturbo de seis cilindros en línea y 3.0 litros que entrega 510 caballos y 650 Newton metro. En la versión Competition la potencia se eleva hasta los 510 caballos y el par máximo hasta los 650 Newton metro",
+    "characteristics": [
+      {
+        "name": "dos puertas",
+        "icon": "https://cdn-icons.flaticon.com/png/512/755/premium/755160.png?token=exp=1661207024~hmac=57781e9f7151e541e7bcd04bdb22ca84"
+      },
+      {
+        "name": "aire acondicionado",
+        "icon": "https://cdn-icons-png.flaticon.com/512/3347/3347818.png"
+      },
+      {
+        "name": "BMW",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3042/premium/3042711.png?token=exp=1661207279~hmac=f9f0f05160306e20e22205fca4621bca"
+      },
+      {
+        "name": "M3",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5035/5035167.png"
+      },
+      {
+        "name": "2021",
+        "icon": "https://cdn-icons-png.flaticon.com/512/4744/4744824.png"
+      },
+      {
+        "name": "Negro",
+        "icon": "https://cdn-icons.flaticon.com/png/512/1752/premium/1752352.png?token=exp=1661206910~hmac=bba0e988805a9765975e0f79c6d2e1fb"
+      },
+      {
+        "name": "Gasolina",
+        "icon": "https://cdn-icons-png.flaticon.com/512/638/638367.png"
+      },
+      {
+        "name": "Automática",
+        "icon": "https://cdn-icons.flaticon.com/png/512/2260/premium/2260098.png?token=exp=1661207455~hmac=49d61a4c1469da58325d7b08a57f5a97"
+      },
+      {
+        "name": "4.0",
+        "icon": "https://cdn-icons.flaticon.com/png/512/3274/premium/3274449.png?token=exp=1661207412~hmac=a914bb404888a6ab8f0c5960ef4569d8"
+      },
+      {
+        "name": "15000",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2/2204.png"
+      },
+      {
+        "name": "2",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1464/1464627.png"
+      }
+    ]
+  }
 ]
