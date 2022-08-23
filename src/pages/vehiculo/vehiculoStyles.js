@@ -18,10 +18,13 @@ export const DivSpanIcon = styled.div`
 `;
 
 export const DivIcons = styled.div`
-  width: 250px;
+  height: 100px;
+  width: 150px;
   display: inline-block;
-  border-right: ${({ borderLine }) => (borderLine ? null : "1px solid black")};
+  /* border-right: ${({ borderLine }) => (borderLine ? null : "1px solid black")}; */
   text-align: center;
+  background-color: ${({number}) => number % 2 ? "#d9d9d9" : null};
+  padding: 30px 0 0 0;
   .iconsStyles {
     width: 30px;
     height: 30px;
@@ -73,7 +76,7 @@ export const DivLocation = styled.div`
 export const DivContainerCategory = styled.div`
   width: 100%;
   background-color: #FCA311;
-  padding: 0 0.5rem;
+  /* padding: 0 0.5rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,7 +87,7 @@ export const DivContainerCategory = styled.div`
 export const DivContainerLocation = styled.div`
   width: 100%;
   background-color: #d9d9d9;
-  padding: 0 0.5rem;
+  /* padding: 0 0.5rem; */
 `;
 
 export const DivPolicies = styled.div`
@@ -107,8 +110,11 @@ margin: 0 25px !important;
   position: absolute;
 `
 export const DivFeatures = styled.div `
+display: flex;
+justify-content: center;
+align-items: center;
   margin-bottom: 70px;
-  background-color: #d9d9d9;
+  /* background-color: #d9d9d9; */
   & > h1 {
     margin: 30px;
     

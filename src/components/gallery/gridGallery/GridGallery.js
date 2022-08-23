@@ -6,7 +6,7 @@ const GridGallery = ({ carInfo }) => {
   const [number, setNumber] = useState(0);
   const images = [];
   const pushArray = () => {
-    carInfo?.img?.map((i) => images.length < 4 ? i.title === "Main" ? null : images.push(i.url) : null);
+    carInfo?.img?.map((i) =>  i.title === "Main" ? null  : images.length < 4 ? images.push(i.url) : null);
   };
 
   pushArray();

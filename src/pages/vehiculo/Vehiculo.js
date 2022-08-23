@@ -24,7 +24,6 @@ import {
   H1Calendar,
   
 } from "../vehiculo/vehiculoStyles";
-import Gallery from "../../components/gallery/heroGallery/Gallery";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 
 const DetailProduct = () => {
@@ -73,10 +72,10 @@ const DetailProduct = () => {
         <h1>Maneja Tu {carInfo.range_name}</h1>
         <p>{carInfo.description}</p>
       </DetailContent>
-      <DivFeatures>
       <h1>¿Qué ofrece este vehiculo?</h1>
+      <DivFeatures>
       {carInfo?.characteristics?.map((i, index) => (
-        <DivIcons>
+        <DivIcons number={index}>
           <img className="iconsStyles" key={index} src={i.icon} alt={i.name} />
           <p className="nameIcons">{i.name}</p>
         </DivIcons>
