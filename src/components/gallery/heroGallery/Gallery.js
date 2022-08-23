@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Lightbox from "react-image-lightbox";
-import 'react-image-lightbox/style.css';
+/* import Lightbox from "react-image-lightbox";
+import 'react-image-lightbox/style.css'; */
 
 const Gallery = (car) => {
   const [index, setIndex] = useState(0);
@@ -14,7 +14,7 @@ const Gallery = (car) => {
 
   return (
     <div>
-      <button type="button" onClick={() => setIsOpen(true)}>
+     {/*  <button type="button" onClick={() => setIsOpen(true)}>
         Open Lightbox
       </button>
       {isOpen && (
@@ -28,7 +28,7 @@ const Gallery = (car) => {
           }
           onMoveNextRequest={() => setIndex((index + 1) % images.length)}
         />
-      )}
+      )} */}
     </div>
   );
 };
