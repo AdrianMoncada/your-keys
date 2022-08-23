@@ -14,7 +14,8 @@ import {
   DivPolicies,
   DivPoliciesContainer,
 } from "../vehiculo/vehiculoStyles";
-import Gallery from "../../components/gallery/Gallery";
+import Gallery from "../../components/gallery/heroGallery/Gallery";
+import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 
 const DetailProduct = () => {
   const { state } = useContext(AppContext);
@@ -50,6 +51,7 @@ const DetailProduct = () => {
         </DivContainerLocation>
       </DetailDiv>
       {/* --------------------------------------------*/}
+        <GridGallery carInfo={carInfo} />
       {/* --------------------------------------------*/}
 
       <DetailContent>
@@ -63,7 +65,6 @@ const DetailProduct = () => {
           <p>{i.name}</p>
         </div>
       ))}
-        <Gallery car={carInfo} />
 
       <DatePicker
         inline
