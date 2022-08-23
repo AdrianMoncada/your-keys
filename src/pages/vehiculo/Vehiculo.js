@@ -73,6 +73,7 @@ const DetailProduct = () => {
         endDate={state.endDate}
         monthsShown={2}
         shouldCloseOnSelect={false}
+        readOnly
       />
       <div>
       </div>
