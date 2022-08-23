@@ -9,6 +9,33 @@ export const DetailDiv = styled.div`
   position: relative;
   top: 80px;
 `;
+
+export const DivSpanIcon = styled.div`
+  text-align: center;
+  justify-content: center;
+  color: gray;
+  margin-right: 25px;
+`;
+
+export const DivIcons = styled.div`
+  width: 250px;
+  display: inline-block;
+  border-right: ${({ borderLine }) => (borderLine ? null : "1px solid black")};
+  text-align: center;
+
+  .iconsStyles {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+
+  .nameIcons {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+`;
+
 export const DetailContent = styled.div`
     margin-top: 70px;
 `
