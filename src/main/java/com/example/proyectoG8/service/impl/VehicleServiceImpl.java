@@ -50,7 +50,6 @@ public class VehicleServiceImpl implements IVehicleService {
 
     @Override
     public List<VehicleDTO> listVehicle() {
-        List<Vehicle> lstVehicles = vehicleRepository.findAllVehicles();
         List<Vehicle> vehicles = vehicleRepository.findAll();
         List<VehicleDTO> vehicleDTOS = new ArrayList<>();
         for (Vehicle vehicle : vehicles) {
