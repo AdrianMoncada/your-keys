@@ -1,7 +1,11 @@
 stages:
+  - prepare
   - build
 
-
+before_build:
+  stage: prepare
+  script:
+    - $MAVEN_HOME/bin/mvn clean
 
 maven-build:
   stage: build
