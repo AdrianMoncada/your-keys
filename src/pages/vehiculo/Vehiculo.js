@@ -25,10 +25,25 @@ import {
   
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
+import axios from "../../apis/axiosRequest";
+import useRequest from "../../hooks/useRequest"
+
+
 
 const DetailProduct = () => {
-  const { state } = useContext(AppContext);
   const { carId } = useParams();
+
+  const [response, error, loading] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: "/vehicle/"
+  })
+  
+  console.log(carId);
+
+  
+  const { state } = useContext(AppContext);
+  
   const [carInfo, setCarInfo] = useState({});
   useEffect(() => {
     const findCar = List.find((x) => x.id === carId);
@@ -38,6 +53,9 @@ const DetailProduct = () => {
   if (carInfo === null) {
     return <h1>Cargando</h1>;
   }
+
+  
+
 
   return (
     <React.Fragment>

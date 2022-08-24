@@ -98,14 +98,6 @@ const Header = () => {
           {state.isLogin &&
             state.user.map((user) => (
               <DivUserText>
-<<<<<<< HEAD
-                <Avatar>{user.name.substr(0, 1)}{user.lastName.substr(0,1)}</Avatar>
-                <h4 className="userName">Hola, {user.name} {user.lastName}</h4>
-              </DivUserText>
-            ))}
-          <ButtonLogOut onClick={handleClick}>Cerrar sesión</ButtonLogOut>
-        </DivUser>
-=======
                 <Avatar>
                   {user.name.substr(0, 1)}
                   {user.lastName.substr(0, 1)}
@@ -117,7 +109,6 @@ const Header = () => {
               </DivUserText>
             ))}
         </div>
->>>>>>> 6fb5aff5b5697b69758c92396346fa5d695b074d
       );
     }
   };
