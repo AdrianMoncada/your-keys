@@ -5,8 +5,9 @@ const Map = (props) => {
     return (
         <GoogleMaps
         apiKey={'AIzaSyCBuTPF1u8IUGB9z9eWhrQz_L4mpITMATo'}
-        zoom={10}
-        center={{lat: -34.397, lng: 150.644}}
+        zoom={12}
+        center={{lat: 3.4306965033400494, lng: -76.50713990342022}}
+        style={{height: "400px", width: "100%"}}
         />
     );
 }
