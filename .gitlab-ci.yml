@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 
 maven-build:
@@ -12,3 +13,16 @@ maven-build:
   artifacts:
     paths:
       - target/*.jar
+
+Deploy: 
+  stage: deploy
+  before_script:
+  - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  script:
+    - scp -o StrictHostKeyChecking=no /home/gitlab-runner/builds/PbVSC6yx/0/ctd/proyecto-integrador-0822/1021-ft/grupo-08/target/proyecto-G8-0.0.1-SNAPSHOT.jar ubuntu@3.144.253.128:/opt/tomcat/webapps
