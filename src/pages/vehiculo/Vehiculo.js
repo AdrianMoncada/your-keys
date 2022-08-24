@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
-import DatePicker from "react-datepicker";
-import AppContext from "../../context/AppContext";
+
 import {
   DetailDiv,
   DivName,
@@ -25,9 +24,9 @@ import {
   
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
+import DateVehicle from "../../components/dateVehicle/DateVehicle";
 
 const DetailProduct = () => {
-  const { state } = useContext(AppContext);
   const { carId } = useParams();
   const [carInfo, setCarInfo] = useState({});
   useEffect(() => {
@@ -83,15 +82,7 @@ const DetailProduct = () => {
       </DivFeatures>
         <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
-      <DatePicker
-        inline
-        selected={state.startDate}
-        startDate={state.startDate}
-        endDate={state.endDate}
-        monthsShown={2}
-        shouldCloseOnSelect={false}
-        readOnly
-      />
+      <DateVehicle />
       <DivReserve>
         <p>Agregá tus fechas de reserva para obtener precios exactos</p>
         <button>Inicar reserva</button>
