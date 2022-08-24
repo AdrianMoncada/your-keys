@@ -1,5 +1,7 @@
-maven-build:
+stages:
+  - build
 
+maven-build:
   stage:
     - build
 
