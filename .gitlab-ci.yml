@@ -1,11 +1,10 @@
 stages:
   - build
 
+
 maven-build:
   stage: build
-
-  tags:
-    - devops
-
-  script:
-    - "mvn clean dependency:copy-dependencies package"
+  script: "mvn clean dependency:copy-dependencies package"
+  artifacts:
+    paths:
+      - target/*.jar
