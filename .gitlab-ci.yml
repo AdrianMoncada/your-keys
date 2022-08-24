@@ -8,6 +8,4 @@ maven-build:
     - devops
 
   script:
-    - "mvn clean"
-    - "mvn install"
-    - "mvn package -B"
+    - "mvn clean dependency:copy-dependencies package"
