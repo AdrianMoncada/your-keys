@@ -1,16 +1,12 @@
-stages:
-  - prepare
-  - build
-
-before_build:
-  stage: prepare
-  script:
-    - sudo apt install maven -y
-    - $MAVEN_HOME/bin/mvn clean
-
 maven-build:
-  stage: build
+
+  stage:
+    - build
+
+  tags:
+    - runner-g8-david
+
   script: "mvn package -B"
   artifacts:
-    paths:
-      - target/*.jar
+      paths:
+        - target/*.jar
