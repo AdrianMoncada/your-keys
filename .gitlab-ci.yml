@@ -5,7 +5,7 @@ maven-build:
   stage: build
 
   tags:
-    - runner-g8-david
+    - devops
 
   script: 
     - "mvn package -B"
