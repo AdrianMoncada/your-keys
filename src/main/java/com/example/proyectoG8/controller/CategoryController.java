@@ -53,8 +53,7 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<CategoryDTO>> searchAllCategory() {
-        var resp = new ResponseEntity(iCategoryService.listCategory(), HttpStatus.OK);
-        return resp;
+        return  new ResponseEntity(iCategoryService.listCategory(), HttpStatus.OK);
     }
 
 }
