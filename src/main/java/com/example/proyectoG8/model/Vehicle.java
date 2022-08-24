@@ -1,5 +1,6 @@
 package com.example.proyectoG8.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -20,7 +21,6 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@JsonBackReference
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
@@ -67,7 +67,7 @@ public class Vehicle {
     @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "vehicle_id")
     private List<Image> images = new ArrayList<>();
 
     /*@JsonBackReference
