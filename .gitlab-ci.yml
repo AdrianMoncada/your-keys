@@ -2,13 +2,10 @@ stages:
   - build
 
 maven-build:
-  stage:
-    - build
+  stage: build
 
   tags:
     - runner-g8-david
 
-  script: "mvn package -B"
-  artifacts:
-      paths:
-        - target/*.jar
+  script: 
+    - "mvn package -B"
