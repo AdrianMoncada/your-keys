@@ -7,5 +7,7 @@ maven-build:
   tags:
     - devops
 
-  script: 
+  script:
+    - "mvn clean"
+    - "mvn install"
     - "mvn package -B"
