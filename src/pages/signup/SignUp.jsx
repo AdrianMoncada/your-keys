@@ -3,6 +3,8 @@ import { useState } from "react";
 import { GrMail, GrFormViewHide, GrFormView, GrUserAdd, GrKey } from "react-icons/gr";
 import { FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 import {
   SignUp,
@@ -93,8 +95,25 @@ const Signup = () => {
           password2.error === false &&
           name.error === false &&
           lastName.error === false) {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'bottom-start',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+        
+            Toast.fire({
+              icon: 'success',
+              title: 'Cuenta creada satisfactoriamente'
+            })
+            navigate("/login")
         }else{
-
+          
         }
       }
       function showPass() {
