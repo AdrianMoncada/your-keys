@@ -10,7 +10,8 @@ const DateCalendar = ({position='block'}) => {
   const {state, setStartDate, setEndDate} = useContext(AppContext);
   /* const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null); */
-  console.log(state.startDate, state.endDate);
+  /* console.log(state.startDate, state.endDate); */
+  console.log("🚀 ~ file: DateCalendar.js ~ line 15 ~ DateCalendar ~ new Date()", new Date())
 
   return (
     <DivDate style={{display: `
@@ -24,6 +25,7 @@ const DateCalendar = ({position='block'}) => {
           selectsStart
           startDate={state.startDate}
           endDate={state.endDate}
+          minDate={new Date()}
           placeholderText="Fecha Recogida"
         />
       </DivInput>

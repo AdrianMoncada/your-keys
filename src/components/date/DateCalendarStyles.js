@@ -8,7 +8,7 @@ export const DivDate = styled.div`
         display: flex;
         justify-content: center;
         align-items: center ;
-        margin-right: 10px;
+        margin: 20px 0 10px 0;
     }
 
     .date {
@@ -41,5 +41,6 @@ export const DivInput = styled.div`
         padding: 3px 5px 4px 5px;
         background-color: ${({theme}) => theme.third};
         border-radius: 10px 0px 0px 10px;
+        color: black;
     }
 `

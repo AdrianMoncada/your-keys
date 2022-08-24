@@ -1,0 +1,17 @@
+[
+    {
+        "img": "https://www.elcarrocolombiano.com/wp-content/uploads/2020/04/20200421-PRECIOS-DE-CARROS-NUEVOS-ABRIL-2020-MAZDA-01AA.jpg",
+        "title": "Mazda 3",
+        "price": "$10.000/dia"
+    },
+    {
+        "img": "https://www.elcarrocolombiano.com/wp-content/uploads/2019/03/20190323-TOYOTA-RAV4-2020-COLOMBIA-PRECIOS-VERSIONES-CARACTERISTICAS-05.jpg",
+        "title": "Toyota Prado",
+        "price": "$10.000/dia"
+    },
+    {
+        "img": "https://images.unsplash.com/photo-1546614042-7df3c24c9e5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "title": "Ford",
+        "price": "$100000/dia"
+    }
+]

@@ -11,7 +11,7 @@ import { DivContainerFooter } from "./FooterStyles";
 const Footer = () => {
   return (
     <DivContainerFooter>
-      <h2 >©2020 Your Keys!</h2>
+      <h2 >©2022 Your Keys!</h2>
       <Logo />
       <div className="iconsFooter">
         <BsTwitter className="icon" />

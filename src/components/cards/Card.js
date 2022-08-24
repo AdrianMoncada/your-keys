@@ -1,23 +1,92 @@
-import React from "react";
-import {MdMyLocation} from "react-icons/md";
-import {DivCard, DivTitle, SpanLocation, DivLocation, ButtonMore} from './CardStyles';
+import React, { useState } from "react";
+import { MdMyLocation } from "react-icons/md";
+import {
+  DivCard,
+  DivTitle,
+  SpanLocation,
+  DivLocation,
+  ButtonMore,
+  DivImgs,
+  DivCalification
+} from "./CardStyles";
+import { useNavigate } from "react-router-dom";
+import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
+import { FaToolbox, FaHeart, FaRegHeart,  } from "react-icons/fa";
+
+
 
 const Card = ({ car }) => {
+  const navigate = useNavigate();
+  const [favorite, setFavorite] = useState(false);
+
+  const favoriteIcon = document.querySelector(".iconFavorite");
+
+  const showBrokenHearth = () => {
+    if (favorite) {
+      favoriteIcon.addEventListener("mouseover", (e) => {
+        return <GiBrokenHeart />
+      });
+    } else {
+      return (
+        <FaHeart
+          onClick={() => setFavorite(!favorite)}
+          className="iconFavorite"
+        />
+      );
+    }
+  };
+
   return (
     <DivCard>
-      <DivTitle>
-        <h2 className="title">{car.title}</h2>
-        <p className="category" >{car.category}</p>
-        <ButtonMore>Ver Más</ButtonMore>
-      </DivTitle>
-      <DivLocation>
-        <SpanLocation>
-          <MdMyLocation className="iconLocation" /> 
-          {car.location}
-        </SpanLocation>
-        <p className="description">{car.descripcion}</p>
-      </DivLocation>
-      <img src={car.img} alt={car.title} />
+      <DivImgs>
+        {favorite ? (
+          <FaHeart
+            onClick={() => setFavorite(!favorite)}
+            className="iconFavorite"
+          />
+        ) : (
+          <FaRegHeart
+            onClick={() => setFavorite(!favorite)}
+            className="iconFavorite"
+          />
+        )}
+        <img src={car.img[0].url} alt={car.img[0].title} />
+      </DivImgs>
+      <div>
+        <DivTitle>
+          <DivCalification>
+            <span className="calificationNumber" >8</span>
+            <span className="calificationText">Muy bueno</span>
+          </DivCalification>
+          <div>
+            <h2 className="title">{car.range_name}</h2>
+            <p className="category">{car.category}</p>
+          </div>
+        </DivTitle>
+        <DivLocation>
+          <SpanLocation>
+            <MdMyLocation className="iconLocation" />
+            <p className="textSpan">{car.location}</p>
+          </SpanLocation>
+          <SpanLocation>
+            <GiCarDoor className="iconLocation" />
+            {/* <p className="textSpan"> {car.descripcion.door}</p> */}
+            <p className="textSpan">{car.characteristics[0].name}</p>
+          </SpanLocation>
+          <SpanLocation>
+            <FaToolbox className="iconLocation" />
+            <p className="textSpan">{car.characteristics[7].name}</p>
+            
+          </SpanLocation>
+          <SpanLocation>
+            <GiThermometerCold className="iconLocation" />
+            <p className="textSpan">{car.characteristics[1].name}</p>
+          </SpanLocation>
+        </DivLocation>
+        <ButtonMore onClick={() => navigate(`/vehiculo/${car.id}`)}>
+          Ver Más
+        </ButtonMore>
+      </div>
     </DivCard>
   );
 };

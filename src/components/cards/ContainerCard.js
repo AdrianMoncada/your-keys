@@ -15,7 +15,7 @@ const ContainerCard = () => {
   return (
     <DivContainer>
         {
-            list.map(car => <Card car={car} />)
+            list.map((car, index) => <Card key={index} car={car} />)
         }
     </DivContainer>
   )
