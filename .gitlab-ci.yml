@@ -5,7 +5,7 @@ stages:
 before_build:
   stage: prepare
   script:
-    - apt install maven -y
+    - sudo apt install maven -y
     - $MAVEN_HOME/bin/mvn clean
 
 maven-build:
