@@ -21,8 +21,7 @@ public class Make {
     @JsonBackReference
     //@JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "make")
     private List<Vehicle> vehicles;
 
     public Long getId() {

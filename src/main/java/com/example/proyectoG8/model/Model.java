@@ -20,8 +20,7 @@ public class Model {
 
     @JsonBackReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "model")
     private List<Vehicle> vehicles;
 
     public Long getId() {
