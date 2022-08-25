@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
   ContainerMain,
   DivContainerInfo,
@@ -16,22 +16,11 @@ import ContainerCard from "../../components/cards/ContainerCard";
 import Hero from "../../components/hero/Hero";
 import slides from "../../assets/SliderData.json";
 import { motion } from "framer-motion";
-import TestRequest from "../../components/testRequest/TestRequest";
-import axios from "../../apis/axiosRequest";
-import useRequest from "../../hooks/useRequest";
+import AppContext from "../../context/AppContext";
+import ContainerCardRequest from "../../components/cards/ContainerCardRequest";
 
 const Home = () => {
-  // const [response, error, loading] = useRequest({
-  //   axiosInstance: axios,
-  //   method: "GET",
-  //   url: "/vehicle",
-  //   requestConfig: {
-  //     headers: {
-  //       "Content-Language": "en-US",
-  //     },
-  //     data: {},
-  //   },
-  // });
+  const {state} = useContext(AppContext)
 
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
@@ -77,7 +66,11 @@ const Home = () => {
       <div id="list"></div>
       <DivContainerList>
         <h2 className="titleRecommendation">Recomendaciones</h2>
-        <ContainerCard />
+        {/* <ContainerCard /> */}
+        {
+          state.categoryList === null ?  <ContainerCard /> : <ContainerCardRequest car={state.categoryList} />  
+        }
+        
       </DivContainerList>
     </div>
   );

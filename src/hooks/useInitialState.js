@@ -5,7 +5,8 @@ const initialState = {
   user: [],
   startDate: null,
   endDate: null,
-  search: null
+  search: null,
+  categoryList: null,
 };
 
 const useInitialState = () => {
@@ -53,6 +54,13 @@ const useInitialState = () => {
       search: payload
     })
   }
+
+  const setCategoryList = (payload) => {
+    setState({
+      ...state,
+      categoryList: payload
+    })
+  }
   
   return {
     state,
@@ -61,7 +69,8 @@ const useInitialState = () => {
     userLogin,
     setStartDate,
     setEndDate,
-    setSearch
+    setSearch,
+    setCategoryList
   };
 };
 

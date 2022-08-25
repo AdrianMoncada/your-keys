@@ -39,10 +39,19 @@ const DetailProduct = () => {
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
-    url: "/vehicle/"
+    url: `/vehicle/${carId}`,
+    requestConfig: {
+      headers: {
+          'Content-Language': 'en-US',
+      },
+      data: {
+
+      }
+  }
   })
+  console.log("🚀 ~ file: Vehiculo.js ~ line 44 ~ DetailProduct ~ carId", carId)
   
-  console.log(carId);
+  console.log(response, error);
 
   
   const { state } = useContext(AppContext);
@@ -62,11 +71,11 @@ const DetailProduct = () => {
 
   return (
     <React.Fragment>
-      <DetailDiv>
+      {/* <DetailDiv>
         <DivContainerCategory>
           <DivName>
-            <h3>{carInfo.category}</h3>
-            <h1>{carInfo.range_name}</h1>
+            <h3>{carInfo.category.title}</h3>
+            <h1>{carInfo.rangeName}</h1>
           </DivName>
           <Link to="/">
             <DivSpanIcon>
@@ -81,16 +90,16 @@ const DetailProduct = () => {
             <DivGoLocation>
               <MdLocationPin />
             </DivGoLocation>
-            <h3>{carInfo.location}</h3>
+            <h3>{carInfo.city.cityName}</h3>
           </DivLocation>
         </DivContainerLocation>
       </DetailDiv>
-      {/* --------------------------------------------*/}
+      
       <GridGallery carInfo={carInfo} />
-      {/* --------------------------------------------*/}
+      
 
       <DetailContent>
-        <h1>Maneja Tu {carInfo.range_name}</h1>
+        <h1>Maneja Tu {carInfo.rangeName}</h1>
         <p>{carInfo.description}</p>
       </DetailContent>
       <h1>¿Qué ofrece este vehiculo?</h1>
@@ -114,19 +123,7 @@ const DetailProduct = () => {
         <p>Agregá tus fechas de reserva para obtener precios exactos</p>
         <button>Inicar reserva</button>
       </DivReserve>
-        {/* <DatePicker
-          inline
-          selected={state.startDate}
-          startDate={state.startDate}
-          endDate={state.endDate}
-          monthsShown={2}
-          shouldCloseOnSelect={false}
-          readOnly
-        /> */}
-        <DivReserve>
-          <p>Agregá tus fechas de reserva para obtener precios exactos</p>
-          <button>Inicar reserva</button>
-        </DivReserve>
+        
       </DivCalendar>
       <div>
         <Map />
@@ -156,7 +153,7 @@ const DetailProduct = () => {
             cancelación del servicio.
           </p>
         </DivPoliciesContainer>
-      </DivPolicies>
+      </DivPolicies> */}
     </React.Fragment>
   );
 };

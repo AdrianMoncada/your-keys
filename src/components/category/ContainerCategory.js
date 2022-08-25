@@ -15,7 +15,7 @@ const ContainerCategory = () => {
 
   return (
     <DivContainer>
-      {response.map((car, index) => (
+      {response?.map((car, index) => (
         <Category car={car} key={car.id_category} />
       ))}
     </DivContainer>

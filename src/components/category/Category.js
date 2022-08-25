@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Img, Div, DivContainers, DivText } from "./CategoryStyles";
+import axios from "../../apis/axiosRequest";
+import useRequest from "../../hooks/useRequest"
+import AppContext from '../../context/AppContext'
 
 const Category = ({car}) => {
   const id = car.id_category;
-
+  const {setCategoryList} = useContext(AppContext)
+  const [response, error, loading] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle/category/${id}`
+  })
+  
   const handleId = () => {
-    console.log(id)
+    console.log("🚀 ~ file: Category.js ~ line 9 ~ Category ~ id", id)
+    console.log("🚀 ~ file: Category.js ~ line 15 ~ Category ~ response", response)
+    setCategoryList(response)
   }
 
   return (

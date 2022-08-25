@@ -11,7 +11,6 @@ const DateCalendar = ({position='block'}) => {
   /* const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null); */
   /* console.log(state.startDate, state.endDate); */
-  console.log("🚀 ~ file: DateCalendar.js ~ line 15 ~ DateCalendar ~ new Date()", new Date())
 
   return (
     <DivDate style={{display: `

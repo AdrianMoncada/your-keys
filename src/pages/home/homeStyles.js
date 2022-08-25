@@ -13,7 +13,7 @@ export const ContainerMain = styled(motion.div)`
   .titleInfo {
     font-size: 30px;
     font-weight: 500;
-    margin: 10px auto;
+    margin: 10px auto 10px auto;
   }
 
   /* img {
@@ -24,8 +24,8 @@ export const ContainerMain = styled(motion.div)`
 `;
 
 export const DivContainerInfo = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 88vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
   width: 70vh;
   .buttonI {
     text-align: center;

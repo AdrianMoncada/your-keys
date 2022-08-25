@@ -50,7 +50,7 @@ const Card = ({ car }) => {
             className="iconFavorite"
           />
         )}
-        <img src={car.img[0].url} alt={car.img[0].title} />
+        <img src={car.images[0]?.url} alt={car?.images[0]?.title} />
       </DivImgs>
       <div>
         <DivTitle>
@@ -59,28 +59,28 @@ const Card = ({ car }) => {
             <span className="calificationText">Muy bueno</span>
           </DivCalification>
           <div>
-            <h2 className="title">{car.range_name}</h2>
-            <p className="category">{car.category}</p>
+            <h2 className="title">{car.rangeName}</h2>
+            <p className="category">{car.category.title}</p>
           </div>
         </DivTitle>
         <DivLocation>
           <SpanLocation>
             <MdMyLocation className="iconLocation" />
-            <p className="textSpan">{car.location}</p>
+            <p className="textSpan">{car.city.cityName}</p>
           </SpanLocation>
           <SpanLocation>
             <GiCarDoor className="iconLocation" />
             {/* <p className="textSpan"> {car.descripcion.door}</p> */}
-            <p className="textSpan">{car.characteristics[0].name}</p>
+            <p className="textSpan">{car?.characteristics[0]?.name}</p>
           </SpanLocation>
           <SpanLocation>
             <FaToolbox className="iconLocation" />
-            <p className="textSpan">{car.characteristics[7].name}</p>
+            <p className="textSpan">{car?.characteristics[1]?.name}</p>
             
           </SpanLocation>
           <SpanLocation>
             <GiThermometerCold className="iconLocation" />
-            <p className="textSpan">{car.characteristics[1].name}</p>
+            <p className="textSpan">{car?.characteristics[2]?.name}</p>
           </SpanLocation>
         </DivLocation>
         <ButtonMore onClick={() => navigate(`/vehiculo/${car.id}`)}>
