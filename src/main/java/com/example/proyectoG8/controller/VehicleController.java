@@ -21,7 +21,7 @@ public class VehicleController {
     public ResponseEntity<?> searchVehicle(@PathVariable Long id) {
         if (vehicleService.readVehicle(id) != null) {
 
-            return new ResponseEntity(vehicleService.readVehicle(id), HttpStatus.FOUND);
+            return new ResponseEntity(vehicleService.readVehicle(id), HttpStatus.OK);
         }
 
         return new ResponseEntity(HttpStatus.NOT_FOUND);
