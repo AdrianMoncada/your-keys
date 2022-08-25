@@ -15,6 +15,7 @@
     <description>proyecto integrador de CTD digital house</description>
     <properties>
         <java.version>18</java.version>
+        <githash>${githash}</githash>
     </properties>
     <dependencies>
         <dependency>

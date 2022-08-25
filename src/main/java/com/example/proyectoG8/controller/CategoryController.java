@@ -16,6 +16,11 @@ public class CategoryController {
     @Autowired
     private ICategoryService iCategoryService;
 
+    @GetMapping("/version")
+    public ResponseEntity<String> version(){
+        return new ResponseEntity(System.getProperty("githash"), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<CategoryDTO> searchCategory(@PathVariable Long id) {
         if (iCategoryService.readCategory(id) != null) {
