@@ -17,4 +17,6 @@ public interface IVehicleService {
     public List<VehicleDTO> listVehicle();
 
     public List<VehicleDTO> listVehicleByCity(Long cityId);
+
+    public List<VehicleDTO> listVehicleByCategory(Long categoryId);
 }

@@ -78,4 +78,23 @@ public class VehicleServiceImpl implements IVehicleService {
         }
         return vehicleDTOS;
     }
+
+    @Override
+    public List<VehicleDTO> listVehicleByCategory(Long categoryId) {
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        List<Vehicle> vehiclesByCategory = new ArrayList<>();
+
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getCategory().getId_category() == categoryId) {
+                vehiclesByCategory.add(vehicle);
+            }
+        }
+
+        List<VehicleDTO> vehicleDTOS = new ArrayList<>();
+
+        for (Vehicle vehicle : vehiclesByCategory) {
+            vehicleDTOS.add(mapper.map(vehicle, VehicleDTO.class));
+        }
+        return vehicleDTOS;
+    }
 }

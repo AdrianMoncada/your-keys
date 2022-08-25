@@ -57,7 +57,12 @@ public class VehicleController {
     }
 
     @GetMapping("/city/{id}")
-    public ResponseEntity<List<VehicleDTO>> searchAlVehiclesByCity(@PathVariable Long id) {
+    public ResponseEntity<List<VehicleDTO>> searchAllVehiclesByCity(@PathVariable Long id) {
         return new ResponseEntity(vehicleService.listVehicleByCity(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<VehicleDTO>> searchAllVehiclesByCategory(@PathVariable Long id) {
+        return new ResponseEntity(vehicleService.listVehicleByCategory(id), HttpStatus.OK);
     }
 }

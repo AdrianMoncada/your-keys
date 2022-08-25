@@ -454,8 +454,6 @@ values (default, "Main", "https://www.pngplay.com/wp-content/uploads/13/Ford-Mon
 insert into  images (id, title, url, vehicle_id)
 values (default, "Ford", "https://http2.mlstatic.com/D_NQ_NP_916826-MLA51089985466_082022-O.webp", 4);
 
-insert into  images (id, title, url, vehicle_id)
-values (default, "Ford", "https://http2.mlstatic.com/D_NQ_NP_716942-MLA51089930734_082022-O.webp", 4);
 
 insert into  images (id, title, url, vehicle_id)
 values (default, "Ford", "https://http2.mlstatic.com/D_NQ_NP_890573-MLA51090032230_082022-O.webp", 4);
