@@ -21,10 +21,13 @@ import {
   DivTitlePolicies,
   DivReserve,
   H1Calendar,
-  
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 import DateVehicle from "../../components/dateVehicle/DateVehicle";
+import Map from "../../components/maps/maps";
+import credentials from "../../assets/credentials";
+
+const mapURL = `https://www.google.com/maps/search/?api=1.exp&key=${credentials.mapsKey}`;
 
 const DetailProduct = () => {
   const { carId } = useParams();
@@ -48,16 +51,16 @@ const DetailProduct = () => {
           </DivName>
           <Link to="/">
             <DivSpanIcon>
-            <span>
-              <IoIosArrowBack />{" "}
-            </span>
+              <span>
+                <IoIosArrowBack />{" "}
+              </span>
             </DivSpanIcon>
           </Link>
         </DivContainerCategory>
         <DivContainerLocation>
           <DivLocation>
             <DivGoLocation>
-            <MdLocationPin/>
+              <MdLocationPin />
             </DivGoLocation>
             <h3>{carInfo.location}</h3>
           </DivLocation>
@@ -73,24 +76,45 @@ const DetailProduct = () => {
       </DetailContent>
       <h1>¿Qué ofrece este vehiculo?</h1>
       <DivFeatures>
-      {carInfo?.characteristics?.map((i, index) => (
-        <DivIcons number={index}>
-          <img className="iconsStyles" key={index} src={i.icon} alt={i.name} />
-          <p className="nameIcons">{i.name}</p>
-        </DivIcons>
-      ))}
+        {carInfo?.characteristics?.map((i, index) => (
+          <DivIcons number={index}>
+            <img
+              className="iconsStyles"
+              key={index}
+              src={i.icon}
+              alt={i.name}
+            />
+            <p className="nameIcons">{i.name}</p>
+          </DivIcons>
+        ))}
       </DivFeatures>
-        <H1Calendar>Fechas disponibles</H1Calendar>
+      <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
       <DateVehicle />
       <DivReserve>
         <p>Agregá tus fechas de reserva para obtener precios exactos</p>
         <button>Inicar reserva</button>
       </DivReserve>
+        {/* <DatePicker
+          inline
+          selected={state.startDate}
+          startDate={state.startDate}
+          endDate={state.endDate}
+          monthsShown={2}
+          shouldCloseOnSelect={false}
+          readOnly
+        /> */}
+        <DivReserve>
+          <p>Agregá tus fechas de reserva para obtener precios exactos</p>
+          <button>Inicar reserva</button>
+        </DivReserve>
       </DivCalendar>
+      <div>
+        <Map />
+      </div>
       <DivTitlePolicies>
-          <h1>Qué tenés que saber</h1>
-          </DivTitlePolicies>
+        <h1>Qué tenés que saber</h1>
+      </DivTitlePolicies>
       <DivPolicies>
         <DivPoliciesContainer>
           <h1>Normas del Vehiculo</h1>
