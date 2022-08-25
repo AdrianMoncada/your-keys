@@ -221,7 +221,7 @@ const Signup = () => {
                   <SubmitButton onClick={onSubmit}>Crear Cuenta</SubmitButton>
                 </SubmitButtoncContainer>
                 <Login>
-                  ¿Ya tienes una cuenta? <ALogin onClick={ () => navigate("/login")}> Iniciar Sesion </ALogin>
+                  ¿Ya tienes una cuenta? <ALogin onClick={ () => navigate("/login")}> Iniciar Sesión </ALogin>
                 </Login>
               </form>
             </FormContainer>
