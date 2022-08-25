@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Gallery from "../heroGallery/Gallery";
 import {ImgGrid, DivContainerImages} from './GridGalleryStyles';
 
-const GridGallery = ({ carInfo }) => {
+const GridGallery = ({ response }) => {
   const [number, setNumber] = useState(0);
   const images = [];
   const pushArray = () => {
-    carInfo?.img?.map((i) =>  i.title === "Main" ? null  : images.length < 4 ? images.push(i.url) : null);
+    response?.images?.map((i) =>  i.title === "Main" ? null  : images.length < 4 ? images.push(i.url) : null);
   };
 
   pushArray();
@@ -18,7 +18,7 @@ const GridGallery = ({ carInfo }) => {
           <ImgGrid number={index} src={image} alt="carro" key={index} />
         </div>
       ))}
-      <Gallery car={carInfo} />
+      <Gallery car={response} />
     </DivContainerImages>
   );
 };

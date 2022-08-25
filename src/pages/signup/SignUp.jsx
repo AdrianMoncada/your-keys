@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { GrMail, GrFormViewHide, GrFormView, GrUserAdd, GrKey } from "react-icons/gr";
-import { FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -15,11 +14,9 @@ import {
   ALogin,
   SpanIcon,
   SpanEye,
-  DivInputContainer,
   PlaceHolderErrors
 } from "./SignupStyles";
-import { Div } from "../../components/category/CategoryStyles";
-import { Label } from "@mui/icons-material";
+
 
 
 const Signup = () => {
@@ -29,7 +26,6 @@ const Signup = () => {
     const lastNameRegExp = /^[a-zA-Zа-яА-ЯёЁ]{1,30}$/;
 
     const navigate = useNavigate();
-    const [user, setUser] = useState("");
     const [email, setEmail] = React.useState({ campo: "", error: null, msgError: "Ingrese un email válido." });
     const [password, setPassword] = React.useState({ campo: "", error: null, msgError: "La contraseña debe tener más de 6 caracteres." });
     const [password2, setPassword2] = React.useState({ campo: "", error: null, msgError: "Las contraseñas deben coincidir." });

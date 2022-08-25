@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
-import DatePicker from "react-datepicker";
 import AppContext from "../../context/AppContext";
+
 import {
   DetailDiv,
   DivName,
@@ -24,14 +24,38 @@ import {
   H1Calendar,
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
+import axios from "../../apis/axiosRequest";
+import useRequest from "../../hooks/useRequest"
+import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import credentials from "../../assets/credentials";
 
 const mapURL = `https://www.google.com/maps/search/?api=1.exp&key=${credentials.mapsKey}`;
 
+
 const DetailProduct = () => {
-  const { state } = useContext(AppContext);
   const { carId } = useParams();
+
+  const [response, error, loading] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle/${carId}`,
+    requestConfig: {
+      headers: {
+          'Content-Language': 'en-US',
+      },
+      data: {
+
+      }
+  }
+  })
+  console.log("🚀 ~ file: Vehiculo.js ~ line 44 ~ DetailProduct ~ carId", carId)
+  
+  console.log(response, error);
+
+  
+  const { state } = useContext(AppContext);
+  
   const [carInfo, setCarInfo] = useState({});
   useEffect(() => {
     const findCar = List.find((x) => x.id === carId);
@@ -42,13 +66,16 @@ const DetailProduct = () => {
     return <h1>Cargando</h1>;
   }
 
+  
+
+
   return (
     <React.Fragment>
       <DetailDiv>
         <DivContainerCategory>
           <DivName>
-            <h3>{carInfo.category}</h3>
-            <h1>{carInfo.range_name}</h1>
+            <h3>{response?.category?.title}</h3>
+            <h1>{response?.rangeName}</h1>
           </DivName>
           <Link to="/">
             <DivSpanIcon>
@@ -63,21 +90,21 @@ const DetailProduct = () => {
             <DivGoLocation>
               <MdLocationPin />
             </DivGoLocation>
-            <h3>{carInfo.location}</h3>
+            <h3>{response?.city?.cityName}</h3>
           </DivLocation>
         </DivContainerLocation>
       </DetailDiv>
-      {/* --------------------------------------------*/}
-      <GridGallery carInfo={carInfo} />
-      {/* --------------------------------------------*/}
+      
+      <GridGallery response={response} />
+      
 
       <DetailContent>
-        <h1>Maneja Tu {carInfo.range_name}</h1>
-        <p>{carInfo.description}</p>
+        <h1>Maneja Tu {response?.rangeName}</h1>
+        <p>{response?.description}</p>
       </DetailContent>
       <h1>¿Qué ofrece este vehiculo?</h1>
       <DivFeatures>
-        {carInfo?.characteristics?.map((i, index) => (
+        {response?.characteristics?.map((i, index) => (
           <DivIcons number={index}>
             <img
               className="iconsStyles"
@@ -91,19 +118,12 @@ const DetailProduct = () => {
       </DivFeatures>
       <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
-        <DatePicker
-          inline
-          selected={state.startDate}
-          startDate={state.startDate}
-          endDate={state.endDate}
-          monthsShown={2}
-          shouldCloseOnSelect={false}
-          readOnly
-        />
-        <DivReserve>
-          <p>Agregá tus fechas de reserva para obtener precios exactos</p>
-          <button>Inicar reserva</button>
-        </DivReserve>
+      <DateVehicle />
+      <DivReserve>
+        <p>Agregá tus fechas de reserva para obtener precios exactos</p>
+        <button>Inicar reserva</button>
+      </DivReserve>
+        
       </DivCalendar>
       <div>
         <Map />
