@@ -66,8 +66,7 @@ public class Vehicle {
 
     @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicle_id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "vehicle")
     private List<Image> images = new ArrayList<>();
 
     /*@JsonBackReference
