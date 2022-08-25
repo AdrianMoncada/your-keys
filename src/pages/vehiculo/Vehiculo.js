@@ -1,8 +1,9 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useContext} from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
+import AppContext from "../../context/AppContext";
 
 import {
   DetailDiv,
@@ -23,14 +24,29 @@ import {
   H1Calendar,
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
+import axios from "../../apis/axiosRequest";
+import useRequest from "../../hooks/useRequest"
 import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import credentials from "../../assets/credentials";
 
 const mapURL = `https://www.google.com/maps/search/?api=1.exp&key=${credentials.mapsKey}`;
 
+
 const DetailProduct = () => {
   const { carId } = useParams();
+
+  const [response, error, loading] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: "/vehicle/"
+  })
+  
+  console.log(carId);
+
+  
+  const { state } = useContext(AppContext);
+  
   const [carInfo, setCarInfo] = useState({});
   useEffect(() => {
     const findCar = List.find((x) => x.id === carId);
@@ -40,6 +56,9 @@ const DetailProduct = () => {
   if (carInfo === null) {
     return <h1>Cargando</h1>;
   }
+
+  
+
 
   return (
     <React.Fragment>

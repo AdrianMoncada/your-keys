@@ -3,7 +3,6 @@ import { Img, Div, DivContainers, DivText } from "./CategoryStyles";
 
 const Category = ({car}) => {
   const id = car.id_category;
-  const [idCar , setIdCar] = useState(id);
 
   const handleId = () => {
     console.log(id)
@@ -26,7 +25,7 @@ const Category = ({car}) => {
           <p className="pCar">50 autos</p>
         </DivText>
         <Img
-          src={car.url_image}
+          src={car.urlImage}
           alt={car.title}
         />
       </Div>

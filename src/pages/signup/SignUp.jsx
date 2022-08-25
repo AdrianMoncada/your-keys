@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { GrMail, GrFormViewHide, GrFormView, GrUserAdd, GrKey } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+
 import {
   SignUp,
   FormContainer,
@@ -88,6 +89,8 @@ const Signup = () => {
           password2.error === false &&
           name.error === false &&
           lastName.error === false) {
+        }else{
+
         }
       }
       function showPass() {

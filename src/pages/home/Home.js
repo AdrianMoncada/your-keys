@@ -21,17 +21,17 @@ import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest";
 
 const Home = () => {
-  const [response, error, loading] = useRequest({
-    axiosInstance: axios,
-    method: "GET",
-    url: "/vehicle",
-    requestConfig: {
-      headers: {
-        "Content-Language": "en-US",
-      },
-      data: {},
-    },
-  });
+  // const [response, error, loading] = useRequest({
+  //   axiosInstance: axios,
+  //   method: "GET",
+  //   url: "/vehicle",
+  //   requestConfig: {
+  //     headers: {
+  //       "Content-Language": "en-US",
+  //     },
+  //     data: {},
+  //   },
+  // });
 
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
