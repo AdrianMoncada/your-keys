@@ -17,11 +17,12 @@ maven-build:
 Deploy: 
   stage: deploy
   before_script:
-  - eval $(ssh-agent -s)
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - apk update && apk add openssh-client bash
   - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
-  - chmod 644 ~/.ssh/known_hosts
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - touch ~/.ssh/config
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - ssh-keyscan -H $EC2_IPADDRESS >> ~/.ssh/known_hosts
   script:
     - scp -o StrictHostKeyChecking=no /home/gitlab-runner/builds/PbVSC6yx/0/ctd/proyecto-integrador-0822/1021-ft/grupo-08/target/proyecto-G8-0.0.1-SNAPSHOT.jar ubuntu@3.144.253.128:/opt/tomcat/webapps
