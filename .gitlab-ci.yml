@@ -1,14 +1,12 @@
+tags:
+  - devops
+
 stages:
   - build
   - deploy
 
-
 maven-build:
   stage: build
-
-  tags:
-    - devops
-
   script: "mvn clean dependency:copy-dependencies package"
   artifacts:
     paths:
