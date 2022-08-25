@@ -1,18 +1,19 @@
-tags:
-  - devops
-
 stages:
   - build
   - deploy
 
 maven-build:
+  tags:
+    - devops
   stage: build
   script: "mvn clean dependency:copy-dependencies package"
   artifacts:
     paths:
       - target/*.jar
 
-Deploy: 
+Deploy:
+  tags:
+    - devops 
   stage: deploy
   before_script:
   - apk update && apk add openssh-client bash
