@@ -27,15 +27,15 @@ deploy:
         - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
         - touch ~/.ssh/config
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-        - ssh-keyscan -H $DEPLOY_SERVER_IP >> ~/.ssh/known_hosts
+        - ssh-keyscan -H $EC2_IPADDRESS >> ~/.ssh/known_hosts
     script:
         - echo "Deploying started!"
-        - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl stop consoleapp.service"
+        - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl stop consoleapp.service"
         - ls
         - cd backend
         - cd demo
         - cd target
         - ls
-        - scp consoleapp-2.7.2.jar ubuntu@$DEPLOY_SERVER_IP:~/console-app/
+        - scp consoleapp-2.7.2.jar ubuntu@$EC2_IPADDRESS:~/console-app/
         - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl start consoleapp.service"
         - echo "Finished deploying the app."
