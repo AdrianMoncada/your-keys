@@ -11,8 +11,29 @@ export const SignUp = styled.div `
 `
 
 export const FormContainer = styled.div `
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+    text-align: center;
+    @media screen and (min-width: 320px) {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+    text-align: center;
+    }
+    @media screen and (min-width: 940px) {
     width: 38%;
-    height: 90%;
+    height: 76%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +41,8 @@ export const FormContainer = styled.div `
     background-color: #E5E5E5;
     border-radius: 30px;
     text-align: center;
-`
+    }
+    `
 
 export const SubmitButtoncContainer = styled.div `
     display: flex;
@@ -70,8 +92,23 @@ export const SpanIcon = styled.span `
     position: absolute;
     left: 19%;
     top: 20%;
+    font-size: 150%;
+    color: rgba(0, 0, 0, 0.7);
+    @media screen and (min-width: 320px) {
+    position: absolute;
+    left: 19%;
+    top: 20%;
     font-size: 210%;
     color: rgba(0, 0, 0, 0.7);
+    }
+    @media screen and (min-width: 940px) {
+    position: absolute;
+    left: 19%;
+    top: 20%;
+    font-size: 170%;
+    color: rgba(0, 0, 0, 0.7);
+    }
+
 `
 export const SpanEye = styled.span `
     position: absolute;
@@ -79,6 +116,21 @@ export const SpanEye = styled.span `
     top:20%;
     font-size: 230%;
     color: rgba(0, 0, 0, 0.7);
+    @media screen and (min-width: 320px){
+    position: absolute;
+    left: 76%;
+    top:20%;
+    font-size: 230%;
+    color: rgba(0, 0, 0, 0.7);
+    }
+    @media screen and (min-width: 940px){
+    position: absolute;
+    left: 76%;
+    top:20%;
+    font-size: 220%;
+    color: rgba(0, 0, 0, 0.7);  
+    }
+
 `
 export const FormGroup = styled.div `
     position: relative;
@@ -96,7 +148,7 @@ export const DivInputContainer = styled.div`
 
 export const PlaceHolderErrors = styled.input`
   width: 65%;
-  height: 3.563em;
+  height: 2.5em;
   border: none;
   background: #e5e5e5;
   border-bottom:solid #14213d;
@@ -109,9 +161,19 @@ export const PlaceHolderErrors = styled.input`
   padding-top: 15px;
 
   &:placeholder {
+    font-size: 2%;
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    @media screen and (min-width: 320px) {
     font-size: 30%;
     color: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
+    }
+    @media screen and (min-width: 320px) {
+    font-size: 30%;
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    }
     
   }
 

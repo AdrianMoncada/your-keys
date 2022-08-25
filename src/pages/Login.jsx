@@ -77,7 +77,7 @@ const Login = () => {
   }
 
   function ifMatch(param) {
-    if (users.map((user) => user.email).includes(param.user) && users.map((user) => user.password).includes(param.password)) {
+    if (users.some(user => user.email === param.user && user.password === param.password)) {
       navigate("/")
       setIsLogin();
       userLogin(users.find(user => user.email === param.user))
@@ -109,7 +109,6 @@ const Login = () => {
       setViewPass(false);
     }
   }
-
   return (
     <LoginContainer>
       {!isLogin && (
