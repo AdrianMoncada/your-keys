@@ -3,12 +3,12 @@ import Lightbox from "react-image-lightbox";
 import 'react-image-lightbox/style.css';
 import { ButtonGrid } from "./GalleryStyles";
 
-const Gallery = (car) => {
+const Gallery = (response) => {
   const [index, setIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const images = [];
   const pushArray = () => {
-    car.car.img?.map((i) => images.push(i.url));
+    response.car.images?.map((i) => images.push(i.url));
   };
 
   pushArray();

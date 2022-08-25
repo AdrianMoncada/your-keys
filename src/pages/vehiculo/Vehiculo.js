@@ -71,11 +71,11 @@ const DetailProduct = () => {
 
   return (
     <React.Fragment>
-      {/* <DetailDiv>
+      <DetailDiv>
         <DivContainerCategory>
           <DivName>
-            <h3>{carInfo.category.title}</h3>
-            <h1>{carInfo.rangeName}</h1>
+            <h3>{response?.category?.title}</h3>
+            <h1>{response?.rangeName}</h1>
           </DivName>
           <Link to="/">
             <DivSpanIcon>
@@ -90,21 +90,21 @@ const DetailProduct = () => {
             <DivGoLocation>
               <MdLocationPin />
             </DivGoLocation>
-            <h3>{carInfo.city.cityName}</h3>
+            <h3>{response?.city?.cityName}</h3>
           </DivLocation>
         </DivContainerLocation>
       </DetailDiv>
       
-      <GridGallery carInfo={carInfo} />
+      <GridGallery response={response} />
       
 
       <DetailContent>
-        <h1>Maneja Tu {carInfo.rangeName}</h1>
-        <p>{carInfo.description}</p>
+        <h1>Maneja Tu {response?.rangeName}</h1>
+        <p>{response?.description}</p>
       </DetailContent>
       <h1>¿Qué ofrece este vehiculo?</h1>
       <DivFeatures>
-        {carInfo?.characteristics?.map((i, index) => (
+        {response?.characteristics?.map((i, index) => (
           <DivIcons number={index}>
             <img
               className="iconsStyles"
@@ -153,7 +153,7 @@ const DetailProduct = () => {
             cancelación del servicio.
           </p>
         </DivPoliciesContainer>
-      </DivPolicies> */}
+      </DivPolicies>
     </React.Fragment>
   );
 };
