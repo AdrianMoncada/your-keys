@@ -1,16 +1,16 @@
 -- Inserting categories
 
 insert into categories (id_category, url_image, description, title)
-values (default, "https://images-ext-1.discordapp.net/external/gHx4-Q7GNbORK8r-5tNpHf-p01AlksaUX_Zq1GAHQrI/https/www.chevrolet.com.pa/content/dam/chevrolet/na/mx/es/index/cars/2019-spark/colorizer/01-images/2019-spark-negro-onix-imwidth%3D1200.png", "Un auto compacto es un vehículo de tamaño medio con una carrocería dividida en 2 volúmenes, por un lado el motor y, por otro el habitáculo y el maletero. Este segmento de coches se encuentra entre los coches utilitarios y las berlinas", "Compactos");
+values (default, "https://g8-resources-bucket.s3.us-east-2.amazonaws.com/2019-spark-negro-onix-imwidth%3D1200.png", "Un auto compacto es un vehículo de tamaño medio con una carrocería dividida en 2 volúmenes, por un lado el motor y, por otro el habitáculo y el maletero. Este segmento de coches se encuentra entre los coches utilitarios y las berlinas", "Compactos");
 
 insert into categories (id_category, url_image, description, title)
-values (default, "https://images-ext-1.discordapp.net/external/PFCFO05cuM7E9P96sEbR256FF1Ftsk1Y-mG7Zj2nKd4/https/www.pngmart.com/files/4/Mazda-Car-PNG-Pic.png", "Un auto intermedio es un vehículo de tamaño promedio de gama media. Este segmento de coches se encuentra entre los coches familiares", "Intermedio");
+values (default, "https://g8-resources-bucket.s3.us-east-2.amazonaws.com/Mazda-Car-PNG-Pic.png", "Un auto intermedio es un vehículo de tamaño promedio de gama media. Este segmento de coches se encuentra entre los coches familiares", "Intermedio");
 
 insert into categories (id_category, url_image, description, title)
-values (default, "https://www.pngall.com/wp-content/uploads/5/White-Pickup-Truck-PNG-Free-Download.png", "Camioneta es un automóvil menor que el camión, ​ empleado generalmente para el transporte de elementos, se aplica a distintos tipos de automóviles, en concreto pickups, vehículos todoterreno, furgonetas, monovolúmenes, y familiares", "Camionetas");
+values (default, "https://g8-resources-bucket.s3.us-east-2.amazonaws.com/White-Pickup-Truck-PNG-Free-Download.png", "Camioneta es un automóvil menor que el camión, ​ empleado generalmente para el transporte de elementos, se aplica a distintos tipos de automóviles, en concreto pickups, vehículos todoterreno, furgonetas, monovolúmenes, y familiares", "Camionetas");
 
 insert into categories (id_category, url_image, description, title)
-values (default, "https://cdn.pixabay.com/photo/2021/10/21/23/42/audi-6730693_960_720.png", "Un vehículo premium se destaca por su alta calidad de materiales, ajuste y ejecución. No valen plásticos duros, franquicias heterogéneas, ruidos parásitos ni errores conceptuales", "Premium");
+values (default, "https://g8-resources-bucket.s3.us-east-2.amazonaws.com/audi-6730693_960_720.png", "Un vehículo premium se destaca por su alta calidad de materiales, ajuste y ejecución. No valen plásticos duros, franquicias heterogéneas, ruidos parásitos ni errores conceptuales", "Premium");
 
 -- Inserting cities
 
