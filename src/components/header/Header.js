@@ -16,6 +16,7 @@ import Avatar from "@mui/material/Avatar";
 import Swal from "sweetalert2";
 import { FaBars, FaTimes } from "react-icons/fa";
 
+
 const Header = () => {
   const location = useLocation();
   const { state, setLoginFalse } = useContext(AppContext);
@@ -138,7 +139,9 @@ const Header = () => {
               <FaBars className="iconMenu" />
             )}
           </MobileIcon>
-          <DivUser open={showMobile}>{showLogin()}</DivUser>
+          <div></div>
+          <DivUser open={showMobile}>{showLogin()}
+          </DivUser>
         </div>
         {location.pathname === "/" ? searcher ? <SearchBar /> : null : null}
       </div>

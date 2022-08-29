@@ -13,18 +13,20 @@ import {
   HeroText,
 
 } from "./HeroStyles";
+import { useNavigate } from "react-router";
 
 const Hero = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const timeout = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const nextSlide = () => {
       setCurrent((current) => (current === length - 1 ? 0 : current + 1));
     };
 
-    timeout.current = setTimeout(nextSlide, 5000);
+    timeout.current = setTimeout(nextSlide, 15500);
 
     return function () {
       if (timeout.current) {
@@ -55,37 +57,40 @@ const Hero = ({ slides }) => {
     <HeroSection>
       <HeroWrapper>
         {slides.map((slide, index) => (
-          <HeroSlide key={index}>
+            <div>
+
             {index === current && (
               <HeroSlider
                 key={index}
                 initial={{ x: "-100%", zIndex: 10 }}
-                transition={{ duration: 1, ease: "easeInOut", zIndex: 10 }}
+                transition={{ duration: 1, ease: "easeInOut", zIndex: 20 }}
                 animate={{ x: 0, opacity: 1, zIndex: 10 }}
               >
                 <HeroImage
                   initial={{ x: 0 }}
                   animate={{ x: "100%" }}
-                  transition={{ duration: 1, ease: "easeInOut", delay: 4 }}
-                  src={slide.img}
+                  transition={{ duration: 0.6, ease: "easeInOut", delay: 15 }}
+                  src={slide.images[2].url}
                   alt="carros"
                 />
                 <HeroContent>
                   <HeroText
                     initial={{ x: 0 }}
                   animate={{ x: "100%" }}
-                  transition={{ duration: 0.6, ease: "easeInOut", delay: 4 }}
-                  src={slide.img}
+                  transition={{ duration: 0.6, ease: "easeInOut", delay: 15 }}
+                  src={slide.images[2].url}
                   alt="carros"
                   >
-                    <h1>{slide.title}</h1>
-                    <p>{slide.price}</p>
-                    <HeroButton>Ver Más</HeroButton>
+                    <h1>{slide.rangeName}</h1>
+                    <p>10000</p>
+                    <HeroButton
+                      onClick={() => navigate(`/vehiculo/${slide.id}`)}
+                    >Ver Más</HeroButton>
                   </HeroText>
                 </HeroContent>
               </HeroSlider>
             )}
-          </HeroSlide>
+                    </div>
         ))}
         <SliderButtons>
           <PrevArrow onClick={prevSlide} />

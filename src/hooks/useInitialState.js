@@ -6,6 +6,7 @@ const initialState = {
   startDate: null,
   endDate: null,
   search: null,
+  nameSearch: [],
   categoryList: null,
 };
 
@@ -55,6 +56,15 @@ const useInitialState = () => {
     })
   }
 
+  const setNameSearch = (payload) => {
+    state.user.shift()
+    setState({
+      ...state,
+      nameSearch: state.nameSearch.push(payload)
+    })
+    console.log(payload)
+  }
+
   const setCategoryList = (payload) => {
     setState({
       ...state,
@@ -64,6 +74,7 @@ const useInitialState = () => {
   
   return {
     state,
+    setNameSearch,
     setLoginFalse,
     setLoginTrue,
     userLogin,

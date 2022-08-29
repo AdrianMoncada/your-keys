@@ -1,14 +1,9 @@
 import styled from "styled-components";
 import {motion} from "framer-motion";
 
-export const ContainerHeader = styled.div`
-  .sticky {
-    background-color: red !important;
-  }
-`;
 
 export const Buttons = styled(motion.button)`
-  padding: 15px 45px;
+  padding: 13px 30px;
   margin: 0 30px;
   border: none;
   font-size: 18px;
@@ -38,11 +33,18 @@ export const DivImg = styled.div`
   margin-left: 5rem;
   position: relative;
   z-index: 5;
+  cursor: pointer;
+
+  h1 {
+    font-size: 25px;
+    margin-left: 10px;
+  }
 `;
 
 export const DivPrueba = styled(motion.div)`
   position: relative;
   z-index: 20;
+
 
   .wrap-container {
     position: fixed;
@@ -63,14 +65,6 @@ export const DivPrueba = styled(motion.div)`
 
   .containerHeader.active {
     background-color: black;
-  }
-
-  .search.active {
-    background-color: #FCA311;
-  }
-
-  h1 {
-    margin-left: 50px;
   }
 `;
 
@@ -101,6 +95,7 @@ export const DivUser = styled.div`
     align-items: center;
     transition: 0.5s all ease;
   }
+
 `
 
 export const DivUserText = styled.div`

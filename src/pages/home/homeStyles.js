@@ -119,7 +119,7 @@ export const ContainerCategorias = styled.div`
     top: 85%;
     left: 42%;
     color: black;
-    font-size: 44px;
+    font-size: 38px;
   }
 `;
 

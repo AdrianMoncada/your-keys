@@ -13,8 +13,6 @@ import { useNavigate } from "react-router-dom";
 import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
 import { FaToolbox, FaHeart, FaRegHeart,  } from "react-icons/fa";
 
-
-
 const Card = ({ car }) => {
   const navigate = useNavigate();
   const [favorite, setFavorite] = useState(false);
@@ -35,9 +33,13 @@ const Card = ({ car }) => {
       );
     }
   };
-
+  
   return (
-    <DivCard>
+    <DivCard
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0%", opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <DivImgs>
         {favorite ? (
           <FaHeart
@@ -50,7 +52,7 @@ const Card = ({ car }) => {
             className="iconFavorite"
           />
         )}
-        <img src={car.images[0]?.url} alt={car?.images[0]?.title} />
+        <img src={car.images.find(i => i.title === "Main").url} alt={car?.images[0]?.title} />
       </DivImgs>
       <div>
         <DivTitle>

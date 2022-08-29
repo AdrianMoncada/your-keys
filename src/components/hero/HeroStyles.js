@@ -19,7 +19,7 @@ export const HeroWrapper = styled.div`
   overflow: hidden;
   position: relative;
   background-color: black;
-
+  z-index: 1;
 `;
 
 export const HeroSlide = styled(motion.div)`
@@ -131,6 +131,7 @@ export const HeroButton = styled.button`
   color: white;
   font-size: 18px;
   border: none;
+  cursor: pointer;
 `;
 
 export const SliderButtons = styled.div`

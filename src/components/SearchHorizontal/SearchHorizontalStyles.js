@@ -1,29 +1,80 @@
+import { MdClose } from "react-icons/md";
 import styled from "styled-components";
+import {motion} from 'framer-motion'
 
-export const DivSearchHorizontal = styled.div`
-  display: flex;
-`;
 export const SearchContainerHorizontal = styled.div`
-  display: flex;
-  justify-content: center;
+   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  padding: 5px 0;
+  padding: 20px 20px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  /* background-color: rgba(0, 0, 0, 0.8); */
 
-  .titleInfos {
-    font-size: 20px;
-    font-weight: 500;
-    margin: 0 10px;
-  }
-  .divcito {
+  /* .divcito {
     margin-right: 10px;
   }
   .dates {
     margin-top: 10px;
-  }
+  } */
 `;
 
-export const DivDatesHorizontal = styled.div``;
+export const ContainerButtonSvg = styled.div`
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  color: white;
+  transition: all 0.3s ease-in-out;
+`
+export const Background = styled.div`
+margin: -20px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const ModalWrapper = styled(motion.div)`
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 5px 16px rgba(0,0,0,0.2);
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  margin-bottom: 80px;
+`
+
+export const ModalContent = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px 20px;
+  color: black;
+  transition: all 0.3s ease-in-out; 
+`
+
+export const CloseModalButton = styled(MdClose)`
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
+  color: black;
+`
+
+export const DivDatesHorizontal = styled.div`
+  display: flex;
+`;
 
 export const DivInputHorizontal = styled.div`
   display: flex;
@@ -43,7 +94,6 @@ export const ButtonInfoHorizontal = styled.button`
   padding: 15px 20px;
   font-size: 20px;
   font-weight: bold;
-  margin: 0 auto;
   border: none;
   border-radius: 10px;
   background-image: linear-gradient(
@@ -69,5 +119,23 @@ export const ButtonInfoHorizontal = styled.button`
     &:hover {
       color: black;
     }
+  }
+`;
+
+export const DivSvg = styled(motion.div)`
+  background-color: ${({ theme }) => theme.secondary};
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+
+  .iconSearch {
+    font-size: 40px;
+    color: black;
   }
 `;

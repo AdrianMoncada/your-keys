@@ -7,19 +7,26 @@ import {
   AiFillFacebook,
 } from "react-icons/ai";
 import { DivContainerFooter } from "./FooterStyles";
+import { useLocation } from "react-router";
 
 const Footer = () => {
+  const location = useLocation();
   return (
-    <DivContainerFooter>
-      <h2 >©2022 Your Keys!</h2>
-      <Logo />
-      <div className="iconsFooter">
-        <BsTwitter className="icon" />
-        <AiFillLinkedin className="icon" />
-        <AiFillInstagram className="icon" />
-        <AiFillFacebook className="icon" />
-      </div>
-    </DivContainerFooter>
+    <div>
+      {location.pathname === "/signup" ||
+      location.pathname === "/login" ? null : (
+        <DivContainerFooter>
+          <h2>©2022 Your Keys!</h2>
+          <Logo />
+          <div className="iconsFooter">
+            <BsTwitter className="icon" />
+            <AiFillLinkedin className="icon" />
+            <AiFillInstagram className="icon" />
+            <AiFillFacebook className="icon" />
+          </div>
+        </DivContainerFooter>
+      )}
+    </div>
   );
 };
 
