@@ -35,7 +35,7 @@ public class VehicleController {
 
     @PutMapping
     public ResponseEntity<VehicleDTO> updateVehicle(@RequestBody VehicleDTO vehicleDTO) {
-        if (vehicleService.readVehicle(vehicleDTO.getId()) != null) {
+        if (vehicleService.readVehicle(vehicleDTO.getIdVehicle()) != null) {
             return new ResponseEntity(vehicleService.updateVehicle(vehicleDTO), HttpStatus.OK);
         }
 

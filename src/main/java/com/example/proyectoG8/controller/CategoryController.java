@@ -18,7 +18,8 @@ public class CategoryController {
 
     @GetMapping("/version")
     public ResponseEntity<String> version(){
-        return new ResponseEntity(System.getProperty("githash"), HttpStatus.OK);
+        String version = "{version: " + System.getProperty("githash")+ "}";
+        return new ResponseEntity(version, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

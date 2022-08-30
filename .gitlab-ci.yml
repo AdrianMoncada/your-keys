@@ -7,7 +7,7 @@ build:
     image:  maven:latest
     script:
         - ls
-        - mvn clean install -Dgithash=$CI_COMMIT_SHA
+        - mvn clean install -DargLine=-Dgithash=$CI_COMMIT_SHA
         - cd target
         - ls
     artifacts:

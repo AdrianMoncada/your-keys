@@ -66,7 +66,7 @@ public class VehicleServiceImpl implements IVehicleService {
         List<Vehicle> vehiclesByCity = new ArrayList<>();
 
         for (Vehicle vehicle : vehicles) {
-            if (vehicle.getCity().getId() == cityId) {
+            if (vehicle.getCity().getIdCity() == cityId) {
                 vehiclesByCity.add(vehicle);
             }
         }
