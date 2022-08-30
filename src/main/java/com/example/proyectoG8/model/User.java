@@ -1,6 +1,7 @@
 package com.example.proyectoG8.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
@@ -32,7 +33,7 @@ public class User {
     @Column
     private String city;
 
-    @JsonManagedReference
+    @JsonBackReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rol_id")
@@ -40,6 +41,6 @@ public class User {
 
     @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private List<Booking> bookings;
 }

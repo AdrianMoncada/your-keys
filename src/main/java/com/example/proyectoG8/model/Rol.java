@@ -21,6 +21,6 @@ public class Rol {
 
     @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "rol")
     private List<User> users;
 }
