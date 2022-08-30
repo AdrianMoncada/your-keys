@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
@@ -31,7 +32,9 @@ import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import credentials from "../../assets/credentials";
 
+
 const DetailProduct = () => {
+  const navigate = useNavigate();  
   const { carId } = useParams();
 
   const [response, error, loading] = useRequest({
@@ -92,7 +95,7 @@ const DetailProduct = () => {
       <DateVehicle />
       <DivReserve>
         <p className="textBooking">Agregá tus fechas de reserva para obtener precios exactos</p>
-        <button className="buttonBooking">Inicar reserva</button>
+        <button className="buttonBooking" onClick={() => navigate('/booking')}>Inicar reserva</button>
       </DivReserve>
         
       </DivCalendar>
