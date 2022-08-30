@@ -3,7 +3,7 @@
     "id": "1",
     "category": "camioneta",
     "range_name": "Ford Ranger",
-    "location": "Cali, Valle",
+    "location": "Bogotá,Cundinamarca",
     "img": [
       {
         "title": "Main",
@@ -90,7 +90,7 @@
     "id": "2",
     "category": "Premium",
     "range_name": "Audi A3",
-    "location": "Valle, Cali",
+    "location": "Pasto,Nariño",
     "img": [
       {
         "title": "Main",
@@ -173,7 +173,7 @@
     "id": "3",
     "category": "Compacto",
     "range_name": "Spark",
-    "location": "pasto, Cali",
+    "location": "Cali, Valle",
     "img": [
       {
         "title": "Main",
@@ -256,7 +256,7 @@
     "id": "4",
     "category": "Intermedios",
     "range_name": "Ford Mondeo",
-    "location": "Argentina, Cordoba",
+    "location": "Córdoba, Argentina",
     "img": [
       {
         "title": "Main",
@@ -355,7 +355,7 @@
     "id": "5",
     "category": "compacto",
     "range_name": "Spark GT",
-    "location": "Valle, Cali",
+    "location": "Bucaramanga,Santander",
     "img": [
       {
         "title": "Main",
@@ -526,7 +526,7 @@
     "id": "7",
     "category": "camioneta",
     "range_name": "Jeep Wrangler",
-    "location": "Valle, Cali",
+    "location": "Bogotá,Cundinamarca",
     "img": [
       {
         "title": "Main",
@@ -613,7 +613,7 @@
     "id": "8",
     "category": "premium",
     "range_name": "BMW M3",
-    "location": "Valle, Cali",
+    "location": "Córdoba,Argentina",
     "img": [
       {
         "title": "Main",
