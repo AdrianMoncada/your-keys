@@ -15,10 +15,9 @@ public class ImageDTO implements Serializable {
     private Long id;
 
     private String title;
+
     private String url;
 
-
-    private VehicleDTO vehicleDTO;
 
 
 }

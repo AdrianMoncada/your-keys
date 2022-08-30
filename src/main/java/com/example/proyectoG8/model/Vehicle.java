@@ -1,6 +1,5 @@
 package com.example.proyectoG8.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -19,7 +18,7 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idVehicle;
 
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
@@ -30,14 +29,17 @@ public class Vehicle {
     @Column
     private String rangeName;
 
-    @Column
+    @Column(length = 500)
     private String description;
 
-    /*@Column
+    @Column
+    private Double price;
+
+    @Column
     private Double latitude ;
 
     @Column
-    private Double longitude ;*/
+    private Double longitude ;
 
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
@@ -69,10 +71,9 @@ public class Vehicle {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "vehicle")
     private List<Image> images = new ArrayList<>();
 
-    /*@JsonBackReference
+    @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private List<Score> scores = new ArrayList<>();*/
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "vehicle")
+    private List<Score> scores = new ArrayList<>();
 
 }

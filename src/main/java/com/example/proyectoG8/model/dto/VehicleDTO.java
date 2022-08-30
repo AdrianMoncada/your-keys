@@ -1,10 +1,12 @@
 package com.example.proyectoG8.model.dto;
 
-import com.example.proyectoG8.model.Make;
-import com.example.proyectoG8.model.Model;
+import com.example.proyectoG8.model.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class VehicleDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private Long idVehicle;
 
     private MakeDTO make;
 
@@ -24,9 +26,11 @@ public class VehicleDTO implements Serializable {
 
     private String description;
 
-    /*private Double latitude ;
+    private Double price;
 
-    private Double longitude ;*/
+    private Double latitude ;
+
+    private Double longitude ;
 
     private ModelDTO model;
 
@@ -38,6 +42,6 @@ public class VehicleDTO implements Serializable {
 
     private List<ImageDTO> images = new ArrayList<>();
 
-    //private List<Score> scores = new ArrayList<>();
+    private List<ScoreDTO> scores = new ArrayList<>();
 
 }

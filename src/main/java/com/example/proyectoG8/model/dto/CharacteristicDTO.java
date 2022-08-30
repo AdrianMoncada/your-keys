@@ -21,6 +21,4 @@ public class CharacteristicDTO implements Serializable {
     private String icon;
 
 
-    private List<VehicleDTO> vehicleDTOS;
-
 }

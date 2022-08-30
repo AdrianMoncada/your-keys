@@ -12,9 +12,9 @@ public class ScoreDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private Long idScore;
 
-    //private Vehicle vehicle;
+    //private VehicleDTO vehicle;
 
     private Long usuario_id;
 

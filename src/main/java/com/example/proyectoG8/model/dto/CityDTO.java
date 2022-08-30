@@ -18,7 +18,7 @@ public class CityDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private Long idCity;
 
 
     private String cityName;
@@ -29,10 +29,5 @@ public class CityDTO implements Serializable {
 
     private String countryName;
 
-    @JsonBackReference
-    @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private List<VehicleDTO> vehicleDTOS;
 
 }

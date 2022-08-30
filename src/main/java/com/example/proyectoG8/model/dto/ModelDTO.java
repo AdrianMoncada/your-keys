@@ -12,14 +12,8 @@ public class ModelDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
-    private Long id;
-
+    private Long idModel;
 
     private String year;
-
-
-    private List<VehicleDTO> vehicleDTOS;
-
 
 }
