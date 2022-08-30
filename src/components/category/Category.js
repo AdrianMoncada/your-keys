@@ -21,15 +21,15 @@ const Category = ({car}) => {
 
   return (
     <DivContainers
-      initial={{ x: `${id % 2 ? 100 : -100}%`, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      transition={{ delay: 0.2 * id, duration: 0.3 }}
+      initial={{ x: `${id % 2 ? 100 : -100}%`, opacity: 0, transition: "2s" }}
+      whileInView={{ x: 0, opacity: 1, delay: 0.1 * id, transition: "2s" }}
       viewport={{once: true, offset: "50%"}}
       onClick={() => handleId()}
+      whileHover={{ scale: 1.1, position: "relative", zIndex: 10}}
+      whileTap={{ scale: 0.9 }}
     >
       <Div
-        whileHover={{ scale: 1.1, zIndex: 3 }}
-        style={{ zIndex: 1 }}
+        
       >
         <DivText>
           <h2 className="titleCar">{car.title}</h2>

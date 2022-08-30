@@ -75,7 +75,6 @@ const DateVehicle = () => {
         wrapperClassName='date_picker full-width'
         className="dates"
         shouldCloseOnSelect={false}
-        readOnly
       />
     </DivDate>
   );

@@ -19,9 +19,12 @@ export const Div = styled(motion.div)`
     align-items: center;
     background-color: rgb(229, 229, 229);
     transition: background-color .3s ease;
+    position: relative;
+    z-index: 1;
 
     &:hover {
         cursor: pointer;
+        z-index: 100;
         background-color: #c3c0c0;
         box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
         /* transform: translateY(-3%); */

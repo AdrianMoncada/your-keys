@@ -22,6 +22,7 @@ import {
   DivTitlePolicies,
   DivReserve,
   H1Calendar,
+  H1TitleOffer
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 import axios from "../../apis/axiosRequest";
@@ -30,45 +31,15 @@ import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import credentials from "../../assets/credentials";
 
-const mapURL = `https://www.google.com/maps/search/?api=1.exp&key=${credentials.mapsKey}`;
-
-
 const DetailProduct = () => {
   const { carId } = useParams();
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
-    url: `/vehicle/${carId}`,
-    requestConfig: {
-      headers: {
-          'Content-Language': 'en-US',
-      },
-      data: {
-
-      }
-  }
+    url: `/vehicle/${carId}`
   })
-  console.log("🚀 ~ file: Vehiculo.js ~ line 44 ~ DetailProduct ~ carId", carId)
   
-  console.log(response, error);
-
-  
-  const { state } = useContext(AppContext);
-  
-  const [carInfo, setCarInfo] = useState({});
-  useEffect(() => {
-    const findCar = List.find((x) => x.id === carId);
-    setCarInfo(findCar);
-  }, [carId]);
-
-  if (carInfo === null) {
-    return <h1>Cargando</h1>;
-  }
-
-  
-
-
   return (
     <React.Fragment>
       <DetailDiv>
@@ -102,7 +73,7 @@ const DetailProduct = () => {
         <h1>Maneja Tu {response?.rangeName}</h1>
         <p>{response?.description}</p>
       </DetailContent>
-      <h1>¿Qué ofrece este vehiculo?</h1>
+      <H1TitleOffer>¿Qué ofrece este vehiculo?</H1TitleOffer>
       <DivFeatures>
         {response?.characteristics?.map((i, index) => (
           <DivIcons number={index}>
@@ -120,8 +91,8 @@ const DetailProduct = () => {
       <DivCalendar>
       <DateVehicle />
       <DivReserve>
-        <p>Agregá tus fechas de reserva para obtener precios exactos</p>
-        <button>Inicar reserva</button>
+        <p className="textBooking">Agregá tus fechas de reserva para obtener precios exactos</p>
+        <button className="buttonBooking">Inicar reserva</button>
       </DivReserve>
         
       </DivCalendar>

@@ -6,6 +6,8 @@ import { autocompleteClasses } from '@mui/material/Autocomplete';
 import  {InputInfo} from '../../pages/home/homeStyles';
 import {DivSearch} from './SearchStyles';
 import AppContext from "../../context/AppContext";
+import useRequest from "../../hooks/useRequest"
+import axios from "../../apis/axiosRequest";
 
 const Listbox = styled('ul')(({ theme }) => ({
   width: 230,
@@ -36,6 +38,12 @@ const Listbox = styled('ul')(({ theme }) => ({
 const Search = () => {
   const {state, setSearch} = useContext(AppContext);
   console.log(state.search)
+
+  const [response, error, loading] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/city`
+  })
   
   const {
     getRootProps,
@@ -44,10 +52,13 @@ const Search = () => {
     getOptionProps,
     groupedOptions,
   } = useAutocomplete({
-    id: 'use-autocomplete-demo',
-    options: city.map((city) => city.city),
+    id: console.log(response.find(city => city.cityName === state.search)?.id),
+    options: response.map((city) => city.cityName),
     getOptionLabel: (option) => option,
-    onChange: (e) => setSearch(e.target.innerText),
+    onChange: (e) => {
+      setSearch(e.target.innerText)
+      console.log(e)
+    },
     value: state.search
   });
 

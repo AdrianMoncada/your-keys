@@ -18,14 +18,44 @@ import slides from "../../assets/SliderData.json";
 import { motion } from "framer-motion";
 import AppContext from "../../context/AppContext";
 import ContainerCardRequest from "../../components/cards/ContainerCardRequest";
+import axios from "../../apis/axiosRequest";
+import useRequest from "../../hooks/useRequest"
 
 const Home = () => {
-  const {state} = useContext(AppContext)
+  const {state, setCategoryList} = useContext(AppContext)
 
+  const [response, error, loading] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle`
+  })
+
+  const [responses, errors, loadings] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/city`
+  })
+
+  let idCar;
+  let responseDes = [];
+  let slideDes = []
+  response.map(i =>  responseDes.push(i) )
+  responseDes = responseDes.sort( ()=> Math.random() - 0.5 );
+  responseDes.map(i => slideDes.length < 3 ? slideDes.push(i) : null)
+  
+  const handleClick = () => {
+    idCar = responses.find(city => city.cityName === state.search)?.id
+    axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`)
+    .then(res => {
+      console.log("🚀 ~ file: Home.js ~ line 50 ~ handleClick ~ res", res)
+      setCategoryList(res.data)
+    })
+  }
+  
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
       <div>
-        <Hero slides={slides} />
+        <Hero slides={slideDes} />
         <ContainerMain
           initial={{ opacity: 0, y: "-100%" }}
           animate={{ opacity: 1, y: "0%" }}
@@ -43,14 +73,13 @@ const Home = () => {
               <DateCalendar />
             </DivDate>
             <a className="buttonI" href="#list">
-              <ButtonInfo whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <ButtonInfo onClick={handleClick} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 Encontrar Vehículo{" "}
               </ButtonInfo>
             </a>
           </DivContainerInfo>
         </ContainerMain>
       </div>
-      {/* <TestRequest /> */}
       <ContainerCategorias>
         <motion.h2
           initial={{ opacity: 0, y: "-100%" }}
@@ -66,11 +95,9 @@ const Home = () => {
       <div id="list"></div>
       <DivContainerList>
         <h2 className="titleRecommendation">Recomendaciones</h2>
-        {/* <ContainerCard /> */}
         {
           state.categoryList === null ?  <ContainerCard /> : <ContainerCardRequest car={state.categoryList} />  
         }
-        
       </DivContainerList>
     </div>
   );

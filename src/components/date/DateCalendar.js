@@ -13,8 +13,9 @@ const DateCalendar = ({position='block'}) => {
   /* console.log(state.startDate, state.endDate); */
 
   return (
-    <DivDate style={{display: `
-    ${position}`}}>
+    <DivDate 
+    /* style={{display: `
+    ${position}`}} */>
       <DivInput>
         <MdDateRange className="icon" />
         <DatePicker
