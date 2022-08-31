@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-import React, { useEffect } from "react";
-=======
-import React, { useState, useEffect, useContext} from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
->>>>>>> a72a6ba1251cf33553f747111d0b2f387730d880
-import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
-import AppContext from "../../context/AppContext";
-
 import {
   DetailDiv,
   DivName,
