@@ -8,6 +8,7 @@ import AppContext from "./context/AppContext";
 import useInitialState from "./hooks/useInitialState";
 import SignUp from "./pages/signup/SignUp";
 import Vehiculo from "./pages/vehiculo/Vehiculo";
+import Booking from "./pages/booking/Booking";
 
 function App() {
   const initialState = useInitialState();
@@ -21,6 +22,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/vehiculo/:carId" element={<Vehiculo />} />
+              <Route path="/booking" element={<Booking/>} />
             </Routes>
           </Layout>
         </ThemeProvider>
