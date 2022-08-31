@@ -17,8 +17,8 @@ public class CategoryController {
     private ICategoryService iCategoryService;
 
     @GetMapping("/version")
-    public ResponseEntity<String> version(){
-        String version = "{version: " + System.getProperty("githash")+ "}";
+    public ResponseEntity<String> version() {
+        String version = "{version: " + System.getProperty("githash") + "}";
         return new ResponseEntity(version, HttpStatus.OK);
     }
 
@@ -59,7 +59,7 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<CategoryDTO>> searchAllCategory() {
-        return  new ResponseEntity(iCategoryService.listCategory(), HttpStatus.OK);
+        return new ResponseEntity(iCategoryService.listCategory(), HttpStatus.OK);
     }
 
 }

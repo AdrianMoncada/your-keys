@@ -3,35 +3,35 @@ stages:
   - deploy
 
 build:
-    stage: build
-    image:  maven:latest
-    script:
-        - ls
-        - mvn clean install -DargLine=-Dgithash=$CI_COMMIT_SHA
-        - cd target
-        - ls
-    artifacts:
-        expire_in: 1 week
-        paths:
-            - target/consoleapp-2.7.2.jar
+  stage: build
+  image: maven:latest
+  script:
+    - ls
+    - mvn clean install -DargLine=-Dgithash=$CI_COMMIT_SHA
+    - cd target
+    - ls
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - target/consoleapp-2.7.2.jar
 
 deploy:
-    stage: deploy
-    image: alpine:3.11
-    rules:
-        - if: $CI_COMMIT_REF_NAME == "beatriz"
-    before_script:
-        - apk update && apk add openssh-client bash
-        - mkdir -p ~/.ssh
-        - eval $(ssh-agent -s)
-        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-        - touch ~/.ssh/config
-        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-        - ssh-keyscan -H $EC2_IPADDRESS >> ~/.ssh/known_hosts
-    script:
-        - echo "Deploying started!"
-        - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl stop consoleapp.service"
-        - cd target
-        - scp consoleapp-2.7.2.jar ubuntu@$EC2_IPADDRESS:~/console-app/
-        - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl start consoleapp.service"
-        - echo "Finished deploying the app."
+  stage: deploy
+  image: alpine:3.11
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "beatriz"
+  before_script:
+    - apk update && apk add openssh-client bash
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - touch ~/.ssh/config
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - ssh-keyscan -H $EC2_IPADDRESS >> ~/.ssh/known_hosts
+  script:
+    - echo "Deploying started!"
+    - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl stop consoleapp.service"
+    - cd target
+    - scp consoleapp-2.7.2.jar ubuntu@$EC2_IPADDRESS:~/console-app/
+    - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl start consoleapp.service"
+    - echo "Finished deploying the app."

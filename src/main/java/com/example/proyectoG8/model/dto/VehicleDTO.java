@@ -1,12 +1,8 @@
 package com.example.proyectoG8.model.dto;
 
-import com.example.proyectoG8.model.*;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +24,9 @@ public class VehicleDTO implements Serializable {
 
     private Double price;
 
-    private Double latitude ;
+    private Double latitude;
 
-    private Double longitude ;
+    private Double longitude;
 
     private ModelDTO model;
 

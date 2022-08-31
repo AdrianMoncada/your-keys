@@ -7,17 +7,12 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class CharacteristicDTO implements Serializable {
+public class RolDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long idCharacteristic;
+    private Long idRol;
 
-    private String nameCharacteristic;
-
-    private String value;
-
-    private String icon;
-
+    private String name;
 
 }

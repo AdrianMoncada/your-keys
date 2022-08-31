@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
 
 @Entity
 @Table(name = "bookings")

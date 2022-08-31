@@ -36,10 +36,10 @@ public class Vehicle {
     private Double price;
 
     @Column
-    private Double latitude ;
+    private Double latitude;
 
     @Column
-    private Double longitude ;
+    private Double longitude;
 
     @JsonManagedReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)

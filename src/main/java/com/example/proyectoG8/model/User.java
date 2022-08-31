@@ -4,7 +4,9 @@ package com.example.proyectoG8.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class User {
     @Column
     private String userLastName;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
     @Column

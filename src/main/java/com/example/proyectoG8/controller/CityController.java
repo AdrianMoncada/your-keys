@@ -19,7 +19,7 @@ public class CityController {
     private ICityService iCityService;
 
     @GetMapping
-    public ResponseEntity<List<CityDTO>> ListAllCities(){
+    public ResponseEntity<List<CityDTO>> ListAllCities() {
         return new ResponseEntity(iCityService.listAllCities(), HttpStatus.OK);
     }
 }
