@@ -4,7 +4,6 @@ import {motion} from 'framer-motion'
 
 export const SearchContainerHorizontal = styled.div`
    justify-content: center;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   padding: 20px 20px;
@@ -58,6 +57,12 @@ export const ModalContent = styled.div`
   padding: 20px 20px;
   color: black;
   transition: all 0.3s ease-in-out; 
+
+  .titleInfos {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: -3px;
+  }
 `
 
 export const CloseModalButton = styled(MdClose)`
@@ -98,18 +103,18 @@ export const ButtonInfoHorizontal = styled.button`
   border-radius: 10px;
   background-image: linear-gradient(
     to left,
-    ${({ theme }) => theme.darkBlue} 50%,
-    ${({ theme }) => theme.third} 50%
+    ${({ theme }) => theme.secondary} 50%,
+    ${({ theme }) => theme.darkBlue} 50%
   );
   background-size: 200%;
   background-repeat: no-repeat;
   background-position: right;
   transition: all 0.3s ease;
+  margin-top: 10px;
 
   &:hover {
     cursor: pointer;
     background-position: left;
-    color: black;
   }
 
   a {
@@ -135,7 +140,7 @@ export const DivSvg = styled(motion.div)`
   z-index: 2;
 
   .iconSearch {
-    font-size: 40px;
+    font-size: 45px;
     color: black;
   }
 `;

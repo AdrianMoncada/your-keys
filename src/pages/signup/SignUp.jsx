@@ -36,7 +36,7 @@ const Signup = () => {
     const onChangeEmail = (e) => { setEmail({ ...email, campo: e.target.value }) }
     const onChangePassword = (e) => { setPassword({ ...password, campo: e.target.value }) }
     const onChangePassword2 = (e) => { setPassword2({ ...password2, campo: e.target.value }) }
-    const onChangeName = (e) => { console.log(name); setName({ ...name, campo: e.target.value }) }
+    const onChangeName = (e) => { setName({ ...name, campo: e.target.value }) }
     const onChangeLastName = (e) => { setLastName({ ...lastName, campo: e.target.value }) }
 
     

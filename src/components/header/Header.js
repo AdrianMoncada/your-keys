@@ -19,7 +19,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
   const location = useLocation();
-  const { state, setLoginFalse } = useContext(AppContext);
+  const { state, setLoginFalse, setCategoryList } = useContext(AppContext);
   const [navbar, setNavbar] = useState(false);
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
@@ -126,7 +126,8 @@ const Header = () => {
           <DivImg
             onClick={() => {
               navigate("/");
-              setShowMobile(!showMobile);
+              setShowMobile(false);
+              setCategoryList(null)
             }}
           >
             <Logo />

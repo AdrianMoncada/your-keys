@@ -62,7 +62,6 @@ const useInitialState = () => {
       ...state,
       nameSearch: state.nameSearch.push(payload)
     })
-    console.log(payload)
   }
 
   const setCategoryList = (payload) => {

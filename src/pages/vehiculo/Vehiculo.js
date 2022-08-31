@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useEffect } from "react";
 import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
@@ -29,10 +29,13 @@ import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest"
 import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
-import credentials from "../../assets/credentials";
 
 const DetailProduct = () => {
   const { carId } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
@@ -81,9 +84,9 @@ const DetailProduct = () => {
               className="iconsStyles"
               key={index}
               src={i.icon}
-              alt={i.name}
+              alt={i.nameCharacteristic}
             />
-            <p className="nameIcons">{i.name}</p>
+            <p className="nameIcons">{i.value}</p>
           </DivIcons>
         ))}
       </DivFeatures>

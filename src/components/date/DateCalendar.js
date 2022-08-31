@@ -8,9 +8,6 @@ import AppContext from "../../context/AppContext";
 
 const DateCalendar = ({position='block'}) => {
   const {state, setStartDate, setEndDate} = useContext(AppContext);
-  /* const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null); */
-  /* console.log(state.startDate, state.endDate); */
 
   return (
     <DivDate 

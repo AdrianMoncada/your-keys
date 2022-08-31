@@ -34,6 +34,7 @@ export const DivImg = styled.div`
   position: relative;
   z-index: 5;
   cursor: pointer;
+  margin-top: 5px;
 
   h1 {
     font-size: 25px;
@@ -52,7 +53,6 @@ export const DivPrueba = styled(motion.div)`
     width: 100%;
     transition: 0.6s;
     background-color: transparent;
-    height: max-content;
   }
   .containerHeader {
     display: flex;

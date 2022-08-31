@@ -68,13 +68,11 @@ const DateVehicle = () => {
       <DatePickerWrapper
         calendarContainer={Calendar}
         inline
-        selected={state.startDate}
         startDate={state.startDate}
         endDate={state.endDate}
         monthsShown={2}
         wrapperClassName='date_picker full-width'
         className="dates"
-        shouldCloseOnSelect={false}
       />
     </DivDate>
   );

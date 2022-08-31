@@ -37,7 +37,6 @@ const Listbox = styled('ul')(({ theme }) => ({
 
 const Search = () => {
   const {state, setSearch} = useContext(AppContext);
-  console.log(state.search)
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
@@ -52,12 +51,11 @@ const Search = () => {
     getOptionProps,
     groupedOptions,
   } = useAutocomplete({
-    id: console.log(response.find(city => city.cityName === state.search)?.id),
+    id: response.find(city => city.cityName === state.search)?.id,
     options: response.map((city) => city.cityName),
     getOptionLabel: (option) => option,
     onChange: (e) => {
       setSearch(e.target.innerText)
-      console.log(e)
     },
     value: state.search
   });

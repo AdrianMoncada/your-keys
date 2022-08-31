@@ -7,11 +7,12 @@ import {
   DivLocation,
   ButtonMore,
   DivImgs,
-  DivCalification
+  DivCalification,
 } from "./CardStyles";
 import { useNavigate } from "react-router-dom";
 import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
-import { FaToolbox, FaHeart, FaRegHeart,  } from "react-icons/fa";
+import { FaToolbox, FaHeart, FaRegHeart } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Card = ({ car }) => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Card = ({ car }) => {
   const showBrokenHearth = () => {
     if (favorite) {
       favoriteIcon.addEventListener("mouseover", (e) => {
-        return <GiBrokenHeart />
+        return <GiBrokenHeart />;
       });
     } else {
       return (
@@ -33,7 +34,7 @@ const Card = ({ car }) => {
       );
     }
   };
-  
+
   return (
     <DivCard
       initial={{ y: "100%", opacity: 0 }}
@@ -52,12 +53,15 @@ const Card = ({ car }) => {
             className="iconFavorite"
           />
         )}
-        <img src={car.images.find(i => i.title === "Main").url} alt={car?.images[0]?.title} />
+        <img
+          src={car.images.find((i) => i.title === "Main").url}
+          alt={car?.images[0]?.title}
+        />
       </DivImgs>
       <div>
         <DivTitle>
           <DivCalification>
-            <span className="calificationNumber" >8</span>
+            <span className="calificationNumber">8</span>
             <span className="calificationText">Muy bueno</span>
           </DivCalification>
           <div>
@@ -73,19 +77,36 @@ const Card = ({ car }) => {
           <SpanLocation>
             <GiCarDoor className="iconLocation" />
             {/* <p className="textSpan"> {car.descripcion.door}</p> */}
-            <p className="textSpan">{car?.characteristics[0]?.name}</p>
+            <p className="textSpan">
+              {
+                car?.characteristics.find(
+                  (i) => i.nameCharacteristic === "puertas"
+                )?.value
+              }
+            </p>
           </SpanLocation>
           <SpanLocation>
             <FaToolbox className="iconLocation" />
-            <p className="textSpan">{car?.characteristics[1]?.name}</p>
-            
+            <p className="textSpan">
+              {
+                car?.characteristics.find(
+                  (i) => i.nameCharacteristic === "transmición"
+                )?.value
+              }
+            </p>
           </SpanLocation>
           <SpanLocation>
             <GiThermometerCold className="iconLocation" />
-            <p className="textSpan">{car?.characteristics[2]?.name}</p>
+            <p className="textSpan">
+              {
+                car?.characteristics.find(
+                  (i) => i.nameCharacteristic === "aire"
+                )?.value
+              }
+            </p>
           </SpanLocation>
         </DivLocation>
-        <ButtonMore onClick={() => navigate(`/vehiculo/${car.id}`)}>
+        <ButtonMore onClick={() => navigate(`/vehiculo/${car.idVehicle}`)}>
           Ver Más
         </ButtonMore>
       </div>

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {
   ContainerMain,
   DivContainerInfo,
@@ -22,6 +22,7 @@ import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest"
 
 const Home = () => {
+  const [responseCity, setReponseCity] = useState();
   const {state, setCategoryList} = useContext(AppContext)
 
   const [response, error, loading] = useRequest({
@@ -35,7 +36,6 @@ const Home = () => {
     method: "GET",
     url: `/city`
   })
-
   let idCar;
   let responseDes = [];
   let slideDes = []
@@ -44,10 +44,9 @@ const Home = () => {
   responseDes.map(i => slideDes.length < 3 ? slideDes.push(i) : null)
   
   const handleClick = () => {
-    idCar = responses.find(city => city.cityName === state.search)?.id
+    idCar = responses.find(city => city.cityName === state.search)?.idCity
     axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`)
     .then(res => {
-      console.log("🚀 ~ file: Home.js ~ line 50 ~ handleClick ~ res", res)
       setCategoryList(res.data)
     })
   }
@@ -55,7 +54,7 @@ const Home = () => {
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
       <div>
-        <Hero slides={slideDes} />
+        <Hero loading={loading} slides={slideDes} />
         <ContainerMain
           initial={{ opacity: 0, y: "-100%" }}
           animate={{ opacity: 1, y: "0%" }}

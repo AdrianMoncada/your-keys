@@ -64,7 +64,6 @@ const Login = () => {
     let isValid = true;
     setEmailError(false);
     setPasswordError(false);
-    console.log(param);
     if (!emailRegex.test(param.user)) {
       setEmailError(true);
       isValid = false;

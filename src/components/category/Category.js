@@ -14,8 +14,6 @@ const Category = ({car}) => {
   })
   
   const handleId = () => {
-    console.log("🚀 ~ file: Category.js ~ line 9 ~ Category ~ id", id)
-    console.log("🚀 ~ file: Category.js ~ line 15 ~ Category ~ response", response)
     setCategoryList(response)
   }
 

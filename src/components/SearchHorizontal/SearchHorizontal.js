@@ -32,17 +32,7 @@ function SearchBar() {
   };
 
   return (
-    <SearchContainerHorizontal>
-      {/*  <h2 className="titleInfos"> Recogida</h2>
-          <DivInputHorizontal className="divcito">
-            <MdLocationOn className="icon" />
-            <Search />
-          </DivInputHorizontal>
-          <DivDatesHorizontal>
-            <DateCalendar className="dates" position="inline-flex" />
-          </DivDatesHorizontal>
-        <ButtonInfoHorizontal>Encontrar Vehículo</ButtonInfoHorizontal> */}
-
+    <SearchContainerHorizontal className="hola">
       {showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
           <AnimatePresence>
@@ -76,7 +66,7 @@ function SearchBar() {
         </Background>
       ) : null}
 
-      <ContainerButtonSvg>
+      <ContainerButtonSvg className="mama">
         <DivSvg
           animate={{
             scale: [1, 1, 1.2, 1.2, 1]
