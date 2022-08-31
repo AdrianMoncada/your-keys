@@ -27,7 +27,7 @@ public class UserController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<UserDTO> verifyUser(@RequestBody UserDTO userDTO){
 
         UserDTO userFound = userService.verifyCredentials(userDTO);
