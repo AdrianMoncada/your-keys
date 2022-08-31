@@ -39,7 +39,6 @@ const Signup = () => {
     const onChangeName = (e) => { setName({ ...name, campo: e.target.value }) }
     const onChangeLastName = (e) => { setLastName({ ...lastName, campo: e.target.value }) }
 
-    
     const validationName = () => {
       if(!nameRegExp.test(name.campo)){
         setName({ ...name, error: true })
@@ -107,7 +106,6 @@ const Signup = () => {
         }
       }
       
-
       return (
         <>
           <SignUp>
