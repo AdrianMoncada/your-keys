@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import React, { useEffect } from "react";
-=======
-import React, { useState, useEffect, useContext} from "react";
 import { useNavigate } from "react-router-dom";
->>>>>>> a72a6ba1251cf33553f747111d0b2f387730d880
-import List from "../../assets/list.json";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
-import AppContext from "../../context/AppContext";
 
 import {
   DetailDiv,
@@ -27,29 +21,28 @@ import {
   DivTitlePolicies,
   DivReserve,
   H1Calendar,
-  H1TitleOffer
+  H1TitleOffer,
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 import axios from "../../apis/axiosRequest";
-import useRequest from "../../hooks/useRequest"
+import useRequest from "../../hooks/useRequest";
 import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 
-
 const DetailProduct = () => {
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
   const { carId } = useParams();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
-    url: `/vehicle/${carId}`
-  })
-  
+    url: `/vehicle/${carId}`,
+  });
+
   return (
     <React.Fragment>
       <DetailDiv>
@@ -75,9 +68,8 @@ const DetailProduct = () => {
           </DivLocation>
         </DivContainerLocation>
       </DetailDiv>
-      
+
       <GridGallery response={response} />
-      
 
       <DetailContent>
         <h1>Maneja Tu {response?.rangeName}</h1>
@@ -99,12 +91,18 @@ const DetailProduct = () => {
       </DivFeatures>
       <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
-      <DateVehicle />
-      <DivReserve>
-        <p className="textBooking">Agregá tus fechas de reserva para obtener precios exactos</p>
-        <button className="buttonBooking" onClick={() => navigate('/booking')}>Inicar reserva</button>
-      </DivReserve>
-        
+        <DateVehicle />
+        <DivReserve>
+          <p className="textBooking">
+            Agregá tus fechas de reserva para obtener precios exactos
+          </p>
+          <button
+            className="buttonBooking"
+            onClick={() => navigate("/booking")}
+          >
+            Inicar reserva
+          </button>
+        </DivReserve>
       </DivCalendar>
       <div>
         <Map />
