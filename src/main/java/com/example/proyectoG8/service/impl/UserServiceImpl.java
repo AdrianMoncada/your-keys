@@ -4,6 +4,8 @@ import com.example.proyectoG8.model.User;
 import com.example.proyectoG8.model.dto.UserDTO;
 import com.example.proyectoG8.repository.IUserRepository;
 import com.example.proyectoG8.service.IUserService;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +64,27 @@ public class UserServiceImpl implements IUserService {
             userDTOS.add(mapper.map(user, UserDTO.class));
         }
         return userDTOS;
+
+    }
+
+    @Override
+    public UserDTO verifyCredentials(UserDTO userDTO) {
+
+        UserDTO userDTOResponse = null;
+
+        User userBdd = userRepository.findByEmail(userDTO.getEmail());
+
+        String passwordHashed = userBdd.getPassword();
+
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+
+        Boolean paswordMatch = argon2.verify(passwordHashed, userDTO.getPassword());
+
+        if (paswordMatch){
+            userDTOResponse = mapper.map(userBdd, UserDTO.class);
+        }
+
+        return userDTOResponse;
 
     }
 }

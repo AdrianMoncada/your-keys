@@ -27,6 +27,19 @@ public class UserController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/login")
+    public ResponseEntity<UserDTO> verifyUser(@RequestBody UserDTO userDTO){
+
+        UserDTO userFound = userService.verifyCredentials(userDTO);
+
+        if (userFound == null){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity(userService.verifyCredentials(userDTO), HttpStatus.OK);
+
+    }
+
     @PostMapping
     public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
 

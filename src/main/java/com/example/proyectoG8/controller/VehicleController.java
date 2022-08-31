@@ -43,7 +43,7 @@ public class VehicleController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<VehicleDTO> deleteCategory(@PathVariable Long id) {
+    public ResponseEntity<VehicleDTO> deleteVehicle(@PathVariable Long id) {
         if (vehicleService.readVehicle(id) != null) {
             vehicleService.deleteVehicle(id);
             return new ResponseEntity(HttpStatus.OK);
