@@ -1,105 +1,116 @@
 import React from "react";
-import { DivForm, Label, Input } from "./formStyles";
-import { useFormik } from "formik";
+import { DivForm, DivContainer, DivSelect } from "./formStyles";
+import { Formik, Form } from "formik";
 import * as yup from "yup";
+import TextFields from "../textField/TextFields";
+import DateBooking from "../dateBooking/DateBooking";
+import  Select  from "react-select";
+import hour from "../../assets/hour.json"
+import Policies from "../policies/Policies";
+import HeaderCategory from "../headerCategory/HeaderCategory";
 
-const isRequired = "Campo obligatorio";
+const FormBooking = () => {
+  const isRequired = "Campo obligatorio";
+  const validationSchema = yup.object().shape({
+    name: yup.string().required(isRequired),
+    lastname: yup.string().required(isRequired),
+    email: yup.string().email().required(isRequired),
+    city: yup.string().required(isRequired),
+  });
 
-const validationSchema = yup.object().shape({
-  name: yup.string().required(isRequired),
-  lastname: yup.string().required(isRequired),
-  email: yup.string().email().required(isRequired),
-  city: yup.string().required(isRequired),
-});
+  const handleSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+  };
 
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  actions.resetForm();
-};
-
-const Form = () => {
-  const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        name: "",
-        lastname: "",
-        email: "",
-        ciudad: "",
-      },
-      validationSchema: validationSchema,
-      onSubmit,
-    });
+  const handleSelectChange = (event) => {
+    console.log(event);
+  }
 
   return (
     <div>
+      <HeaderCategory/>
+      <h1>Completa tus datos</h1>
       <DivForm>
-        <h1>Completa tus datos</h1>
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <Label htmlFor="name">Nombre</Label>
-          <Input
-            value={values.name}
-            onChange={handleChange}
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Juan"
-            onBlur={handleBlur}
-            className={errors.name && touched.name ? "input-error" : ""}
-          />
-          {errors.name && touched.name && (
-            <p className="error">{errors.name}</p>
+        <Formik
+          initialValues={{
+            name: "",
+            lastname: "",
+            email: "",
+            ciudad: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => handleSubmit(values)}
+        >
+          {(formik) => (
+            <div>
+              <Form>
+                <DivContainer>
+                  <div>
+                    <TextFields
+                      variant="standard"
+                      label="Nombre"
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Nombre"
+                    />
+                    <TextFields
+                      sx={{ ml: 1 }}
+                      variant="standard"
+                      label="Email"
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="email@gmail.com"
+                    />
+                  </div>
+                  <div>
+                    <TextFields
+                      variant="standard"
+                      label="Apellido"
+                      type="text"
+                      id="lastname"
+                      name="lastname"
+                      placeholder="Apellido"
+                    />
+                    <TextFields
+                      sx={{ ml: 1 }}
+                      variant="standard"
+                      label="Ciudad"
+                      type="text"
+                      id="city"
+                      name="city"
+                      placeholder="Cordoba"
+                    />
+                  </div>
+                </DivContainer>
+              </Form>
+            </div>
           )}
-
-          <Label htmlFor="lastname">Apellido</Label>
-          <Input
-            value={values.lastname}
-            onChange={handleChange}
-            type="text"
-            id="lastname"
-            name="lastname"
-            placeholder="Torres"
-            onBlur={handleBlur}
-            className={errors.lastname && touched.lastname ? "input-error" : ""}
-          />
-          {errors.lastname && touched.lastname && (
-            <p className="error">{errors.lastname}</p>
-          )}
-
-          <Label htmlFor="email">Correo Electronico</Label>
-          <Input
-            value={values.email}
-            onChange={handleChange}
-            type="email"
-            id="email"
-            name="email"
-            placeholder="email@gmail.com"
-            onBlur={handleBlur}
-            className={errors.email && touched.email ? "input-error" : ""}
-          />
-          {errors.email && touched.email && (
-            <p className="error">{errors.email}</p>
-          )}
-
-          <Label htmlFor="city">Ciudad</Label>
-          <Input
-            value={values.city}
-            onChange={handleChange}
-            type="text"
-            id="city"
-            name="city"
-            placeholder="Cordoba"
-            onBlur={handleBlur}
-            className={errors.city && touched.city ? "input-error" : ""}
-          />
-          {errors.city && touched.city && (
-            <p className="error">{errors.city}</p>
-          )}
-        </form>
+        </Formik>
       </DivForm>
+      <h1>Seleccioná tu fecha de reserva</h1>
+      <div>
+        <DateBooking />
+      </div>
+      <h1>Tu horario de llegada</h1>
+      <DivForm>
+            <p>Tu auto estará listo para la entrega entre las 10:00 AM y las 11:00 PM</p>
+            <DivSelect>
+              <p>Indicá tu hora estimada de llegada</p>
+            <Select
+            defaultValue = {hour[0]}
+              options={hour}
+              onChange= {handleSelectChange}
+            />
+            </DivSelect>
+      </DivForm>
+      <Policies/>
     </div>
   );
 };
 
-export default Form;
+export default FormBooking;

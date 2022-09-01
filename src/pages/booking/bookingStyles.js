@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DivBooking = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   height: 10%;
   padding-bottom: 2rem;
   position: relative;
