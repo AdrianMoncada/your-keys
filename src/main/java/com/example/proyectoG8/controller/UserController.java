@@ -27,31 +27,6 @@ public class UserController {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<UserDTO> verifyUser(@RequestBody UserDTO userDTO){
-
-        UserDTO userFound = userService.verifyCredentials(userDTO);
-
-        if (userFound == null){
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity(userService.verifyCredentials(userDTO), HttpStatus.OK);
-
-    }
-
-    @PostMapping
-    public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
-
-        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-
-        String hash = argon2.hash(1,1024, 1, userDTO.getPassword());
-
-        userDTO.setPassword(hash);
-
-        return new ResponseEntity(userService.createUser(userDTO), HttpStatus.CREATED);
-    }
-
 
     @PutMapping
     public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {

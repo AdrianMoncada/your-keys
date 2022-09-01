@@ -2,6 +2,7 @@ package com.example.proyectoG8.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -60,7 +61,7 @@ public class Vehicle {
     private Category category;
 
     @JsonManagedReference
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(name = "vehicle_characteristic", joinColumns = @JoinColumn(name = "vehicle_id"),
             inverseJoinColumns = @JoinColumn(name = "characteristic_id"), uniqueConstraints = {
             @UniqueConstraint(columnNames = {"vehicle_id", "characteristic_id"})})
@@ -68,12 +69,17 @@ public class Vehicle {
 
     @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "vehicle")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "vehicle")
     private List<Image> images = new ArrayList<>();
 
     @JsonManagedReference
     @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "vehicle")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "vehicle")
     private List<Score> scores = new ArrayList<>();
+
+    @JsonManagedReference
+    @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "vehicle")
+    private List<Booking> bookings = new ArrayList<>();
 
 }

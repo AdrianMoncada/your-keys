@@ -26,7 +26,7 @@ public class User {
     @Column
     private String userLastName;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 80)
     private String email;
 
     @Column

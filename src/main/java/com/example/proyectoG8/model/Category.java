@@ -20,15 +20,12 @@ public class Category {
     private Long id_category;
 
     @Column
-    @NotNull
     private String title;
 
     @Column
-    @NotNull
     private String description;
 
     @Column
-    @NotNull
     private String UrlImage;
 
     @JsonBackReference

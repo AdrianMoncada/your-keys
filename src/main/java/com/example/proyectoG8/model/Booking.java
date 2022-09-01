@@ -1,11 +1,14 @@
 package com.example.proyectoG8.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "bookings")
@@ -16,21 +19,21 @@ public class Booking {
     private Long bookingId;
 
     @Column
-    private Time time;
+    private LocalTime time;
 
     @Column
-    private Date initialdate;
+    private LocalDate initialdate;
 
     @Column
-    private Date finalDate;
+    private LocalDate finalDate;
 
-    @JsonManagedReference
+    @JsonBackReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
 
-    @JsonManagedReference
+    @JsonBackReference
     @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

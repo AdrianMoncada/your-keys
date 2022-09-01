@@ -1,5 +1,6 @@
 package com.example.proyectoG8.model.dto;
 
+import com.example.proyectoG8.model.Booking;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,5 +40,7 @@ public class VehicleDTO implements Serializable {
     private List<ImageDTO> images = new ArrayList<>();
 
     private List<ScoreDTO> scores = new ArrayList<>();
+
+    private List<BookingDTO> bookings = new ArrayList<>();
 
 }
