@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, {  useEffect, } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
+
 
 import {
   DetailDiv,
