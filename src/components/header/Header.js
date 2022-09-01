@@ -19,7 +19,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
   const location = useLocation();
-  const { state, setLoginFalse, setCategoryList } = useContext(AppContext);
+  const { state, setLoginFalse, setCategoryList, setUser} = useContext(AppContext);
   const [navbar, setNavbar] = useState(false);
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
@@ -29,6 +29,7 @@ const Header = () => {
     navigate("/");
     setShowMobile(!showMobile);
     setLoginFalse();
+    setUser()
     const Toast = Swal.mixin({
       toast: true,
       position: "bottom-start",
@@ -100,11 +101,11 @@ const Header = () => {
             state.user.map((user) => (
               <DivUserText>
                 <Avatar>
-                  {user.name.substr(0, 1)}
-                  {user.lastName.substr(0, 1)}
+                  {user.userName.substr(0, 1)}
+                  {user.userLastName.substr(0, 1)}
                 </Avatar>
                 <h4 className="userName">
-                  {user.name} {user.lastName}
+                  {user.userName} {user.userLastName}
                 </h4>
                 <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
               </DivUserText>

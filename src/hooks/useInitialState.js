@@ -70,6 +70,10 @@ const useInitialState = () => {
       categoryList: payload
     })
   }
+
+  const setUser = () => {
+    state.user.shift()
+  }
   
   return {
     state,
@@ -80,7 +84,8 @@ const useInitialState = () => {
     setStartDate,
     setEndDate,
     setSearch,
-    setCategoryList
+    setCategoryList,
+    setUser
   };
 };
 

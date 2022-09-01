@@ -21,7 +21,6 @@ const Hero = ({ slides, loading }) => {
   const length = slides.length;
   const timeout = useRef(null);
   const navigate = useNavigate();
-  console.log(loading)
   useEffect(() => {
     const nextSlide = () => {
       setCurrent((current) => (current === length - 1 ? 0 : current + 1));
