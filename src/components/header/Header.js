@@ -117,7 +117,7 @@ const Header = () => {
 
   return (
     <DivPrueba initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className={`wrap-container search ${searcher ? "active" : null}`}>
+      <div className={`${location.pathname !== "/login" ? "wrap-container" : "wrap-containers"} search ${searcher ? "active" : null}`}>
         <div
           className={`containerHeader ${
             navbar || location.pathname !== "/" ? "active" : null
