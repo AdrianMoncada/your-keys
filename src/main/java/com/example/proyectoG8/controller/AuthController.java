@@ -44,14 +44,21 @@ public class AuthController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserAuthDTO> addUser(@RequestBody UserDTO userDTO) {
 
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-
         String hash = argon2.hash(1,1024, 1, userDTO.getPassword());
-
         userDTO.setPassword(hash);
 
-        return new ResponseEntity(userService.createUser(userDTO), HttpStatus.CREATED);
+        String tokenJwt = jwtUtil.create(String.valueOf(userDTO.getIdUser()), userDTO.getEmail());
+
+        UserAuthDTO userAuthDTO = mapper.map(userDTO, UserAuthDTO.class);
+        userAuthDTO.setToken(tokenJwt);
+
+        if(userService.createUser(userDTO) != null){
+            return new ResponseEntity(userAuthDTO, HttpStatus.CREATED);
+        }
+        return new ResponseEntity(HttpStatus.CONFLICT);
+
     }
 }

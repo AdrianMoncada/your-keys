@@ -3,6 +3,7 @@ package com.example.proyectoG8.controller;
 
 import com.example.proyectoG8.model.dto.UserDTO;
 import com.example.proyectoG8.service.IUserService;
+import com.example.proyectoG8.utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,15 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> searchUser(@PathVariable Long id) {
+    @Autowired
+    private JWTUtil jwtUtil;
+
+    @GetMapping("/info")
+    public ResponseEntity<UserDTO> searchUser(@RequestHeader(value ="Authorization") String token) {
+
+        String idString = jwtUtil.getKey(token);
+
+        Long id = Long.parseLong(idString, 10);
         if (userService.readUser(id) != null) {
             return new ResponseEntity(userService.readUser(id), HttpStatus.OK);
         }
