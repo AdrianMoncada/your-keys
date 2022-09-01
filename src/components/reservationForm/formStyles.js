@@ -1,42 +1,43 @@
 import styled from "styled-components";
 
 export const DivForm = styled.div`
-  display: block;
-  width: 50%;
-  height: 10%;
+  display: inline-block;
+  width: 77%;
+  height: 20%;
   padding-bottom: 2rem;
   box-sizing: border-box;
   position: relative;
-  top: 10px;
-  margin-bottom:80px;
-  margin-left: 50px;
- border: solid;
+  padding: 37.5px;
+  margin: 12px 0;
+  border-radius:6px;
+  font-size:13px;
+  box-shadow:10px 10px 40px -14px #000;
   
-
 `;
 export const Label = styled.label`
- 
-  `;
+  font-size: 18px;
+  
+`;
 
 export const Input = styled.input`
- width: 50%;
-  height: 3.563em;
+  display: inline-block;
   border: none;
   background: #e5e5e5;
-  box-sizing: border-box;
   margin-bottom: 10px;
   color: #000000 50%;
-  font-size: 25px;
+  font-size: 16px;
   outline: none;
   padding-left: 2%;
-  padding-top: 15px;
-  display:block;
-  border-bottom:solid #14213d;
-  
-
+  padding-top: 30px;
+  border-bottom: solid #14213d;
+  border-bottom:2px solid #bebed2;
+  flex-wrap: wrap;
+  margin-right: 5px;
+  width: 32%;
   &:placeholder {
-    font-size: 1%;
     color: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
   }
-  `;  
+`;
+
+
