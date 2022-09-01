@@ -36,6 +36,7 @@ const Home = () => {
     method: "GET",
     url: `/city`
   })
+  
   let idCar;
   let responseDes = [];
   let slideDes = []

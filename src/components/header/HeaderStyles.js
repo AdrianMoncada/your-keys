@@ -54,6 +54,9 @@ export const DivPrueba = styled(motion.div)`
     transition: 0.6s;
     background-color: transparent;
   }
+  .wrap-containers {
+    position: relative;
+  }
   .containerHeader {
     display: flex;
     justify-content: space-between;

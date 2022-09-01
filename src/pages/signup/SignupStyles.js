@@ -1,13 +1,57 @@
 import styled from "styled-components";
+import {motion} from 'framer-motion'
 
 export const SignUp = styled.div `
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: #000000;
+    height: 93.5vh;
+    /* background-color: #000000;  */
+    .hrFormik {
+        height: 200px;
+        width: 0px;
+        border: 1px solid black;
+        position: absolute;
+        left: 58%;
+        color: black;
+        background-color: black;
+    }
+`
+
+export const DivFormik = styled.div`
+    /* background-color: ${({theme}) => theme.third}; */
+    color: black;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    .titleCreate {
+        text-align: center;
+    }
+`
+
+export const DivSvg = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 50px;
+    /* background-color: ${({theme}) => theme.darkBlue}; */
+`
+
+export const ButtonFormik = styled(motion.button)`
+    margin: 0 auto;
+    background-color: ${({theme}) => theme.secondary};
+    padding: 20px 50px;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
 `
 
 export const FormContainer = styled.div `

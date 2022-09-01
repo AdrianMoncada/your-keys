@@ -11,6 +11,10 @@ const useRequest = (configObj) => {
     const [response, setResponse] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [reload, setReload] = useState(0);
+
+    const reFetch = () => setReload(prev => prev + 1)
+
     useEffect(() => {
         const controller = new AbortController();
         const fetchData = async () => {
@@ -29,9 +33,11 @@ const useRequest = (configObj) => {
         fetchData();
 
         return () => controller.abort();
-    }, []);
+
+    // eslint-disable-next-line
+    }, [reload]);
     
-    return [response, error, loading]
+    return [response, error, loading, reFetch]
 }
 
 
