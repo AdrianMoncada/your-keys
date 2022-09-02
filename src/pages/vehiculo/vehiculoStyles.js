@@ -90,6 +90,7 @@ export const DivContainerLocation = styled.div`
   /* padding: 0 0.5rem; */
 `;
 
+<<<<<<< HEAD
 export const DivPolicies = styled.div`
   display: flex;
   color: black;
@@ -103,6 +104,8 @@ export const DivPoliciesContainer = styled.div`
   border-right: ${({ borderLine }) => (borderLine ? null : "1px solid black")};
 `;
 
+=======
+>>>>>>> origin/eliana-zamora
 export const DivGoLocation = styled.div`
   margin: 0 25px !important;
   font-size: 25px;
@@ -124,12 +127,7 @@ export const DivCalendar = styled.div`
   display: flex;
   align-items: center;
 `;
-export const DivTitlePolicies = styled.div`
-  margin: 30px;
-  h1 {
-    text-align: center;
-  }
-`;
+
 export const DivReserve = styled.div`
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
@@ -140,7 +138,6 @@ export const DivReserve = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 10px;
-
 
   .textBooking {
     font-size: 20px;

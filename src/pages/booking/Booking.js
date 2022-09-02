@@ -1,7 +1,14 @@
 import Form from "../../components/reservationForm/Form";
+import {DivBooking } from "./bookingStyles";
+
 
 
 const Booking = () => {
-  return <Form />;
+  return(
+  <DivBooking>
+  <Form />
+  </DivBooking> 
+
+  )
 };
 export default Booking;
