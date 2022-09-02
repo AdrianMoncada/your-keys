@@ -77,9 +77,4 @@ public class Vehicle {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "vehicle")
     private List<Score> scores = new ArrayList<>();
 
-    @JsonManagedReference
-    @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "vehicle")
-    private List<Booking> bookings = new ArrayList<>();
-
 }

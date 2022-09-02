@@ -2,14 +2,16 @@ package com.example.proyectoG8.model.dto;
 
 import com.example.proyectoG8.model.Booking;
 import com.example.proyectoG8.model.Rol;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Setter
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserAuthDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,8 +25,6 @@ public class UserAuthDTO implements Serializable {
     private String email;
 
     private RolDTO rol;
-
-    private List<BookingDTO> bookings;
 
     private String token;
 }

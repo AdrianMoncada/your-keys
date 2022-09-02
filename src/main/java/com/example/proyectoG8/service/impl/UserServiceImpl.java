@@ -10,12 +10,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 
 @Service
+@Transactional
 public class UserServiceImpl implements IUserService {
 
     @Autowired
@@ -72,7 +74,7 @@ public class UserServiceImpl implements IUserService {
 
         UserDTO userDTOResponse = null;
 
-        User userBdd = userRepository.findByEmail(userDTO.getEmail());
+        User userBdd = userRepository.findUserByEmail(userDTO.getEmail());
 
         String passwordHashed = userBdd.getPassword();
 

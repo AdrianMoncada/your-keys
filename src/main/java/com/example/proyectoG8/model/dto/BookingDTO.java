@@ -8,6 +8,8 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -17,11 +19,11 @@ public class BookingDTO implements Serializable {
 
     private Long bookingId;
 
-    private Time time;
+    private LocalTime time;
 
-    private Date initialdate;
+    private LocalDate initialdate;
 
-    private Date finalDate;
+    private LocalDate finalDate;
 
     private VehicleDTO vehicle;
 

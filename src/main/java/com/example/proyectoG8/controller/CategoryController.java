@@ -25,12 +25,9 @@ public class CategoryController {
     @GetMapping("/{id}")
     public ResponseEntity<CategoryDTO> searchCategory(@PathVariable Long id) {
         if (iCategoryService.readCategory(id) != null) {
-
             return new ResponseEntity(iCategoryService.readCategory(id), HttpStatus.OK);
         }
-
         return new ResponseEntity(HttpStatus.NOT_FOUND);
-
     }
 
     @PostMapping

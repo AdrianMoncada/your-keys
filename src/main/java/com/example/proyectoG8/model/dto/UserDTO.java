@@ -27,6 +27,4 @@ public class UserDTO implements Serializable {
 
     private RolDTO rol;
 
-    private List<BookingDTO> bookings;
-
 }

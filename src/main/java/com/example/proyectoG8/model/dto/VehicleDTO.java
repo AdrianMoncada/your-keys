@@ -41,6 +41,5 @@ public class VehicleDTO implements Serializable {
 
     private List<ScoreDTO> scores = new ArrayList<>();
 
-    private List<BookingDTO> bookings = new ArrayList<>();
 
 }
