@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { userLogin, setLoginTrue } = useContext(AppContext);
+  const { userLogin, setLoginTrue, setBooking } = useContext(AppContext);
   const navigate = useNavigate();
 
   const validate = Yup.object({
@@ -74,9 +74,11 @@ const Login = () => {
           }}
           validationSchema={validate}
           onSubmit={(values) => submitLogin(values)}
+          handleChange={(values) => setBooking(values)}
         >
           {(formik) => (
             <div>
+              
               <h1>Iniciar Sesion</h1>
               <Form>
                 <TextFields
@@ -84,6 +86,8 @@ const Login = () => {
                   label="Email"
                   name="email"
                   type="text"
+          variant="filled"
+
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -96,6 +100,8 @@ const Login = () => {
                   fullWidth
                   label="Password"
                   name="password"
+          variant="filled"
+
                   type="password"
                   InputProps={{
                     startAdornment: (

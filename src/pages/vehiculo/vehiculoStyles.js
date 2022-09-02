@@ -93,7 +93,7 @@ export const DivContainerLocation = styled.div`
 export const DivPolicies = styled.div`
   display: flex;
   color: black;
-  justify-content: left;
+  justify-content: center;
   gap: 20px;
   margin: 0 30px 70px 30px;
 `;

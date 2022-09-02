@@ -23,7 +23,6 @@ const TextFields = ({ label, ...props }) => {
           autoComplete="off"
           {...field}
           {...props}
-          variant="filled"
           label={label}
           error={meta.error && meta.touched ? true : false}
         />

@@ -145,7 +145,6 @@ const Header = () => {
           <DivUser open={showMobile}>{showLogin()}
           </DivUser>
         </div>
-        {location.pathname === "/" ? searcher ? <SearchBar /> : null : null}
       </div>
     </DivPrueba>
   );

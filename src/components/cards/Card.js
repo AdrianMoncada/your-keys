@@ -61,7 +61,7 @@ const Card = ({ car }) => {
       <div>
         <DivTitle>
           <DivCalification>
-            <span className="calificationNumber">8</span>
+            <span className="calificationNumber">5</span>
             <span className="calificationText">Muy bueno</span>
           </DivCalification>
           <div>

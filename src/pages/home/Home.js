@@ -7,6 +7,7 @@ import {
   DivDate,
   ContainerCategorias,
   DivContainerList,
+  DivLupa
 } from "./homeStyles";
 import { MdLocationOn } from "react-icons/md";
 import ContainerCategory from "../../components/category/ContainerCategory";
@@ -20,6 +21,7 @@ import AppContext from "../../context/AppContext";
 import ContainerCardRequest from "../../components/cards/ContainerCardRequest";
 import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest"
+import SearchBar from "../../components/SearchHorizontal/SearchHorizontal";
 
 const Home = () => {
   const [responseCity, setReponseCity] = useState();
@@ -54,6 +56,9 @@ const Home = () => {
   
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
+      <DivLupa>
+          <SearchBar />
+        </DivLupa>
       <div>
         <Hero loading={loading} slides={slideDes} />
         <ContainerMain

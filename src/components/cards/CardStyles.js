@@ -47,8 +47,8 @@ export const DivTitle = styled.div`
 
 export const DivCalification = styled.div`
   position: absolute;
-  left: 80px;
-  top: 30px;
+  left: 30px;
+  bottom: 30px;
 `;
 
 export const SpanLocation = styled.p`
@@ -85,6 +85,10 @@ export const ButtonMore = styled.button`
   font-weight: 700;
   cursor: pointer;
   margin-top: 10px;
+  border-radius: 10px 10px 10px 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
 `;
 
 export const DivImgs = styled.div`
@@ -94,9 +98,12 @@ export const DivImgs = styled.div`
     left: 25px;
     font-size: 30px;
     color: red;
+    transition: all .5s ease;
 
     &:hover {
       cursor: pointer;
+      scale: 1.2;
     }
+
   }
 `;

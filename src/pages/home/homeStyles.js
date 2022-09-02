@@ -49,6 +49,12 @@ export const InputInfo = styled.input`
   outline: none;
 `;
 
+export const DivLupa = styled.div`
+  position: sticky;
+  top: 100px;
+  z-index: 11;
+`
+
 export const ButtonInfo = styled(motion.button)`
   padding: 15px 20px;
   font-size: 20px;

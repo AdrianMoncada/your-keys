@@ -8,6 +8,7 @@ const initialState = {
   search: null,
   nameSearch: [],
   categoryList: null,
+  booking: null,
 };
 
 const useInitialState = () => {
@@ -74,6 +75,14 @@ const useInitialState = () => {
   const setUser = () => {
     state.user.shift()
   }
+
+  const setBooking = (payload) => {
+    setState({
+      ...state,
+      booking: payload
+    })
+    console.log(state.booking)
+  }
   
   return {
     state,
@@ -85,7 +94,8 @@ const useInitialState = () => {
     setEndDate,
     setSearch,
     setCategoryList,
-    setUser
+    setUser,
+    setBooking
   };
 };
 
