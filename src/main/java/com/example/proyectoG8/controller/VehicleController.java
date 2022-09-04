@@ -1,6 +1,7 @@
 package com.example.proyectoG8.controller;
 
 
+import com.example.proyectoG8.model.BookingFilter;
 import com.example.proyectoG8.model.dto.VehicleDTO;
 import com.example.proyectoG8.service.IVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +65,10 @@ public class VehicleController {
     @GetMapping("/category/{id}")
     public ResponseEntity<List<VehicleDTO>> searchAllVehiclesByCategory(@PathVariable Long id) {
         return new ResponseEntity(vehicleService.listVehicleByCategory(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/booking")
+    public ResponseEntity<List<VehicleDTO>> searchVehiclesByCityAndDates(@RequestBody BookingFilter bookingFilter){
+        return new ResponseEntity(vehicleService.listVehicleByCityAndDate(bookingFilter),HttpStatus.OK);
     }
 }

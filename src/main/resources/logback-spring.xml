@@ -38,7 +38,7 @@
         <appender-ref ref="Console"/>
     </root>
 
-    <!-- LOG para paquetes 'inc.lulo.oim.migrant.*' a partir del nivel 'TRACE' y superiores. -->
+    <!-- LOG para paquetes 'com.example.proyectoG8.*' a partir del nivel 'TRACE' y superiores. -->
     <logger name="com.example.proyectoG8" level="trace" additivity="false">
         <appender-ref ref="RollingFile"/>
         <appender-ref ref="Console"/>

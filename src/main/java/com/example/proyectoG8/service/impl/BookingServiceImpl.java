@@ -10,8 +10,9 @@ import com.example.proyectoG8.repository.IBookingRepository;
 import com.example.proyectoG8.repository.IUserRepository;
 import com.example.proyectoG8.repository.IVehicleRepository;
 import com.example.proyectoG8.service.IBookingService;
-import com.example.proyectoG8.service.IVehicleService;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,14 +24,10 @@ import java.util.Optional;
 @Service
 public class BookingServiceImpl implements IBookingService {
 
+    private final static Logger logger = LoggerFactory.getLogger(BookingServiceImpl.class);
+
     @Autowired
     IBookingRepository bookingRepository;
-
-    @Autowired
-    IUserRepository userRepository;
-
-    @Autowired
-    IVehicleRepository vehicleRepository;
 
     @Autowired
     ModelMapper mapper;

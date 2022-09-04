@@ -7,6 +7,8 @@ import com.example.proyectoG8.service.IUserService;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,8 @@ import java.util.Optional;
 @Transactional
 public class UserServiceImpl implements IUserService {
 
+    private final static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private IUserRepository userRepository;
 
@@ -29,10 +33,14 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
-
+        logger.info("Creating user: {}", userDTO.getUserName());
         User user = userRepository.save(mapper.map(userDTO, User.class));
-
-        return mapper.map(user, UserDTO.class);
+        if (user!= null){
+            logger.info("User {} has been created successfully", user.getUsername());
+            return mapper.map(user, UserDTO.class);
+        }
+        logger.error("The user {} couldn't be created successfully", userDTO.getUserName());
+        return null;
     }
 
     @Override

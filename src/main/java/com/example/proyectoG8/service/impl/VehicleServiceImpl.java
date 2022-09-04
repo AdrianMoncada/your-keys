@@ -1,10 +1,13 @@
 package com.example.proyectoG8.service.impl;
 
+import com.example.proyectoG8.model.BookingFilter;
 import com.example.proyectoG8.model.Vehicle;
 import com.example.proyectoG8.model.dto.VehicleDTO;
 import com.example.proyectoG8.repository.IVehicleRepository;
 import com.example.proyectoG8.service.IVehicleService;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,8 @@ import java.util.Optional;
 @Service
 @Transactional
 public class VehicleServiceImpl implements IVehicleService {
+
+    private final static Logger logger = LoggerFactory.getLogger(VehicleServiceImpl.class);
 
     @Autowired
     private IVehicleRepository vehicleRepository;
@@ -97,6 +102,24 @@ public class VehicleServiceImpl implements IVehicleService {
         for (Vehicle vehicle : vehiclesByCategory) {
             vehicleDTOS.add(mapper.map(vehicle, VehicleDTO.class));
         }
+        return vehicleDTOS;
+    }
+
+    @Override
+    public List<VehicleDTO> listVehicleByCityAndDate(BookingFilter bookingFilter) {
+        List<VehicleDTO> vehicleDTOS= new ArrayList<>();
+        if (bookingFilter.getInitialDate().isAfter(bookingFilter.getFinalDate())){
+            logger.error("Error in data");
+            return null;
+        }
+
+        List<Vehicle> vehicles =vehicleRepository.findByDateAndCity(bookingFilter.getInitialDate(),
+                bookingFilter.getFinalDate(), bookingFilter.getCityId());
+
+        for (Vehicle vehicle : vehicles) {
+            vehicleDTOS.add(mapper.map(vehicle, VehicleDTO.class));
+        }
+
         return vehicleDTOS;
     }
 }
