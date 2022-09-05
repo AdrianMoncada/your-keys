@@ -68,7 +68,7 @@ public class VehicleController {
     }
 
     @PostMapping("/booking")
-    public ResponseEntity<List<VehicleDTO>> searchVehiclesByCityAndDates(@RequestBody BookingFilter bookingFilter){
+    public ResponseEntity<List<VehicleDTO>> listVehicleByCityOrDateOrBoth(@RequestBody BookingFilter bookingFilter){
         return new ResponseEntity(vehicleService.listVehicleByCityOrDateOrBoth(bookingFilter),HttpStatus.OK);
     }
 }
