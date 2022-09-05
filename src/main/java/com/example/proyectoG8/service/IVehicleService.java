@@ -23,4 +23,8 @@ public interface IVehicleService {
     public List<VehicleDTO> listVehicleByCategory(Long categoryId);
 
     public List<VehicleDTO> listVehicleByCityAndDate(BookingFilter bookingFilter);
+
+    public List<VehicleDTO> listVehicleByDate(BookingFilter bookingFilter);
+
+    public List<VehicleDTO> listVehicleByCityOrDateOrBoth(BookingFilter bookingFilter);
 }

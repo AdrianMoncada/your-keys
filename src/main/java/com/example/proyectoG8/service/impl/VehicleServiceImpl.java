@@ -122,4 +122,33 @@ public class VehicleServiceImpl implements IVehicleService {
 
         return vehicleDTOS;
     }
+
+    @Override
+    public List<VehicleDTO> listVehicleByDate(BookingFilter bookingFilter) {
+        List<VehicleDTO> vehicleDTOS= new ArrayList<>();
+        if (bookingFilter.getInitialDate().isAfter(bookingFilter.getFinalDate())){
+            logger.error("Error in data");
+            return null;
+        }
+        List<Vehicle> vehicles =vehicleRepository.findByDate(bookingFilter.getInitialDate(), bookingFilter.getFinalDate());
+
+        for (Vehicle vehicle : vehicles) {
+            vehicleDTOS.add(mapper.map(vehicle, VehicleDTO.class));
+        }
+
+        return vehicleDTOS;
+    }
+
+    @Override
+    public List<VehicleDTO> listVehicleByCityOrDateOrBoth(BookingFilter bookingFilter) {
+        if (bookingFilter.getCityId()!=null && bookingFilter.getInitialDate()==null){
+            return this.listVehicleByCity(bookingFilter.getCityId());
+        }
+        if (bookingFilter.getInitialDate()!=null && bookingFilter.getCityId()==null){
+            return this.listVehicleByDate(bookingFilter);
+        }
+        if( bookingFilter.getCityId()!=null && bookingFilter.getInitialDate()!=null){
+            return this.listVehicleByCityAndDate(bookingFilter);
+        }else return this.listVehicle();
+    }
 }

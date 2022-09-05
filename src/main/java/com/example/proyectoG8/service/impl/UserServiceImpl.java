@@ -3,6 +3,7 @@ package com.example.proyectoG8.service.impl;
 import com.example.proyectoG8.model.User;
 import com.example.proyectoG8.model.dto.UserDTO;
 import com.example.proyectoG8.repository.IUserRepository;
+import com.example.proyectoG8.service.IEmailSenderService;
 import com.example.proyectoG8.service.IUserService;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -28,6 +29,9 @@ public class UserServiceImpl implements IUserService {
     private IUserRepository userRepository;
 
     @Autowired
+    private IEmailSenderService emailSender;
+
+    @Autowired
     private ModelMapper mapper;
 
 
@@ -37,6 +41,8 @@ public class UserServiceImpl implements IUserService {
         User user = userRepository.save(mapper.map(userDTO, User.class));
         if (user!= null){
             logger.info("User {} has been created successfully", user.getUsername());
+            emailSender.sendEmail(user.getEmail(), "Registro exitoso!",
+                    "Se ha registrado con exito.");
             return mapper.map(user, UserDTO.class);
         }
         logger.error("The user {} couldn't be created successfully", userDTO.getUserName());
