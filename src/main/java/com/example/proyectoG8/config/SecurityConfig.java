@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             new AntPathRequestMatcher("/vehicle/**"),
             new AntPathRequestMatcher("/category/**"),
             new AntPathRequestMatcher("/city/**"),
-            new AntPathRequestMatcher("/booking/**"),
             new AntPathRequestMatcher("/swagger-ui.html/**"),
             new AntPathRequestMatcher("/configuration/**"),
             new AntPathRequestMatcher("/swagger-resources/**"),
