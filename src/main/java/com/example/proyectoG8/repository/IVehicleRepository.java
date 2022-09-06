@@ -17,7 +17,7 @@ public interface IVehicleRepository extends JpaRepository<Vehicle, Long> {
     public List<Vehicle> findByDateAndCity(LocalDate initialDate, LocalDate finalDate, Long cityId);
 
     @Query(value = "select * from vehicles where id_vehicle not in " +
-            "(select vehicle_id from bookings where :initialDate between initialdate and " +
-            "final_date or :finalDate between initialdate and final_date group by vehicle_id)", nativeQuery = true)
+            "(select vehicle_id from bookings where initialdate between :initialDate and " +
+            ":finalDate or final_date between initialdate and final_date group by vehicle_id)", nativeQuery = true)
     public List<Vehicle> findByDate(LocalDate initialDate, LocalDate finalDate);
 }
