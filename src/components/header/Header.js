@@ -32,6 +32,7 @@ const Header = () => {
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const navigate = useNavigate();
+  console.log(state.user)
 
   const handleClick = () => {
     navigate("/");

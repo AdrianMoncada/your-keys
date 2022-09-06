@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import styled  from "styled-components";
-import AppContext from "../../context/AppContext";
 import Moment from 'moment';
 
 const DivDate = styled.div`
@@ -54,7 +53,6 @@ const Calendar = styled.div`
 
 const DateVehicle = () => {
 
-  const { state, datesFormatEnd, datesFormatStart } = useContext(AppContext);
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);

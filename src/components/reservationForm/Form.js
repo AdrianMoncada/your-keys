@@ -61,8 +61,9 @@ const FormBooking = () => {
       url: "http://3.144.167.227:8080/booking",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + state.user.map((i) => i.token).toString(),
-        'Access-Control-Allow-Origin': '*'
+        'Authorization': state.user.map(user => user.token).toString(),
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
       },
       data: parseado,
     })
@@ -72,16 +73,6 @@ const FormBooking = () => {
     .catch(err => {
       console.log(err)
     })
-    /* fetch("http://3.144.167.227:8080/booking", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': state.user.map((i) => i.token).toString()
-      },
-      body: parseado
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err)) */
   };
 
   const handleSelectChange = (event) => {

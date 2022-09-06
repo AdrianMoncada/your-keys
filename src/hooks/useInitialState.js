@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const initialState = {
   isLogin: false,
@@ -9,12 +9,6 @@ const initialState = {
   nameSearch: [],
   categoryList: null,
   booking: null,
-  /* datesFormat: {
-    startDateFormat: null,
-    endDateFormat: null,
-  }, */
-  startDateFormat: null,
-  endDateFormat: null,
   carId: null,
 };
 
@@ -98,39 +92,7 @@ const useInitialState = () => {
     console.log(state.booking);
   };
 
-  /* const datesFormatStart = payload => {
-    setSearch({
-      ...state,
-      datesFormat: {
-        ...state.datesFormat,
-        startDateFormat: payload
-      }
-    })
-  }
-
-  const datesFormatEnd = payload => {
-    setSearch({
-      ...state,
-      datesFormat: {
-        ...state.datesFormat,
-        endDateFormat: payload
-      }
-    })
-  } */
-
-  const datesFormatStart = (payload) => {
-    setSearch({
-      ...state,
-      startDateFormat: payload,
-    });
-  };
-
-  const datesFormatEnd = (payload) => {
-    setSearch({
-      ...state,
-      endDateFormat: payload,
-    });
-  };
+ 
 
   return {
     state,
@@ -144,8 +106,6 @@ const useInitialState = () => {
     setCategoryList,
     setUser,
     setBooking,
-    datesFormatStart,
-    datesFormatEnd,
     setCarId,
   };
 };

@@ -15,18 +15,16 @@ import Search from "../../components/Search/Search";
 import DateCalendar from "../../components/date/DateCalendar";
 import ContainerCard from "../../components/cards/ContainerCard";
 import Hero from "../../components/hero/Hero";
-import slides from "../../assets/SliderData.json";
 import { motion } from "framer-motion";
 import AppContext from "../../context/AppContext";
 import ContainerCardRequest from "../../components/cards/ContainerCardRequest";
 import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest";
 import SearchBar from "../../components/SearchHorizontal/SearchHorizontal";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Moment from "moment";
 
 const Home = () => {
-  const [responseCity, setReponseCity] = useState();
   const { state, setCategoryList } = useContext(AppContext);
   const [searcher, setSearcher] = useState(false);
 
@@ -51,9 +49,28 @@ const Home = () => {
 
   const handleClick = () => {
     idCar = responses.find((city) => city.cityName === state.search)?.idCity;
-    axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`).then((res) => {
+    /* axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`).then((res) => {
       setCategoryList(res.data);
-    });
+    }); */
+
+    const objFilter = {
+      cityId: state.search === null ? null : idCar,
+      finalDate: state.endDate === null ? null : Moment(state.endDate).format("YYYY-MM-DD"),
+      initialDate: state.startDate === null ? null : Moment(state.startDate).format("YYYY-MM-DD"),
+    };
+
+    axios({
+      method: "post",
+      url: "http://3.144.167.227:8080/vehicle/booking",
+      data: objFilter,
+    })
+    .then(res => {
+      console.log(res)
+      setCategoryList(res.data);
+    })
+    .catch(err => {
+      console.log(err)
+    })
   };
 
   const changeView = () => {
