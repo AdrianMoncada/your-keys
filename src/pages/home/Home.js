@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import {
   ContainerMain,
   DivContainerInfo,
@@ -7,7 +7,7 @@ import {
   DivDate,
   ContainerCategorias,
   DivContainerList,
-  DivLupa
+  DivLupa,
 } from "./homeStyles";
 import { MdLocationOn } from "react-icons/md";
 import ContainerCategory from "../../components/category/ContainerCategory";
@@ -20,45 +20,54 @@ import { motion } from "framer-motion";
 import AppContext from "../../context/AppContext";
 import ContainerCardRequest from "../../components/cards/ContainerCardRequest";
 import axios from "../../apis/axiosRequest";
-import useRequest from "../../hooks/useRequest"
+import useRequest from "../../hooks/useRequest";
 import SearchBar from "../../components/SearchHorizontal/SearchHorizontal";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Home = () => {
   const [responseCity, setReponseCity] = useState();
-  const {state, setCategoryList} = useContext(AppContext)
+  const { state, setCategoryList } = useContext(AppContext);
+  const [searcher, setSearcher] = useState(false);
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
-    url: `/vehicle`
-  })
+    url: `/vehicle`,
+  });
 
   const [responses, errors, loadings] = useRequest({
     axiosInstance: axios,
     method: "GET",
-    url: `/city`
-  })
-  
+    url: `/city`,
+  });
+
   let idCar;
   let responseDes = [];
-  let slideDes = []
-  response.map(i =>  responseDes.push(i) )
-  responseDes = responseDes.sort( ()=> Math.random() - 0.5 );
-  responseDes.map(i => slideDes.length < 3 ? slideDes.push(i) : null)
-  
+  let slideDes = [];
+  response.map((i) => responseDes.push(i));
+  responseDes = responseDes.sort(() => Math.random() - 0.5);
+  responseDes.map((i) => (slideDes.length < 3 ? slideDes.push(i) : null));
+
   const handleClick = () => {
-    idCar = responses.find(city => city.cityName === state.search)?.idCity
-    axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`)
-    .then(res => {
-      setCategoryList(res.data)
-    })
-  }
-  
+    idCar = responses.find((city) => city.cityName === state.search)?.idCity;
+    axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`).then((res) => {
+      setCategoryList(res.data);
+    });
+  };
+
+  const changeView = () => {
+    if (window.scrollY >= 400) {
+      setSearcher(true);
+    } else {
+      setSearcher(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeView);
+
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
-      <DivLupa>
-          <SearchBar />
-        </DivLupa>
       <div>
         <Hero loading={loading} slides={slideDes} />
         <ContainerMain
@@ -78,13 +87,19 @@ const Home = () => {
               <DateCalendar />
             </DivDate>
             <a className="buttonI" href="#list">
-              <ButtonInfo onClick={handleClick} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <ButtonInfo
+                onClick={handleClick}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 Encontrar Vehículo{" "}
               </ButtonInfo>
             </a>
           </DivContainerInfo>
         </ContainerMain>
       </div>
+      <DivLupa>{searcher ? <SearchBar /> : null}</DivLupa>
+
       <ContainerCategorias>
         <motion.h2
           initial={{ opacity: 0, y: "-100%" }}
@@ -100,9 +115,11 @@ const Home = () => {
       <div id="list"></div>
       <DivContainerList>
         <h2 className="titleRecommendation">Recomendaciones</h2>
-        {
-          state.categoryList === null ?  <ContainerCard /> : <ContainerCardRequest car={state.categoryList} />  
-        }
+        {state.categoryList === null ? (
+          <ContainerCard />
+        ) : (
+          <ContainerCardRequest car={state.categoryList} />
+        )}
       </DivContainerList>
     </div>
   );

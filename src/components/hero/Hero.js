@@ -15,6 +15,7 @@ import {
 } from "./HeroStyles";
 import { useNavigate } from "react-router";
 import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Hero = ({ slides, loading }) => {
   const [current, setCurrent] = useState(0);
@@ -68,9 +69,7 @@ const Hero = ({ slides, loading }) => {
 
   if(loading) {
     return (
-      <HeroWrapper>
-        <div><Skeleton width={900} height={900} /></div>
-      </HeroWrapper>
+        loader()
     )
   } else {
     return (

@@ -52,7 +52,8 @@ export const InputInfo = styled.input`
 export const DivLupa = styled.div`
   position: sticky;
   top: 100px;
-  z-index: 11;
+  z-index: 15;
+  display: inline-block;
 `
 
 export const ButtonInfo = styled(motion.button)`

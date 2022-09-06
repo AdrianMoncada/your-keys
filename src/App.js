@@ -9,6 +9,7 @@ import useInitialState from "./hooks/useInitialState";
 import SignUp from "./pages/signup/SignUp";
 import Vehiculo from "./pages/vehiculo/Vehiculo";
 import Booking from "./pages/booking/Booking";
+import PrivateRoutes from "./util/PrivateRoutes";
 
 function App() {
   const initialState = useInitialState();
@@ -22,7 +23,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/vehiculo/:carId" element={<Vehiculo />} />
-              <Route path="/booking" element={<Booking/>} />
+              <Route element={<PrivateRoutes />}>
+                <Route path="/booking" element={<Booking/>} />
+              </Route>
             </Routes>
           </Layout>
         </ThemeProvider>

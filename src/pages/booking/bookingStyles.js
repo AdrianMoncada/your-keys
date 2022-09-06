@@ -9,8 +9,8 @@ export const DivBooking = styled.div`
   position: relative;
   top: 80px;
   margin-bottom:80px;
-  margin-left: 50px;
  
   
+  /* margin-top: 50px; */
 
 `;

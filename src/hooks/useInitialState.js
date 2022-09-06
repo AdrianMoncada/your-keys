@@ -9,6 +9,13 @@ const initialState = {
   nameSearch: [],
   categoryList: null,
   booking: null,
+  /* datesFormat: {
+    startDateFormat: null,
+    endDateFormat: null,
+  }, */
+  startDateFormat: null,
+  endDateFormat: null,
+  carId: null,
 };
 
 const useInitialState = () => {
@@ -16,74 +23,115 @@ const useInitialState = () => {
 
   const setLoginTrue = () => {
     setState({
-        ...state,
-        isLogin: true
-    })
-  }
+      ...state,
+      isLogin: true,
+    });
+  };
+
+  const setCarId = (payload) => {
+    setState({
+      ...state,
+      carId: payload,
+    });
+  };
 
   const setLoginFalse = () => {
     setState({
-        ...state,
-        isLogin: false
-    })
-  }
+      ...state,
+      isLogin: false,
+    });
+  };
 
   const userLogin = (payload) => {
-    state.user.shift()
+    state.user.shift();
     setState({
-        ...state,
-        user: state.user.push(payload)
-    })
-  }
+      ...state,
+      user: state.user.push(payload),
+    });
+  };
 
   const setEndDate = (payload) => {
     setState({
       ...state,
-      endDate: payload
-    })
-  }
+      endDate: payload,
+    });
+  };
 
   const setStartDate = (payload) => {
     setState({
       ...state,
-      startDate: payload
-    })
-  }
-  
+      startDate: payload,
+    });
+  };
+
   const setSearch = (payload) => {
     setState({
       ...state,
-      search: payload
-    })
-  }
+      search: payload,
+    });
+  };
 
   const setNameSearch = (payload) => {
-    state.user.shift()
+    state.user.shift();
     setState({
       ...state,
-      nameSearch: state.nameSearch.push(payload)
-    })
-  }
+      nameSearch: state.nameSearch.push(payload),
+    });
+  };
 
   const setCategoryList = (payload) => {
     setState({
       ...state,
-      categoryList: payload
-    })
-  }
+      categoryList: payload,
+    });
+  };
 
   const setUser = () => {
-    state.user.shift()
-  }
+    state.user.shift();
+  };
 
   const setBooking = (payload) => {
     setState({
       ...state,
-      booking: payload
+      booking: payload,
+    });
+    console.log(state.booking);
+  };
+
+  /* const datesFormatStart = payload => {
+    setSearch({
+      ...state,
+      datesFormat: {
+        ...state.datesFormat,
+        startDateFormat: payload
+      }
     })
-    console.log(state.booking)
   }
-  
+
+  const datesFormatEnd = payload => {
+    setSearch({
+      ...state,
+      datesFormat: {
+        ...state.datesFormat,
+        endDateFormat: payload
+      }
+    })
+  } */
+
+  const datesFormatStart = (payload) => {
+    setSearch({
+      ...state,
+      startDateFormat: payload,
+    });
+  };
+
+  const datesFormatEnd = (payload) => {
+    setSearch({
+      ...state,
+      endDateFormat: payload,
+    });
+  };
+
   return {
     state,
     setNameSearch,
@@ -95,7 +143,10 @@ const useInitialState = () => {
     setSearch,
     setCategoryList,
     setUser,
-    setBooking
+    setBooking,
+    datesFormatStart,
+    datesFormatEnd,
+    setCarId,
   };
 };
 

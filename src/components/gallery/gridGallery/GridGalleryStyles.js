@@ -13,7 +13,7 @@ export const DivContainerImages = styled.div`
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 0fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-row: 20vh;
 
     .gridBig {

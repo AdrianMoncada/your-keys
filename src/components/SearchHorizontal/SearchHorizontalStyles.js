@@ -9,14 +9,9 @@ export const SearchContainerHorizontal = styled.div`
   padding: 20px 20px;
   color: white;
   transition: all 0.3s ease-in-out;
-  /* background-color: rgba(0, 0, 0, 0.8); */
-
-  /* .divcito {
-    margin-right: 10px;
-  }
-  .dates {
-    margin-top: 10px;
-  } */
+  display: inline-block;
+  position: absolute;
+  top: 100px;
 `;
 
 export const ContainerButtonSvg = styled.div`
@@ -26,6 +21,8 @@ export const ContainerButtonSvg = styled.div`
   align-items: center;
   color: white;
   transition: all 0.3s ease-in-out;
+  display: inline-block;
+  position: absolute;
 `
 export const Background = styled.div`
 margin: -20px;

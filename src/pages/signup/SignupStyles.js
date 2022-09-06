@@ -29,6 +29,9 @@ export const DivFormik = styled.div`
     .titleCreate {
         text-align: center;
     }
+    .textA {
+        text-align: center;
+    }
 `
 
 export const DivSvg = styled.div`

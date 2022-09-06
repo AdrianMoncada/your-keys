@@ -90,22 +90,6 @@ export const DivContainerLocation = styled.div`
   /* padding: 0 0.5rem; */
 `;
 
-<<<<<<< HEAD
-export const DivPolicies = styled.div`
-  display: flex;
-  color: black;
-  justify-content: center;
-  gap: 20px;
-  margin: 0 30px 70px 30px;
-`;
-export const DivPoliciesContainer = styled.div`
-  color: black;
-  width: 400px;
-  border-right: ${({ borderLine }) => (borderLine ? null : "1px solid black")};
-`;
-
-=======
->>>>>>> origin/eliana-zamora
 export const DivGoLocation = styled.div`
   margin: 0 25px !important;
   font-size: 25px;

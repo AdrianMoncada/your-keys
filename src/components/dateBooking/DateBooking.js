@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import styled  from "styled-components";
 import AppContext from "../../context/AppContext";
+import Moment from 'moment';
 
 const DivDate = styled.div`
   .date_picker.full-width input {
@@ -52,28 +53,53 @@ const Calendar = styled.div`
 
 
 const DateVehicle = () => {
-  const { state } = useContext(AppContext);
+
+  const { state, datesFormatEnd, datesFormatStart } = useContext(AppContext);
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [startDateFomat, setStartDateFomat] = useState(null);
+  const [endDateFomat, setEndDateFomat] = useState(null);
+  
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+    setStartDateFomat(Moment(start).format('YYYY-MM-DD'))
+    setEndDateFomat(Moment(end).format('YYYY-MM-DD'))
+    console.log("🚀 ~ file: DateBooking.js ~ line 62 ~ DateVehicle ~ startDateFomat", startDateFomat)
+    console.log("🚀 ~ file: DateBooking.js ~ line 63 ~ DateVehicle ~ endDateFomat", endDateFomat)
+  };
+
+ 
+
+  /* const onClicks = dates => {
+    const [start, end] = dates;
+    setStartDateFomat(Moment(start).format('YYYY-MM-DD'))
+    setEndDateFomat(Moment(end).format('YYYY-MM-DD'))
+  }
+ */
   return (
     <DivDate>
-      {/* <DatePicker
-        inline
-        selected={state.startDate}
-        startDate={state.startDate}
-        endDate={state.endDate}
-        monthsShown={2}
-        wrapperClassName='date_picker full-width'
-        shouldCloseOnSelect={false}
-        readOnly
-      /> */}
-      <DatePickerWrapper
+      {/* <DatePickerWrapper
         calendarContainer={Calendar}
         inline
         startDate={state.startDate}
         endDate={state.endDate}
         monthsShown={2}
+        selectsRange
         wrapperClassName='date_picker full-width'
         className="dates"
-      />
+      /> */}
+      <DatePicker
+      selected={startDate}
+      onChange={onChange}
+      startDate={startDate}
+      endDate={endDate}
+      monthsShown={2}
+      selectsRange
+      inline
+    />
     </DivDate>
   );
 };

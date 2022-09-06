@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import HeaderCategory from "../../components/headerCategory/HeaderCategory";
-
+import AppContext from "../../context/AppContext";
 import {
   DetailDiv,
   DivLocation,
@@ -23,8 +23,10 @@ import useRequest from "../../hooks/useRequest";
 import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import Policies from "../../components/policies/Policies";
+import Swal from 'sweetalert2'
 
 const DetailProduct = () => {
+  const {state, setCarId} = useContext(AppContext)
   const navigate = useNavigate();
   const { carId } = useParams();
 
@@ -37,6 +39,19 @@ const DetailProduct = () => {
     method: "GET",
     url: `/vehicle/${carId}`,
   });
+
+  const handleBooking = () => {
+    if(state.isLogin) {
+      navigate("/booking")
+    } else {
+      navigate("/login")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes registrarte para hacer una reserva!'
+      })
+    }
+  }
 
   return (
     <React.Fragment>
@@ -81,7 +96,7 @@ const DetailProduct = () => {
           </p>
           <button
             className="buttonBooking"
-            onClick={() => navigate("/booking")}
+            onClick={() => handleBooking()}
           >
             Inicar reserva
           </button>

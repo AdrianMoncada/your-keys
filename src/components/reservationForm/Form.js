@@ -1,13 +1,23 @@
-import React from "react";
-import { DivForm, DivContainer, DivSelect } from "./formStyles";
+import React, { useContext, useState } from "react";
+import {
+  DivForm,
+  DivContainer,
+  DivSelect,
+  DivBooking,
+  DivContainerBooking,
+} from "./formStyles";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
 import TextFields from "../textField/TextFields";
 import DateBooking from "../dateBooking/DateBooking";
-import  Select  from "react-select";
-import hour from "../../assets/hour.json"
+import Select from "react-select";
+import hour from "../../assets/hour.json";
 import Policies from "../policies/Policies";
 import HeaderCategory from "../headerCategory/HeaderCategory";
+import AppContext from "../../context/AppContext";
+import axios from "axios";
+import DatePicker from "react-datepicker";
+import Moment from "moment";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -18,22 +28,71 @@ const FormBooking = () => {
     city: yup.string().required(isRequired),
   });
 
-  const handleSubmit = async (values, actions) => {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [startDateFomat, setStartDateFomat] = useState(null);
+  const [endDateFomat, setEndDateFomat] = useState(null);
+
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+    setStartDateFomat(Moment(start).format("YYYY-MM-DD"));
+    setEndDateFomat(Moment(end).format("YYYY-MM-DD"));
+  };
+
+  const { state } = useContext(AppContext);
+  console.log(state);
+
+  const handleSubmit = (values, actions) => {
     console.log(values);
-    console.log(actions);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    actions.resetForm();
+
+    const objBooking = {
+      time: "13:00:00",
+      initialdate: startDateFomat,
+      finalDate: endDateFomat,
+      vehicle: { idVehicle: state.carId },
+      user: { idUser: parseInt(state.user.map((i) => i.idUser).toString()) },
+    };
+    console.log(objBooking);
+    const parseado = JSON.stringify(objBooking)
+    axios({
+      method: "post",
+      url: "http://3.144.167.227:8080/booking",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + state.user.map((i) => i.token).toString(),
+        'Access-Control-Allow-Origin': '*'
+      },
+      data: parseado,
+    })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+    /* fetch("http://3.144.167.227:8080/booking", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': state.user.map((i) => i.token).toString()
+      },
+      body: parseado
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err)) */
   };
 
   const handleSelectChange = (event) => {
     console.log(event);
-  }
+  };
 
   return (
-    <div>
-      <HeaderCategory/>
-      <h1>Completa tus datos</h1>
+    <DivContainerBooking>
+      {/* <HeaderCategory/> */}
       <DivForm>
+        <h1>Completa tus datos</h1>
         <Formik
           initialValues={{
             name: "",
@@ -87,29 +146,60 @@ const FormBooking = () => {
                     />
                   </div>
                 </DivContainer>
+
+                <div>
+                  <h1>Seleccioná tu fecha de reserva</h1>
+                  <div>
+                    {/* <DateBooking /> */}
+                    <DatePicker
+                      selected={startDate}
+                      onChange={onChange}
+                      startDate={startDate}
+                      endDate={endDate}
+                      monthsShown={2}
+                      selectsRange
+                      inline
+                    />
+                  </div>
+                  <h1>Tu horario de llegada</h1>
+                </div>
+                <DivForm>
+                  <p>
+                    Tu auto estará listo para la entrega entre las 10:00 AM y
+                    las 11:00 PM
+                  </p>
+                  <DivSelect>
+                    <p>Indicá tu hora estimada de llegada</p>
+                    <Select
+                      defaultValue={hour[0]}
+                      options={hour}
+                      onChange={handleSelectChange}
+                    />
+                  </DivSelect>
+                </DivForm>
+                <DivBooking>
+                  <h3>Detalle de la reserva</h3>
+                  <img src="" alt="" />
+                  <p>Camioneta</p>
+                  <h4>Audi A3</h4>
+                  <p>Av calle 163 Buenos Aires, ciudad aulsdkjafsalkfjkdsld</p>
+                  <div>
+                    <h5>Check in</h5>
+                    <p>23/11/2021</p>
+                  </div>
+                  <div>
+                    <h5>Check out</h5>
+                    <p>23/11/2021</p>
+                  </div>
+                  <button type="submit">Confirmar Reserva</button>
+                </DivBooking>
               </Form>
             </div>
           )}
         </Formik>
       </DivForm>
-      <h1>Seleccioná tu fecha de reserva</h1>
-      <div>
-        <DateBooking />
-      </div>
-      <h1>Tu horario de llegada</h1>
-      <DivForm>
-            <p>Tu auto estará listo para la entrega entre las 10:00 AM y las 11:00 PM</p>
-            <DivSelect>
-              <p>Indicá tu hora estimada de llegada</p>
-            <Select
-            defaultValue = {hour[0]}
-              options={hour}
-              onChange= {handleSelectChange}
-            />
-            </DivSelect>
-      </DivForm>
-      <Policies/>
-    </div>
+      {/* <Policies /> */}
+    </DivContainerBooking>
   );
 };
 

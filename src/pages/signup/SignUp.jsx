@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { SignUp, DivSvg, DivFormik, ButtonFormik } from "./SignupStyles";
 import TextFields from "../../components/textField/TextFields";
@@ -101,6 +101,7 @@ const Signup = () => {
                       sx={{ mr: 2 }}
                       label="First Name"
                       name="firstName"
+                      variant="filled"
                       type="text"
                       InputProps={{
                         startAdornment: (
@@ -116,6 +117,7 @@ const Signup = () => {
                       label="Last Name"
                       name="lastName"
                       type="text"
+                      variant="filled"
                       InputProps={{
                         startAdornment: (
                           <InputAdornment position="start">
@@ -129,6 +131,7 @@ const Signup = () => {
                   <TextFields
                     label="Email Name"
                     name="email"
+                    variant="filled"
                     type="email"
                     InputProps={{
                       startAdornment: (
@@ -142,6 +145,7 @@ const Signup = () => {
                   <TextFields
                     label="Password Name"
                     name="password"
+                    variant="filled"
                     type="password"
                     InputProps={{
                       startAdornment: (
@@ -155,6 +159,7 @@ const Signup = () => {
                   <TextFields
                     label="Confirm Password"
                     name="confirmPassword"
+                    variant="filled"
                     type="password"
                     InputProps={{
                       startAdornment: (
@@ -172,6 +177,7 @@ const Signup = () => {
                   >
                     Crear Cuenta
                   </ButtonFormik>
+                  <p className="textA">¿Ya tienes una cuenta? <Link to="/login">Iniciar Sesión</Link> </p>
                 </Form>
               </div>
             )}

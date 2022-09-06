@@ -11,6 +11,9 @@ export const DivLogin = styled.div`
 export const DivFormikLogin = styled.div`
     text-align: center;
     width: 500px;
+    .textA {
+        text-align: center;
+    }
 `
 
 export const DivSvgLogin = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { MdMyLocation } from "react-icons/md";
 import {
   DivCard,
@@ -13,8 +13,10 @@ import { useNavigate } from "react-router-dom";
 import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
 import { FaToolbox, FaHeart, FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
+import AppContext from "../../context/AppContext";
 
 const Card = ({ car }) => {
+  const { state, setCarId } = useContext(AppContext);
   const navigate = useNavigate();
   const [favorite, setFavorite] = useState(false);
 
@@ -106,7 +108,12 @@ const Card = ({ car }) => {
             </p>
           </SpanLocation>
         </DivLocation>
-        <ButtonMore onClick={() => navigate(`/vehiculo/${car.idVehicle}`)}>
+        <ButtonMore
+          onClick={() => {
+            navigate(`/vehiculo/${car.idVehicle}`);
+            setCarId(car.idVehicle);
+          }}
+        >
           Ver Más
         </ButtonMore>
       </div>

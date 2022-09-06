@@ -14,7 +14,7 @@ import SvgLogin from "../../assets/SvgLogin";
 import * as Yup from "yup";
 import axios from "axios";
 import AppContext from "../../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -118,6 +118,7 @@ const Login = () => {
                 >
                   Iniciar Sesion
                 </ButtonLogin>
+                <p className="textA">No tienes cuenta? <Link to="/signup">Regístrate</Link></p>
               </Form>
             </div>
           )}
