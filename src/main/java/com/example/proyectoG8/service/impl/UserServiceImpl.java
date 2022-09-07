@@ -39,12 +39,12 @@ public class UserServiceImpl implements IUserService {
     public UserDTO createUser(UserDTO userDTO) {
         User user = userRepository.save(mapper.map(userDTO, User.class));
         if (user!= null){
+            UserDTO userDTO1 = mapper.map(user, UserDTO.class);
             emailSender.sendEmail(user.getEmail(), "Registro exitoso!",
                     "Se ha registrado con exito.");
-            UserDTO userDTO1 = mapper.map(user, UserDTO.class);
             return userDTO1;
         }
-        logger.error("The user {} couldn't be created successfully", userDTO.getUserName());
+        logger.error("The user {} couldn't be created successfully", userDTO.getName());
         return null;
     }
 

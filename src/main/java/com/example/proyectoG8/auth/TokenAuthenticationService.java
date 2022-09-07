@@ -42,7 +42,7 @@ public class TokenAuthenticationService implements UserAuthenticationService {
         UserAuthDTO authTokenDto = UserAuthDTO.builder()
                 .token(token)
                 .idUser(userDTO.getIdUser())
-                .userName(userDTO.getUserName())
+                .name(userDTO.getName())
                 .userLastName(userDTO.getUserLastName())
                 .email(userDTO.getEmail())
                 .rol(userDTO.getRol())

@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -40,7 +42,8 @@ public class AuthController {
 
         UserDTO userCreated = userService.createUser(userDTO);
         if( userCreated != null){
-            return new ResponseEntity(authenticationService.login(userCreated, true), HttpStatus.CREATED);
+            Optional<UserAuthDTO> userAuthDTO = authenticationService.login(userCreated, true);
+            return new ResponseEntity(userAuthDTO.get(), HttpStatus.CREATED);
         }
         return new ResponseEntity(HttpStatus.CONFLICT);
 

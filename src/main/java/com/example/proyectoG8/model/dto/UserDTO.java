@@ -1,21 +1,22 @@
 package com.example.proyectoG8.model.dto;
 
 
-import com.example.proyectoG8.model.Rol;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long idUser;
 
-    private String userName;
+    private String name;
 
     private String userLastName;
 
