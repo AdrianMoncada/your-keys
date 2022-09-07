@@ -11,7 +11,6 @@ import {
 import { Formik, Form } from "formik";
 import * as yup from "yup";
 import TextFields from "../textField/TextFields";
-import DateBooking from "../dateBooking/DateBooking";
 import Select from "react-select";
 import hour from "../../assets/hour.json";
 import Policies from "../policies/Policies";
@@ -25,6 +24,8 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { MdLocationPin } from "react-icons/md";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -128,7 +129,7 @@ const FormBooking = () => {
 
   const handleSelectChange = (event) => {
     console.log(event);
-    setHourDate(event.value)
+    setHourDate(event.value);
   };
 
   return (
@@ -151,9 +152,9 @@ const FormBooking = () => {
             {(formik) => (
               <Form>
                 <DivDisplay>
-                  <div style={{ flexBasis: "55%" }}>
-                    <h1>Completa tus datos</h1>
+                  <div style={{ flexBasis: "70%" }}>
                     <FormCard style={{ paddingBottom: "20px" }}>
+                      <h1>Completa tus datos</h1>
                       <div
                         style={{
                           display: "inline-flex",
@@ -207,9 +208,8 @@ const FormBooking = () => {
                         </div>
                       </div>
                     </FormCard>
-
                     <div>
-                      <h1>Seleccioná tu fecha de reserva</h1>
+                      <h1 className="h1Space">Seleccioná tu fecha de reserva</h1>
                       <div>
                         <DatePicker
                           selected={startDate}
@@ -223,16 +223,20 @@ const FormBooking = () => {
                           inline
                         />
                       </div>
-                      <h1>Tu horario de llegada</h1>
+                      <h1 className="h1Space">Tu horario de llegada</h1>
                     </div>
                     <FormCard>
-                      <p>
+                      <p className="pIcon">
+                        <AiOutlineCheckCircle className="IconCheck" />
                         Tu auto estará listo para la entrega entre las 10:00 AM
                         y las 11:00 PM
                       </p>
                       <DivSelect>
-                        <p>Indicá tu hora estimada de llegada</p>
+                        <p className="Phour">
+                          Indicá tu hora estimada de llegada
+                        </p>
                         <Select
+                          className="SelectHour"
                           defaultValue={hour[0]}
                           options={hour}
                           onChange={handleSelectChange}
@@ -240,15 +244,22 @@ const FormBooking = () => {
                       </DivSelect>
                     </FormCard>
                   </div>
-                  <FormCard>
-                    <h3>Detalle de la reserva</h3>
+                  <FormCard style={{ width: "50%" }}>
+                    <h1>Detalle de la reserva</h1>
                     <img
+                      className="Img"
                       src={responseCar?.images[2].url}
                       alt={responseCar?.rangeName}
                     />
-                    <p>{responseCar?.category.title}</p>
-                    <h4>{responseCar?.rangeName}</h4>
-                    <p>{responseCar?.description}</p>
+                    <p className="Pstyles">{responseCar?.category.title}</p>
+                    <h1>{responseCar?.rangeName}</h1>
+
+                    <p className="Pstyles"> 
+                      {" "}
+                      <MdLocationPin />
+                      {responseCar?.city.cityName}
+                    </p>
+                    <p className="pDes">{responseCar?.description}</p>
                     <div>
                       <h5>Check in</h5>
                       <p>
@@ -263,7 +274,9 @@ const FormBooking = () => {
                         {endDateFomat === null ? "YYYY-MM-DD" : endDateFomat}
                       </p>
                     </div>
-                    <button type="submit">Confirmar Reserva</button>
+                    <button className="Buttom" type="submit">
+                      Confirmar Reserva
+                    </button>
                   </FormCard>
                 </DivDisplay>
               </Form>
