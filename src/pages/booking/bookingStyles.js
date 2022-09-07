@@ -4,10 +4,8 @@ export const DivBooking = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 10%;
   padding-bottom: 2rem;
-  position: relative;
-  top: 80px;
+
   margin-bottom:80px;
  
   

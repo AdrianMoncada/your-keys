@@ -7,6 +7,7 @@ export const DivContainerCategory = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   & span {
     font-size: 45px;
   }

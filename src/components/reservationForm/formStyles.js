@@ -1,37 +1,28 @@
 import styled from "styled-components";
 
 export const DivContainerBooking = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(5, auto);
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3%;
+`;
 
 export const DivForm = styled.div`
-  display: inline-block;
-  width: 500px;
-  height: 250px;
   padding-bottom: 2rem;
-  box-sizing: border-box;
-  position: relative;
+  width: 100%;
   padding: 37.5px;
-  /* margin: 12px 0; */
-  border-radius:6px;
-  font-size:13px;
-  box-shadow:10px 10px 30px -14px #000;
+  font-size: 13px;
 `;
 
 export const DivContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center; 
-  
-  
+  align-items: center;
 `;
 export const DivSelect = styled.div`
   padding: 1rem;
   width: 45%;
-  
 `;
 
 export const DivBooking = styled.div`
@@ -39,4 +30,20 @@ export const DivBooking = styled.div`
   flex-direction: column;
   width: 30%;
   border: 1px solid red;
-`
+`;
+
+export const FormCard = styled.div`
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px 10px;
+
+`;
+export const DivDisplay = styled.div`
+ display: flex;
+ gap: 250px;
+`;
+
+
+
+
