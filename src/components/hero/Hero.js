@@ -77,7 +77,6 @@ const Hero = ({ slides, loading }) => {
         <HeroWrapper>
           {slides.map((slide, index) => (
               <div>
-  
               {index === current && (
                 <HeroSlider
                   key={index}
@@ -104,7 +103,7 @@ const Hero = ({ slides, loading }) => {
                       {/* <p>${slide.price}/dia</p> */}
                       <p>{formatNumber(slide.price)}/dia</p>
                       <HeroButton
-                        onClick={() => navigate(`/vehiculo/${slide.id}`)}
+                        onClick={() => navigate(`/vehiculo/${slide.idVehicle}`)}
                       >Ver Más</HeroButton>
                     </HeroText>
                   </HeroContent>

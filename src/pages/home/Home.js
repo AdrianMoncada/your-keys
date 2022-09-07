@@ -49,9 +49,6 @@ const Home = () => {
 
   const handleClick = () => {
     idCar = responses.find((city) => city.cityName === state.search)?.idCity;
-    /* axios.get(`http://3.144.167.227:8080/vehicle/city/${idCar}`).then((res) => {
-      setCategoryList(res.data);
-    }); */
 
     const objFilter = {
       cityId: state.search === null ? null : idCar,
@@ -65,7 +62,6 @@ const Home = () => {
       data: objFilter,
     })
     .then(res => {
-      console.log(res)
       setCategoryList(res.data);
     })
     .catch(err => {
@@ -81,7 +77,7 @@ const Home = () => {
     }
   };
 
-  window.addEventListener("scroll", changeView);
+  /* window.addEventListener("scroll", changeView); */
 
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>

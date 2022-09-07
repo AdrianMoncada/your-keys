@@ -15,10 +15,21 @@ export const DivCard = styled(motion.div)`
   border-radius: 10px;
   padding: 0 10px;
 
+  @media screen and (max-width: 320px) {
+    width: 250px;
+    height: 450px;
+  }
+
   img {
     width: 400px;
     height: 210px;
     object-fit: cover;
+
+    @media screen and (max-width: 320px) {
+      margin-top: 20px;
+      width: 200px;
+      height: 100px;
+    }
   }
 `;
 
@@ -49,6 +60,11 @@ export const DivCalification = styled.div`
   position: absolute;
   left: 30px;
   bottom: 30px;
+
+  @media screen and (max-width: 320px) {
+    bottom: 280px;
+    left: 45px;
+  }
 `;
 
 export const SpanLocation = styled.p`
@@ -98,12 +114,11 @@ export const DivImgs = styled.div`
     left: 25px;
     font-size: 30px;
     color: red;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 
     &:hover {
       cursor: pointer;
       scale: 1.2;
     }
-
   }
 `;

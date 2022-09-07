@@ -33,12 +33,29 @@ const DetailProduct = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  console.log(state.user);
+
+  axios({
+    method: "get",
+    url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
+    /* headers: {
+      'Authorization': state.user.map(user => user.token).toString(),
+    } */
+  })
+  .then(res => {
+    console.log(res)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
     url: `/vehicle/${carId}`,
   });
+
+  console.log(response)
 
   const handleBooking = () => {
     if(state.isLogin) {
@@ -103,7 +120,7 @@ const DetailProduct = () => {
         </DivReserve>
       </DivCalendar>
       <div>
-        <Map />
+        <Map car={response} />
       </div>
       <Policies />
     </React.Fragment>

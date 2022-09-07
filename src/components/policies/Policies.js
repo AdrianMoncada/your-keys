@@ -1,10 +1,14 @@
 import React from "react";
-import {DivPolicies, DivPoliciesContainer,DivTitlePolicies} from "./policiesStyles"
+import {
+  DivPolicies,
+  DivPoliciesContainer,
+  DivTitlePolicies,
+} from "./policiesStyles";
 
 const Policies = () => {
-    return (
-        <div>
-        <DivTitlePolicies>
+  return (
+    <div>
+      <DivTitlePolicies>
         <h1>Qué tenés que saber</h1>
       </DivTitlePolicies>
       <DivPolicies>
@@ -30,8 +34,8 @@ const Policies = () => {
           </p>
         </DivPoliciesContainer>
       </DivPolicies>
-      </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Policies;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 export const ContainerMain = styled(motion.div)`
   color: white;
@@ -33,6 +33,11 @@ export const DivContainerInfo = styled.div`
   @media screen and (max-width: 489px) {
     width: 59vh;
   }
+
+  @media screen and (max-width: 320px) {
+    width: 46.5vh;
+  }
+
   color: white;
   display: flex;
   flex-direction: column;
@@ -43,18 +48,22 @@ export const InputInfo = styled.input`
   background-color: ${({ theme }) => theme.third};
   border: none;
   padding: 10px 32px 10px 5px;
-  margin: 5px 0;
+  margin: 5px auto;
   border-radius: 0px 10px 10px 0px;
   font-size: 15px;
   outline: none;
+
+  @media screen and (max-width: 489px) {
+    /* width: 59vh; */
+  }
 `;
 
 export const DivLupa = styled.div`
   position: sticky;
-  top: 100px;
+  top: 0px;
   z-index: 15;
   display: inline-block;
-`
+`;
 
 export const ButtonInfo = styled(motion.button)`
   padding: 15px 20px;
@@ -141,5 +150,9 @@ export const DivContainerList = styled.div`
     color: white;
     font-size: 35px;
     padding: 10px 0;
+
+    @media screen and (max-width: 320px) {
+      font-size: 25px;
+    }
   }
 `;

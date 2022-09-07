@@ -32,7 +32,6 @@ const Header = () => {
   const [searcher, setSearcher] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const navigate = useNavigate();
-  console.log(state.user)
 
   const handleClick = () => {
     navigate("/");
@@ -53,7 +52,7 @@ const Header = () => {
 
     Toast.fire({
       icon: "success",
-      title: "Salir sesión",
+      title: "Sesión finalizada",
     });
   };
 
@@ -116,7 +115,7 @@ const Header = () => {
                 <h4 className="userName">
                   {user.userName} {user.userLastName}
                 </h4>
-                <ButtonLogOut onClick={handleClick}>Cerrar sesion</ButtonLogOut>
+                <ButtonLogOut onClick={handleClick}>Cerrar sesión</ButtonLogOut>
               </DivUserText>
             ))}
         </div>
@@ -125,7 +124,6 @@ const Header = () => {
   };
 
   return (
-    <div>
       <DivPrueba initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <div
           className={`${
@@ -148,7 +146,7 @@ const Header = () => {
               }}
             >
               <Logo />
-              <h1>Your Keys!</h1>
+              <h1 className="titleHeader">Your Keys!</h1>
             </DivImg>
             <MobileIcon onClick={() => setShowMobile(!showMobile)}>
               {showMobile ? (
@@ -161,12 +159,10 @@ const Header = () => {
             <DivUser open={showMobile}>{showLogin()}</DivUser>
           </div>
         </div>
-      </DivPrueba>
       {/* <DivLupa>
-
         <SearchBar />
       </DivLupa> */}
-    </div>
+      </DivPrueba>
   );
 };
 

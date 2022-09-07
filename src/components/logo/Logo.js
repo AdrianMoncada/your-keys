@@ -1,9 +1,19 @@
 import React from "react";
+import styled from "styled-components";
+
+const Svg = styled.svg`
+  width: 80px;
+  height: 70px;
+  @media screen and (max-width: 320px) {
+    width: 60px;
+    height: 50px;
+  }
+`;
 
 const Logo = () => {
   return (
     <div>
-      <svg
+      <Svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         width={80}
@@ -101,7 +111,7 @@ const Logo = () => {
             fillRule="nonzero"
           />
         </g>
-      </svg>
+      </Svg>
     </div>
   );
 };

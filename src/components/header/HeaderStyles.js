@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import {motion} from "framer-motion";
-
+import { motion } from "framer-motion";
 
 export const Buttons = styled(motion.button)`
   padding: 13px 30px;
@@ -36,16 +35,23 @@ export const DivImg = styled.div`
   cursor: pointer;
   margin-top: 5px;
 
+  @media screen and (max-width: 320px) {
+    margin-left: 1rem;
+  }
+
   h1 {
     font-size: 25px;
     margin-left: 10px;
+
+    @media screen and (max-width: 320px) {
+      font-size: 20px;
+    }
   }
 `;
 
 export const DivPrueba = styled(motion.div)`
   position: relative;
   z-index: 20;
-
 
   .wrap-container {
     position: fixed;
@@ -71,9 +77,8 @@ export const DivPrueba = styled(motion.div)`
   }
 `;
 
-
 export const ButtonLogOut = styled.button`
-  background-color: ${({theme}) => theme.red};
+  background-color: ${({ theme }) => theme.red};
   color: white;
   font-size: 20px;
   padding: 9px 15px;
@@ -81,16 +86,16 @@ export const ButtonLogOut = styled.button`
   border-radius: 10px;
   margin: 10px 20px;
   cursor: pointer;
-`
+`;
 
 export const DivUser = styled.div`
   display: flex;
   @media screen and (max-width: 960px) {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 3;
     top: 0px;
-    left: ${({open}) => open ? '0' : '-100%'};
+    left: ${({ open }) => (open ? "0" : "-100%")};
     width: 100%;
     height: 100vh;
     justify-content: center;
@@ -98,8 +103,7 @@ export const DivUser = styled.div`
     align-items: center;
     transition: 0.5s all ease;
   }
-
-`
+`;
 
 export const DivUserText = styled.div`
   display: flex;
@@ -109,7 +113,7 @@ export const DivUserText = styled.div`
   .userName {
     margin: 0 10px;
   }
-`
+`;
 
 export const MobileIcon = styled.div`
   display: none;
@@ -127,7 +131,4 @@ export const MobileIcon = styled.div`
       z-index: 5;
     }
   }
-  
-
-`
-
+`;

@@ -148,6 +148,7 @@ const FormBooking = () => {
                       startDate={startDate}
                       endDate={endDate}
                       monthsShown={2}
+                      /* excludeDateIntervals={[{start: subDays(new Date(), 5), end: addDays(new Date(), 5) }]} */
                       selectsRange
                       inline
                     />
