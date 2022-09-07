@@ -38,8 +38,8 @@ const FormBooking = () => {
   const [startDateFomat, setStartDateFomat] = useState(null);
   const [endDateFomat, setEndDateFomat] = useState(null);
   const [responseCar, setResponseCar] = useState(null);
-
-  const [datesBooking, setDatesBooking] = useState([])
+  const [hourDate, setHourDate] = useState(null);
+  const [datesBookings, setDatesBookings] = useState([]);
 
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -48,7 +48,7 @@ const FormBooking = () => {
     setStartDateFomat(Moment(start).format("YYYY-MM-DD"));
     setEndDateFomat(Moment(end).format("YYYY-MM-DD"));
   };
-  /* let datesBooking = []; */
+  let datesBooking = [];
   const { state } = useContext(AppContext);
 
   useEffect(() => {
@@ -66,32 +66,22 @@ const FormBooking = () => {
         console.log(err);
       });
 
-      /* console.log(state.bookingList)
-
-    state.bookingList?.map((car) =>
-      datesBooking.push({
-        start: car.initialdate,
-        end: car.finalDate,
-      })
-    );
-
-    console.log(datesBooking); */
-
-    console.log(state.bookingList)
     const mapBooking = () => {
-      state.bookingList?.map(booking => setDatesBooking(datesBooking.push({
-        start: new Date(booking.initialdate),
-        end: new Date(booking.finalDate),
-      })))
-      console.log(datesBooking)
-    }
+      state.bookingList?.map((booking) =>
+        datesBooking.push({
+          start: new Date(booking.initialdate),
+          end: new Date(booking.finalDate),
+        })
+      );
+      setDatesBookings(datesBooking);
+    };
 
-    mapBooking()
+    mapBooking();
   }, [state]);
 
   const handleSubmit = (values, actions) => {
     const objBooking = {
-      time: "13:00:00",
+      time: hourDate,
       initialdate: startDateFomat,
       finalDate: endDateFomat,
       vehicle: { idVehicle: state.carId },
@@ -119,16 +109,14 @@ const FormBooking = () => {
 
   const handleSelectChange = (event) => {
     console.log(event);
+    setHourDate(event.value)
   };
-
-  
 
   return (
     <Fragment>
       <DetailDiv>
         <HeaderCategory url={`/vehiculo/${state.carId}`} />
       </DetailDiv>
-      {console.log(datesBooking)}
       <DivContainerBooking>
         <DivForm>
           <Formik
@@ -209,19 +197,10 @@ const FormBooking = () => {
                           onChange={onChange}
                           startDate={startDate}
                           endDate={endDate}
-                          /* excludeDateIntervals={[
-                            {
-                              start: new Date('2022-09-07'), 
-                              end: new Date('2022-09-14') 
-                            },
-                            {
-                              start: new Date('2022-09-16'), 
-                              end: new Date('2022-09-18') 
-                            },
-                          ]} */
-                          excludeDateIntervals={datesBooking}
+                          excludeDateIntervals={datesBookings}
                           monthsShown={2}
                           selectsRange
+                          minDate={new Date()}
                           inline
                         />
                       </div>
