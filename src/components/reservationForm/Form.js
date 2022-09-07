@@ -22,6 +22,7 @@ import DatePicker from "react-datepicker";
 import Moment from "moment";
 import { DetailDiv } from "../../pages/vehiculo/vehiculoStyles";
 import { Fragment } from "react";
+import { useEffect } from "react";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -38,6 +39,8 @@ const FormBooking = () => {
   const [endDateFomat, setEndDateFomat] = useState(null);
   const [responseCar, setResponseCar] = useState(null);
 
+  const [datesBooking, setDatesBooking] = useState([])
+
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -45,22 +48,46 @@ const FormBooking = () => {
     setStartDateFomat(Moment(start).format("YYYY-MM-DD"));
     setEndDateFomat(Moment(end).format("YYYY-MM-DD"));
   };
-
+  /* let datesBooking = []; */
   const { state } = useContext(AppContext);
-  
-  axios({
-    method: "get",
-    url: `http://3.144.167.227:8080/vehicle/${state.carId}`,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      setResponseCar(res.data);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `http://3.144.167.227:8080/vehicle/${state.carId}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => {
+        setResponseCar(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      /* console.log(state.bookingList)
+
+    state.bookingList?.map((car) =>
+      datesBooking.push({
+        start: car.initialdate,
+        end: car.finalDate,
+      })
+    );
+
+    console.log(datesBooking); */
+
+    console.log(state.bookingList)
+    const mapBooking = () => {
+      state.bookingList?.map(booking => setDatesBooking(datesBooking.push({
+        start: new Date(booking.initialdate),
+        end: new Date(booking.finalDate),
+      })))
+      console.log(datesBooking)
+    }
+
+    mapBooking()
+  }, [state]);
 
   const handleSubmit = (values, actions) => {
     const objBooking = {
@@ -70,7 +97,6 @@ const FormBooking = () => {
       vehicle: { idVehicle: state.carId },
       user: { idUser: parseInt(state.user.map((i) => i.idUser).toString()) },
     };
-    console.log(objBooking);
     const parseado = JSON.stringify(objBooking);
     axios({
       method: "post",
@@ -95,11 +121,14 @@ const FormBooking = () => {
     console.log(event);
   };
 
+  
+
   return (
     <Fragment>
       <DetailDiv>
         <HeaderCategory url={`/vehiculo/${state.carId}`} />
       </DetailDiv>
+      {console.log(datesBooking)}
       <DivContainerBooking>
         <DivForm>
           <Formik
@@ -172,21 +201,6 @@ const FormBooking = () => {
                       </div>
                     </FormCard>
 
-<<<<<<< HEAD
-                <div>
-                  <h1>Seleccioná tu fecha de reserva</h1>
-                  <div>
-                    {/* <DateBooking /> */}
-                    <DatePicker
-                      selected={startDate}
-                      onChange={onChange}
-                      startDate={startDate}
-                      endDate={endDate}
-                      monthsShown={2}
-                      /* excludeDateIntervals={[{start: subDays(new Date(), 5), end: addDays(new Date(), 5) }]} */
-                      selectsRange
-                      inline
-=======
                     <div>
                       <h1>Seleccioná tu fecha de reserva</h1>
                       <div>
@@ -195,6 +209,17 @@ const FormBooking = () => {
                           onChange={onChange}
                           startDate={startDate}
                           endDate={endDate}
+                          /* excludeDateIntervals={[
+                            {
+                              start: new Date('2022-09-07'), 
+                              end: new Date('2022-09-14') 
+                            },
+                            {
+                              start: new Date('2022-09-16'), 
+                              end: new Date('2022-09-18') 
+                            },
+                          ]} */
+                          excludeDateIntervals={datesBooking}
                           monthsShown={2}
                           selectsRange
                           inline
@@ -222,7 +247,6 @@ const FormBooking = () => {
                     <img
                       src={responseCar?.images[2].url}
                       alt={responseCar?.rangeName}
->>>>>>> d4cd42a4ad71443c8c1a9416f27c028e339b61f4
                     />
                     <p>{responseCar?.category.title}</p>
                     <h4>{responseCar?.rangeName}</h4>

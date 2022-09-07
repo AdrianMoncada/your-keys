@@ -26,28 +26,13 @@ import Policies from "../../components/policies/Policies";
 import Swal from 'sweetalert2'
 
 const DetailProduct = () => {
-  const {state, setCarId} = useContext(AppContext)
+  const {state, setBookingList} = useContext(AppContext)
   const navigate = useNavigate();
   const { carId } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log(state.user);
-
-  axios({
-    method: "get",
-    url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
-    /* headers: {
-      'Authorization': state.user.map(user => user.token).toString(),
-    } */
-  })
-  .then(res => {
-    console.log(res)
-  })
-  .catch(err => {
-    console.log(err)
-  })
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,
@@ -55,11 +40,23 @@ const DetailProduct = () => {
     url: `/vehicle/${carId}`,
   });
 
-  console.log(response)
-
   const handleBooking = () => {
     if(state.isLogin) {
       navigate("/booking")
+      axios({
+        method: "get",
+        url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
+        /* headers: {
+          'Authorization': state.user.map(user => user.token).toString(),
+        } */
+      })
+      .then(res => {
+        console.log(res.data);
+        setBookingList(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
     } else {
       navigate("/login")
       Swal.fire({

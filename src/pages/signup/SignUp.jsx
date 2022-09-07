@@ -30,9 +30,8 @@ const Signup = () => {
   });
 
   const submitRegister = (values) => {
-    console.log("🚀 ~ file: SignUp.jsx ~ line 33 ~ submitRegister ~ values", values.firstName)
     const objUser = {
-      userName: values.firstName,
+      name: values.firstName,
       userLastName: values.lastName,
       email: values.email,
       password: values.password,
@@ -41,7 +40,6 @@ const Signup = () => {
         idRol: 2,
       },
     };
-    console.log("🚀 ~ file: SignUp.jsx ~ line 44 ~ submitRegister ~ objUser", objUser)
     axios({
       method: "post",
       url: "http://3.144.167.227:8080/auth",

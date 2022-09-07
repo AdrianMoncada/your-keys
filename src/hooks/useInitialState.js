@@ -10,6 +10,7 @@ const initialState = {
   categoryList: null,
   booking: null,
   carId: null,
+  bookingList: null,
 };
 
 const useInitialState = () => {
@@ -92,6 +93,13 @@ const useInitialState = () => {
     console.log(state.booking);
   };
 
+  const setBookingList = (payload) => {
+    setState({
+      ...state,
+      bookingList: payload
+    })
+  }
+
  
 
   return {
@@ -107,6 +115,7 @@ const useInitialState = () => {
     setUser,
     setBooking,
     setCarId,
+    setBookingList
   };
 };
 
