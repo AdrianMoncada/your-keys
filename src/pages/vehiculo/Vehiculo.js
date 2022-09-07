@@ -23,10 +23,10 @@ import useRequest from "../../hooks/useRequest";
 import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import Policies from "../../components/policies/Policies";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const DetailProduct = () => {
-  const {state, setBookingList} = useContext(AppContext)
+  const { state, setBookingList } = useContext(AppContext);
   const navigate = useNavigate();
   const { carId } = useParams();
 
@@ -41,8 +41,8 @@ const DetailProduct = () => {
   });
 
   const handleBooking = () => {
-    if(state.isLogin) {
-      navigate("/booking")
+    if (state.isLogin) {
+      navigate("/booking");
       axios({
         method: "get",
         url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
@@ -50,27 +50,27 @@ const DetailProduct = () => {
           'Authorization': state.user.map(user => user.token).toString(),
         } */
       })
-      .then(res => {
-        console.log(res.data);
-        setBookingList(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+        .then((res) => {
+          console.log(res.data);
+          setBookingList(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
-      navigate("/login")
+      navigate("/login");
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Debes registrarte para hacer una reserva!'
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Debes registrarte para hacer una reserva!",
+      });
     }
-  }
+  };
 
   return (
     <React.Fragment>
       <DetailDiv>
-        <HeaderCategory url="/"/>
+        <HeaderCategory url="/" />
         <DivContainerLocation>
           <DivLocation>
             <DivGoLocation>
@@ -108,10 +108,7 @@ const DetailProduct = () => {
           <p className="textBooking">
             Agregá tus fechas de reserva para obtener precios exactos
           </p>
-          <button
-            className="buttonBooking"
-            onClick={() => handleBooking()}
-          >
+          <button className="buttonBooking" onClick={() => handleBooking()}>
             Inicar reserva
           </button>
         </DivReserve>
