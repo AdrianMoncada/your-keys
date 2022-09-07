@@ -65,8 +65,7 @@ const DateVehicle = () => {
     setEndDate(end);
     setStartDateFomat(Moment(start).format('YYYY-MM-DD'))
     setEndDateFomat(Moment(end).format('YYYY-MM-DD'))
-    console.log("🚀 ~ file: DateBooking.js ~ line 62 ~ DateVehicle ~ startDateFomat", startDateFomat)
-    console.log("🚀 ~ file: DateBooking.js ~ line 63 ~ DateVehicle ~ endDateFomat", endDateFomat)
+    
   };
 
  

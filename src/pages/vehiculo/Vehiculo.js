@@ -73,7 +73,7 @@ const DetailProduct = () => {
   return (
     <React.Fragment>
       <DetailDiv>
-        <HeaderCategory />
+        <HeaderCategory url="/"/>
         <DivContainerLocation>
           <DivLocation>
             <DivGoLocation>

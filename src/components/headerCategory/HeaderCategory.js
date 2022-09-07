@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest";
 import { IoIosArrowBack } from "react-icons/io";
-/*import { useNavigate } from "react-router-dom";*/
+import { useNavigate } from "react-router-dom";
 
 import {
   DivContainerCategory,
@@ -11,7 +11,7 @@ import {
   DivSpanIcon,
 } from "./headerCategoryStyles";
 
-const HeaderCategory = () => {
+const HeaderCategory = ({url}) => {
   const { carId } = useParams();
 
   const [response, error, loading] = useRequest({
@@ -25,7 +25,7 @@ const HeaderCategory = () => {
         <h3>{response?.category?.title}</h3>
         <h1>{response?.rangeName}</h1>
       </DivName>
-      <Link to="/">
+      <Link to={url}>
         <DivSpanIcon>
           <span>
             <IoIosArrowBack />{" "}
