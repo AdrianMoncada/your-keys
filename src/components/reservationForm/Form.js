@@ -23,6 +23,8 @@ import Moment from "moment";
 import { DetailDiv } from "../../pages/vehiculo/vehiculoStyles";
 import { Fragment } from "react";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -40,6 +42,8 @@ const FormBooking = () => {
   const [responseCar, setResponseCar] = useState(null);
   const [hourDate, setHourDate] = useState(null);
   const [datesBookings, setDatesBookings] = useState([]);
+
+  const navigate = useNavigate()
 
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -101,9 +105,24 @@ const FormBooking = () => {
     })
       .then((res) => {
         console.log(res);
+        navigate("/")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Reserva Exitosa',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No se pudo hacer la reserva',
+          showConfirmButton: false,
+          timer: 1500
+        })
       });
   };
 

@@ -51,29 +51,32 @@ const Calendar = styled.div`
 
 
 
-const DateVehicle = () => {
+const DateVehicle = ({datesBookings}) => {
   const { state } = useContext(AppContext);
   return (
     <DivDate>
-      {/* <DatePicker
+      <DatePicker
         inline
-        selected={state.startDate}
+        /* selected={state.startDate}
         startDate={state.startDate}
-        endDate={state.endDate}
+        endDate={state.endDate} */
         monthsShown={2}
-        wrapperClassName='date_picker full-width'
-        shouldCloseOnSelect={false}
+        minDate={new Date()}
+        /* wrapperClassName='date_picker full-width'
+        shouldCloseOnSelect={false} */
+        excludeDateIntervals={datesBookings}
         readOnly
-      /> */}
-      <DatePickerWrapper
+      />
+      {/* <DatePickerWrapper
         calendarContainer={Calendar}
         inline
         startDate={state.startDate}
-        endDate={state.endDate}
+        endDate={state.endDate} 
         monthsShown={2}
-        wrapperClassName='date_picker full-width'
+        wrapperClassName='date_picker full-width' 
         className="dates"
-      />
+        excludeDateIntervals={datesBookings}
+      /> */}
     </DivDate>
   );
 };
