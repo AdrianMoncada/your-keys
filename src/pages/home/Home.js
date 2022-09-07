@@ -26,7 +26,7 @@ import Moment from "moment";
 
 const Home = () => {
   const { state, setCategoryList } = useContext(AppContext);
-  const [searcher, setSearcher] = useState(false);
+  const [searcher, setSearcher] = useState(true);
 
   const [response, error, loading] = useRequest({
     axiosInstance: axios,

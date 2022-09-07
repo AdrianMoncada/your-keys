@@ -57,6 +57,8 @@ const FormBooking = () => {
   const { state } = useContext(AppContext);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     axios({
       method: "get",
       url: `http://3.144.167.227:8080/vehicle/${state.carId}`,
