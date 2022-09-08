@@ -83,6 +83,7 @@ const DetailProduct = () => {
       });
     }
   };
+  console.log(response, error, loading);
 
   return (
     <React.Fragment>
@@ -131,7 +132,7 @@ const DetailProduct = () => {
         </DivReserve>
       </DivCalendar>
       <div>
-        <Map car={response} />
+        <Map car={response} loading={loading} />
       </div>
       <Policies />
     </React.Fragment>
