@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 export const DivCard = styled(motion.div)`
   background-color: ${({ theme }) => theme.background};
-  width: 600px;
-  height: 320px;
+  width: 580px;
+  height: 300px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

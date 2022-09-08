@@ -8,6 +8,7 @@ import {
   DivUser,
   DivUserText,
   MobileIcon,
+  DivSvgExit
 } from "./HeaderStyles";
 import { useNavigate, useLocation } from "react-router";
 import Logo from "../logo/Logo";
@@ -16,6 +17,7 @@ import Avatar from "@mui/material/Avatar";
 import Swal from "sweetalert2";
 import { FaBars, FaTimes } from "react-icons/fa";
 import styled from 'styled-components'
+import {ImExit} from 'react-icons/im';
 
 export const DivLupa = styled.div`
   position: sticky;
@@ -113,9 +115,12 @@ const Header = () => {
                   {user.userLastName.substr(0, 1).toUpperCase()}
                 </Avatar>
                 <h4 className="userName">
-                  {user.name} {user.userLastName}
+                  Hola, {user.name} {user.userLastName}
                 </h4>
-                <ButtonLogOut onClick={handleClick}>Cerrar sesión</ButtonLogOut>
+                <DivSvgExit>
+                  <ImExit onClick={handleClick} />
+                </DivSvgExit>
+                {/* <ButtonLogOut onClick={handleClick}>Cerrar sesión</ButtonLogOut> */}
               </DivUserText>
             ))}
         </div>

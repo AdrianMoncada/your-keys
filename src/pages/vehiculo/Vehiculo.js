@@ -34,21 +34,23 @@ const DetailProduct = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    axios({
-      method: "get",
-      url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
-      /* headers: {
-        'Authorization': state.user.map(user => user.token).toString(),
-      } */
-    })
-    .then(res => {
-      console.log(res.data);
-      setBookingList(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    const request = () => {
+      axios({
+        method: "get",
+        url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
+        /* headers: {
+          'Authorization': state.user.map(user => user.token).toString(),
+        } */
+      })
+      .then(res => {
+        console.log(res.data);
+        setBookingList(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+    request()
 
     const mapBooking = () => {
       state.bookingList?.map((booking) =>

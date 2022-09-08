@@ -111,7 +111,7 @@ const Home = () => {
           </DivContainerInfo>
         </ContainerMain>
       </div>
-      <DivLupa>{searcher ? <SearchBar /> : null}</DivLupa>
+      {/* <DivLupa>{searcher ? <SearchBar /> : null}</DivLupa> */}
 
       <ContainerCategorias>
         <motion.h2

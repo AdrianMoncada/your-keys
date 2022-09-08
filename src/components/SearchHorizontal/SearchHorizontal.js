@@ -19,7 +19,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function SearchBar() {
   const modalRef = useRef();
-  const [showmodal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const openModal = (e) => {
     setShowModal(true);
@@ -33,14 +33,14 @@ function SearchBar() {
 
   return (
     <SearchContainerHorizontal className="hola">
-      {showmodal ? (
+      {showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
           <AnimatePresence>
             <ModalWrapper
               initial={{ x: "-100%" }}
               animate={{ x: "0%" }}
               exit={{ x: "-100%" }}
-              showModal={showmodal}
+              showModal={showModal}
             >
               <ModalContent>
                 <h2 className="titleInfos"> Recogida</h2>

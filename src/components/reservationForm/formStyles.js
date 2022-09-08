@@ -12,11 +12,26 @@ export const DivForm = styled.div`
   padding-bottom: 2rem;
   width: 100%;
   padding: 37.5px;
+  /* padding: 10px 15px 10px 10px; */
   font-size: 13px;
 
+  .categoryP {
+    margin-bottom: -18px;
+    font-size: 18px !important;
+  }
+
+  .locationP {
+    margin-bottom: -10px;
+  }
+
   .h1Space {
-  margin-top: 10%;
-}
+    text-align: center;
+  }
+
+  .h1Spaces {
+    margin-top: 25px;
+    text-align: center;
+  }
 `;
 
 export const DivContainer = styled.div`
@@ -27,6 +42,7 @@ export const DivContainer = styled.div`
 export const DivSelect = styled.div`
   padding: 1rem;
   width: 45%;
+  margin: 0 auto;
 `;
 
 export const DivBooking = styled.div`
@@ -36,69 +52,95 @@ export const DivBooking = styled.div`
   border: 1px solid red;
 `;
 
+export const DivDate = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  
+`
+
 export const FormCard = styled.div`
   background-color: #f0f0f0;
   border-radius: 10px;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
-  padding: 16px 10px;
+  padding: 16px 20px;
+  /* padding: 10px 15px 10px 10px; */
 
-.Img {
-  width: 100%;
-  height:300px;
-  object-fit: cover;
-}
+  .check {
+    /* margin-bottom: -10px; */
+  }
 
-.IconCheck {
-margin-right: 2%;
-margin-left: 2%;
-font-size: 150%; 
-}
+  .titleFill {
+    text-align: center;
+  }
 
-.Phour {
-  font-weight: bold;
-  margin-left: 10%
-}
-.SelectHour {
-  margin-left: 10%
-}
-.pIcon {
-  font-weight: bold;
-  font-size: 110%;
-}
+  .Img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 
-.Pstyles{
-  font-size: 150%;
-}
+  .IconCheck {
+    /* margin-right: 2%; */
+    /* margin: 25px 0 0px 20px; */
+    position: relative;
+    top: 5px;
+    font-size: 150%;
+  }
 
-.pDes{
-  text-align: justify;
-}
+  .Phour {
+    font-weight: bold;
+    margin-left: 10%;
+  }
+  .SelectHour {
+    margin-left: 10%;
+  }
+  .pIcon {
+    font-weight: bold;
+    font-size: 110%;
+    text-align: center;
+  }
 
-h5{
-  font-size: 140%
-}
+  .Pstyles {
+    font-size: 150%;
+  }
 
+  .pDes {
+    text-align: justify;
+  }
 
+  h5 {
+    font-size: 140%;
+  }
 
-.Buttom {
-  padding: 10px 20px;
-  border: none;
-  background-color: ${({ theme }) => theme.secondary};
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 10px 10px 10px 10px;
-  color: white;
+  .Buttom {
+    padding: 15px 20px;
+    border: none;
+    background-color: ${({ theme }) => theme.secondary};
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px 10px 10px 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 0 auto;
+  }
+`;
+
+export const DivCheck =  styled.div`
   display: flex;
-  justify-content: center;
-  margin: 10% auto 0 auto;
-}
-`;
+  justify-content: space-between;
+  align-items: center;
+
+  .dateCheck {
+    font-size: 15px;
+  }
+`
+
+
 export const DivDisplay = styled.div`
- display: flex;
- gap: 10%;
+  display: flex;
+  gap: 10%;
 `;
-
-
-
-
