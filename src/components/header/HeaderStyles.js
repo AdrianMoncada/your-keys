@@ -58,7 +58,7 @@ export const DivPrueba = styled(motion.div)`
     z-index: 2;
     width: 100%;
     transition: 0.6s;
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.5);
   }
   .wrap-containers {
     position: relative;
@@ -132,3 +132,20 @@ export const MobileIcon = styled.div`
     }
   }
 `;
+
+export const DivSvgExit = styled.div`
+  svg {
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      color: red;
+      scale: 1.1;
+    }
+  }
+`

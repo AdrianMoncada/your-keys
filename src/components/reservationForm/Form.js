@@ -7,6 +7,8 @@ import {
   DivContainerBooking,
   FormCard,
   DivDisplay,
+  DivDate,
+  DivCheck,
 } from "./formStyles";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -22,8 +24,11 @@ import Moment from "moment";
 import { DetailDiv } from "../../pages/vehiculo/vehiculoStyles";
 import { Fragment } from "react";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -42,6 +47,8 @@ const FormBooking = () => {
   const [hourDate, setHourDate] = useState(null);
   const [datesBookings, setDatesBookings] = useState([]);
 
+  const navigate = useNavigate();
+
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -53,6 +60,8 @@ const FormBooking = () => {
   const { state } = useContext(AppContext);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     axios({
       method: "get",
       url: `http://3.144.167.227:8080/vehicle/${state.carId}`,
@@ -89,23 +98,47 @@ const FormBooking = () => {
       user: { idUser: parseInt(state.user.map((i) => i.idUser).toString()) },
     };
     const parseado = JSON.stringify(objBooking);
-    axios({
-      method: "post",
-      url: "http://3.144.167.227:8080/booking",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: state.user.map((user) => user.token).toString(),
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      },
-      data: parseado,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+
+    if (startDateFomat === null && endDateFomat === null && hourDate === null) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos deben estar llenos",
       });
+    } else {
+      axios({
+        method: "post",
+        url: "http://3.144.167.227:8080/booking",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: state.user.map((user) => user.token).toString(),
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+        data: parseado,
+      })
+        .then((res) => {
+          console.log(res);
+          navigate("/");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Reserva Exitosa",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "No se pudo hacer la reserva",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
+    }
   };
 
   const handleSelectChange = (event) => {
@@ -135,7 +168,7 @@ const FormBooking = () => {
                 <DivDisplay>
                   <div style={{ flexBasis: "70%" }}>
                     <FormCard style={{ paddingBottom: "20px" }}>
-                      <h1>Completa tus datos</h1>
+                      <h1 className="titleFill">Completa tus datos</h1>
                       <div
                         style={{
                           display: "inline-flex",
@@ -148,7 +181,6 @@ const FormBooking = () => {
                         <div>
                           <TextFields
                             fullWidth
-                            variant="standard"
                             label="Nombre"
                             type="text"
                             id="name"
@@ -156,9 +188,8 @@ const FormBooking = () => {
                             placeholder="Nombre"
                           />
                           <TextFields
-                            sx={{ ml: 1 }}
+                            /* sx={{ ml: 1 }} */
                             fullWidth
-                            variant="standard"
                             label="Email"
                             type="email"
                             id="email"
@@ -169,7 +200,6 @@ const FormBooking = () => {
                         <div>
                           <TextFields
                             fullWidth
-                            variant="standard"
                             label="Apellido"
                             type="text"
                             id="lastname"
@@ -177,9 +207,8 @@ const FormBooking = () => {
                             placeholder="Apellido"
                           />
                           <TextFields
-                            sx={{ ml: 1 }}
+                            /* sx={{ ml: 1 }} */
                             fullWidth
-                            variant="standard"
                             label="Ciudad"
                             type="text"
                             id="city"
@@ -190,8 +219,10 @@ const FormBooking = () => {
                       </div>
                     </FormCard>
                     <div>
-                      <h1 className="h1Space">Seleccioná tu fecha de reserva</h1>
-                      <div>
+                      <h1 className="h1Spaces">
+                        Seleccioná tu fecha de reserva
+                      </h1>
+                      <DivDate>
                         <DatePicker
                           selected={startDate}
                           onChange={onChange}
@@ -203,10 +234,10 @@ const FormBooking = () => {
                           minDate={new Date()}
                           inline
                         />
-                      </div>
-                      <h1 className="h1Space">Tu horario de llegada</h1>
+                      </DivDate>
                     </div>
                     <FormCard>
+                      <h1 className="h1Space">Tu horario de llegada</h1>
                       <p className="pIcon">
                         <AiOutlineCheckCircle className="IconCheck" />
                         Tu auto estará listo para la entrega entre las 10:00 AM
@@ -232,32 +263,40 @@ const FormBooking = () => {
                       src={responseCar?.images[2].url}
                       alt={responseCar?.rangeName}
                     />
-                    <p className="Pstyles">{responseCar?.category.title}</p>
-                    <h1>{responseCar?.rangeName}</h1>
+                    <p className="Pstyles categoryP">
+                      {responseCar?.category.title}
+                    </p>
+                    <h1 className="NameP">{responseCar?.rangeName}</h1>
 
-                    <p className="Pstyles"> 
+                    <p className="Pstyles locationP">
                       {" "}
                       <MdLocationPin />
                       {responseCar?.city.cityName}
                     </p>
                     <p className="pDes">{responseCar?.description}</p>
-                    <div>
-                      <h5>Check in</h5>
-                      <p>
+                    <hr />
+                    <DivCheck>
+                      <h5 className="check">Check in</h5>
+                      <p className="dateCheck">
                         {startDateFomat === null
                           ? "YYYY-MM-DD"
                           : startDateFomat}
                       </p>
-                    </div>
-                    <div>
-                      <h5>Check out</h5>
-                      <p>
+                    </DivCheck>
+                    <DivCheck>
+                      <h5 className="check">Check out</h5>
+                      <p className="dateCheck">
                         {endDateFomat === null ? "YYYY-MM-DD" : endDateFomat}
                       </p>
-                    </div>
-                    <button className="Buttom" type="submit">
+                    </DivCheck>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="Buttom"
+                      type="submit"
+                    >
                       Confirmar Reserva
-                    </button>
+                    </motion.button>
                   </FormCard>
                 </DivDisplay>
               </Form>

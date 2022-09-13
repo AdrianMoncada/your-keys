@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
@@ -29,9 +29,39 @@ const DetailProduct = () => {
   const { state, setBookingList } = useContext(AppContext);
   const navigate = useNavigate();
   const { carId } = useParams();
+  const [datesBookings, setDatesBookings] = useState([]);
+  let datesBooking = [];
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const request = () => {
+      axios({
+        method: "get",
+        url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
+        /* headers: {
+          'Authorization': state.user.map(user => user.token).toString(),
+        } */
+      })
+      .then(res => {
+        console.log(res.data);
+        setBookingList(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+    request()
+
+    const mapBooking = () => {
+      state.bookingList?.map((booking) =>
+        datesBooking.push({
+          start: new Date(booking.initialdate),
+          end: new Date(booking.finalDate),
+        })
+      );
+      setDatesBookings(datesBooking);
+    }
+    mapBooking()
   }, []);
 
   const [response, error, loading] = useRequest({
@@ -41,22 +71,9 @@ const DetailProduct = () => {
   });
 
   const handleBooking = () => {
-    if (state.isLogin) {
-      navigate("/booking");
-      axios({
-        method: "get",
-        url: `http://3.144.167.227:8080/vehicle/booking/${carId}`,
-        /* headers: {
-          'Authorization': state.user.map(user => user.token).toString(),
-        } */
-      })
-        .then((res) => {
-          console.log(res.data);
-          setBookingList(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    if(state.isLogin) {
+      navigate("/booking")
+      
     } else {
       navigate("/login");
       Swal.fire({
@@ -104,7 +121,7 @@ const DetailProduct = () => {
       </DivFeatures>
       <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
-        <DateVehicle />
+        <DateVehicle datesBookings={datesBookings}/>
         <DivReserve>
           <p className="textBooking">
             Agregá tus fechas de reserva para obtener precios exactos
