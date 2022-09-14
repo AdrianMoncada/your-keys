@@ -18,4 +18,6 @@ public interface IBookingService {
 
     public List<BookingDTO> listBooking();
 
+    public List<BookingDTO> readByUserId(Long userId);
+
 }

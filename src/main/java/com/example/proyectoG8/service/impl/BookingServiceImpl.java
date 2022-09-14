@@ -85,4 +85,19 @@ public class BookingServiceImpl implements IBookingService {
         }
         return bookingDTOS;
     }
+
+    @Override
+    public List<BookingDTO> readByUserId(Long userId) {
+        if (userRepository.findById(userId) != null){
+
+            List<Booking> bookings = bookingRepository.findByUserId(userId);
+            List<BookingDTO> bookingDTOS = new ArrayList<>();
+
+            for (Booking booking : bookings) {
+                bookingDTOS.add(mapper.map(booking, BookingDTO.class));
+            }
+            return bookingDTOS;
+        }
+        return null;
+    }
 }

@@ -54,5 +54,13 @@ public class BookingController {
         return new ResponseEntity(bookingService.listBooking(), HttpStatus.OK);
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<BookingDTO>> searchByUserId(@PathVariable Long userId){
+        List<BookingDTO> bookingDTOS = bookingService.readByUserId(userId);
+        if (bookingDTOS != null){
+            return new ResponseEntity(bookingDTOS, HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
 
 }

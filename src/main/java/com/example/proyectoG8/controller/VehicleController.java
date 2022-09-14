@@ -36,29 +36,6 @@ public class VehicleController {
 
     }
 
-    @PostMapping
-    public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO) {
-        return new ResponseEntity(vehicleService.createVehicle(vehicleDTO), HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity<VehicleDTO> updateVehicle(@RequestBody VehicleDTO vehicleDTO) {
-        if (vehicleService.readVehicle(vehicleDTO.getIdVehicle()) != null) {
-            return new ResponseEntity(vehicleService.updateVehicle(vehicleDTO), HttpStatus.OK);
-        }
-
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<VehicleDTO> deleteVehicle(@PathVariable Long id) {
-        if (vehicleService.readVehicle(id) != null) {
-            vehicleService.deleteVehicle(id);
-            return new ResponseEntity(HttpStatus.OK);
-        }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
-    }
-
     @GetMapping
     public ResponseEntity<List<VehicleDTO>> searchAllVehicles() {
         return new ResponseEntity(vehicleService.listVehicle(), HttpStatus.OK);
