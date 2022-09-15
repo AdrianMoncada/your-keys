@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 const useRequestFuction = () => {
     const [response, setResponse] = useState([]);
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [controller, setcontroller] = useState();
 
     const axiosFetch = async (configObj) => {
@@ -22,18 +22,16 @@ const useRequestFuction = () => {
                 ...requestConfig,
                 signal: ctrl.signal
             });
-            console.log(res)
             setResponse(res.data)
         } catch (err) {
             console.log(err.message)
             setError(err.message)
-        } finally {
+        } /* finally {
             setLoading(false)
-        }
+        } */
     }
 
     useEffect(() => {
-        console.log(controller)
 
         return () => controller && controller.abort();
     }, [controller]);

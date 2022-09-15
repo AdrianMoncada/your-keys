@@ -1,0 +1,10 @@
+[
+    {
+        "label": "Automático",
+        "value": "automatico"
+    },
+    {
+        "label": "Mecánico",
+        "value": "mecánico"
+    }
+]

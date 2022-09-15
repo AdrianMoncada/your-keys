@@ -76,7 +76,7 @@ const Hero = ({ slides, loading }) => {
       <HeroSection>
         <HeroWrapper>
           {slides.map((slide, index) => (
-              <div>
+              <div key={index}>
               {index === current && (
                 <HeroSlider
                   key={index}

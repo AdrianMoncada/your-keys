@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const DivLayout = styled.div`
   background-color: ${({theme}) => theme.third};
 
-  hr {
+  .linea {
     margin-top: 30px;
     width: 50%;
     border: 2px solid black;
@@ -19,7 +19,7 @@ const Layout = ({children}) => {
     <DivLayout>
         <Header />
         {children}
-        <hr />
+        <hr className='linea' />
         <Footer />
     </DivLayout>
   )

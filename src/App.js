@@ -10,6 +10,8 @@ import SignUp from "./pages/signup/SignUp";
 import Vehiculo from "./pages/vehiculo/Vehiculo";
 import Booking from "./pages/booking/Booking";
 import PrivateRoutes from "./util/PrivateRoutes";
+import Administrator from "./pages/administrator/Administrator";
+import Reservation from "./pages/reservation/Reservation";
 
 function App() {
   const initialState = useInitialState();
@@ -23,6 +25,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/vehiculo/:carId" element={<Vehiculo />} />
+              <Route path="/administracion" element={<Administrator />} />
+              <Route path="/reservas" element={<Reservation />} />
               <Route element={<PrivateRoutes />}>
                 <Route path="/booking" element={<Booking/>} />
               </Route>

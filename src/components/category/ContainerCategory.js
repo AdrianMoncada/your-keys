@@ -6,6 +6,9 @@ import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest"
 import SearchBar from "../SearchHorizontal/SearchHorizontal";
 import styled from 'styled-components'
+import useFetch from '../../hooks/useFetch';
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const DivLupa = styled.div`
   position: sticky;
@@ -16,17 +19,23 @@ const DivLupa = styled.div`
 
 const ContainerCategory = () => {
 
-  const [response, error, loading] = useRequest({
-    axiosInstance: axios,
-    method: "GET",
-    url: "/category"
-  })
+  const [category, isLoading] = useFetch("http://3.144.167.227:8080/category")
+
 
   return (
     <DivContainer>
-      {response?.map((car, index) => (
-        <Category car={car} key={car.id_category} />
-      ))}
+      {
+        isLoading ? <SkeletonTheme baseColor="#FCA311" highlightColor="#444">
+          <div>
+            <Skeleton height={200} />
+          </div>
+        </SkeletonTheme> : (
+        category.map((car, index) => (
+          <Category car={car} key={car.id_category} />
+        ))
+      )
+      }
+      
     </DivContainer>
   );
 };

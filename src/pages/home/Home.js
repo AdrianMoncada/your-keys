@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   ContainerMain,
   DivContainerInfo,
@@ -23,16 +23,21 @@ import useRequest from "../../hooks/useRequest";
 import SearchBar from "../../components/SearchHorizontal/SearchHorizontal";
 import "react-loading-skeleton/dist/skeleton.css";
 import Moment from "moment";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import useFetch from '../../hooks/useFetch';
 
 const Home = () => {
   const { state, setCategoryList } = useContext(AppContext);
   const [searcher, setSearcher] = useState(true);
 
-  const [response, error, loading] = useRequest({
+  /* const [response, error, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
     url: `/vehicle`,
-  });
+  }); */
+
+  const [vehiculos, isLoading] = useFetch("http://3.144.167.227:8080/vehicle")
 
   const [responses, errors, loadings] = useRequest({
     axiosInstance: axios,
@@ -40,10 +45,18 @@ const Home = () => {
     url: `/city`,
   });
 
+  /* fetch(`http://3.144.167.227:8080/vehicle`)
+    .then(res => res.json())
+    .then((post) => {
+      console.log(post)
+      setSearcher(post)
+      setIsLoading(false)
+    }) */
+
   let idCar;
   let responseDes = [];
   let slideDes = [];
-  response.map((i) => responseDes.push(i));
+  vehiculos?.map((i) => responseDes.push(i));
   responseDes = responseDes.sort(() => Math.random() - 0.5);
   responseDes.map((i) => (slideDes.length < 3 ? slideDes.push(i) : null));
 
@@ -52,8 +65,14 @@ const Home = () => {
 
     const objFilter = {
       cityId: state.search === null ? null : idCar,
-      finalDate: state.endDate === null ? null : Moment(state.endDate).format("YYYY-MM-DD"),
-      initialDate: state.startDate === null ? null : Moment(state.startDate).format("YYYY-MM-DD"),
+      finalDate:
+        state.endDate === null
+          ? null
+          : Moment(state.endDate).format("YYYY-MM-DD"),
+      initialDate:
+        state.startDate === null
+          ? null
+          : Moment(state.startDate).format("YYYY-MM-DD"),
     };
 
     axios({
@@ -61,12 +80,12 @@ const Home = () => {
       url: "http://3.144.167.227:8080/vehicle/booking",
       data: objFilter,
     })
-    .then(res => {
-      setCategoryList(res.data);
-    })
-    .catch(err => {
-      console.log(err)
-    })
+      .then((res) => {
+        setCategoryList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const changeView = () => {
@@ -82,7 +101,16 @@ const Home = () => {
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
       <div>
-        <Hero loading={loading} slides={slideDes} />
+        {isLoading ? (
+          <SkeletonTheme baseColor="#202020" highlightColor="#444">
+            <div>
+              <Skeleton height="100vh"/>
+            </div>
+          </SkeletonTheme>
+        ) : (
+          <Hero slides={slideDes} />
+        )}
+
         <ContainerMain
           initial={{ opacity: 0, y: "-100%" }}
           animate={{ opacity: 1, y: "0%" }}

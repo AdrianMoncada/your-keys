@@ -43,7 +43,6 @@ const DetailProduct = () => {
         } */
       })
       .then(res => {
-        console.log(res.data);
         setBookingList(res.data)
       })
       .catch(err => {
@@ -83,7 +82,6 @@ const DetailProduct = () => {
       });
     }
   };
-  console.log(response, error, loading);
 
   return (
     <React.Fragment>

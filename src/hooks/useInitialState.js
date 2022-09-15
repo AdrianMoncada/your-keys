@@ -11,6 +11,7 @@ const initialState = {
   booking: null,
   carId: null,
   bookingList: null,
+  bookingListDate: [],
 };
 
 const useInitialState = () => {
@@ -90,13 +91,19 @@ const useInitialState = () => {
       ...state,
       booking: payload,
     });
-    console.log(state.booking);
   };
 
   const setBookingList = (payload) => {
     setState({
       ...state,
       bookingList: payload
+    })
+  }
+
+  const setBookingListDate = (payload) => {
+    setState({
+      ...state,
+      bookingListDate: state.bookingListDate.push(payload)
     })
   }
 
