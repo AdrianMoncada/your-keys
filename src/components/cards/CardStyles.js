@@ -70,6 +70,7 @@ export const DivCalification = styled.div`
 export const SpanLocation = styled.p`
   display: flex;
   margin-bottom: 0px;
+  cursor: default;
 
   .textSpan {
     text-align: left;
