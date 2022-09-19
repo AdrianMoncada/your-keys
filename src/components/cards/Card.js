@@ -14,6 +14,14 @@ import { GiCarDoor, GiThermometerCold, GiBrokenHeart } from "react-icons/gi";
 import { FaToolbox, FaHeart, FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 import AppContext from "../../context/AppContext";
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/perspective.css";
+import "tippy.js/themes/material.css";
+import "tippy.js/themes/light-border.css";
+import { animateFill } from "tippy.js";
+import "tippy.js/dist/backdrop.css";
+import "tippy.js/animations/shift-away.css";
 
 const Card = ({ car }) => {
   const { state, setCarId } = useContext(AppContext);
@@ -36,6 +44,48 @@ const Card = ({ car }) => {
       );
     }
   };
+
+  tippy("#myLocation", {
+    content: "Ubicación",
+    placement: "left",
+    arrow: true,
+    theme: "light-border",
+    animation: "perspective",
+  });
+
+  tippy("#myDoor", {
+    content: "Puertas",
+    placement: "left",
+    arrow: true,
+    theme: "light-border",
+    animation: "perspective",
+  });
+
+  tippy("#myTransmision", {
+    content: "Transmición",
+    placement: "left",
+    arrow: true,
+    theme: "light-border",
+    animation: "perspective",
+  });
+
+  tippy("#myAir", {
+    content: "Aire Acondicionado",
+    placement: "left",
+    arrow: true,
+    theme: "light-border",
+    animation: "perspective",
+  });
+
+  tippy("#myCalification", {
+    content: "Calificación",
+    placement: "bottom",
+    arrow: true,
+    theme: "light-border",
+    animation: "perspective",
+  });
+
+  
 
   return (
     <DivCard
@@ -62,7 +112,7 @@ const Card = ({ car }) => {
       </DivImgs>
       <div>
         <DivTitle>
-          <DivCalification>
+          <DivCalification id="myCalification">
             <span className="calificationNumber">5</span>
             <span className="calificationText">Muy bueno</span>
           </DivCalification>
@@ -72,11 +122,11 @@ const Card = ({ car }) => {
           </div>
         </DivTitle>
         <DivLocation>
-          <SpanLocation>
+          <SpanLocation id="myLocation">
             <MdMyLocation className="iconLocation" />
             <p className="textSpan">{car.city.cityName}</p>
           </SpanLocation>
-          <SpanLocation>
+          <SpanLocation id="myDoor">
             <GiCarDoor className="iconLocation" />
             {/* <p className="textSpan"> {car.descripcion.door}</p> */}
             <p className="textSpan">
@@ -87,7 +137,7 @@ const Card = ({ car }) => {
               }
             </p>
           </SpanLocation>
-          <SpanLocation>
+          <SpanLocation id="myTransmision">
             <FaToolbox className="iconLocation" />
             <p className="textSpan">
               {
@@ -97,7 +147,7 @@ const Card = ({ car }) => {
               }
             </p>
           </SpanLocation>
-          <SpanLocation>
+          <SpanLocation id="myAir">
             <GiThermometerCold className="iconLocation" />
             <p className="textSpan">
               {

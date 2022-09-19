@@ -31,7 +31,7 @@ const Category = ({car}) => {
       >
         <DivText>
           <h2 className="titleCar">{car.title}</h2>
-          <p className="pCar">2 autos</p>
+          {/* <p className="pCar">2 autos</p> */}
         </DivText>
         <Img
           src={car.urlImage}
