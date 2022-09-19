@@ -26,7 +26,7 @@ const Policies = () => {
           <p>GPS.</p>
           <p>Deposito de seguridad.</p>
         </DivPoliciesContainer>
-        <DivPoliciesContainer borderLine>
+        <DivPoliciesContainer >
           <h1>Política de cancelación</h1>
           <p>
             Agrega la fecha de tu viaje para obtener los detalles de la

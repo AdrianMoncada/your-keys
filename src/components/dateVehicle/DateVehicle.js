@@ -17,6 +17,7 @@ const DivDate = styled.div`
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     appearance: none;
+
   }
 
   .dates {

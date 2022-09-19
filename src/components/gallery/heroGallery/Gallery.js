@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Lightbox from "react-image-lightbox";
 import 'react-image-lightbox/style.css';
-import { ButtonGrid } from "./GalleryStyles";
+import { ButtonGrid, Mobile } from "./GalleryStyles";
+import { useMediaQuery } from 'react-responsive';
+import { Slider } from 'infinite-react-carousel';
+
+
 
 const Gallery = (response) => {
   const [index, setIndex] = useState(0);
@@ -13,7 +17,24 @@ const Gallery = (response) => {
 
   pushArray();
 
+  const isBigScreen = useMediaQuery({
+    query: "(min-width: 970px)",
+  });
+  
+
+  const isMobileScreen = useMediaQuery({
+    query: "(max-width: 970px)",
+  });
+  console.log(response.car)
+
+  if ((typeof response.car === "object" && Array.isArray(response.car)) || !response.car) {
+    return <h1>Loading</h1>;
+  }
+
+
   return (
+    <React.Fragment>
+      {isBigScreen &&(
     <div>
       <ButtonGrid type="button" onClick={() => setIsOpen(true)}>
         Ver Más
@@ -31,6 +52,21 @@ const Gallery = (response) => {
         />
       )}
     </div>
+    )}
+{isMobileScreen && (
+        <Mobile>
+         <Slider className="slider">
+              {response?.car?.images.map((image,idx) => (<div key={idx} className='slider_content_item'>
+                <img src={image.url} alt={idx} />
+                </div>))
+                
+              }
+            </Slider>
+        </Mobile>
+      )}
+
+
+    </React.Fragment>
   );
 };
 

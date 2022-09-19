@@ -1,13 +1,33 @@
 import styled from "styled-components";
 
 export const DetailDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-bottom: 2rem;
-  box-sizing: border-box;
-  position: relative;
-  top: 80px;
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    top: 80px;
+  
+  @media screen and (min-width: 320px) and (max-width: 940px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    top: 80px;
+
+  }
+  @media screen and (min-width: 940px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    top: 80px;
+  }
 `;
 
 export const DivSpanIcon = styled.div`
@@ -96,20 +116,42 @@ export const DivGoLocation = styled.div`
   position: absolute;
 `;
 export const DivFeatures = styled.div`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 70px;
+  flex-wrap: wrap;
   /* background-color: #d9d9d9; */
   & > h1 {
     margin: 30px;
   }
+  @media screen and (min-width: 940px) {
+    width: 100%;
+  }
 `;
 export const DivCalendar = styled.div`
   margin-bottom: 70px;
-  justify-content: space-evenly;
-  display: flex;
+  justify-content: center;
+  display: inline-flex;
   align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+
+  @media screen and (min-width: 320px) and (max-width: 940px) {
+    margin-bottom: 70px;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 940px) {
+    margin-bottom: 70px;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
 `;
 
 export const DivReserve = styled.div`
@@ -117,7 +159,7 @@ export const DivReserve = styled.div`
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -126,7 +168,6 @@ export const DivReserve = styled.div`
   .textBooking {
     font-size: 20px;
     font-weight: bolder;
-    width: 500px;
     text-align: center;
   }
 
@@ -141,7 +182,69 @@ export const DivReserve = styled.div`
     cursor: pointer;
     margin: 0 auto;
   }
+
+  @media screen and (min-width: 320px) and (max-width: 940px) {
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+
+    .textBooking {
+      font-size: 20px;
+      font-weight: bolder;
+      text-align: center;
+    }
+
+    .buttonBooking {
+      padding: 15px 30px;
+      font-size: 15px;
+      font-weight: bold;
+      background-color: ${({ theme }) => theme.darkBlue};
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 940px) {
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+
+    .textBooking {
+      font-size: 20px;
+      font-weight: bolder;
+      width: 500px;
+      text-align: center;
+    }
+
+    .buttonBooking {
+      padding: 15px 30px;
+      font-size: 15px;
+      font-weight: bold;
+      background-color: ${({ theme }) => theme.darkBlue};
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      margin: 0 auto;
+    }
+  }
 `;
+
 export const H1Calendar = styled.h1`
   text-align: center;
 `;

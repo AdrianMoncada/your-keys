@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import Gallery from "../heroGallery/Gallery";
 import {ImgGrid, DivContainerImages} from './GridGalleryStyles';
 
@@ -10,9 +11,14 @@ const GridGallery = ({ response }) => {
 
   pushArray();
 
+  const isBigScreen = useMediaQuery({
+    query: "(min-width: 970px)",
+  });
+
   return (
     <DivContainerImages>
-      {images.map((image, index) => (
+
+      {isBigScreen && images.map((image, index) => (
         <div className={index === 0 ? "gridBig" : "gridSmall"}>
           <ImgGrid number={index} src={image} alt="carro" key={index} />
         </div>
@@ -23,3 +29,4 @@ const GridGallery = ({ response }) => {
 };
 
 export default GridGallery;
+

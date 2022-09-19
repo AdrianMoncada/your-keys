@@ -1,14 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ImgGrid = styled.img`
-  width: ${({number}) => number === 0 ? "100%" : "100%"};
-  height: ${({number}) => number === 0 ? "100%" : "100%"};
-  border-radius: 10px;
-  object-fit: cover;
-  margin: 0;
+
+  @media screen and (min-width: 970px) {
+    width: ${({ number }) => (number === 0 ? "100%" : "100%")};
+    height: ${({ number }) => (number === 0 ? "100%" : "100%")};
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 0;
+  }
 `;
 
 export const DivContainerImages = styled.div`
+  margin-top: 60px;
+  
+  @media screen and (min-width: 970px) {
     margin: 60px 40px;
     display: grid;
     grid-gap: 10px;
@@ -17,13 +23,16 @@ export const DivContainerImages = styled.div`
     grid-row: 20vh;
 
     .gridBig {
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 1;
-      grid-row-end: -1;
+     
+      @media screen and (min-width: 970px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: -1;
+      }
     }
 
     .gridSmall {
-
     }
-`
+  }
+`;

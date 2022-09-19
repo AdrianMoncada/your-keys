@@ -42,15 +42,15 @@ const DetailProduct = () => {
           'Authorization': state.user.map(user => user.token).toString(),
         } */
       })
-      .then(res => {
-        console.log(res.data);
-        setBookingList(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
-    request()
+        .then((res) => {
+          console.log(res.data);
+          setBookingList(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    request();
 
     const mapBooking = () => {
       state.bookingList?.map((booking) =>
@@ -60,8 +60,8 @@ const DetailProduct = () => {
         })
       );
       setDatesBookings(datesBooking);
-    }
-    mapBooking()
+    };
+    mapBooking();
   }, []);
 
   const [response, error, loading] = useRequest({
@@ -71,9 +71,8 @@ const DetailProduct = () => {
   });
 
   const handleBooking = () => {
-    if(state.isLogin) {
-      navigate("/booking")
-      
+    if (state.isLogin) {
+      navigate("/booking");
     } else {
       navigate("/login");
       Swal.fire({
@@ -83,8 +82,8 @@ const DetailProduct = () => {
       });
     }
   };
-  console.log(response, error, loading);
 
+  console.log(response, error, loading);
   return (
     <React.Fragment>
       <DetailDiv>
@@ -121,7 +120,7 @@ const DetailProduct = () => {
       </DivFeatures>
       <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
-        <DateVehicle datesBookings={datesBookings}/>
+        <DateVehicle datesBookings={datesBookings} />
         <DivReserve>
           <p className="textBooking">
             Agregá tus fechas de reserva para obtener precios exactos

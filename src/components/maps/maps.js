@@ -3,7 +3,6 @@ import GoogleMaps from "simple-react-google-maps";
 
 const Map = ({ car }) => {
   if ((typeof car === "object" && Array.isArray(car)) || !car) {
-    console.log("entre aqui");
     return <h1>Loading</h1>;
   }
   return (

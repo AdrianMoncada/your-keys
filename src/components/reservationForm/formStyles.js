@@ -6,13 +6,27 @@ export const DivContainerBooking = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 3%;
+
+  @media screen and (min-width: 320px) and (max-width: 940px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 3%;
+  }
+  @media screen and (min-width: 940px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 3%;
+  }
 `;
 
 export const DivForm = styled.div`
   padding-bottom: 2rem;
   width: 100%;
   padding: 37.5px;
-  /* padding: 10px 15px 10px 10px; */
   font-size: 13px;
 
   .categoryP {
@@ -56,19 +70,16 @@ export const DivDate = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-
-  
-`
+`;
 
 export const FormCard = styled.div`
   background-color: #f0f0f0;
   border-radius: 10px;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   padding: 16px 20px;
-  /* padding: 10px 15px 10px 10px; */
+  
 
   .check {
-    /* margin-bottom: -10px; */
   }
 
   .titleFill {
@@ -82,8 +93,6 @@ export const FormCard = styled.div`
   }
 
   .IconCheck {
-    /* margin-right: 2%; */
-    /* margin: 25px 0 0px 20px; */
     position: relative;
     top: 5px;
     font-size: 150%;
@@ -129,7 +138,7 @@ export const FormCard = styled.div`
   }
 `;
 
-export const DivCheck =  styled.div`
+export const DivCheck = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,10 +146,18 @@ export const DivCheck =  styled.div`
   .dateCheck {
     font-size: 15px;
   }
-`
-
+`;
 
 export const DivDisplay = styled.div`
+display: block;
+  gap: 10%;
+@media screen and (min-width: 320px) and (max-width: 940px) {
+  display: block;
+  gap: 10%;
+}
+@media screen and (min-width: 940px) {
   display: flex;
   gap: 10%;
+}
+
 `;

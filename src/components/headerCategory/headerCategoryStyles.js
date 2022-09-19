@@ -3,14 +3,38 @@ import styled from "styled-components";
 export const DivContainerCategory = styled.div`
   width: 100%;
   background-color: #fca311;
-  /* padding: 0 0.5rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -1px;
-  
+ 
+
   & span {
-    font-size: 45px;
+    font-size: 30px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 940px) {
+    width: 100%;
+    background-color: #fca311;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*margin-top: 13%;*/
+
+    & span {
+      font-size: 45px;
+    }
+  }
+  @media screen and (min-width: 940px) {
+    width: 100%;
+    background-color: #fca311;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -1px;
+
+    & span {
+      font-size: 45px;
+    }
   }
 `;
 
