@@ -18,8 +18,11 @@ public class Score {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idScore;
 
-    @Column
-    private Long usuario_id;
+    @JsonBackReference
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private User user;
 
     @Column
     private Integer score;

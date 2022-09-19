@@ -14,9 +14,9 @@ public class ScoreDTO implements Serializable {
 
     private Long idScore;
 
-    //private VehicleDTO vehicle;
+    private VehicleDTO vehicle;
 
-    private Long usuario_id;
+    private UserDTO user;
 
     private Integer score;
 
