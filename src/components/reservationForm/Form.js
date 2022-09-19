@@ -9,6 +9,7 @@ import {
   DivDisplay,
   DivDate,
   DivCheck,
+  DivSize,
 } from "./formStyles";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -26,7 +27,7 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { MdLocationPin, MdOutlineTextFields } from "react-icons/md";
+import { MdLocationPin } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
@@ -159,8 +160,9 @@ const FormBooking = () => {
     /* console.log(diff / (1000 * 60 * 60 * 24)); */
     var fecha1 = Moment(start);
     var fecha2 = Moment(end);
-    let diferencia = fecha2.diff(fecha1)
-    let mul = diferencia / (1000 * 60 * 60 * 24) * parseInt(responseCar?.price)
+    let diferencia = fecha2.diff(fecha1);
+    let mul =
+      (diferencia / (1000 * 60 * 60 * 24)) * parseInt(responseCar?.price);
     setPriceVehi(mul);
   };
 
@@ -277,55 +279,59 @@ const FormBooking = () => {
                       </DivSelect>
                     </FormCard>
                   </div>
-                  <FormCard style={{ width: "50%" }}>
-                    <h1>Detalle de la reserva</h1>
-                    <img
-                      className="Img"
-                      src={responseCar?.images[2].url}
-                      alt={responseCar?.rangeName}
-                    />
-                    <p className="Pstyles categoryP">
-                      {responseCar?.category.title}
-                    </p>
-                    <h1 className="NameP">{responseCar?.rangeName}</h1>
-                    <div>
-                      <p>{formatter.format(responseCar?.price)}/dia</p>
-                    </div>
-
-                    <p className="Pstyles locationP">
-                      {" "}
-                      <MdLocationPin />
-                      {responseCar?.city.cityName}
-                    </p>
-                    <p className="pDes">{responseCar?.description}</p>
-                    <hr />
-                    <DivCheck>
-                      <h5 className="check">Check in</h5>
-                      <p className="dateCheck">
-                        {startDateFomat === null
-                          ? "YYYY-MM-DD"
-                          : startDateFomat}
+                  <FormCard
+                    style={{ flexBasis: "50%" }} /*style={{ width: "50%" }}*/
+                  >
+                    <DivSize>
+                      <h1>Detalle de la reserva</h1>
+                      <img
+                        className="Img"
+                        src={responseCar?.images[2].url}
+                        alt={responseCar?.rangeName}
+                      />
+                      <p className="Pstyles categoryP">
+                        {responseCar?.category.title}
                       </p>
-                    </DivCheck>
-                    <DivCheck>
-                      <h5 className="check">Check out</h5>
-                      <p className="dateCheck">
-                        {endDateFomat === null ? "YYYY-MM-DD" : endDateFomat}
-                      </p>
-                    </DivCheck>
-                    <div>
-                      <p>{calculatePrice(startDateFomat, endDateFomat)}</p>
-                      <p>Total: {formatter.format(priceVehi)}</p>
-                    </div>
+                      <h1 className="NameP">{responseCar?.rangeName}</h1>
+                      <div>
+                        <p>{formatter.format(responseCar?.price)}/dia</p>
+                      </div>
 
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="Buttom"
-                      type="submit"
-                    >
-                      Confirmar Reserva
-                    </motion.button>
+                      <p className="Pstyles locationP">
+                        {" "}
+                        <MdLocationPin />
+                        {responseCar?.city.cityName}
+                      </p>
+                      <p className="pDes">{responseCar?.description}</p>
+                      <hr />
+                      <DivCheck>
+                        <h5 className="check">Check in</h5>
+                        <p className="dateCheck">
+                          {startDateFomat === null
+                            ? "YYYY-MM-DD"
+                            : startDateFomat}
+                        </p>
+                      </DivCheck>
+                      <DivCheck>
+                        <h5 className="check">Check out</h5>
+                        <p className="dateCheck">
+                          {endDateFomat === null ? "YYYY-MM-DD" : endDateFomat}
+                        </p>
+                      </DivCheck>
+                      <div>
+                        <p>{calculatePrice(startDateFomat, endDateFomat)}</p>
+                        <p>Total: {formatter.format(priceVehi)}</p>
+                      </div>
+
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="Buttom"
+                        type="submit"
+                      >
+                        Confirmar Reserva
+                      </motion.button>
+                    </DivSize>
                   </FormCard>
                 </DivDisplay>
               </Form>

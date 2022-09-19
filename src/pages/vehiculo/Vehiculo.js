@@ -126,7 +126,7 @@ const DetailProduct = () => {
             Agregá tus fechas de reserva para obtener precios exactos
           </p>
           <button className="buttonBooking" onClick={() => handleBooking()}>
-            Inicar reserva
+            Iniciar reserva
           </button>
         </DivReserve>
       </DivCalendar>

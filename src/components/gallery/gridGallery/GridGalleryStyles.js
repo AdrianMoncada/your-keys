@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const ImgGrid = styled.img`
 
   @media screen and (min-width: 970px) {
-    width: ${({ number }) => (number === 0 ? "100%" : "100%")};
-    height: ${({ number }) => (number === 0 ? "100%" : "100%")};
-    border-radius: 10px;
-    object-fit: cover;
-    margin: 0;
+  width: ${({ number }) => (number === 0 ? "100%" : "100%")};
+  height: ${({ number }) => (number === 0 ? "100%" : "100%")};
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0;
   }
 `;
 

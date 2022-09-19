@@ -7,14 +7,14 @@ export const DivContainerBooking = styled.div`
   width: 100%;
   margin-top: 3%;
 
-  @media screen and (min-width: 320px) and (max-width: 940px) {
+  @media screen and (min-width: 320px) and (max-width: 970px) {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin-top: 3%;
   }
-  @media screen and (min-width: 940px) {
+  @media screen and (min-width: 970px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,8 +77,9 @@ export const FormCard = styled.div`
   border-radius: 10px;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   padding: 16px 20px;
-  
-
+  margin-bottom: 5%;
+  margin-top: 5%;
+ 
   .check {
   }
 
@@ -100,10 +101,11 @@ export const FormCard = styled.div`
 
   .Phour {
     font-weight: bold;
-    margin-left: 10%;
+    width:100%;
+   display:flex;
   }
   .SelectHour {
-    margin-left: 10%;
+    width:100%;
   }
   .pIcon {
     font-weight: bold;
@@ -136,6 +138,137 @@ export const FormCard = styled.div`
     justify-content: center;
     margin: 10px auto 0 auto;
   }
+
+  @media screen and (min-width: 320px) and (max-width: 970px) {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px 20px;
+    margin-bottom: 5%;
+
+    .check {
+    }
+
+    .titleFill {
+      text-align: center;
+    }
+
+    .Img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .IconCheck {
+      position: relative;
+      top: 5px;
+      font-size: 150%;
+    }
+
+    .Phour {
+      font-weight: bold;
+      margin-left: 10%;
+    }
+    .SelectHour {
+      margin-left: 10%;
+    }
+    .pIcon {
+      font-weight: bold;
+      font-size: 110%;
+      text-align: center;
+    }
+
+    .Pstyles {
+      font-size: 150%;
+    }
+
+    .pDes {
+      text-align: justify;
+    }
+
+    h5 {
+      font-size: 140%;
+    }
+
+    .Buttom {
+      padding: 15px 20px;
+      border: none;
+      background-color: ${({ theme }) => theme.secondary};
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 10px 10px 10px 10px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      margin: 10px auto 0 auto;
+    }
+  }
+  @media screen and (min-width: 970px) {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px 20px;
+    margin-bottom: 5%;
+
+    .check {
+    }
+
+    .titleFill {
+      text-align: center;
+    }
+
+    .Img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .IconCheck {
+      position: relative;
+      top: 5px;
+      font-size: 150%;
+    }
+
+    .Phour {
+      font-weight: bold;
+      margin-left: 10%;
+    }
+    .SelectHour {
+      margin-left: 10%;
+    }
+    .pIcon {
+      font-weight: bold;
+      font-size: 110%;
+      text-align: center;
+    }
+
+    .Pstyles {
+      font-size: 150%;
+    }
+
+    .pDes {
+      text-align: justify;
+    }
+
+    h5 {
+      font-size: 140%;
+    }
+
+    .Buttom {
+      padding: 15px 20px;
+      border: none;
+      background-color: ${({ theme }) => theme.secondary};
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 10px 10px 10px 10px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      margin: 10px auto 0 auto;
+    }
+  }
 `;
 
 export const DivCheck = styled.div`
@@ -149,15 +282,18 @@ export const DivCheck = styled.div`
 `;
 
 export const DivDisplay = styled.div`
-display: block;
+  display: inline-block;
   gap: 10%;
-@media screen and (min-width: 320px) and (max-width: 940px) {
-  display: block;
-  gap: 10%;
-}
-@media screen and (min-width: 940px) {
-  display: flex;
-  gap: 10%;
-}
+  @media screen and (min-width: 320px) and (max-width: 970px) {
+    display: inline-block;
+    gap: 10%;
+  }
+  @media screen and (min-width: 970px) {
+    display: flex;
+    gap: 10%;
+  }
+`;
 
+export const DivSize = styled.div`
+  width: 100%;
 `;

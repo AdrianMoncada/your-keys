@@ -12,8 +12,10 @@ export const ButtonGrid = styled.button`
 `;
 
 export const Mobile = styled.div`
- 
   .slider {
-    
+  }
+  img {
+    width: 100%;
+    height: 10%;
   }
 `;

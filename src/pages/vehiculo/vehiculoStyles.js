@@ -137,15 +137,17 @@ export const DivCalendar = styled.div`
   flex-direction: column;
   max-width: 100%;
 
-  @media screen and (min-width: 320px) and (max-width: 940px) {
+  @media screen and (min-width: 320px) and (max-width: 970px) {
     margin-bottom: 70px;
+    /*margin-left: 25%;*/
     justify-content: center;
     display: inline-flex;
     align-items: center;
     flex-direction: column;
+    max-width: 100%;
   }
 
-  @media screen and (min-width: 940px) {
+  @media screen and (min-width: 970px) {
     margin-bottom: 70px;
     justify-content: space-evenly;
     display: flex;
@@ -164,6 +166,7 @@ export const DivReserve = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 10px;
+  margin-top: 5%;
 
   .textBooking {
     font-size: 20px;
@@ -183,7 +186,7 @@ export const DivReserve = styled.div`
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 320px) and (max-width: 940px) {
+  @media screen and (min-width: 320px) and (max-width: 970px) {
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
@@ -193,6 +196,8 @@ export const DivReserve = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 10px;
+    max-width: 100%;
+    margin-top: 5%;
 
     .textBooking {
       font-size: 20px;
@@ -213,7 +218,7 @@ export const DivReserve = styled.div`
     }
   }
 
-  @media screen and (min-width: 940px) {
+  @media screen and (min-width: 970px) {
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);

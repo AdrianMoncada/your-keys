@@ -115,7 +115,7 @@ const Login = () => {
                   whileTap={{ scale: 0.9 }}
                   type="submit"
                 >
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </ButtonLogin>
                 <p className="textA">No tienes cuenta? <Link to="/signup">Regístrate</Link></p>
               </Form>
