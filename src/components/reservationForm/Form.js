@@ -26,7 +26,7 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { MdLocationPin } from "react-icons/md";
+import { MdLocationPin, MdOutlineTextFields } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
@@ -46,6 +46,7 @@ const FormBooking = () => {
   const [responseCar, setResponseCar] = useState(null);
   const [hourDate, setHourDate] = useState(null);
   const [datesBookings, setDatesBookings] = useState([]);
+  const [priceVehi, setPriceVehi] = useState(null);
 
   const navigate = useNavigate();
 
@@ -89,6 +90,11 @@ const FormBooking = () => {
     mapBooking();
   }, [state]);
 
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   const handleSubmit = (values, actions) => {
     const objBooking = {
       time: hourDate,
@@ -117,8 +123,7 @@ const FormBooking = () => {
         },
         data: parseado,
       })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           navigate("/");
           Swal.fire({
             position: "center",
@@ -141,8 +146,25 @@ const FormBooking = () => {
     }
   };
 
+  const calculatePrice = (start, end) => {
+    /* let rest = end?.slice(8, 10) - start?.slice(8, 10);
+    let mul = rest * parseInt(responseCar?.price);
+    setPriceVehi(mul); */
+
+    var fechaInicio = new Date(start).getTime();
+    var fechaFin = new Date(end).getTime();
+
+    var diff = fechaFin - fechaInicio;
+
+    /* console.log(diff / (1000 * 60 * 60 * 24)); */
+    var fecha1 = Moment(start);
+    var fecha2 = Moment(end);
+    let diferencia = fecha2.diff(fecha1)
+    let mul = diferencia / (1000 * 60 * 60 * 24) * parseInt(responseCar?.price)
+    setPriceVehi(mul);
+  };
+
   const handleSelectChange = (event) => {
-    console.log(event);
     setHourDate(event.value);
   };
 
@@ -185,7 +207,6 @@ const FormBooking = () => {
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="Nombre"
                           />
                           <TextFields
                             /* sx={{ ml: 1 }} */
@@ -267,6 +288,9 @@ const FormBooking = () => {
                       {responseCar?.category.title}
                     </p>
                     <h1 className="NameP">{responseCar?.rangeName}</h1>
+                    <div>
+                      <p>{formatter.format(responseCar?.price)}/dia</p>
+                    </div>
 
                     <p className="Pstyles locationP">
                       {" "}
@@ -289,6 +313,11 @@ const FormBooking = () => {
                         {endDateFomat === null ? "YYYY-MM-DD" : endDateFomat}
                       </p>
                     </DivCheck>
+                    <div>
+                      <p>{calculatePrice(startDateFomat, endDateFomat)}</p>
+                      <p>Total: {formatter.format(priceVehi)}</p>
+                    </div>
+
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}

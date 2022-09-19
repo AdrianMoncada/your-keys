@@ -51,7 +51,7 @@ const DetailProduct = () => {
         });
     };
     request();
-
+     
     const mapBooking = () => {
       state.bookingList?.map((booking) =>
         datesBooking.push({

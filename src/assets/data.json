@@ -1,37 +1,22 @@
 [
   {
-    "id": "1",
-    "country": "Argentina",
-    "abbreviation": "AR",
-    "language": "Español",
-    "city": "Buenos Aires"
+    "label": "Buenos Aires",
+    "value": "Buenos Aires"
   },
   {
-    "id": "2",
-    "country": "Argentina",
-    "abbreviation": "AR",
-    "language": "Español",
-    "city": "Ciudad de Córdoba"
+    "label": "Ciudad de Córdoba",
+    "value": "Ciudad de Córdoba"
   },
   {
-    "id": "3",
-    "country": "Argentina",
-    "abbreviation": "AR",
-    "language": "Español",
-    "city": "Rosario"
+    "label": "Rosario",
+    "value": "Rosario"
   },
   {
-    "id": "4",
-    "country": "Argentina",
-    "abbreviation": "AR",
-    "language": "Español",
-    "city": "San miguel de tucumán"
+    "label": "San miguel de tucumán",
+    "value": "San miguel de tucumán"
   },
   {
-    "id": "5",
-    "country": "Colombia",
-    "abbreviation": "CO",
-    "language": "Español",
-    "city": "Bogotá"
+    "label": "Bogotá",
+    "value": "Bogotá"
   }
 ]

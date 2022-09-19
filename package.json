@@ -18,8 +18,12 @@
     "express": "^4.18.1",
     "formik": "^2.2.9",
     "framer-motion": "^7.2.0",
+<<<<<<< HEAD
     "infinite": "^0.5.2",
     "infinite-react-carousel": "^1.2.11",
+=======
+    "mercadopago": "^1.5.14",
+>>>>>>> 193a4a606ae1d3dce9faad5dfe6280e2538f8380
     "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "react": "^18.2.0",

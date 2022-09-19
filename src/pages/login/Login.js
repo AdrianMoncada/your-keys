@@ -33,7 +33,6 @@ const Login = () => {
       data: values,
     })
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           userLogin(res.data);
           setLoginTrue();
