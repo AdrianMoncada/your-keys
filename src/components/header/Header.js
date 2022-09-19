@@ -117,6 +117,9 @@ const Header = () => {
                 <h4 className="userName">
                   Hola, {user.name} {user.userLastName}
                 </h4>
+                {
+                  user.rol.idRol === 1 ? <button onClick={() => navigate("administracion")}>Admin</button> : null
+                }
                 <DivSvgExit>
                   <ImExit onClick={handleClick} />
                 </DivSvgExit>

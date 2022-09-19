@@ -14,7 +14,7 @@ import {
 } from "./AdministratorStyles";
 import { TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import * as yup from 'yup';
+import * as yup from "yup";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -26,7 +26,7 @@ import useRequest from "../../hooks/useRequest";
 import { useEffect } from "react";
 
 const Administrator = () => {
-  const {state} = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   const validates = yup.object({
     name: yup.string().required("*Obligatorio*"),
@@ -38,12 +38,14 @@ const Administrator = () => {
     maletas: yup.number("pon un numero válido").required("*Obligatorio*"),
     imagenMain: yup.string().required("*Obligatorio*"),
   });
-  
+
   const [ciudad, setCiudad] = useState("");
   const [categoria, setcategoria] = useState("");
-  const [gaso, setGaso] = useState("");
+  const [gaso, setGaso] = useState(null);
   const [transmicion, settransmicion] = useState("");
   const [checked, setChecked] = React.useState(false);
+  const [puertas, setPuertas] = useState();
+  const [maletas, setMaletas] = useState()
 
   const [citys] = useRequest({
     axiosInstance: axios,
@@ -57,10 +59,25 @@ const Administrator = () => {
     url: `/category`,
   });
 
-  useEffect(() => {
+  const [makes] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle/makes`,
+  });
 
-  }, [])
+  const [models] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle/models`,
+  });
 
+  const [characteristics] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle/characteristics`,
+  });
+
+  useEffect(() => {}, []);
 
   const onSubmit = (values) => {
     console.log(values);
@@ -68,9 +85,16 @@ const Administrator = () => {
 
   /* ---------------- Funciones para manejar los selectores ------------------------ */
 
+  const handleMaletas = (event) => {
+    setMaletas(event.target.value)
+  }
+
+  const handlePuertas = (event) => {
+    setPuertas(event.target.value)
+  }
+
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    console.log(event.target.checked);
   };
 
   const handleChangeCiudad = (event) => {
@@ -137,7 +161,10 @@ const Administrator = () => {
                     onChange={handleChangeCategoria}
                   >
                     {category.map((option) => (
-                      <MenuItem key={option.id_category} value={option.id_category}>
+                      <MenuItem
+                        key={option.id_category}
+                        value={option.id_category}
+                      >
                         {option.title}
                       </MenuItem>
                     ))}
@@ -177,9 +204,9 @@ const Administrator = () => {
                     onChange={handleChangeCiudad}
                     variant="filled"
                   >
-                    {ciudades.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
+                    {makes.map((option) => (
+                      <MenuItem key={option.idMake} value={option.idMake}>
+                        {option.name}
                       </MenuItem>
                     ))}
                   </TextField>
@@ -192,9 +219,9 @@ const Administrator = () => {
                     onChange={handleChangeCiudad}
                     variant="filled"
                   >
-                    {ciudades.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
+                    {models.map((option) => (
+                      <MenuItem key={option.idModel} value={option.idModel}>
+                        {option.year}
                       </MenuItem>
                     ))}
                   </TextField>
@@ -239,18 +266,40 @@ const Administrator = () => {
                 autoComplete="off"
               >
                 <DivForm>
-                  <TextFields
-                    label="Número de Puertas"
+                  <TextField
+                    id="outlined-select-currency"
+                    select
+                    label="Puertas"
+                    value={puertas}
                     name="puertas"
+                    onChange={handlePuertas}
                     variant="filled"
-                    type="number"
-                  />
-                  <TextFields
-                    label="Número de Maletas"
+                  >
+                    {characteristics
+                      .filter((i) => i.nameCharacteristic === "puertas")
+                      .map((option) => (
+                        <MenuItem key={option.idCharacteristic} value={option.idCharacteristic}>
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                  </TextField>
+                  <TextField
+                    id="outlined-select-currency"
+                    select
+                    label="Maletas"
+                    value={maletas}
                     name="maletas"
+                    onChange={handleMaletas}
                     variant="filled"
-                    type="number"
-                  />
+                  >
+                    {characteristics
+                      .filter((i) => i.nameCharacteristic === "maletas")
+                      .map((option) => (
+                        <MenuItem key={option.idCharacteristic} value={option.idCharacteristic}>
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                  </TextField>
                 </DivForm>
                 <DivForm>
                   <TextField
@@ -262,11 +311,16 @@ const Administrator = () => {
                     onChange={handleChangeGaso}
                     variant="filled"
                   >
-                    {gas.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
+                    {characteristics
+                      .filter((i) => i.nameCharacteristic === "combustible")
+                      .map((option) => (
+                        <MenuItem
+                          key={option.idCharacteristic}
+                          value={option.idCharacteristic}
+                        >
+                          {option.value}
+                        </MenuItem>
+                      ))}
                   </TextField>
                   <TextField
                     id="outlined-select-currency"
@@ -277,11 +331,13 @@ const Administrator = () => {
                     onChange={handleChangeTransmicion}
                     variant="filled"
                   >
-                    {transmition.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
+                    {characteristics
+                      .filter((i) => i.nameCharacteristic === "transmición")
+                      .map((option) => (
+                        <MenuItem key={option.idCharacteristic} value={option.idCharacteristic}>
+                          {option.value}
+                        </MenuItem>
+                      ))}
                   </TextField>
                 </DivForm>
                 <FormControlLabel
