@@ -78,7 +78,7 @@ const Login = () => {
           {(formik) => (
             <div>
               
-              <h1>Iniciar Sesion</h1>
+              <h1>Iniciar Sesión</h1>
               <Form>
                 <TextFields
                   fullWidth

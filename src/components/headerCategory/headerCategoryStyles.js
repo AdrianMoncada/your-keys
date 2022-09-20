@@ -6,7 +6,7 @@ export const DivContainerCategory = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
+ /*margin-bottom: 5%;*/
 
   & span {
     font-size: 30px;

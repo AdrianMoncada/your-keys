@@ -8,24 +8,38 @@ export const SignUp = styled.div`
   height: 93.5vh;
   /* background-color: #000000;  */
   .hrFormik {
-    height: 200px;
-    width: 0px;
-    border: 1px solid black;
-    position: absolute;
-    left: 58%;
-    color: black;
-    background-color: black;
+    display: none;
+
+    @media screen and (min-width: 650px) {
+      height: 200px;
+      width: 0px;
+      border: 1px solid black;
+      position: absolute;
+      left: 58%;
+      color: black;
+      background-color: black;
+    }
   }
 `;
 
 export const DivFormik = styled.div`
-  /* background-color: ${({ theme }) => theme.third}; */
   color: black;
-  padding: 30px 50px;
+  /* margin-left: 10%;*/
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+
+  @media screen and (min-width: 650px) {
+    /* background-color: ${({ theme }) => theme.third}; */
+    color: black;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
   .titleCreate {
     text-align: center;
   }
@@ -40,7 +54,6 @@ export const DivSvg = styled.div`
   justify-content: center;
   padding: 0 0 0 50px;
   /* background-color: ${({ theme }) => theme.darkBlue}; */
- 
 
   /*@media screen and (max-width: 320px) {
     display: flex;
@@ -48,7 +61,7 @@ export const DivSvg = styled.div`
     justify-content: center;
     padding: 0 0 0 50px;
     /* background-color: ${({ theme }) => theme.darkBlue}; */
-   /* width: 100%;
+  /* width: 100%;
     
   }*/
 `;

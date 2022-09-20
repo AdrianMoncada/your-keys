@@ -51,7 +51,7 @@ const DetailProduct = () => {
         });
     };
     request();
-     
+
     const mapBooking = () => {
       state.bookingList?.map((booking) =>
         datesBooking.push({
@@ -121,6 +121,7 @@ const DetailProduct = () => {
       <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
         <DateVehicle datesBookings={datesBookings} />
+
         <DivReserve>
           <p className="textBooking">
             Agregá tus fechas de reserva para obtener precios exactos

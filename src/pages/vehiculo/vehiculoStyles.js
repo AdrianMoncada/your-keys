@@ -7,7 +7,7 @@ export const DetailDiv = styled.div`
     padding-bottom: 2rem;
     box-sizing: border-box;
     position: relative;
-    top: 80px;
+    top: 60px;
   
   @media screen and (min-width: 320px) and (max-width: 940px) {
     display: flex;
@@ -135,7 +135,7 @@ export const DivCalendar = styled.div`
   display: inline-flex;
   align-items: center;
   flex-direction: column;
-  max-width: 100%;
+  width: 100%;
 
   @media screen and (min-width: 320px) and (max-width: 970px) {
     margin-bottom: 70px;
@@ -144,7 +144,7 @@ export const DivCalendar = styled.div`
     display: inline-flex;
     align-items: center;
     flex-direction: column;
-    max-width: 100%;
+    width: 100%;
   }
 
   @media screen and (min-width: 970px) {
