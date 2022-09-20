@@ -24,7 +24,7 @@ export const SignUp = styled.div`
 
 export const DivFormik = styled.div`
   color: black;
-  /* margin-left: 10%;*/
+  margin-left: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
