@@ -8,7 +8,9 @@ import {
   DivUser,
   DivUserText,
   MobileIcon,
-  DivSvgExit
+  DivSvgExit,
+  ButtonAdmin,
+  ButtonReservas
 } from "./HeaderStyles";
 import { useNavigate, useLocation } from "react-router";
 import Logo from "../logo/Logo";
@@ -16,15 +18,15 @@ import AppContext from "../../context/AppContext";
 import Avatar from "@mui/material/Avatar";
 import Swal from "sweetalert2";
 import { FaBars, FaTimes } from "react-icons/fa";
-import styled from 'styled-components'
-import {ImExit} from 'react-icons/im';
+import styled from "styled-components";
+import { ImExit } from "react-icons/im";
 
 export const DivLupa = styled.div`
   position: sticky;
   top: 200px;
   z-index: 11;
   display: inline-block;
-`
+`;
 
 const Header = () => {
   const location = useLocation();
@@ -117,9 +119,17 @@ const Header = () => {
                 <h4 className="userName">
                   Hola, {user.name} {user.userLastName}
                 </h4>
-                {
-                  user.rol.idRol === 1 ? <button onClick={() => navigate("administracion")}>Admin</button> : null
-                }
+                {user.rol.idRol === 1 ? (
+                  <ButtonAdmin
+                    onClick={() => {
+                      setShowMobile(!showMobile);
+                      navigate("administracion");
+                    }}
+                  >
+                    Admin
+                  </ButtonAdmin>
+                ) : null}
+                <ButtonReservas onClick={() => navigate("/reservas")}>Reservas</ButtonReservas>
                 <DivSvgExit>
                   <ImExit onClick={handleClick} />
                 </DivSvgExit>
@@ -132,45 +142,43 @@ const Header = () => {
   };
 
   return (
-      <DivPrueba initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <DivPrueba initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <div
+        className={`${
+          location.pathname !== "/login" ? "wrap-container" : "wrap-containers"
+        } search ${searcher ? "active" : null}`}
+      >
         <div
-          className={`${
-            location.pathname !== "/login"
-              ? "wrap-container"
-              : "wrap-containers"
-          } search ${searcher ? "active" : null}`}
+          className={`containerHeader ${
+            navbar || location.pathname !== "/" ? "active" : null
+          }`}
+          id="hola"
         >
-          <div
-            className={`containerHeader ${
-              navbar || location.pathname !== "/" ? "active" : null
-            }`}
-            id="hola"
+          <DivImg
+            onClick={() => {
+              navigate("/");
+              setShowMobile(false);
+              setCategoryList(null);
+            }}
           >
-            <DivImg
-              onClick={() => {
-                navigate("/");
-                setShowMobile(false);
-                setCategoryList(null);
-              }}
-            >
-              <Logo />
-              <h1 className="titleHeader">Your Keys!</h1>
-            </DivImg>
-            <MobileIcon onClick={() => setShowMobile(!showMobile)}>
-              {showMobile ? (
-                <FaTimes className="iconMenu" />
-              ) : (
-                <FaBars className="iconMenu" />
-              )}
-            </MobileIcon>
-            <div></div>
-            <DivUser open={showMobile}>{showLogin()}</DivUser>
-          </div>
+            <Logo />
+            <h1 className="titleHeader">Your Keys!</h1>
+          </DivImg>
+          <MobileIcon onClick={() => setShowMobile(!showMobile)}>
+            {showMobile ? (
+              <FaTimes className="iconMenu" />
+            ) : (
+              <FaBars className="iconMenu" />
+            )}
+          </MobileIcon>
+          <div></div>
+          <DivUser open={showMobile}>{showLogin()}</DivUser>
         </div>
+      </div>
       {/* <DivLupa>
         <SearchBar />
       </DivLupa> */}
-      </DivPrueba>
+    </DivPrueba>
   );
 };
 

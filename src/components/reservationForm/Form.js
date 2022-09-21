@@ -157,7 +157,6 @@ const FormBooking = () => {
 
     var diff = fechaFin - fechaInicio;
 
-    /* console.log(diff / (1000 * 60 * 60 * 24)); */
     var fecha1 = Moment(start);
     var fecha2 = Moment(end);
     let diferencia = fecha2.diff(fecha1);

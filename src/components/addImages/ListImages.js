@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import AddImages from './AddImages'
 import ImagesMain from './ImagesMain'
 
-const ListImages = () => {
-    const [urls, setUrls] = useState([])
+const ListImages = ({urls, setUrls}) => {
+    /* const [urls, setUrls] = useState([]) */
 
     const addUrl = url => {
-        if(!url.text || /^\s*$/.test(url.text)) {
+        if(!url.url || /^\s*$/.test(url.url)) {
             return
         }
 
@@ -16,7 +16,7 @@ const ListImages = () => {
     }
 
     const updateUrl = (id, newValue) => {
-        if(!newValue.text || /^\s*$/.test(newValue.text)) {
+        if(!newValue.url || /^\s*$/.test(newValue.url)) {
             return
         }
 

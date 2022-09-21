@@ -149,3 +149,23 @@ export const DivSvgExit = styled.div`
     }
   }
 `
+
+export const ButtonAdmin = styled.button`
+  border: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  background-color: ${({theme}) => theme.secondary};
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+`
+
+export const ButtonReservas = styled.button`
+  border: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  background-color: ${({theme}) => theme.secondary};
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+`

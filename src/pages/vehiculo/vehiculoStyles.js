@@ -107,6 +107,9 @@ export const DivContainerCategory = styled.div`
 export const DivContainerLocation = styled.div`
   width: 100%;
   background-color: #d9d9d9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   /* padding: 0 0.5rem; */
 `;
 
@@ -257,3 +260,20 @@ export const H1Calendar = styled.h1`
 export const H1TitleOffer = styled.h1`
   text-align: center;
 `;
+
+export const DivCalification = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 50px;
+
+  .calificationNumber {
+    font-size: 18px;
+    font-weight: 800;
+    background-color: black;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+`

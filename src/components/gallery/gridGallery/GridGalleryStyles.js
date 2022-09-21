@@ -36,3 +36,7 @@ export const DivContainerImages = styled.div`
     }
   }
 `;
+
+export const DivButtonGallery = styled.div`
+  position: absolute;
+`

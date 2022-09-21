@@ -16,6 +16,7 @@ import {
   DivReserve,
   H1Calendar,
   H1TitleOffer,
+  DivCalification
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 import axios from "../../apis/axiosRequest";
@@ -24,12 +25,14 @@ import DateVehicle from "../../components/dateVehicle/DateVehicle";
 import Map from "../../components/maps/maps";
 import Policies from "../../components/policies/Policies";
 import Swal from "sweetalert2";
+import StarRating from "../../components/starRating/StarRating";
 
 const DetailProduct = () => {
   const { state, setBookingList } = useContext(AppContext);
   const navigate = useNavigate();
   const { carId } = useParams();
   const [datesBookings, setDatesBookings] = useState([]);
+  const [scores, setScores] = useState();
   let datesBooking = [];
 
   useEffect(() => {
@@ -43,7 +46,6 @@ const DetailProduct = () => {
         } */
       })
         .then((res) => {
-          console.log(res.data);
           setBookingList(res.data);
         })
         .catch((err) => {
@@ -51,7 +53,16 @@ const DetailProduct = () => {
         });
     };
     request();
-     
+
+    axios({
+      method: "get",
+      url: `http://3.144.167.227:8080/vehicle/score/${carId}`,
+    })
+      .then((res) => {
+        setScores(res.data);
+      })
+      .catch((err) => console.log(err));
+
     const mapBooking = () => {
       state.bookingList?.map((booking) =>
         datesBooking.push({
@@ -64,7 +75,7 @@ const DetailProduct = () => {
     mapBooking();
   }, []);
 
-  const [response, error, loading] = useRequest({
+  const [response, loading] = useRequest({
     axiosInstance: axios,
     method: "GET",
     url: `/vehicle/${carId}`,
@@ -83,7 +94,6 @@ const DetailProduct = () => {
     }
   };
 
-  console.log(response, error, loading);
   return (
     <React.Fragment>
       <DetailDiv>
@@ -95,6 +105,23 @@ const DetailProduct = () => {
             </DivGoLocation>
             <h3>{response?.city?.cityName}</h3>
           </DivLocation>
+          <DivCalification>
+            <div>
+              <span className="calificationNumber">{scores % 1 ? parseFloat(scores)?.toFixed(1) : scores}</span>
+              <span className="calificationText">
+                {scores <= 5 && scores > 4
+                  ? "Muy bueno"
+                  : scores <= 4 && scores > 3
+                  ? "Bueno"
+                  : scores <= 3 && scores > 2
+                  ? "Regular"
+                  : scores <= 2 && scores >= 1
+                  ? "Insuficiente"
+                  : "Sin calificar"}
+              </span>
+            </div>
+            <StarRating carId={carId} />
+          </DivCalification>
         </DivContainerLocation>
       </DetailDiv>
 

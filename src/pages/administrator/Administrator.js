@@ -24,11 +24,15 @@ import AppContext from "../../context/AppContext";
 import axios from "../../apis/axiosRequest";
 import useRequest from "../../hooks/useRequest";
 import { useEffect } from "react";
+import axioos from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const Administrator = () => {
   const { state } = useContext(AppContext);
-
-  const validates = yup.object({
+  const navigate = useNavigate();
+  const validates =
+    yup.object(/* {
     name: yup.string().required("*Obligatorio*"),
     entrega: yup.string().required("*Obligatorio*"),
     latitud: yup.number("pon un numero válido").required("*Obligatorio*"),
@@ -37,15 +41,26 @@ const Administrator = () => {
     puertas: yup.number("pon un numero válido").required("*Obligatorio*"),
     maletas: yup.number("pon un numero válido").required("*Obligatorio*"),
     imagenMain: yup.string().required("*Obligatorio*"),
-  });
+  } */);
 
-  const [ciudad, setCiudad] = useState("");
-  const [categoria, setcategoria] = useState("");
+  const [ciudad, setCiudad] = useState(null);
+  const [categoria, setcategoria] = useState(null);
   const [gaso, setGaso] = useState(null);
-  const [transmicion, settransmicion] = useState("");
-  const [checked, setChecked] = React.useState(false);
-  const [puertas, setPuertas] = useState();
-  const [maletas, setMaletas] = useState()
+  const [transmicion, settransmicion] = useState(null);
+  const [checked, setChecked] = React.useState(true);
+  const [puertas, setPuertas] = useState(null);
+  const [maletas, setMaletas] = useState(null);
+  const [make, setMake] = useState(null);
+  const [modele, setModele] = useState(null);
+  const [urls, setUrls] = useState([]);
+  const [latitud, setLatitud] = useState(null);
+  const [rangeName, setRangeName] = useState(null);
+  const [descripcion, setDescripcion] = useState(null);
+  const [longitud, setLongitud] = useState(null);
+  const [imageMain, setImageMain] = useState(null);
+  const [images, setImages] = useState([]);
+  const [aire, setAire] = useState(null);
+  const [precio, setPrecio] = useState(null);
 
   const [citys] = useRequest({
     axiosInstance: axios,
@@ -79,19 +94,147 @@ const Administrator = () => {
 
   useEffect(() => {}, []);
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const handleClick = () => {
+    urls.map((imagen) =>
+      images.push({
+        title: rangeName,
+        url: imagen.url,
+      })
+    );
+
+    images.push({
+      title: "Main",
+      url: imageMain,
+    });
+
+    const objUser = {
+      make: {
+        idMake: make,
+      },
+      rangeName: rangeName,
+      description: descripcion,
+      price: precio,
+      latitude: latitud,
+      longitude: longitud,
+      model: {
+        idModel: modele,
+      },
+      city: {
+        idCity: ciudad,
+      },
+      category: {
+        id_category: categoria,
+      },
+      characteristics: [
+        {
+          idCharacteristic: gaso,
+        },
+        {
+          idCharacteristic: transmicion,
+        },
+        {
+          idCharacteristic: puertas,
+        },
+        {
+          idCharacteristic: maletas,
+        },
+        {
+          idCharacteristic: aire,
+        },
+      ],
+      images: images,
+    };
+    if (
+      ciudad === null ||
+      categoria === null ||
+      gaso === null ||
+      transmicion === null ||
+      puertas === null ||
+      maletas === null ||
+      make === null ||
+      modele === null ||
+      latitud === null ||
+      rangeName === null ||
+      descripcion === null ||
+      longitud === null ||
+      imageMain === null ||
+      aire === null ||
+      precio === null
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Tienes que llenar todos los datos',
+      })
+    } else {
+    axioos({
+      method: "post",
+      url: "http://3.144.167.227:8080/admin",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: state.user.map((user) => user.token).toString(),
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      },
+      data: objUser,
+    })
+      .then((res) => {
+        if (res.status === 201) {
+          navigate("/");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Vehiculo creado',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      })
+      .catch((err) => console.log(err));
+    }
   };
 
   /* ---------------- Funciones para manejar los selectores ------------------------ */
 
+  const handleChangeAire = (event) => {
+    setAire(event.target);
+  };
+
+  const handleImageMain = (event) => {
+    setImageMain(event.target.value);
+  };
+
+  const handleDescripcion = (event) => {
+    setDescripcion(event.target.value);
+  };
+
+  const handleLongitud = (event) => {
+    setLongitud(event.target.value);
+  };
+
+  const handleLatitud = (event) => {
+    setLatitud(event.target.value);
+  };
+
+  const handleRangeName = (event) => {
+    setRangeName(event.target.value);
+  };
+
+  const handleModele = (event) => {
+    setModele(event.target.value);
+  };
+
+  const handleMake = (event) => {
+    setMake(event.target.value);
+  };
+
   const handleMaletas = (event) => {
-    setMaletas(event.target.value)
-  }
+    setMaletas(event.target.value);
+  };
 
   const handlePuertas = (event) => {
-    setPuertas(event.target.value)
-  }
+    setPuertas(event.target.value);
+  };
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -111,7 +254,10 @@ const Administrator = () => {
 
   const handleChangeGaso = (event) => {
     setGaso(event.target.value);
-    console.log(event.target.value);
+  };
+
+  const handlePrecio = (event) => {
+    setPrecio(event.target.value);
   };
 
   /* ------------------------------------------------ */
@@ -130,7 +276,6 @@ const Administrator = () => {
           imagenMain: "",
         }}
         validationSchema={validates}
-        onSubmit={(values) => onSubmit(values)}
       >
         {(formik) => (
           <DivCardContainer>
@@ -150,6 +295,8 @@ const Administrator = () => {
                     name="name"
                     variant="filled"
                     type="text"
+                    onChange={handleRangeName}
+                    value={rangeName}
                   />
                   <TextField
                     id="outlined-select-currency"
@@ -160,11 +307,8 @@ const Administrator = () => {
                     value={categoria}
                     onChange={handleChangeCategoria}
                   >
-                    {category.map((option) => (
-                      <MenuItem
-                        key={option.id_category}
-                        value={option.id_category}
-                      >
+                    {category.map((option, index) => (
+                      <MenuItem key={index} value={option.id_category}>
                         {option.title}
                       </MenuItem>
                     ))}
@@ -173,10 +317,11 @@ const Administrator = () => {
 
                 <DivForm>
                   <TextFields
-                    label="Punto de Entrega"
-                    name="entrega"
+                    label="Precio"
+                    name="precio"
                     variant="filled"
-                    type="text"
+                    type="number"
+                    onChange={handlePrecio}
                   />
                   <TextField
                     id="outlined-select-currency"
@@ -186,8 +331,8 @@ const Administrator = () => {
                     onChange={handleChangeCiudad}
                     variant="filled"
                   >
-                    {citys.map((option) => (
-                      <MenuItem key={option.idCity} value={option.idCity}>
+                    {citys.map((option, index) => (
+                      <MenuItem key={index} value={option.idCity}>
                         {option.cityName}
                       </MenuItem>
                     ))}
@@ -199,13 +344,13 @@ const Administrator = () => {
                     id="outlined-select-currency"
                     select
                     label="Marca"
-                    value={ciudad}
+                    value={make}
                     name="marca"
-                    onChange={handleChangeCiudad}
+                    onChange={handleMake}
                     variant="filled"
                   >
-                    {makes.map((option) => (
-                      <MenuItem key={option.idMake} value={option.idMake}>
+                    {makes.map((option, index) => (
+                      <MenuItem key={index} value={option.idMake}>
                         {option.name}
                       </MenuItem>
                     ))}
@@ -215,12 +360,12 @@ const Administrator = () => {
                     select
                     label="Modelo"
                     name="modelo"
-                    value={ciudad}
-                    onChange={handleChangeCiudad}
+                    value={modele}
+                    onChange={handleModele}
                     variant="filled"
                   >
-                    {models.map((option) => (
-                      <MenuItem key={option.idModel} value={option.idModel}>
+                    {models.map((option, index) => (
+                      <MenuItem key={index} value={option.idModel}>
                         {option.year}
                       </MenuItem>
                     ))}
@@ -232,12 +377,16 @@ const Administrator = () => {
                     name="latitud"
                     variant="filled"
                     type="number"
+                    onChange={handleLatitud}
+                    value={latitud}
                   />
                   <TextFields
                     label="Longitud"
                     name="longitud"
                     variant="filled"
                     type="number"
+                    value={longitud}
+                    onChange={handleLongitud}
                   />
                 </DivForm>
               </Box>
@@ -247,7 +396,9 @@ const Administrator = () => {
                 variant="filled"
                 type="text"
                 multiline
+                value={descripcion}
                 rows={4}
+                onChange={handleDescripcion}
                 sx={{
                   m: 1,
                   width: "81.5ch",
@@ -277,8 +428,8 @@ const Administrator = () => {
                   >
                     {characteristics
                       .filter((i) => i.nameCharacteristic === "puertas")
-                      .map((option) => (
-                        <MenuItem key={option.idCharacteristic} value={option.idCharacteristic}>
+                      .map((option, index) => (
+                        <MenuItem key={index} value={option.idCharacteristic}>
                           {option.value}
                         </MenuItem>
                       ))}
@@ -294,8 +445,8 @@ const Administrator = () => {
                   >
                     {characteristics
                       .filter((i) => i.nameCharacteristic === "maletas")
-                      .map((option) => (
-                        <MenuItem key={option.idCharacteristic} value={option.idCharacteristic}>
+                      .map((option, index) => (
+                        <MenuItem key={index} value={option.idCharacteristic}>
                           {option.value}
                         </MenuItem>
                       ))}
@@ -313,11 +464,8 @@ const Administrator = () => {
                   >
                     {characteristics
                       .filter((i) => i.nameCharacteristic === "combustible")
-                      .map((option) => (
-                        <MenuItem
-                          key={option.idCharacteristic}
-                          value={option.idCharacteristic}
-                        >
+                      .map((option, index) => (
+                        <MenuItem key={index} value={option.idCharacteristic}>
                           {option.value}
                         </MenuItem>
                       ))}
@@ -333,27 +481,30 @@ const Administrator = () => {
                   >
                     {characteristics
                       .filter((i) => i.nameCharacteristic === "transmición")
-                      .map((option) => (
-                        <MenuItem key={option.idCharacteristic} value={option.idCharacteristic}>
+                      .map((option, index) => (
+                        <MenuItem key={index} value={option.idCharacteristic}>
                           {option.value}
                         </MenuItem>
                       ))}
                   </TextField>
                 </DivForm>
-                <FormControlLabel
-                  name="aireAcondicionado"
-                  sx={{
-                    ml: 0.1,
-                  }}
-                  control={
-                    <Checkbox
-                      checked={checked}
-                      onChange={handleChange}
-                      inputProps={{ "aria-label": "controlled" }}
-                    />
-                  }
-                  label="Aire Acondicionado"
-                />
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Aire"
+                  value={aire}
+                  name="aire"
+                  onChange={handleChangeAire}
+                  variant="filled"
+                >
+                  {characteristics
+                    .filter((i) => i.nameCharacteristic === "aire")
+                    .map((option, index) => (
+                      <MenuItem key={index} value={option.idCharacteristic}>
+                        {option.value}
+                      </MenuItem>
+                    ))}
+                </TextField>
               </Box>
 
               <hr />
@@ -365,16 +516,20 @@ const Administrator = () => {
                   name="imagenMain"
                   variant="filled"
                   type="text"
+                  value={imageMain}
+                  onChange={handleImageMain}
                   sx={{
                     width: "80ch",
                   }}
                 />
               </div>
-              <ListImages />
+              <ListImages urls={urls} setUrls={setUrls} />
 
               <hr />
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <ButtonCreate>Crear Vehiculo</ButtonCreate>
+                <ButtonCreate onClick={handleClick} type="submit">
+                  Crear Vehiculo
+                </ButtonCreate>
               </div>
             </Form>
           </DivCardContainer>
