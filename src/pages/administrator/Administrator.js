@@ -182,7 +182,7 @@ const Administrator = () => {
         if (res.status === 201) {
           navigate("/");
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Vehiculo creado',
             showConfirmButton: false,
@@ -197,7 +197,7 @@ const Administrator = () => {
   /* ---------------- Funciones para manejar los selectores ------------------------ */
 
   const handleChangeAire = (event) => {
-    setAire(event.target);
+    setAire(event.target.value);
   };
 
   const handleImageMain = (event) => {
@@ -456,7 +456,7 @@ const Administrator = () => {
                   <TextField
                     id="outlined-select-currency"
                     select
-                    label="Gasolina"
+                    label="Combustible"
                     name="gasolina"
                     value={gaso}
                     onChange={handleChangeGaso}
@@ -491,7 +491,7 @@ const Administrator = () => {
                 <TextField
                   id="outlined-select-currency"
                   select
-                  label="Aire"
+                  label="Ventilación"
                   value={aire}
                   name="aire"
                   onChange={handleChangeAire}
