@@ -27,6 +27,8 @@ public class VehicleController {
     private ICharacteristicService characteristicService;
     @Autowired
     private IModelService modelService;
+    @Autowired
+    private IScoreService scoreService;
 
 
     @GetMapping("/{id}")
@@ -84,5 +86,11 @@ public class VehicleController {
     @GetMapping("/models")
     public ResponseEntity<List<ModelDTO>> searchAllModels(){
         return new ResponseEntity(modelService.listModel(), HttpStatus.OK);
+    }
+
+    @GetMapping("/score/{id}")
+    public ResponseEntity<Double> averageScore(@PathVariable Long id){
+        Double average = scoreService.scoreAverage(id);
+        return new ResponseEntity(average, HttpStatus.OK);
     }
 }
