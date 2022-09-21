@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import DatePicker from "react-datepicker";
-import styled  from "styled-components";
+import styled from "styled-components";
 import AppContext from "../../context/AppContext";
 
 const DivDate = styled.div`
@@ -17,7 +17,16 @@ const DivDate = styled.div`
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     appearance: none;
+  }
 
+  .react-datepicker__month-container {
+    width: 100%;
+    @media screen and (min-width: 320px) and (max-width: 970px) {
+      width:100%;
+    }
+    @media screen and (min-width: 970px) {
+      width:50%;
+    }
   }
 
   .dates {
@@ -50,9 +59,7 @@ const Calendar = styled.div`
   overflow: hidden;
 `;
 
-
-
-const DateVehicle = ({datesBookings}) => {
+const DateVehicle = ({ datesBookings }) => {
   const { state } = useContext(AppContext);
   return (
     <DivDate>

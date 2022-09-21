@@ -210,6 +210,7 @@ const FormBooking = () => {
                             type="text"
                             id="name"
                             name="name"
+                            placeholder="Nombre"
                           />
                           <TextFields
                             /* sx={{ ml: 1 }} */
@@ -237,7 +238,7 @@ const FormBooking = () => {
                             type="text"
                             id="city"
                             name="city"
-                            placeholder="Cordoba"
+                            placeholder="Ciudad"
                           />
                         </div>
                       </div>

@@ -148,6 +148,7 @@ const DetailProduct = () => {
       <H1Calendar>Fechas disponibles</H1Calendar>
       <DivCalendar>
         <DateVehicle datesBookings={datesBookings} />
+
         <DivReserve>
           <p className="textBooking">
             Agregá tus fechas de reserva para obtener precios exactos

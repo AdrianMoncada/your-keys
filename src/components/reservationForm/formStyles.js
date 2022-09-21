@@ -54,9 +54,19 @@ export const DivContainer = styled.div`
   align-items: center;
 `;
 export const DivSelect = styled.div`
-  padding: 1rem;
-  width: 45%;
-  margin: 0 auto;
+  width:100%;
+
+  @media screen and (min-width: 320px) and (max-width: 970px) {
+    padding: 1rem;
+    width: 45%;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 970px) {
+    padding: 1rem;
+    width: 45%;
+    margin: 0 auto;
+  }
 `;
 
 export const DivBooking = styled.div`
@@ -78,8 +88,8 @@ export const FormCard = styled.div`
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
   padding: 16px 20px;
   margin-bottom: 5%;
-  margin-top: 5%;
- 
+ /* margin-top: 5%;*/
+
   .check {
   }
 
@@ -101,11 +111,11 @@ export const FormCard = styled.div`
 
   .Phour {
     font-weight: bold;
-    width:100%;
-   display:flex;
+    width: 100%;
+    display: flex;
   }
   .SelectHour {
-    width:100%;
+    width: 100%;
   }
   .pIcon {
     font-weight: bold;

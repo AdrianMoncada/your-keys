@@ -18,8 +18,7 @@ export const DivFormikLogin = styled.div`
 `;
 
 export const DivSvgLogin = styled.div`
-   /*@media screen and (max-width: 320px) {
-  }*/
+  
 `;
 
 export const ButtonLogin = styled(motion.button)`
