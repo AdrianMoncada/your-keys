@@ -41,7 +41,4 @@ public class VehicleDTO implements Serializable {
 
     private List<ImageDTO> images = new ArrayList<>();
 
-    private List<ScoreDTO> scores = new ArrayList<>();
-
-
 }
