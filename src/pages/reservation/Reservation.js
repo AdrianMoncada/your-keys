@@ -13,6 +13,24 @@ import {
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
 import NotFound from "../../assets/NotFound";
+import styled from "styled-components";
+
+const DivDate = styled.div`
+  .react-datepicker {
+    @media screen and (min-width: 610px) and (max-width: 1095px) {
+      margin-left: 10%;
+    }
+  }
+  .react-datepicker__month-container {
+    width: 100%;
+    @media screen and (min-width: 610px) and (max-width: 1095px) {
+      width: 100%;
+    }
+    @media screen and (min-width: 1095px) {
+      width: 50%;
+    }
+  }
+`;
 
 const Reservation = () => {
   const { state } = useContext(AppContext);
@@ -49,19 +67,23 @@ const Reservation = () => {
         ) : (
           booking?.map((car) => (
             <DivCard>
-              <Card car={car.vehicle} />
+              <div className="responsive-card">
+                <Card car={car.vehicle} />
+              </div>
               <div>
                 <h4 className="titleFecha">Fecha de reserva</h4>
-                <DatePicker
-                  selected={new Date(car.initialdate)}
-                  startDate={new Date(car.initialdate)}
-                  endDate={new Date(car.finalDate)}
-                  monthsShown={2}
-                  selectsRange
-                  minDate={new Date()}
-                  inline
-                  readOnly
-                />
+                <DivDate>
+                  <DatePicker
+                    selected={new Date(car.initialdate)}
+                    startDate={new Date(car.initialdate)}
+                    endDate={new Date(car.finalDate)}
+                    monthsShown={2}
+                    selectsRange
+                    minDate={new Date()}
+                    inline
+                    readOnly
+                  />
+                </DivDate>
               </div>
             </DivCard>
           ))

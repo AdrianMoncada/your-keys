@@ -51,7 +51,7 @@ const Login = () => {
 
           Toast.fire({
             icon: "success",
-            title: "Iniciando Sesion",
+            title: "Iniciando Sesión",
           });
         }
       })
