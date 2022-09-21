@@ -306,4 +306,44 @@ export const DivDisplay = styled.div`
 
 export const DivSize = styled.div`
   width: 100%;
+
+  .errorFields {
+    text-align: center;
+    font-size: 18px;
+    color: red;
+  }
 `;
+
+export const DivContainerMain = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .textPrice {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 5px 5px;
+  }
+`
+
+export const DivPriceTotal = styled.div`
+  display: flex;
+  justify-content: center;
+
+  .priceTotal {
+    font-size: 20px;
+  }
+
+  .price {
+    font-weight: bold;
+  }
+`
+
+
+export const DivFormBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

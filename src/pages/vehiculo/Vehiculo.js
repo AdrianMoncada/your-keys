@@ -16,7 +16,8 @@ import {
   DivReserve,
   H1Calendar,
   H1TitleOffer,
-  DivCalification
+  DivCalification,
+  DivPrice
 } from "../vehiculo/vehiculoStyles";
 import GridGallery from "../../components/gallery/gridGallery/GridGallery";
 import axios from "../../apis/axiosRequest";
@@ -34,6 +35,11 @@ const DetailProduct = () => {
   const [datesBookings, setDatesBookings] = useState([]);
   const [scores, setScores] = useState();
   let datesBooking = [];
+
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -126,6 +132,10 @@ const DetailProduct = () => {
       </DetailDiv>
 
       <GridGallery response={response} />
+
+      <DivPrice>
+        <h2>Precio por día: <span>{formatter.format(response?.price)}</span></h2>
+      </DivPrice>
 
       <DetailContent>
         <h1>Maneja Tu {response?.rangeName}</h1>

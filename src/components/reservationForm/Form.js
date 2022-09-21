@@ -10,6 +10,9 @@ import {
   DivDate,
   DivCheck,
   DivSize,
+  DivContainerMain,
+  DivPriceTotal,
+  DivFormBox
 } from "./formStyles";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -33,6 +36,8 @@ import { motion } from "framer-motion";
 import Paypal from "../paypal/Paypal";
 import PayPalButtons from "../paypal/PayPalButtons";
 import Botoncito from "../Botoncito";
+import { TextField } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -116,37 +121,37 @@ const FormBooking = () => {
         text: "Todos los campos deben estar llenos",
       });
     } else { */
-      axios({
-        method: "post",
-        url: "http://3.144.167.227:8080/booking",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: state.user.map((user) => user.token).toString(),
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        },
-        data: parseado,
-      })
-        .then(() => {
-          navigate("/");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Reserva Exitosa",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "No se pudo hacer la reserva",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+    axios({
+      method: "post",
+      url: "http://3.144.167.227:8080/booking",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: state.user.map((user) => user.token).toString(),
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      },
+      data: parseado,
+    })
+      .then(() => {
+        navigate("/");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Reserva Exitosa",
+          showConfirmButton: false,
+          timer: 1500,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "No se pudo hacer la reserva",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
 
   const calculatePrice = (start, end) => {
@@ -203,44 +208,69 @@ const FormBooking = () => {
                           justifyContent: "space-evenly",
                         }}
                       >
-                        <div>
-                          <TextFields
-                            fullWidth
-                            label="Nombre"
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Nombre"
-                          />
-                          <TextFields
-                            /* sx={{ ml: 1 }} */
-                            fullWidth
-                            label="Email"
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="email@gmail.com"
-                          />
-                        </div>
-                        <div>
-                          <TextFields
-                            fullWidth
-                            label="Apellido"
-                            type="text"
-                            id="lastname"
-                            name="lastname"
-                            placeholder="Apellido"
-                          />
-                          <TextFields
-                            /* sx={{ ml: 1 }} */
-                            fullWidth
-                            label="Ciudad"
-                            type="text"
-                            id="city"
-                            name="city"
-                            placeholder="Ciudad"
-                          />
-                        </div>
+                        <DivFormBox>
+                          <Box
+                            component="form"
+                            sx={{
+                              "& .MuiTextField-root": { m: 1, width: "30ch" },
+                            }}
+                            noValidate
+                            autoComplete="off"
+                          >
+                            <TextField
+                              fullWidth
+                              label="Nombre"
+                              type="text"
+                              id="name"
+                              name="name"
+                              placeholder="Nombre"
+                              defaultValue={state.user
+                                .map((user) => user.name)
+                                .toString()}
+                            />
+                            <TextField
+                              /* sx={{ ml: 1 }} */
+                              fullWidth
+                              label="Email"
+                              type="email"
+                              id="email"
+                              name="email"
+                              placeholder="email@gmail.com"
+                              defaultValue={state.user
+                                .map((user) => user.email)
+                                .toString()}
+                            />
+                          </Box>
+                          <Box
+                            component="form"
+                            sx={{
+                              "& .MuiTextField-root": { m: 1, width: "30ch" },
+                            }}
+                            noValidate
+                            autoComplete="off"
+                          >
+                            <TextField
+                              fullWidth
+                              label="Apellido"
+                              type="text"
+                              id="lastname"
+                              name="lastname"
+                              placeholder="Apellido"
+                              defaultValue={state.user
+                                .map((user) => user.userLastName)
+                                .toString()}
+                            />
+                            <TextFields
+                              /* sx={{ ml: 1 }} */
+                              fullWidth
+                              label="Ciudad"
+                              type="text"
+                              id="city"
+                              name="city"
+                              placeholder="Ciudad"
+                            />
+                          </Box>
+                        </DivFormBox>
                       </div>
                     </FormCard>
                     <div>
@@ -291,20 +321,24 @@ const FormBooking = () => {
                         src={responseCar?.images[2].url}
                         alt={responseCar?.rangeName}
                       />
-                      <p className="Pstyles categoryP">
-                        {responseCar?.category.title}
-                      </p>
-                      <h1 className="NameP">{responseCar?.rangeName}</h1>
-                      <div>
-                        <p>{formatter.format(responseCar?.price)}/dia</p>
-                      </div>
+                      <DivContainerMain>
+                        <div>
+                          <p className="Pstyles categoryP">
+                            {responseCar?.category.title}
+                          </p>
+                          <h1 className="NameP">{responseCar?.rangeName}</h1>
+                        </div>
+                        <p className="textPrice">
+                          {formatter.format(responseCar?.price)}/día
+                        </p>
+                      </DivContainerMain>
 
                       <p className="Pstyles locationP">
                         {" "}
                         <MdLocationPin />
                         {responseCar?.city.cityName}
                       </p>
-                      <p className="pDes">{responseCar?.description}</p>
+                      {/* <p className="pDes">{responseCar?.description}</p> */}
                       <hr />
                       <DivCheck>
                         <h5 className="check">Check in</h5>
@@ -314,32 +348,40 @@ const FormBooking = () => {
                             : startDateFomat}
                         </p>
                       </DivCheck>
+                      <hr />
                       <DivCheck>
                         <h5 className="check">Check out</h5>
                         <p className="dateCheck">
                           {endDateFomat === null ? "YYYY-MM-DD" : endDateFomat}
                         </p>
                       </DivCheck>
-                      <div>
+                      <hr />
+                      <DivPriceTotal>
                         <p>{calculatePrice(startDateFomat, endDateFomat)}</p>
-                        <p>Total: {formatter.format(priceVehi)}</p>
-                      </div>
-                      {
-                        console.log(priceVehi)
-                      }
-                        {
-                          Number.isNaN(priceVehi) ? <p>Tienes que llenar todos los campos</p> : <Paypal price={priceVehi} handleSubmit={handleSubmit} />
-                        }    
-                      
-                      {/* <PayPalButtons price={priceVehi} handleSubmit={handleSubmit} /> */}
-                      <motion.button
+                        <p className="priceTotal">
+                          Total:{" "}
+                          <span className="price">
+                            {Number.isNaN(priceVehi)
+                              ? 0
+                              : formatter.format(priceVehi)}
+                          </span>
+                        </p>
+                      </DivPriceTotal>
+                      {Number.isNaN(priceVehi) ? (
+                        <p className="errorFields">
+                          Debes completar todos los campos para realizar el pago
+                        </p>
+                      ) : (
+                        <Paypal price={priceVehi} handleSubmit={handleSubmit} />
+                      )}
+                      {/* <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="Buttom"
                         type="submit"
                       >
                         Confirmar Reserva
-                      </motion.button>
+                      </motion.button> */}
                     </DivSize>
                   </FormCard>
                 </DivDisplay>

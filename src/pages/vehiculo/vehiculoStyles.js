@@ -277,3 +277,11 @@ export const DivCalification = styled.div`
     margin-right: 8px;
   }
 `
+
+export const DivPrice = styled.div`
+  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({theme}) => theme.secondary};
+`
