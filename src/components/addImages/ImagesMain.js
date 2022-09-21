@@ -53,11 +53,11 @@ const ImagesMain = ({urls, completeUrl, removeUrl, updateUrl}) => {
   return urls.map((url, index) => (
     <DivContainerUrl className={url.isComplete ? "todo-row complete" : "todo-row"} key={index}>
         <DivText key={url.id} onClick={() => completeUrl(url.id)} >
-            {url.text}
+            {url.url}
         </DivText>
         <div className='icons'>
             <RiCloseCircleLine onClick={() => removeUrl(url.id)} className="delete-icon" />
-            <TiEdit onClick={() => setEdit({id: url.id, value: url.text})} className="edit-icon" />
+            <TiEdit onClick={() => setEdit({id: url.id, title: "Null", value: url.url})} className="edit-icon" />
         </div>
     </DivContainerUrl>
   ))

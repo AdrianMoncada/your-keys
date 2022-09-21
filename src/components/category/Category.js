@@ -7,11 +7,20 @@ import AppContext from '../../context/AppContext'
 const Category = ({car}) => {
   const id = car.id_category;
   const {setCategoryList} = useContext(AppContext)
-  const [response, error, loading] = useRequest({
+  const [response] = useRequest({
     axiosInstance: axios,
     method: "GET",
     url: `/vehicle/category/${id}`
   })
+
+  
+
+  /* const [compactos] = useRequest({
+    axiosInstance: axios,
+    method: "GET",
+    url: `/vehicle/category/1`
+  }) */
+
   
   const handleId = () => {
     setCategoryList(response)
@@ -31,7 +40,7 @@ const Category = ({car}) => {
       >
         <DivText>
           <h2 className="titleCar">{car.title}</h2>
-          {/* <p className="pCar">2 autos</p> */}
+          <p className="pCar">{response.length} autos</p>
         </DivText>
         <Img
           src={car.urlImage}

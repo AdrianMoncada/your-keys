@@ -1,7 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import Gallery from "../heroGallery/Gallery";
-import {ImgGrid, DivContainerImages} from './GridGalleryStyles';
+import {ImgGrid, DivContainerImages, DivButtonGallery} from './GridGalleryStyles';
 
 const GridGallery = ({ response }) => {
   const images = [];
@@ -23,7 +23,7 @@ const GridGallery = ({ response }) => {
           <ImgGrid number={index} src={image} alt="carro" key={index} />
         </div>
       ))}
-      <Gallery car={response} />
+        <Gallery car={response} />
     </DivContainerImages>
   );
 };

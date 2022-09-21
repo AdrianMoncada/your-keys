@@ -31,7 +31,8 @@ const AddImages = (props) => {
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: value,
+      title: "Null",
+      url: value,
     });
 
     setValue("");

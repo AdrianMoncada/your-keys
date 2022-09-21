@@ -22,28 +22,25 @@ import "tippy.js/themes/light-border.css";
 import { animateFill } from "tippy.js";
 import "tippy.js/dist/backdrop.css";
 import "tippy.js/animations/shift-away.css";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Card = ({ car }) => {
   const { state, setCarId } = useContext(AppContext);
   const navigate = useNavigate();
   const [favorite, setFavorite] = useState(false);
+  const [scores, setScores] = useState(null);
 
-  const favoriteIcon = document.querySelector(".iconFavorite");
-
-  const showBrokenHearth = () => {
-    if (favorite) {
-      favoriteIcon.addEventListener("mouseover", (e) => {
-        return <GiBrokenHeart />;
-      });
-    } else {
-      return (
-        <FaHeart
-          onClick={() => setFavorite(!favorite)}
-          className="iconFavorite"
-        />
-      );
-    }
-  };
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `http://3.144.167.227:8080/vehicle/score/${car?.idVehicle}`,
+    })
+      .then((res) => {
+        setScores(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [car]);
 
   tippy("#myLocation", {
     content: "Ubicación",
@@ -70,7 +67,7 @@ const Card = ({ car }) => {
   });
 
   tippy("#myAir", {
-    content: "Aire Acondicionado",
+    content: "Climatización",
     placement: "left",
     arrow: true,
     theme: "light-border",
@@ -84,8 +81,6 @@ const Card = ({ car }) => {
     theme: "light-border",
     animation: "perspective",
   });
-
-  
 
   return (
     <DivCard
@@ -106,15 +101,25 @@ const Card = ({ car }) => {
           />
         )}
         <img
-          src={car.images.find((i) => i.title === "Main").url}
+          src={car?.images?.find((i) => i.title === "Main")?.url}
           alt={car?.images[0]?.title}
         />
       </DivImgs>
       <div>
         <DivTitle>
           <DivCalification id="myCalification">
-            <span className="calificationNumber">5</span>
-            <span className="calificationText">Muy bueno</span>
+            <span className="calificationNumber">{scores % 1 ? parseFloat(scores)?.toFixed(1) : scores }</span>
+            <span className="calificationText">
+              {scores <= 5 && scores > 4
+                ? "Muy bueno"
+                : scores <= 4 && scores > 3
+                ? "Bueno"
+                : scores <= 3 && scores > 2
+                ? "Regular"
+                : scores <= 2 && scores >= 1
+                ? "Insuficiente"
+                : "Sin calificar"}
+            </span>
           </DivCalification>
           <div>
             <h2 className="title">{car.rangeName}</h2>

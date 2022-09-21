@@ -10,8 +10,10 @@ import SignUp from "./pages/signup/SignUp";
 import Vehiculo from "./pages/vehiculo/Vehiculo";
 import Booking from "./pages/booking/Booking";
 import PrivateRoutes from "./util/PrivateRoutes";
+import PrivateAdmin from "./util/PrivateAdmin";
 import Administrator from "./pages/administrator/Administrator";
 import Reservation from "./pages/reservation/Reservation";
+import NotFound404 from "./assets/NotFound404";
 
 function App() {
   const initialState = useInitialState();
@@ -25,11 +27,14 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/vehiculo/:carId" element={<Vehiculo />} />
-              <Route path="/administracion" element={<Administrator />} />
-              <Route path="/reservas" element={<Reservation />} />
+              <Route element={<PrivateAdmin />}>
+                <Route path="/administracion" element={<Administrator />} />
+              </Route>
               <Route element={<PrivateRoutes />}>
+                <Route path="/reservas" element={<Reservation />} />
                 <Route path="/booking" element={<Booking/>} />
               </Route>
+              <Route path="*" element={<NotFound404 />} /> 
             </Routes>
           </Layout>
         </ThemeProvider>

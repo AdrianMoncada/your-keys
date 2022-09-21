@@ -29,29 +29,14 @@ import useFetch from '../../hooks/useFetch';
 
 const Home = () => {
   const { state, setCategoryList } = useContext(AppContext);
-  const [searcher, setSearcher] = useState(true);
-
-  /* const [response, error, loading] = useRequest({
-    axiosInstance: axios,
-    method: "GET",
-    url: `/vehicle`,
-  }); */
 
   const [vehiculos, isLoading] = useFetch("http://3.144.167.227:8080/vehicle")
 
-  const [responses, errors, loadings] = useRequest({
+  const [responses] = useRequest({
     axiosInstance: axios,
     method: "GET",
     url: `/city`,
   });
-
-  /* fetch(`http://3.144.167.227:8080/vehicle`)
-    .then(res => res.json())
-    .then((post) => {
-      console.log(post)
-      setSearcher(post)
-      setIsLoading(false)
-    }) */
 
   let idCar;
   let responseDes = [];
@@ -87,16 +72,6 @@ const Home = () => {
         console.log(err);
       });
   };
-
-  const changeView = () => {
-    if (window.scrollY >= 400) {
-      setSearcher(true);
-    } else {
-      setSearcher(false);
-    }
-  };
-
-  /* window.addEventListener("scroll", changeView); */
 
   return (
     <div style={{ backgroundColor: "#E5E5E5" }}>
