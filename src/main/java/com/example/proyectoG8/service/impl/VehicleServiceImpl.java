@@ -1,9 +1,12 @@
 package com.example.proyectoG8.service.impl;
 
 import com.example.proyectoG8.model.BookingFilter;
+import com.example.proyectoG8.model.Image;
 import com.example.proyectoG8.model.Vehicle;
+import com.example.proyectoG8.model.dto.ImageDTO;
 import com.example.proyectoG8.model.dto.VehicleDTO;
 import com.example.proyectoG8.repository.IVehicleRepository;
+import com.example.proyectoG8.repository.IimageRepository;
 import com.example.proyectoG8.service.IVehicleService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -26,13 +29,24 @@ public class VehicleServiceImpl implements IVehicleService {
     private IVehicleRepository vehicleRepository;
 
     @Autowired
+    private IimageRepository imageRepository;
+
+    @Autowired
     private ModelMapper mapper;
 
 
     @Override
     public VehicleDTO createVehicle(VehicleDTO vehicleDTO) {
+        List<ImageDTO> imagesDTO = vehicleDTO.getImages();
+        vehicleDTO.setImages(null);
         Vehicle vehicle = vehicleRepository.save(mapper.map(vehicleDTO, Vehicle.class));
-        return mapper.map(vehicle, VehicleDTO.class);
+        for (ImageDTO imageDTO : imagesDTO) {
+            Image image = mapper.map(imageDTO, Image.class);
+            image.setVehicle(vehicle);
+            Image imageSaved = imageRepository.save(image);
+        }
+        Optional<Vehicle> vehicleFound = vehicleRepository.findById(vehicle.getIdVehicle());
+        return mapper.map(vehicleFound.get(), VehicleDTO.class);
     }
 
     @Override
