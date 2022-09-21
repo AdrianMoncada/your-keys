@@ -30,6 +30,9 @@ import { useNavigate } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
+import Paypal from "../paypal/Paypal";
+import PayPalButtons from "../paypal/PayPalButtons";
+import Botoncito from "../Botoncito";
 
 const FormBooking = () => {
   const isRequired = "Campo obligatorio";
@@ -96,7 +99,7 @@ const FormBooking = () => {
     currency: "USD",
   });
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = () => {
     const objBooking = {
       time: hourDate,
       initialdate: startDateFomat,
@@ -106,13 +109,13 @@ const FormBooking = () => {
     };
     const parseado = JSON.stringify(objBooking);
 
-    if (startDateFomat === null && endDateFomat === null && hourDate === null) {
+    /* if (startDateFomat === null && endDateFomat === null && hourDate === null) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Todos los campos deben estar llenos",
       });
-    } else {
+    } else { */
       axios({
         method: "post",
         url: "http://3.144.167.227:8080/booking",
@@ -144,7 +147,6 @@ const FormBooking = () => {
             timer: 1500,
           });
         });
-    }
   };
 
   const calculatePrice = (start, end) => {
@@ -170,7 +172,7 @@ const FormBooking = () => {
   };
 
   return (
-    <Fragment>
+    <React.StrictMode>
       <DetailDiv>
         <HeaderCategory url={`/vehiculo/${state.carId}`} />
       </DetailDiv>
@@ -322,7 +324,14 @@ const FormBooking = () => {
                         <p>{calculatePrice(startDateFomat, endDateFomat)}</p>
                         <p>Total: {formatter.format(priceVehi)}</p>
                       </div>
-
+                      {
+                        console.log(priceVehi)
+                      }
+                        {
+                          Number.isNaN(priceVehi) ? <p>Tienes que llenar todos los campos</p> : <Paypal price={priceVehi} handleSubmit={handleSubmit} />
+                        }    
+                      
+                      {/* <PayPalButtons price={priceVehi} handleSubmit={handleSubmit} /> */}
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
@@ -340,7 +349,7 @@ const FormBooking = () => {
         </DivForm>
       </DivContainerBooking>
       <Policies />
-    </Fragment>
+    </React.StrictMode>
   );
 };
 
